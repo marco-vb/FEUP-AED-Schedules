@@ -13,10 +13,13 @@ ClassSchedule::ClassSchedule(ClassCourse* classCourse, int weekDay, float startH
 ClassSchedule::ClassSchedule(ClassCourse* classCourse, std::string weekDay, float startHour, float duration, std::string type) :
         ClassSchedule(classCourse, WeeklySchedule::weekDayToNum(weekDay), startHour, duration, type){}
 
-string ClassSchedule::floatToMinutes(float hour) const {
+string ClassSchedule::floatToMinutes(float hour) {
     float lessThanOne = hour - ((int) hour);
     int minutes = lessThanOne * 60;
-    return to_string((int) hour) + ':' + to_string(minutes);
+    string min = to_string(minutes);
+    if (min.size() == 1)
+        min = "0" + min;
+    return to_string((int) hour) + ':' + min;
 }
 
 ClassCourse* ClassSchedule::getClassCourse() const{
@@ -77,4 +80,10 @@ bool ClassSchedule::operator<(ClassSchedule hour) const {
 
 bool comp::operator() (ClassSchedule* cs1, ClassSchedule* cs2){
     return *cs1 < *cs2;
+}
+
+void ClassSchedule::print(std::ostream &out) const {
+    out << classCourse -> getClassCode() << " - " << type << " - "
+        << getStartHourString() << "-" << ClassSchedule::floatToMinutes(startHour + duration)
+        << endl;
 }
