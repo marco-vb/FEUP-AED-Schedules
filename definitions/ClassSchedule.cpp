@@ -1,6 +1,36 @@
 #include "../headers/ClassSchedule.h"
 
+// Checks if any class in the schedule is in conflict with the current class
+bool checkForCollision(ClassCourse* classCourse, int weekDay, float startHour, float duration, std::string type){
+    for (ClassSchedule* cs : classCourse -> getSchedules()[weekDay]){
+        if(!(cs -> getType() == "T")) {
+            if (cs->getStartHour() <= startHour && cs->getStartHour() + cs->getDuration() > startHour) {
+                return true;
+            }
+            if (cs->getStartHour() < startHour + duration &&
+                cs->getStartHour() + cs->getDuration() >= startHour + duration) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/**
+ * Constructor for ClassSchedule
+ * @param classCourse
+ * @param weekDay
+ * @param startHour
+ * @param duration
+ * @param type
+ * Complexidade: Se aula for T ou TP, O(N), se aula for T, O(log(N))
+ */
 ClassSchedule::ClassSchedule(ClassCourse* classCourse, int weekDay, float startHour, float duration, std::string type) {
+    if(!(type == "T") && checkForCollision(classCourse, weekDay, startHour, duration, type)){
+        cout << "Colisao detetada! Nao coseguimos adicionar esta aula" << endl;
+        return;
+    }
+
     this->classCourse = classCourse;
     this->weekDay = weekDay;
     this->startHour = startHour;
