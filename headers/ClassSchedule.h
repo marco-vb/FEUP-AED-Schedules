@@ -1,6 +1,7 @@
 #ifndef CLASSSCHEDULE_H_
 #define CLASSSCHEDULE_H_
 
+#include <iostream>
 #include "WeeklySchedule.h"
 #include "ClassCourse.h"
 #include "Slot.h"
@@ -15,11 +16,12 @@ private:
     float startHour;
     float duration;
     string type;
-    string floatToMinutes(float hour) const;
 
 public:
     ClassSchedule(ClassCourse* classCourse, int weekDay, float startHour, float duration, string type);
     ClassSchedule(ClassCourse* classCourse, string weekDay, float startHour, float duration, string type);
+
+    static string floatToMinutes(float hour);
 
     ClassCourse* getClassCourse() const;
     int getWeekDay() const;
@@ -37,6 +39,8 @@ public:
     void setType(string initials);
 
     bool operator<(ClassSchedule hour) const;
+
+    void print(ostream& out = cout) const;
 
 };
 

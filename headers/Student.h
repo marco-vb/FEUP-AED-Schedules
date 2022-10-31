@@ -6,6 +6,8 @@
 #include <string>
 #include <list>
 #include <queue>
+#include <iostream>
+#include <fstream>
 #include "ClassCourse.h"
 #include "ClassSchedule.h"
 #include "Request.h"
@@ -30,6 +32,8 @@ public:
     void removeClass(ClassCourse* classToRemove);
     void clearClasses();
     WeeklySchedule getSchedule();
+    void printSchedule(ostream& out = cout);
+    void printSchedule(string filename);
 
 };
 
