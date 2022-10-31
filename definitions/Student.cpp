@@ -1,4 +1,8 @@
+#include <utility>
+
 #include "../headers/Student.h"
+
+using namespace std;
 
 Student::Student(int number, std::string name) {
     this->number = number;
@@ -38,10 +42,11 @@ void Student::clearClasses(){
  *
  * Complexidade Nlog(M), onde N é o numero total de aulas de uma semana e M o numero maximo de aulas de um dia
  */
+
 WeeklySchedule Student::getSchedule(){
     WeeklySchedule ret;
     for(ClassCourse* class_: enrolledClasses){
-        for(auto week: class_->getSchedules()){
+        for(auto& week: class_->getSchedules()){
             for(ClassSchedule* schedule: week)
                 ret[schedule -> getWeekDay()].insert(schedule);
         }

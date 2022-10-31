@@ -1,13 +1,10 @@
 # ninja log v5
-224	282	1667055526804804180	schedule	64d36bdb3c0f47cb
-0	224	1667055526744802717	CMakeFiles/schedule.dir/main.cpp.o	f4fd542ba423ba1e
 1	16	1667056100327467993	CMakeFiles/schedule.dir/definitions/Slot.cpp.o	ad00603990699d9f
-1	16	1667056100327467993	CMakeFiles/schedule.dir/definitions/ScheduleManagement.cpp.o	7d67fe3df6a81607
 1	18	1667056100331468098	CMakeFiles/schedule.dir/definitions/Request.cpp.o	6064e877b0ef308d
-1	328	1667056100639476226	CMakeFiles/schedule.dir/definitions/ClassCourse.cpp.o	8d6c1a65585c3ed0
-1	357	1667056100667476965	CMakeFiles/schedule.dir/definitions/ClassSchedule.cpp.o	211031a9fc649817
-16	510	1667056100819480976	CMakeFiles/schedule.dir/definitions/Student.cpp.o	4d32dbecd1e436fd
-1	563	1667056100875482454	CMakeFiles/schedule.dir/definitions/WeeklySchedule.cpp.o	6266b8c46cd9cd15
-563	650	1667056100959484671	schedule	64160c799bc6ad2f
-1	346	1667056157928990916	CMakeFiles/schedule.dir/main.cpp.o	f4fd542ba423ba1e
 346	414	1667056157996992719	schedule	64160c799bc6ad2f
+1	346	1667056157928990916	CMakeFiles/schedule.dir/main.cpp.o	f4fd542ba423ba1e
+1	328	1667056100639476226	CMakeFiles/schedule.dir/definitions/ClassCourse.cpp.o	8d6c1a65585c3ed0
+16	510	1667056100819480976	CMakeFiles/schedule.dir/definitions/Student.cpp.o	4d32dbecd1e436fd
+1	16	1667056100327467993	CMakeFiles/schedule.dir/definitions/ScheduleManagement.cpp.o	7d67fe3df6a81607
+1	563	1667056100875482454	CMakeFiles/schedule.dir/definitions/WeeklySchedule.cpp.o	6266b8c46cd9cd15
+1	357	1667056100667476965	CMakeFiles/schedule.dir/definitions/ClassSchedule.cpp.o	211031a9fc649817
