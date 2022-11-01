@@ -8,17 +8,17 @@ using namespace std;
 class Slot {
     private:
         string day;         // day of the week (e.g. "Monday")
-        int startHour;
-        int endHour;
+        float startHour;
+        float endHour;
         string type;        // type ("T", "TP", "PL")
         string coursecode;  // class code (e.g. "L.EIC001")
         string classcode;   // class code (e.g. "1LEIC01")
 
     public:
-        Slot(string day, int startHour, int endHour, string type, string coursecode, string classcode);
+        Slot(string day, float startHour, float endHour, string type, string coursecode, string classcode);
         string getDay() const;
-        int getStartHour() const;
-        int getEndHour() const;
+        float getStartHour() const;
+        float getEndHour() const;
         string getType() const;
         string getCourseCode() const;
         string getClassCode() const;

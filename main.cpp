@@ -12,57 +12,75 @@ string const& classesCourses = "../files/classes_per_uc.csv";
 string const& classesStudents = "../files/students_classes.csv";
 string const& classesSlots = "../files/classes.csv";
 
+//comparing structs
+struct studentCompare {
+    bool operator()(StudentNew* a, StudentNew* b) const {
+        return a->getNumber() < b->getNumber();
+    }
+};
+
+struct classCompare {
+    bool operator()(Class* a, Class* b) const {
+        return a->getCode() < b->getCode();
+    }
+};
+
+struct courseCompare {
+    bool operator()(Course* a, Course* b) const {
+        return a->getCode() < b->getCode();
+    }
+};
+
+//define sets
+typedef set<StudentNew*, studentCompare> studentSet;
+typedef set<Class*, classCompare> classSet;
+typedef set<Course*, courseCompare> courseSet;
+
+
 //functions
-void readAll(set<StudentNew*>* students, set<Class*>* classes, set<Course*>* courses);
-void readClasses(set<Class*>* classes, set<Course*>* courses);
-void readStudents(set<StudentNew*>* students, set<Class*>* classes);
-void readSlots(set<Class*>* classes, set<Course*>* courses);
-void listAllStudents(set<StudentNew*>* students);
-void listAllClasses(set<Class*>* classes);
-void listAllCourses(set<Course*>* courses);
-void listAllSlots(set<Class*>* classes);
-void listStudentsInClass(set<StudentNew*>* students, set<Class*>* classes);
-void listClassesOfStudent(set<StudentNew*>* students);
-void listSlotsOfClass(set<Class*>* classes);
-void listSlotsOfCourse(set<Course*>* courses);
-void clear() {cout << "\x1B[2J\x1B[H";}
+void readAll(studentSet* students, classSet* classes, courseSet* courses);
+void readClasses(classSet* classes, courseSet* courses);
+void readStudents(studentSet* students, classSet* classes);
+void readSlots(classSet* classes, courseSet* courses);
+void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses);
+void menu_partial_lists(studentSet* students, classSet* classes, courseSet* courses);
+void listAllStudents(studentSet* students);
+void listAllClasses(classSet* classes);
+void listAllCourses(courseSet* courses);
+void listAllSlots(courseSet* courses);
+void listStudentsInClass(studentSet* students, classSet* classes);
+void listClassesOfStudent(studentSet* students);
+void listSlotsOfClass(classSet* classes);
+void listSlotsOfCourse(courseSet* courses);
+bool compareLessons(Slot* a, Slot* b);
+void clear();
+void wait();
 
 
 
 int main() {
-    set<StudentNew*> students; auto students_ptr = &students;
-    set<Class*> classes; auto classes_ptr = &classes;
-    set<Course*> courses; auto courses_ptr = &courses;
+    studentSet students;
+    classSet classes;
+    courseSet courses;
 
     // Read data from files
-    readAll(students_ptr, classes_ptr, courses_ptr);
-
+    readAll(&students, &classes, &courses);
+    cout << fixed << setprecision(1); // print lesson times correctly
+    wait();
     int choice;
     do {
         clear();
         cout << "-----------------------------------" << endl;
-        cout << "| 1. List all students             |" << endl;
-        cout << "| 2. List all classes              |" << endl;
-        cout << "| 3. List all courses              |" << endl;
-        cout << "| 4. List all slots                |" << endl;
-        cout << "| 5. List all students in a class  |" << endl;
-        cout << "| 6. List all classes of a student |" << endl;
-        cout << "| 7. List all slots of a class     |" << endl;
-        cout << "| 8. List all slots of a course    |" << endl;
+        cout << "| 1. Full listings                 |" << endl;
+        cout << "| 2. Partial listings              |" << endl;
         cout << "| 0. Exit                          |" << endl;
         cout << "-----------------------------------" << endl;
         cout << "Your choice: ";
         cin >> choice;
         if (choice != 0) {
             switch (choice) {
-                case 1: listAllStudents(&students); break;
-                case 2: listAllClasses(&classes); break;
-                case 3: listAllCourses(&courses); break;
-                case 4: listAllSlots(&classes); break;
-                case 5: listStudentsInClass(&students, &classes); break;
-                case 6: listClassesOfStudent(&students); break;
-                case 7: listSlotsOfClass(&classes); break;
-                case 8: listSlotsOfCourse(&courses); break;
+                case 1: menu_full_lists(&students, &classes, &courses); break;
+                case 2: menu_partial_lists(&students, &classes, &courses); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
@@ -70,13 +88,13 @@ int main() {
     return 0;
 }
 
-void readAll(set<StudentNew*>* students, set<Class*>* classes, set<Course*>* courses) {
+void readAll(studentSet* students, classSet* classes, courseSet* courses) {
     readClasses(classes, courses);
     readStudents(students, classes);
     readSlots(classes, courses);
 }
 
-void readClasses(set<Class*>* classes, set<Course*>* courses) {
+void readClasses(classSet* classes, courseSet* courses) {
     ifstream classesFile(classesCourses);
     string line;
     getline(classesFile, line); // skip first line
@@ -97,7 +115,7 @@ void readClasses(set<Class*>* classes, set<Course*>* courses) {
     cout << "Number of classes: " << classes->size() << endl;
 }
 
-void readStudents(set<StudentNew*>* students, set<Class*>* classes) {
+void readStudents(studentSet* students, classSet* classes) {
     ifstream studentsFile(classesStudents);
     string line;
     getline(studentsFile, line); // skip first line
@@ -121,22 +139,22 @@ void readStudents(set<StudentNew*>* students, set<Class*>* classes) {
     cout << "Number of students: " << students->size() << endl;
 }
 
-void readSlots(set<Class*>* classes, set<Course*>* courses) {
+void readSlots(classSet* classes, courseSet* courses) {
     ifstream slotsFile(classesSlots);
     string line;
     getline(slotsFile, line); // skip first line
     while (getline(slotsFile, line)) {
         stringstream ss(line);
         string classcode, coursecode, day, type;
-        int start, end;
+        float start, end;
         getline(ss, classcode, ',');
         getline(ss, coursecode, ',');
         getline(ss, day, ',');
         ss >> start;
         ss.ignore();
-        ss >> end;
+        ss >> end; end += start;
+        ss.ignore();
         ss >> type;
-
         auto slot = new Slot(day, start, end, type, coursecode, classcode);
         for (auto c : *classes) {
             if (c->getCode() == classcode) {
@@ -152,29 +170,82 @@ void readSlots(set<Class*>* classes, set<Course*>* courses) {
     cout << "Read Slots Successfully!" << endl;
 }
 
-void listAllStudents(set<StudentNew*>* students) {
+void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses) {
+    int choice;
+    do {
+        clear();
+        cout << "-----------------------------------" << endl;
+        cout << "| 1. List all students             |" << endl;
+        cout << "| 2. List all classes              |" << endl;
+        cout << "| 3. List all courses              |" << endl;
+        cout << "| 4. List all lessons              |" << endl;
+        cout << "| 0. Back                          |" << endl;
+        cout << "-----------------------------------" << endl;
+        cout << "Your choice: ";
+        cin >> choice;
+        if (choice != 0) {
+            switch (choice) {
+                case 1: listAllStudents(students); wait(); break;
+                case 2: listAllClasses(classes); wait(); break;
+                case 3: listAllCourses(courses); wait(); break;
+                case 4: listAllSlots(courses); wait(); break;
+                default: cout << "Invalid choice!" << endl;
+            }
+        }
+    } while (choice != 0);
+}
+
+void menu_partial_lists(studentSet* students, classSet* classes, courseSet* courses) {
+    int choice;
+    do {
+        clear();
+        cout << "-----------------------------------" << endl;
+        cout << "| 1. List all students in a class  |" << endl;
+        cout << "| 2. List all classes of a student |" << endl;
+        cout << "| 3. List all lessons of a class   |" << endl;
+        cout << "| 4. List all lessons of a course  |" << endl;
+        cout << "| 0. Back                          |" << endl;
+        cout << "-----------------------------------" << endl;
+        cout << "Your choice: ";
+        cin >> choice;
+        if (choice != 0) {
+            switch (choice) {
+                case 1: listStudentsInClass(students, classes); wait(); break;
+                case 2: listClassesOfStudent(students); wait(); break;
+                case 3: listSlotsOfClass(classes); wait(); break;
+                case 4: listSlotsOfCourse(courses); wait(); break;
+                default: cout << "Invalid choice!" << endl;
+            }
+        }
+    } while (choice != 0);
+}
+
+void listAllStudents(studentSet* students) {
     for (auto s : *students)
         cout << s->getNumber() << " " << s->getName() << endl;
 }
 
-void listAllClasses(set<Class*>* classes) {
+void listAllClasses(classSet* classes) {
     for (auto c : *classes)
         cout << c->getCode() << endl;
 }
 
-void listAllCourses(set<Course*>* courses) {
+void listAllCourses(courseSet* courses) {
     for (auto c : *courses)
-        cout << c->getCode() << " " << c->getYear() << endl;
+        cout << c->getCode() << " year: " << c->getYear() << endl;
 }
 
-void listAllSlots(set<Class*>* classes) {
-    for (auto c : *classes) {
-        cout << c->getCode() << endl;
-        //c->listSlots();
+void listAllSlots(courseSet* courses) {
+    for (auto c : *courses) {
+        Schedule courseSchedule = c->getSchedule();
+        auto v = courseSchedule.getSchedule();
+        sort(v.begin(), v.end(), compareLessons);
+        for (auto s : courseSchedule.getSchedule())
+            cout << c->getCode() << " " << s->getDay() << " " << s->getStartHour() << " " << s->getEndHour() << " " << s->getType() << endl;
     }
 }
 
-void listStudentsInClass(set<StudentNew*>* students, set<Class*>* classes) {
+void listStudentsInClass(studentSet* students, classSet* classes) {
     string classCode;
     cout << "Enter class code: ";
     cin >> classCode;
@@ -185,7 +256,7 @@ void listStudentsInClass(set<StudentNew*>* students, set<Class*>* classes) {
     }
 }
 
-void listClassesOfStudent(set<StudentNew*>* students) {
+void listClassesOfStudent(studentSet* students) {
     int studentNumber;
     cout << "Enter student number: ";
     cin >> studentNumber;
@@ -198,7 +269,7 @@ void listClassesOfStudent(set<StudentNew*>* students) {
     }
 }
 
-void listSlotsOfClass(set<Class*>* classes) {
+void listSlotsOfClass(classSet* classes) {
     string classCode;
     cout << "Enter class code: ";
     cin >> classCode;
@@ -211,7 +282,7 @@ void listSlotsOfClass(set<Class*>* classes) {
     }
 }
 
-void listSlotsOfCourse(set<Course*>* courses) {
+void listSlotsOfCourse(courseSet* courses) {
     string courseCode;
     cout << "Enter course code: ";
     cin >> courseCode;
@@ -222,4 +293,14 @@ void listSlotsOfCourse(set<Course*>* courses) {
                 cout << s->getDay() << " " << s->getClassCode() << " " << s->getStartHour()<< " " << s->getEndHour() << " " << s->getType() << endl;
         }
     }
+}
+
+void clear() {
+    for (int i = 0; i < 50; i++) cout << endl;
+}
+
+void wait() {
+    int c; do c = getchar(); while ((c != '\n') && (c != EOF));
+    cout << "Press ENTER to continue...";
+    do c = getchar(); while ((c != '\n') && (c != EOF));
 }

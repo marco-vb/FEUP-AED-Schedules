@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Slot::Slot(string day, int startHour, int endHour, string type, string coursecode, string classcode) {
+Slot::Slot(string day, float startHour, float endHour, string type, string coursecode, string classcode) {
     this->day = std::move(day);
     this->startHour = startHour;
     this->endHour = endHour;
@@ -17,11 +17,11 @@ string Slot::getDay() const {
     return day;
 }
 
-int Slot::getStartHour() const {
+float Slot::getStartHour() const {
     return startHour;
 }
 
-int Slot::getEndHour() const {
+float Slot::getEndHour() const {
     return endHour;
 }
 
