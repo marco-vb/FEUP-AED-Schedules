@@ -8,9 +8,9 @@
 using namespace std;
 
 //files
-string const& classesCourses = "schedule/classes_per_uc.csv";
-string const& classesStudents = "schedule/students_classes.csv";
-string const& classesSlots = "schedule/classes.csv";
+string const& classesCourses = "../files/classes_per_uc.csv";
+string const& classesStudents = "../files/students_classes.csv";
+string const& classesSlots = "../files/classes.csv";
 
 //functions
 void readAll(set<StudentNew*>* students, set<Class*>* classes, set<Course*>* courses);
@@ -22,23 +22,24 @@ void listAllClasses(set<Class*>* classes);
 void listAllCourses(set<Course*>* courses);
 void listAllSlots(set<Class*>* classes);
 void listStudentsInClass(set<StudentNew*>* students, set<Class*>* classes);
-void listClassesOfStudent(set<StudentNew*>* students, set<Class*>* classes);
+void listClassesOfStudent(set<StudentNew*>* students);
 void listSlotsOfClass(set<Class*>* classes);
 void listSlotsOfCourse(set<Course*>* courses);
+void clear() {cout << "\x1B[2J\x1B[H";}
 
 
 
 int main() {
-    set<StudentNew*> students;
-    set<Class*> classes;
-    set<Course*> courses;
+    set<StudentNew*> students; auto students_ptr = &students;
+    set<Class*> classes; auto classes_ptr = &classes;
+    set<Course*> courses; auto courses_ptr = &courses;
 
     // Read data from files
-    readAll(&students, &classes, &courses);
+    readAll(students_ptr, classes_ptr, courses_ptr);
 
     int choice;
-
     do {
+        clear();
         cout << "-----------------------------------" << endl;
         cout << "| 1. List all students             |" << endl;
         cout << "| 2. List all classes              |" << endl;
@@ -59,7 +60,7 @@ int main() {
                 case 3: listAllCourses(&courses); break;
                 case 4: listAllSlots(&classes); break;
                 case 5: listStudentsInClass(&students, &classes); break;
-                case 6: listClassesOfStudent(&students, &classes); break;
+                case 6: listClassesOfStudent(&students); break;
                 case 7: listSlotsOfClass(&classes); break;
                 case 8: listSlotsOfCourse(&courses); break;
                 default: cout << "Invalid choice!" << endl;
@@ -92,6 +93,8 @@ void readClasses(set<Class*>* classes, set<Course*>* courses) {
         courses->insert(newCourse);
         classes->insert(newClass);
     }
+    cout << "Read Classes Successfully!" << endl;
+    cout << "Number of classes: " << classes->size() << endl;
 }
 
 void readStudents(set<StudentNew*>* students, set<Class*>* classes) {
@@ -110,11 +113,12 @@ void readStudents(set<StudentNew*>* students, set<Class*>* classes) {
         ss >> classcode;
         auto newStudent = new StudentNew(studentNumber, name);
         if (students->find(newStudent) == students->end()) {
-            auto newClass = new Class(classcode);
-            newStudent->addClass(newClass);
+            newStudent->addClass(classcode);
             students->insert(newStudent);
         } else delete newStudent;
     }
+    cout << "Read Students Successfully!" << endl;
+    cout << "Number of students: " << students->size() << endl;
 }
 
 void readSlots(set<Class*>* classes, set<Course*>* courses) {
@@ -145,6 +149,7 @@ void readSlots(set<Class*>* classes, set<Course*>* courses) {
             }
         }
     }
+    cout << "Read Slots Successfully!" << endl;
 }
 
 void listAllStudents(set<StudentNew*>* students) {
@@ -180,15 +185,15 @@ void listStudentsInClass(set<StudentNew*>* students, set<Class*>* classes) {
     }
 }
 
-void listClassesOfStudent(set<StudentNew*>* students, set<Class*>* classes) {
+void listClassesOfStudent(set<StudentNew*>* students) {
     int studentNumber;
     cout << "Enter student number: ";
     cin >> studentNumber;
     for (auto s : *students) {
         if (s->getNumber() == studentNumber) {
             auto studentclasses = s->getClasses();
-            for (auto c : studentclasses)
-                cout << c->getCode() << endl;
+            for (const auto& c : studentclasses)
+                cout << c << endl;
         }
     }
 }
@@ -201,7 +206,7 @@ void listSlotsOfClass(set<Class*>* classes) {
         if (c->getCode() == classCode) {
             auto classSchedule = c->getSchedule();
             for (auto s : classSchedule.getSchedule())
-                cout << s->getDay() << " " << s->getCourseCode() << " " << s->getStart() << " " << s->getEnd() << " " << s->getType() << endl;
+                cout << s->getDay() << " " << s->getCourseCode() << " " << s->getStartHour() << " " << s->getEndHour() << " " << s->getType() << endl;
         }
     }
 }
@@ -214,7 +219,7 @@ void listSlotsOfCourse(set<Course*>* courses) {
         if (c->getCode() == courseCode) {
             auto courseSchedule = c->getSchedule();
             for (auto s : courseSchedule.getSchedule())
-                cout << s->getDay() << " " << s->getClassCode() << " " << s->getStart() << " " << s->getEnd() << " " << s->getType() << endl;
+                cout << s->getDay() << " " << s->getClassCode() << " " << s->getStartHour()<< " " << s->getEndHour() << " " << s->getType() << endl;
         }
     }
 }

@@ -2,29 +2,28 @@
 #define STUDENTNEW_H_
 
 #include <bits/stdc++.h>
-
-#include "Class.h"
-#include "Course.h"
-#include "Slot.h"
 #include "Schedule.h"
 
 using namespace std;
+
 
 class StudentNew {
     private:
         int number;
         string name;
-        set<Class*> classes;
+        set<string> classes;       // set of class codes
+        set<string> courses;       // set of course codes
         Schedule schedule;
 
     public:
         StudentNew(int number, string name);
         int getNumber() const;
         string getName() const;
-        set<Class*> getClasses() const;
+        set<string> getClasses() const;
+        set<string> getCourses() const;
         Schedule getSchedule() const;
-        bool addClass(Class* newClass);
-        bool removeClass(Class* classToRemove);
+        bool addClass(string const& classcode);
+        bool removeClass(string const& classcode);
         bool addSlot(Slot* slot);
         void printSchedule(ostream& out = cout);
         void printSchedule(string const& filename);

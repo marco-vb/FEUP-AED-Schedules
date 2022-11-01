@@ -3,9 +3,6 @@
 
 #include <bits/stdc++.h>
 
-#include "Class.h"
-#include "Course.h"
-
 using namespace std;
 
 class Slot {

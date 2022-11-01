@@ -1,10 +1,10 @@
-#ifndef SCHEDULE_H
-#define SCHEDULE_H
-
 #include <bits/stdc++.h>
 #include "Slot.h"
 
 using namespace std;
+
+#ifndef SCHEDULE_H
+#define SCHEDULE_H
 
 class Schedule {
     private:

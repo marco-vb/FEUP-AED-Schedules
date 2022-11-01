@@ -7,7 +7,8 @@ using namespace std;
 StudentNew::StudentNew(int number, string name) {
     this->name = std::move(name);
     this->number = number;
-    this->classes = set<Class*>();
+    this->classes = set<string>();
+    this->courses = set<string>();
 }
 
 int StudentNew::getNumber() const {
@@ -18,23 +19,27 @@ string StudentNew::getName() const {
     return name;
 }
 
-set<Class*> StudentNew::getClasses() const {
+set<string> StudentNew::getClasses() const {
     return classes;
+}
+
+set<string> StudentNew::getCourses() const {
+    return courses;
 }
 
 Schedule StudentNew::getSchedule() const {
     return schedule;
 }
 
-bool StudentNew::addClass(Class *newClass) {
-    if (classes.find(newClass) != classes.end()) return false;
-    classes.insert(newClass);
+bool StudentNew::addClass(string const& classcode) {
+    if (classes.find(classcode) != classes.end()) return false;
+    classes.insert(classcode);
     return true;
 }
 
-bool StudentNew::removeClass(Class *classToRemove) {
-    if (classes.find(classToRemove) == classes.end()) return false;
-    classes.erase(classToRemove);
+bool StudentNew::removeClass(string const& classcode) {
+    if (classes.find(classcode) == classes.end()) return false;
+    classes.erase(classcode);
     return true;
 }
 
@@ -47,7 +52,7 @@ void StudentNew::printSchedule(ostream& out){
     Schedule s = this->getSchedule();
 
     for (Slot* slot : s.getSchedule()){
-        out << slot->getDay() << ": " << slot->getCourse().getCode() << " " << slot->getStartHour() << " " << slot->getEndHour() << endl;
+        out << slot->getDay() << ": " << slot->getCourseCode() << " " << slot->getStartHour() << " " << slot->getEndHour() << endl;
     }
 }
 

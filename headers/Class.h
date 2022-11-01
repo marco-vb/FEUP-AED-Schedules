@@ -1,10 +1,7 @@
 #ifndef CLASS_H_
 #define CLASS_H_
 
-#include "Slot.h"
-#include "Student.h"
 #include "Schedule.h"
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,17 +11,17 @@ class Class {
         unsigned short numStudents;
         static unsigned short  maxStudents;
         Schedule schedule;
-        set<Student*> students;
+        set<int> students;  // set of student by id number
 
     public:
         explicit Class(string code);
         string getCode() const;
         Schedule getSchedule() const;
         bool addSlot(Slot* slot);
-        set<Student*> getStudents() const;
+        set<int> getStudents() const;
         void clearSchedule();
-        bool addStudent(Student* student);
-        bool removeStudent(Student* student);
+        bool addStudent(int studentNumber);
+        bool removeStudent(int studentNumber);
 };
 
 #endif
