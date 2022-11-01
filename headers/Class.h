@@ -3,6 +3,7 @@
 
 #include "Slot.h"
 #include "Student.h"
+#include "Schedule.h"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -12,13 +13,14 @@ class Class {
         string code;
         unsigned short numStudents;
         static unsigned short  maxStudents;
-        vector<vector<Slot*>> schedule;
+        Schedule schedule;
         set<Student*> students;
 
     public:
         explicit Class(string code);
         string getCode() const;
-        vector<vector<Slot*>> getSchedule() const;
+        Schedule getSchedule() const;
+        bool addSlot(Slot* slot);
         set<Student*> getStudents() const;
         void clearSchedule();
         bool addStudent(Student* student);

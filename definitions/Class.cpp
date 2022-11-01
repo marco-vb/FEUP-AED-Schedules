@@ -7,7 +7,7 @@ unsigned short Class::maxStudents = 30;
 Class::Class(string code) {
     this->code = std::move(code);
     this->numStudents = 0;
-    this->schedule = vector<vector<Slot*>>(6, vector<Slot*>());
+    this->schedule = vector<Slot*>();
     this->students = set<Student*>();
 }
 
@@ -15,8 +15,12 @@ string Class::getCode() const {
     return code;
 }
 
-vector<vector<Slot*>> Class::getSchedule() const {
+Schedule Class::getSchedule() const {
     return schedule;
+}
+
+bool Class::addSlot(Slot* slot) {
+    return schedule.addSlot(slot);
 }
 
 set<Student*> Class::getStudents() const {
@@ -24,7 +28,7 @@ set<Student*> Class::getStudents() const {
 }
 
 void Class::clearSchedule() {
-    schedule.clear();
+    schedule.clearSchedule();
 }
 
 bool Class::addStudent(Student* student) {

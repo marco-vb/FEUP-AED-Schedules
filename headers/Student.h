@@ -1,13 +1,8 @@
 #ifndef STUDENT_H_
 #define STUDENT_H_
 
-#include <set>
-#include <vector>
-#include <string>
-#include <list>
-#include <queue>
-#include <iostream>
-#include <fstream>
+#include <bits/stdc++.h>
+
 #include "ClassCourse.h"
 #include "ClassSchedule.h"
 #include "Request.h"

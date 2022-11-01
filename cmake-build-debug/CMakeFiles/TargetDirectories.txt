@@ -1,3 +1,3 @@
-E:/trabalhos(2)/FEUP/2o_ano_1o_semestre/AED/AED-Schedule/cmake-build-debug/CMakeFiles/schedule.dir
-E:/trabalhos(2)/FEUP/2o_ano_1o_semestre/AED/AED-Schedule/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/trabalhos(2)/FEUP/2o_ano_1o_semestre/AED/AED-Schedule/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug/CMakeFiles/schedule.dir
+/home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug/CMakeFiles/rebuild_cache.dir
