@@ -1,35 +1,34 @@
-#ifndef STUDENT_H_
-#define STUDENT_H_
+#ifndef STUDENTNEW_H_
+#define STUDENTNEW_H_
 
 #include <bits/stdc++.h>
-
-#include "ClassCourse.h"
-#include "ClassSchedule.h"
-#include "Request.h"
+#include "Schedule.h"
 
 using namespace std;
 
+
 class Student {
+    private:
+        int number;
+        string name;
+        set<string> classes;       // set of class codes
+        set<string> courses;       // set of course codes
+        Schedule schedule;
 
-private:
-    int number;
-    string name;
-    set<ClassCourse*> enrolledClasses;
-
-public:
-    Student(int number, string name);
-
-    int getNumber() const;
-    string getName() const;
-    set<ClassCourse*> getEnrolledClasses() const;
-
-    void addClass(ClassCourse* newClass);
-    void removeClass(ClassCourse* classToRemove);
-    void clearClasses();
-    WeeklySchedule getSchedule();
-    void printSchedule(ostream& out = cout);
-    void printSchedule(string filename);
-
+    public:
+        explicit Student(int number);
+        int getNumber() const;
+        string getName() const;
+        void setName(string name);
+        set<string> getClasses() const;
+        set<string> getCourses() const;
+        Schedule getSchedule() const;
+        bool addClass(string const& classcode);
+        bool addCourse(string const& coursecode);
+        bool removeClass(string const& classcode);
+        bool addSlot(Slot slot);
+        void printSchedule(ostream& out = cout);
+        void printSchedule(string const& filename);
 };
 
 

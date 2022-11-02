@@ -12,13 +12,18 @@ class Course {
         string code;            // Course code (e.g. "L.EIC001")
         int year;               // 1st, 2nd, 3rd, 4th, 5th
         Schedule schedule;      // schedule of this course
+        set<int> students;      // set of student by id number
     public:
-        Course(string code, int year);
+        explicit Course(string code);
         string getCode() const;
         int getYear() const;
+        void setYear(int year);
         Schedule getSchedule() const;
         void clearSchedule();
-        bool addSlot(Slot* slot);
+        bool addSlot(Slot slot);
+        set<int> getStudents() const;
+        bool addStudent(int studentNumber);
+        bool removeStudent(int studentNumber);
 };
 
 #endif

@@ -4,72 +4,71 @@
 
 using namespace std;
 
-Student::Student(int number, std::string name) {
+Student::Student(int number) {
+    this->name = string();
     this->number = number;
-    this->name = name;
+    this->classes = set<string>();
+    this->courses = set<string>();
 }
 
-int Student::getNumber() const{
+int Student::getNumber() const {
     return number;
 }
 
-string Student::getName() const{
+string Student::getName() const {
     return name;
 }
 
-set<ClassCourse*> Student::getEnrolledClasses() const{
-    return enrolledClasses;
+void Student::setName(string n) {
+    this->name = std::move(n);
 }
 
-void Student::addClass(ClassCourse* newClass){
-    // O(logN)
-    enrolledClasses.insert(newClass);
+set<string> Student::getClasses() const {
+    return classes;
 }
 
-void Student::removeClass(ClassCourse* classToRemove){
-    // O(logN): erase -> O(1) && find -> O(logN)
-    enrolledClasses.erase(enrolledClasses.find(classToRemove));
+set<string> Student::getCourses() const {
+    return courses;
 }
 
-void Student::clearClasses(){
-    // O(N)
-    enrolledClasses.clear();
+Schedule Student::getSchedule() const {
+    return schedule;
 }
 
-/*
- * Embora os 3 for loops sejam assutadores, eles apenas servem para descompactar aulas da semana toda
- * na realidade equivalem a 1 for loop que itera sobre todas as aulas da semana
- * 1º for loop que itera sobre todos as cadeiras do estudante: Nº de cadeiras
- * 2º for loop que itera sobre todos os dias da semana: Dias/Semana
- * 3º for loop que itera sobre todas as aulas de um dia: (Aulas/Cadeira)/Dia
- * Logo, o tempo de execução é O(Nº de cadeiras * Dias/Semana * (Aulas/Cadeira)/Dia) = O(Aulas/Semana)
- *
- * Complexidade: Nlog(M), onde N é o numero total de aulas de uma semana e M o numero maximo de aulas de um dia
- */
+bool Student::addClass(string const& classcode) {
+    if (classes.find(classcode) != classes.end()) return false;
+    classes.insert(classcode);
+    return true;
+}
 
-WeeklySchedule Student::getSchedule(){
-    WeeklySchedule ret;
-    for(ClassCourse* class_: enrolledClasses){
-        for(auto& week: class_->getSchedules()){
-            for(ClassSchedule* schedule: week)
-                ret[schedule -> getWeekDay()].insert(schedule);
-        }
-    }
-    return ret;
+bool Student::addCourse(string const& coursecode) {
+    if (courses.find(coursecode) != courses.end()) return false;
+    courses.insert(coursecode);
+    return true;
+}
+
+bool Student::removeClass(string const& classcode) {
+    if (classes.find(classcode) == classes.end()) return false;
+    classes.erase(classcode);
+    return true;
+}
+
+bool Student::addSlot(Slot slot) {
+    return schedule.addSlot(std::move(slot));
 }
 
 void Student::printSchedule(ostream& out){
     out << "Schedule for " << name << " (" << number << "):" << endl;
-    WeeklySchedule schedule = getSchedule();
-    for(int i = 0; i < 6; i++){
-        if(!schedule[i].empty()) out << WeeklySchedule::numToWeekDay(i) << ": " << endl;
-        for(ClassSchedule* class_: schedule[i])
-            class_ -> print(out);
-        out << endl;
+    Schedule s = this->getSchedule();
+
+    for (const Slot& slot : s.getSchedule()){
+        out << slot.getDay() << ": " << slot.getCourseCode() << " " << slot.getStartHour() << " " << slot.getEndHour() << endl;
     }
 }
-void Student::printSchedule(string filename) {
+
+void Student::printSchedule(const string &filename) {
     ofstream out(filename);
     printSchedule(out);
     out.close();
 }
+

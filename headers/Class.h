@@ -17,7 +17,7 @@ class Class {
         explicit Class(string code);
         string getCode() const;
         Schedule getSchedule() const;
-        bool addSlot(Slot* slot);
+        bool addSlot(Slot slot);
         set<int> getStudents() const;
         void clearSchedule();
         bool addStudent(int studentNumber);

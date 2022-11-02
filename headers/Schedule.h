@@ -1,19 +1,19 @@
+#ifndef SCHEDULE_H
+#define SCHEDULE_H
+
 #include <bits/stdc++.h>
 #include "Slot.h"
 
 using namespace std;
 
-#ifndef SCHEDULE_H
-#define SCHEDULE_H
-
 class Schedule {
     private:
-        vector<Slot*> schedule;
+        vector<Slot> schedule;
     public:
         Schedule();
-        vector<Slot*> getSchedule() const;
+        vector<Slot> getSchedule() const;
         void clearSchedule();
-        bool addSlot(Slot* slot);
+        bool addSlot(Slot slot);
 };
 
 #endif

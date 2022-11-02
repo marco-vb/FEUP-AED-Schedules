@@ -55,44 +55,14 @@ build CMakeFiles/schedule.dir/main.cpp.o: CXX_COMPILER__schedule_Debug /home/mar
   OBJECT_DIR = CMakeFiles/schedule.dir
   OBJECT_FILE_DIR = CMakeFiles/schedule.dir
 
-build CMakeFiles/schedule.dir/definitions/ClassCourse.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/ClassCourse.cpp || cmake_object_order_depends_target_schedule
-  DEP_FILE = CMakeFiles/schedule.dir/definitions/ClassCourse.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/schedule.dir
-  OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
-
-build CMakeFiles/schedule.dir/definitions/ClassSchedule.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/ClassSchedule.cpp || cmake_object_order_depends_target_schedule
-  DEP_FILE = CMakeFiles/schedule.dir/definitions/ClassSchedule.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/schedule.dir
-  OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
-
 build CMakeFiles/schedule.dir/definitions/Request.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/Request.cpp || cmake_object_order_depends_target_schedule
   DEP_FILE = CMakeFiles/schedule.dir/definitions/Request.cpp.o.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles/schedule.dir
   OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
 
-build CMakeFiles/schedule.dir/definitions/ScheduleManagement.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/ScheduleManagement.cpp || cmake_object_order_depends_target_schedule
-  DEP_FILE = CMakeFiles/schedule.dir/definitions/ScheduleManagement.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/schedule.dir
-  OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
-
 build CMakeFiles/schedule.dir/definitions/Slot.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/Slot.cpp || cmake_object_order_depends_target_schedule
   DEP_FILE = CMakeFiles/schedule.dir/definitions/Slot.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/schedule.dir
-  OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
-
-build CMakeFiles/schedule.dir/definitions/Student.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/Student.cpp || cmake_object_order_depends_target_schedule
-  DEP_FILE = CMakeFiles/schedule.dir/definitions/Student.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/schedule.dir
-  OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
-
-build CMakeFiles/schedule.dir/definitions/WeeklySchedule.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/WeeklySchedule.cpp || cmake_object_order_depends_target_schedule
-  DEP_FILE = CMakeFiles/schedule.dir/definitions/WeeklySchedule.cpp.o.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles/schedule.dir
   OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
@@ -115,8 +85,8 @@ build CMakeFiles/schedule.dir/definitions/Schedule.cpp.o: CXX_COMPILER__schedule
   OBJECT_DIR = CMakeFiles/schedule.dir
   OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
 
-build CMakeFiles/schedule.dir/definitions/StudentNew.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/StudentNew.cpp || cmake_object_order_depends_target_schedule
-  DEP_FILE = CMakeFiles/schedule.dir/definitions/StudentNew.cpp.o.d
+build CMakeFiles/schedule.dir/definitions/Student.cpp.o: CXX_COMPILER__schedule_Debug /home/marco-vb/Desktop/projects/aed/groups/schedule/definitions/Student.cpp || cmake_object_order_depends_target_schedule
+  DEP_FILE = CMakeFiles/schedule.dir/definitions/Student.cpp.o.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles/schedule.dir
   OBJECT_FILE_DIR = CMakeFiles/schedule.dir/definitions
@@ -129,7 +99,7 @@ build CMakeFiles/schedule.dir/definitions/StudentNew.cpp.o: CXX_COMPILER__schedu
 #############################################
 # Link the executable schedule
 
-build schedule: CXX_EXECUTABLE_LINKER__schedule_Debug CMakeFiles/schedule.dir/main.cpp.o CMakeFiles/schedule.dir/definitions/ClassCourse.cpp.o CMakeFiles/schedule.dir/definitions/ClassSchedule.cpp.o CMakeFiles/schedule.dir/definitions/Request.cpp.o CMakeFiles/schedule.dir/definitions/ScheduleManagement.cpp.o CMakeFiles/schedule.dir/definitions/Slot.cpp.o CMakeFiles/schedule.dir/definitions/Student.cpp.o CMakeFiles/schedule.dir/definitions/WeeklySchedule.cpp.o CMakeFiles/schedule.dir/definitions/Class.cpp.o CMakeFiles/schedule.dir/definitions/Course.cpp.o CMakeFiles/schedule.dir/definitions/Schedule.cpp.o CMakeFiles/schedule.dir/definitions/StudentNew.cpp.o
+build schedule: CXX_EXECUTABLE_LINKER__schedule_Debug CMakeFiles/schedule.dir/main.cpp.o CMakeFiles/schedule.dir/definitions/Request.cpp.o CMakeFiles/schedule.dir/definitions/Slot.cpp.o CMakeFiles/schedule.dir/definitions/Class.cpp.o CMakeFiles/schedule.dir/definitions/Course.cpp.o CMakeFiles/schedule.dir/definitions/Schedule.cpp.o CMakeFiles/schedule.dir/definitions/Student.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/schedule.dir
   POST_BUILD = :

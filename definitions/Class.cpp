@@ -19,8 +19,8 @@ Schedule Class::getSchedule() const {
     return schedule;
 }
 
-bool Class::addSlot(Slot* slot) {
-    return schedule.addSlot(slot);
+bool Class::addSlot(Slot slot) {
+    return schedule.addSlot(std::move(slot));
 }
 
 set<int> Class::getStudents() const {
