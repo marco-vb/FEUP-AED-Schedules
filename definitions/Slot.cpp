@@ -37,11 +37,6 @@ string Slot::getClassCode() const {
     return classcode;
 }
 
-void Slot::print(std::ostream &out = cout) const {
-    out << classcode << " - " << coursecode << " - " << type << " - "
-        << startHour << "-" << endHour << endl;
-}
-
 bool Slot::operator<(Slot slot) const{
     return this -> startHour < slot.getStartHour();
 }

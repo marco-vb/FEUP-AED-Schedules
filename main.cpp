@@ -272,11 +272,14 @@ void listAllCourses(courseSet* courses) {
 }
 
 void listAllSlots(courseSet* courses) {
+    int i1 = 0;
     for (const auto& c : *courses) {
         Schedule courseSchedule = c->getSchedule();
         int i = 0;
-        for (auto it = courseSchedule.begin(); it != courseSchedule.end(); it++) {
-            if(it == courseSchedule[i].end()){ i++; it = courseSchedule[i].begin(); }
+        for (auto it = courseSchedule.begin();; it++) {
+            cout << i1++ << endl;
+            while(it == courseSchedule[i].end() && it != courseSchedule.end()){ i++; it = courseSchedule[i].begin(); }
+            if(it == courseSchedule.end()) break;
             Slot s = *it;
             cout << s.getCourseCode() << " " << s.getDay() << " " << s.getStartHour() << " " << s.getEndHour() << " " << s.getType() << endl;
         }
@@ -319,10 +322,7 @@ void listSlotsOfClass(classSet* classes) {
             auto classSchedule = c->getSchedule();
             int i = 0;
             for (auto it = classSchedule.begin(); it != classSchedule.end(); it++) {
-                if (it == classSchedule[i].end()) {
-                    i++;
-                    it = classSchedule[i].begin();
-                }
+                if (it == classSchedule[i].end()){ i++; it = classSchedule[i].begin(); }
                 Slot s = *it;
                 cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
                      << " " << s.getType() << endl;

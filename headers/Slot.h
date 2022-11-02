@@ -22,7 +22,6 @@ class Slot {
         string getType() const;
         string getCourseCode() const;
         string getClassCode() const;
-        void print(std::ostream &out) const;
         bool operator<(Slot slot) const;
 };
 

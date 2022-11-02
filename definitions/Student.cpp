@@ -63,7 +63,8 @@ void Student::printSchedule(ostream& out) const{
     for(int i = 0; i < 6; i++){
         if(!schedule[i].empty()) out << Schedule::numToWeekDay(i) << ": " << endl;
         for(Slot class_: schedule[i])
-            class_.print(out);
+            out << class_.getClassCode() << " - " << class_.getCourseCode() << " - " << class_.getType() << " - "
+                << class_.getStartHour() << "-" << class_.getEndHour() << endl;
         out << endl;
     }
 }
