@@ -8,12 +8,36 @@ using namespace std;
 
 class Schedule {
     private:
-        vector<Slot> schedule;
+        vector<set<Slot>> schedule;
+        static const map<int, string> numToWeekDay_;
+        static const map<string, int> weekDayToNum_;
+
     public:
         Schedule();
-        vector<Slot> getSchedule() const;
+        vector<set<Slot>> getSchedule() const;
         void clearSchedule();
-        bool addSlot(Slot slot);
+        bool addSlot(const Slot slot);
+        set<Slot>& operator[] (int n);
+        set<Slot>& operator[] (string day);
+        set<Slot>::iterator begin();
+        set<Slot>::iterator end();
+
+        static string numToWeekDay(int n);
+        static int weekDayToNum(string day);
 };
+
+//class ScheduleIterator{
+//    private:
+//        Schedule schedule;
+//        int day;
+//        set<Slot>::iterator it;
+//    public:
+//        ScheduleIterator(set<Slot>::iterator it, Schedule schedule, int day);
+//        ScheduleIterator& operator++();
+//        ScheduleIterator operator++(int);
+//        bool operator==(const ScheduleIterator& other) const;
+//        bool operator!=(const ScheduleIterator& other) const;
+//        set<Slot>& operator*();
+//};
 
 #endif

@@ -27,8 +27,8 @@ class Student {
         bool addCourse(string const& coursecode);
         bool removeClass(string const& classcode);
         bool addSlot(Slot slot);
-        void printSchedule(ostream& out = cout);
-        void printSchedule(string const& filename);
+        void printSchedule(ostream& out = cout) const;
+        void printSchedule(string const& filename) const;
 };
 
 

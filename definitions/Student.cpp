@@ -57,16 +57,18 @@ bool Student::addSlot(Slot slot) {
     return schedule.addSlot(std::move(slot));
 }
 
-void Student::printSchedule(ostream& out){
+void Student::printSchedule(ostream& out) const{
     out << "Schedule for " << name << " (" << number << "):" << endl;
-    Schedule s = this->getSchedule();
-
-    for (const Slot& slot : s.getSchedule()){
-        out << slot.getDay() << ": " << slot.getCourseCode() << " " << slot.getStartHour() << " " << slot.getEndHour() << endl;
+    Schedule schedule = getSchedule();
+    for(int i = 0; i < 6; i++){
+        if(!schedule[i].empty()) out << Schedule::numToWeekDay(i) << ": " << endl;
+        for(Slot class_: schedule[i])
+            class_.print(out);
+        out << endl;
     }
 }
 
-void Student::printSchedule(const string &filename) {
+void Student::printSchedule(const string &filename) const{
     ofstream out(filename);
     printSchedule(out);
     out.close();

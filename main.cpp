@@ -274,10 +274,12 @@ void listAllCourses(courseSet* courses) {
 void listAllSlots(courseSet* courses) {
     for (const auto& c : *courses) {
         Schedule courseSchedule = c->getSchedule();
-        auto v = courseSchedule.getSchedule();
-        sort(v.begin(), v.end(), compareLessons);
-        for (const auto& s : v)
+        int i = 0;
+        for (auto it = courseSchedule.begin(); it != courseSchedule.end(); it++) {
+            if(it == courseSchedule[i].end()){ i++; it = courseSchedule[i].begin(); }
+            Slot s = *it;
             cout << s.getCourseCode() << " " << s.getDay() << " " << s.getStartHour() << " " << s.getEndHour() << " " << s.getType() << endl;
+        }
     }
 }
 
@@ -312,13 +314,19 @@ void listSlotsOfClass(classSet* classes) {
     string classCode;
     cout << "Enter class code: ";
     cin >> classCode;
-    for (const auto& c : *classes) {
+    for (const auto &c: *classes) {
         if (c->getCode() == classCode) {
             auto classSchedule = c->getSchedule();
-            auto v = classSchedule.getSchedule();
-            sort(v.begin(), v.end(), compareLessons);
-            for (const auto& s : v)
-                cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour() << " " << s.getType() << endl;
+            int i = 0;
+            for (auto it = classSchedule.begin(); it != classSchedule.end(); it++) {
+                if (it == classSchedule[i].end()) {
+                    i++;
+                    it = classSchedule[i].begin();
+                }
+                Slot s = *it;
+                cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
+                     << " " << s.getType() << endl;
+            }
         }
     }
 }
@@ -327,13 +335,19 @@ void listSlotsOfCourse(courseSet* courses) {
     string courseCode;
     cout << "Enter course code: ";
     cin >> courseCode;
-    for (const auto& c : *courses) {
+    for (const auto &c: *courses) {
         if (c->getCode() == courseCode) {
             auto courseSchedule = c->getSchedule();
-            auto v = courseSchedule.getSchedule();
-            sort(v.begin(), v.end(), compareLessons);
-            for (const auto& s : v)
-                cout << s.getDay() << " " << s.getClassCode() << " " << s.getStartHour()<< " " << s.getEndHour() << " " << s.getType() << endl;
+            int i = 0;
+            for (auto it = courseSchedule.begin(); it != courseSchedule.end(); it++) {
+                if (it == courseSchedule[i].end()) {
+                    i++;
+                    it = courseSchedule[i].begin();
+                }
+                Slot s = *it;
+                cout << s.getDay() << " " << s.getClassCode() << " " << s.getStartHour() << " " << s.getEndHour() << " "
+                     << s.getType() << endl;
+            }
         }
     }
 }
@@ -355,5 +369,5 @@ void clear() {
 void wait() {
     int c; do c = getchar(); while ((c != '\n') && (c != EOF));
     cout << "Press ENTER to continue...";
-    do c = getchar(); while ((c != '\n') && (c != EOF));
+    do{ c = getchar(); }while ((c != '\n') && (c != EOF));
 }
