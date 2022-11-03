@@ -36,6 +36,7 @@ set<Slot>& Schedule::operator[] (int n){
     return schedule[n];
 }
 
+
 set<Slot>& Schedule::operator[] (const string& day){
     return schedule[weekDayToNum(day)];
 }
@@ -57,23 +58,7 @@ const map<string, int> Schedule::weekDayToNum_ = {{"Monday", 0}, {"Tuesday", 1},
 string Schedule::numToWeekDay(int n){
     return numToWeekDay_.at(n);
 }
+
 int Schedule::weekDayToNum(const string& day){
     return weekDayToNum_.at(day);
-}
-
-void Schedule::printSchedule(ostream& out) const{
-    for(int i = 0; i < 6; i++){
-        if(!schedule[i].empty()) out << Schedule::numToWeekDay(i) << ": " << endl;
-        for(const Slot& class_: schedule[i])
-            out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
-                << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
-        /* Printing a new line. */
-        out << endl;
-    }
-}
-
-void Schedule::printSchedule(const string &filename) const {
-    ofstream out(filename);
-    printSchedule(out);
-    out.close();
 }
