@@ -1,3 +1,0 @@
-/home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug/CMakeFiles/schedule.dir
-/home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug/CMakeFiles/rebuild_cache.dir
