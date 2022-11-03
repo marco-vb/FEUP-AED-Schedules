@@ -27,7 +27,7 @@ int main() {
             switch (choice) {
                 case 1: menu_full_lists(&students, &classes, &courses); break;
                 case 2: menu_partial_lists(&students, &classes, &courses); break;
-//                case 4: menu_schedule(&students, &classes, &courses, &classCourses, &slots); break;
+                case 4: getScheduleOfStudent(&students, &slots); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
@@ -85,5 +85,3 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
         }
     } while (choice != 0);
 }
-
-//void menu_schedule(&students, &classes, &courses, &classCourses, &slots);

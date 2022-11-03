@@ -12,6 +12,7 @@ string const& classesSlots = "../files/classes.csv";
 //functions
 void menu_full_lists(studentSet*, classSet*, courseSet*);
 void menu_partial_lists(studentSet*, classSet*, courseSet*);
+void printStudentSchedule(Student*, slotSet*, ostream& = cout);
 
 //functions defined
 string floatToMinutes(float hour) {
@@ -229,6 +230,14 @@ void listSlotsOfCourse(courseSet* courses) {
             }
         }
     }
+}
+
+void getScheduleOfStudent(studentSet* students, slotSet* slots) {
+    int studentNumber;
+    cout << "Enter student number: ";
+    cin >> studentNumber;
+    auto student_it = students->find(new Student(studentNumber));
+    printStudentSchedule(*student_it, slots);
 }
 
 Schedule getStudentSchedule(Student* student, slotSet* slots){
