@@ -22,6 +22,7 @@ class Slot {
         string getType() const;
         string getCourseCode() const;
         string getClassCode() const;
+        bool operator<(Slot slot) const;
 };
 
 #endif
