@@ -1,5 +1,3 @@
-#include <utility>
-
 #include "../headers/Schedule.h"
 
 Schedule::Schedule() {
@@ -47,18 +45,4 @@ set<Slot>::iterator Schedule::begin(){
 
 set<Slot>::iterator Schedule::end(){
     return schedule[5].end();
-}
-
-const map<int, string> Schedule::numToWeekDay_ = {{0, "Monday"}, {1, "Tuesday"}, {2, "Wednesday"},
-                                                        {3, "Thursday"}, {4, "Friday"}, {5, "Saturday"}};
-
-const map<string, int> Schedule::weekDayToNum_ = {{"Monday", 0}, {"Tuesday", 1}, {"Wednesday", 2},
-                                                        {"Thursday", 3}, {"Friday", 4}, {"Saturday", 5}};
-
-string Schedule::numToWeekDay(int n){
-    return numToWeekDay_.at(n);
-}
-
-int Schedule::weekDayToNum(const string& day){
-    return weekDayToNum_.at(day);
 }

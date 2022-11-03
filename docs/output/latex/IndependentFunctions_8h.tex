@@ -1,0 +1,53 @@
+\hypertarget{IndependentFunctions_8h}{}\doxysection{/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/\+Independent\+Functions.h File Reference}
+\label{IndependentFunctions_8h}\index{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/IndependentFunctions.h@{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/IndependentFunctions.h}}
+
+
+Ficheiro que contém as funções independentes de outras classes.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{float\+To\+Minutes}} (float hour)
+\begin{DoxyCompactList}\small\item\em Função que retorna uma string com a hora e minutos num formato que estamos mais habituados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ficheiro que contém as funções independentes de outras classes. 
+
+Este ficheiro foi criado para evitar dependências circulares. 
+
+Definition in file \mbox{\hyperlink{IndependentFunctions_8h_source}{Independent\+Functions.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}\label{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}} 
+\index{IndependentFunctions.h@{IndependentFunctions.h}!floatToMinutes@{floatToMinutes}}
+\index{floatToMinutes@{floatToMinutes}!IndependentFunctions.h@{IndependentFunctions.h}}
+\doxysubsubsection{\texorpdfstring{floatToMinutes()}{floatToMinutes()}}
+{\footnotesize\ttfamily string float\+To\+Minutes (\begin{DoxyParamCaption}\item[{float}]{hour }\end{DoxyParamCaption})}
+
+
+
+Função que retorna uma string com a hora e minutos num formato que estamos mais habituados. 
+
+Exemplo\+: 12.\+5 -\/\texorpdfstring{$>$}{>} 12\+:30.~\newline
+Complexidade Temporal\+: O(1) 
+
+Definition at line \mbox{\hyperlink{IndependentFunctions_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{IndependentFunctions_8cpp_source}{Independent\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019                                   \{}
+\DoxyCodeLine{00020     \textcolor{keywordtype}{float} lessThanOne = hour -\/ ((int) hour);}
+\DoxyCodeLine{00021     \textcolor{keywordtype}{int} minutes = lessThanOne * 60;}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{string} min = to\_string(minutes);}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{if} (min.size() == 1)}
+\DoxyCodeLine{00024         min = \textcolor{stringliteral}{"{}0"{}} + min;}
+\DoxyCodeLine{00025     \textcolor{keywordflow}{return} to\_string((\textcolor{keywordtype}{int}) hour) + \textcolor{charliteral}{':'} + min;}
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}

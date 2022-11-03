@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['weekdaytonum_0',['weekDayToNum',['../classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f',1,'Schedule']]]
+  ['schedule_0',['Schedule',['../classSchedule.html',1,'Schedule'],['../classSchedule.html#a878716f4043a016224a14f78974edf1d',1,'Schedule::Schedule()']]],
+  ['setname_1',['setName',['../classStudent.html#a34ff388814a53eddebfdf7af5abe1d98',1,'Student']]],
+  ['slot_2',['Slot',['../classSlot.html',1,'Slot'],['../classSlot.html#a92a49d49328f84e7f8eb6c709d80b33c',1,'Slot::Slot()'],['../classSlot.html#ade49bb883d567691231182671f27a8ae',1,'Slot::Slot(const Slot &amp;slot)'],['../classSlot.html#a762d4c7469e224b77f77b7d84e77a131',1,'Slot::Slot(string day, float startHour, float endHour, string type, string coursecode, string classcode)']]],
+  ['slotcompare_3',['slotCompare',['../structslotCompare.html',1,'']]],
+  ['student_4',['Student',['../classStudent.html',1,'Student'],['../classStudent.html#ad89beed1e8cd1b4d19c7c881bd9f9f12',1,'Student::Student()']]],
+  ['studentcompare_5',['studentCompare',['../structstudentCompare.html',1,'']]]
 ];

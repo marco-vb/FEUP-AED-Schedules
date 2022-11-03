@@ -3,6 +3,7 @@
 
 #include <bits/stdc++.h>
 #include "Slot.h"
+#include "IndependentFunctions.h"
 
 using namespace std;
 
@@ -27,12 +28,6 @@ class Schedule {
          * O tamanho vetor terá que ser constante e igual a 6.\n
          */
         vector<set<Slot>> schedule;
-        
-        /// Map que associa um inteiro a um dia da semana
-        static const map<int, string> numToWeekDay_;
-        
-        /// Map que associa um dia da semana a um inteiro
-        static const map<string, int> weekDayToNum_;
 
     public:
     
@@ -124,30 +119,6 @@ class Schedule {
          * @return O iterador para o último slot do horario, ou seja, o último slot do último dia da semana
          */
         set<Slot>::iterator end();
-        
-        /**
-         * @brief Inteiro para dia da semana
-         *
-         * Função que retorna uma string com o dia da semana correspondente ao inteiro dado.\n
-         * Isto é feito usando o map numToWeekDay_.\n
-         * Complexidade Temporal: O(1)
-         *
-         * @param n 
-         * @return String com o dia da semana
-         */
-        static string numToWeekDay(int n);
-        
-        /**
-         * @brief Dia da semana para inteiro
-         *
-         * Função que retorna um inteiro com o dia da semana correspondente à string dada.\n
-         * Isto é feito usando o map weekDayToNum_,\n
-         * Complexidade Temporal: O(1)
-         *
-         * @param day
-         * @return Inteiro que representa o dia da semana
-         */
-        static int weekDayToNum(const string& day);
 
 };
 

@@ -1,0 +1,30 @@
+\hypertarget{IndependentFunctions_8cpp_source}{}\doxysection{Independent\+Functions.\+cpp}
+\label{IndependentFunctions_8cpp_source}\index{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/definitions/IndependentFunctions.cpp@{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/definitions/IndependentFunctions.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}../headers/IndependentFunctions.h"{}}}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00004}00004 \textcolor{keyword}{const} map<int, string> numToWeekDay\_ = \{\{0, \textcolor{stringliteral}{"{}Monday"{}}\}, \{1, \textcolor{stringliteral}{"{}Tuesday"{}}\}, \{2, \textcolor{stringliteral}{"{}Wednesday"{}}\},}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00005}00005                                                   \{3, \textcolor{stringliteral}{"{}Thursday"{}}\}, \{4, \textcolor{stringliteral}{"{}Friday"{}}\}, \{5, \textcolor{stringliteral}{"{}Saturday"{}}\}\};}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00008}00008 \textcolor{keyword}{const} map<string, int> weekDayToNum\_ = \{\{\textcolor{stringliteral}{"{}Monday"{}}, 0\}, \{\textcolor{stringliteral}{"{}Tuesday"{}}, 1\}, \{\textcolor{stringliteral}{"{}Wednesday"{}}, 2\},}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00009}00009                                                   \{\textcolor{stringliteral}{"{}Thursday"{}}, 3\}, \{\textcolor{stringliteral}{"{}Friday"{}}, 4\}, \{\textcolor{stringliteral}{"{}Saturday"{}}, 5\}\};}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00011}00011 \textcolor{keywordtype}{string} numToWeekDay(\textcolor{keywordtype}{int} n)\{}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00012}00012     \textcolor{keywordflow}{return} numToWeekDay\_.at(n);}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00013}00013 \}}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00015}00015 \textcolor{keywordtype}{int} weekDayToNum(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& day)\{}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00016}00016     \textcolor{keywordflow}{return} weekDayToNum\_.at(day);}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00017}00017 \}}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00019}\mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{00019}} \textcolor{keywordtype}{string} \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(\textcolor{keywordtype}{float} hour) \{}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00020}00020     \textcolor{keywordtype}{float} lessThanOne = hour -\/ ((int) hour);}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00021}00021     \textcolor{keywordtype}{int} minutes = lessThanOne * 60;}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00022}00022     \textcolor{keywordtype}{string} min = to\_string(minutes);}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00023}00023     \textcolor{keywordflow}{if} (min.size() == 1)}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00024}00024         min = \textcolor{stringliteral}{"{}0"{}} + min;}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00025}00025     \textcolor{keywordflow}{return} to\_string((\textcolor{keywordtype}{int}) hour) + \textcolor{charliteral}{':'} + min;}
+\DoxyCodeLine{\Hypertarget{IndependentFunctions_8cpp_source_l00026}00026 \}}
+
+\end{DoxyCode}

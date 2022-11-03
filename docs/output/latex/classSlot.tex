@@ -1,32 +1,47 @@
 \hypertarget{classSlot}{}\doxysection{Slot Class Reference}
 \label{classSlot}\index{Slot@{Slot}}
+
+
+Classe \mbox{\hyperlink{classSlot}{Slot}}.  
+
+
+
+
+{\ttfamily \#include $<$Slot.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classSlot_a92a49d49328f84e7f8eb6c709d80b33c}{Slot}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classSlot}{Slot}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSlot_ade49bb883d567691231182671f27a8ae}{Slot}} (const \mbox{\hyperlink{classSlot}{Slot}} \&slot)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor de cópia da classe \mbox{\hyperlink{classSlot}{Slot}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSlot_a762d4c7469e224b77f77b7d84e77a131}{Slot}} (string day, float start\+Hour, float end\+Hour, string type, string coursecode, string classcode)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classSlot}{Slot}}. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{get\+Day}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o dia da semana. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{get\+Start\+Hour}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna a hora de inicio. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{get\+End\+Hour}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna a hora de fim. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classSlot_a9ab118706df0180c07fb4f9a7815e222}{get\+Type}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o tipo. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{get\+Course\+Code}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o nome da unidade curricular. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{get\+Class\+Code}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o nome da turma. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSlot_af711df5bb9ef2c82f17cda331075d3f4}{operator$<$}} (const \mbox{\hyperlink{classSlot}{Slot}} \&slot) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Operador \texorpdfstring{$<$}{<}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Classe \mbox{\hyperlink{classSlot}{Slot}}. 
+
+Esta classe representa um slot no horário, ou seja uma aula.~\newline
+Ela armazena o dia da semana, a hora de inicio, a hora de fim, o tipo, o nome da turma e o nome da unidade curricular.~\newline
 
 
-Definition at line \mbox{\hyperlink{Slot_8h_source_l00008}{8}} of file \mbox{\hyperlink{Slot_8h_source}{Slot.\+h}}.
+Definition at line \mbox{\hyperlink{Slot_8h_source_l00014}{14}} of file \mbox{\hyperlink{Slot_8h_source}{Slot.\+h}}.
 
 
 
@@ -38,6 +53,11 @@ Definition at line \mbox{\hyperlink{Slot_8h_source_l00008}{8}} of file \mbox{\hy
 {\footnotesize\ttfamily Slot\+::\+Slot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
+
+Construtor da classe \mbox{\hyperlink{classSlot}{Slot}}. 
+
+Este construtor cria um slot vazio.~\newline
+Complexidade Temporal\+: O(1) 
 
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
 
@@ -61,6 +81,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00007}{7}} of file \mbox{\
 
 
 
+Construtor de cópia da classe \mbox{\hyperlink{classSlot}{Slot}}. 
+
+Este construtor cria um slot com os mesmos atributos do slot passado por argumento.~\newline
+Complexidade Temporal\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em slot} & \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
 
 
@@ -81,6 +111,28 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00016}{16}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{Slot()}{Slot()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily Slot\+::\+Slot (\begin{DoxyParamCaption}\item[{string}]{day,  }\item[{float}]{start\+Hour,  }\item[{float}]{end\+Hour,  }\item[{string}]{type,  }\item[{string}]{coursecode,  }\item[{string}]{classcode }\end{DoxyParamCaption})}
 
+
+
+Construtor da classe \mbox{\hyperlink{classSlot}{Slot}}. 
+
+Este construtor cria um slot com os atributos passados por argumento.~\newline
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em day} & String com o dia da semana \\
+\hline
+{\em start\+Hour} & Float com a hora de inicio \\
+\hline
+{\em end\+Hour} & Float com a hora de fim \\
+\hline
+{\em type} & String com o tipo (\char`\"{}\+T\char`\"{}, \char`\"{}\+TP\char`\"{}, \char`\"{}\+PL\char`\"{}) \\
+\hline
+{\em coursecode} & String com o nome da unidade curricular (exempplo \char`\"{}\+LEIC001\char`\"{}) \\
+\hline
+{\em classcode} & String com o nome da turma (exemplo \char`\"{}1\+LEIC01\char`\"{}) \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
@@ -108,6 +160,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00025}{25}} of file \mbox{
 
 
 
+Retorna o nome da turma. 
+
+Função que retorna o nome da turma do slot.~\newline
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+String com o nome da turma 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
 
 
@@ -123,6 +185,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00054}{54}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{getCourseCode()}{getCourseCode()}}
 {\footnotesize\ttfamily string Slot\+::get\+Course\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Retorna o nome da unidade curricular. 
+
+Função que retorna o nome da unidade curricular do slot.~\newline
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+String com o nome da unidade curricular 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
@@ -142,6 +214,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00050}{50}} of file \mbox{
 
 
 
+Retorna o dia da semana. 
+
+Função que retorna o dia da semana do slot.~\newline
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+String com o dia da semana 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
 
 
@@ -157,6 +239,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00034}{34}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{getEndHour()}{getEndHour()}}
 {\footnotesize\ttfamily float Slot\+::get\+End\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Retorna a hora de fim. 
+
+Função que retorna a hora de fim do slot.~\newline
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+Float com a hora de fim 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
@@ -176,6 +268,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00042}{42}} of file \mbox{
 
 
 
+Retorna a hora de inicio. 
+
+Função que retorna a hora de inicio do slot.~\newline
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+Float com a hora de inicio 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
 
 
@@ -191,6 +293,16 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00038}{38}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{getType()}{getType()}}
 {\footnotesize\ttfamily string Slot\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Retorna o tipo. 
+
+Função que retorna o tipo do slot.~\newline
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+String com o tipo 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
@@ -210,20 +322,33 @@ Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00046}{46}} of file \mbox{
 
 
 
+Operador \texorpdfstring{$<$}{<}. 
+
+Função que determina se .~\newline
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Slot_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{Slot_8cpp_source}{Slot.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00058                                        \{}
 \DoxyCodeLine{00059     map<string, int> days = \{ \{\textcolor{stringliteral}{"{}Monday"{}}, 1\}, \{\textcolor{stringliteral}{"{}Tuesday"{}}, 2\}, \{\textcolor{stringliteral}{"{}Wednesday"{}}, 3\}, \{\textcolor{stringliteral}{"{}Thursday"{}}, 4\}, \{\textcolor{stringliteral}{"{}Friday"{}}, 5\} \};}
-\DoxyCodeLine{00060     \textcolor{keywordflow}{if} (days[this-\/>getDay()] == days[s.getDay()]) \{}
-\DoxyCodeLine{00061         \textcolor{keywordflow}{if} (this-\/>getStartHour() == s.getStartHour()) \{}
-\DoxyCodeLine{00062             \textcolor{keywordflow}{return} this-\/>getClassCode() < s.getClassCode() ||}
-\DoxyCodeLine{00063                    (this-\/>getClassCode() == s.getClassCode() \&\& this-\/>getCourseCode() < s.getCourseCode());}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{if} (days[this-\/>\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()] == days[s.getDay()]) \{}
+\DoxyCodeLine{00061         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() == s.getStartHour()) \{}
+\DoxyCodeLine{00062             \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < s.getClassCode() ||}
+\DoxyCodeLine{00063                    (this-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() == s.getClassCode() \&\& this-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < s.getCourseCode());}
 \DoxyCodeLine{00064         \} \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00065             \textcolor{keywordflow}{return} this-\/>getStartHour() < s.getStartHour();}
+\DoxyCodeLine{00065             \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < s.getStartHour();}
 \DoxyCodeLine{00066     \}}
-\DoxyCodeLine{00067     \textcolor{keywordflow}{return} days[this-\/>getDay()] < days[s.getDay()];}
+\DoxyCodeLine{00067     \textcolor{keywordflow}{return} days[this-\/>\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()] < days[s.getDay()];}
 \DoxyCodeLine{00068 \}}
 
 \end{DoxyCode}

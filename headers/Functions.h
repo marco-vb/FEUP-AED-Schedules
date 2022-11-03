@@ -1,7 +1,15 @@
+/**
+ * @file Functions.h
+ * @brief Ficheiro que contém as funções auxiliares a main.cpp
+ *
+ * Este ficheiro foi criada para que ficheiro main.cpp não fique muito confuso.
+ */
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
 #include "Types.h"
+#include "IndependentFunctions.h
 
 
 //files
@@ -15,15 +23,6 @@ void menu_partial_lists(studentSet*, classSet*, courseSet*);
 void printStudentSchedule(Student*, slotSet*, ostream& = cout);
 
 //functions defined
-string floatToMinutes(float hour) {
-    float lessThanOne = hour - ((int) hour);
-    int minutes = lessThanOne * 60;
-    string min = to_string(minutes);
-    if (min.size() == 1)
-        min = "0" + min;
-    return to_string((int) hour) + ':' + min;
-}
-
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
     ifstream classesFile(classesCourses);
     string line;
