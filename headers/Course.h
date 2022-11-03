@@ -7,6 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 class Course {
     private:
         string code;            // Course code (e.g. "L.EIC001")
@@ -25,5 +26,4 @@ class Course {
         bool addStudent(int studentNumber);
         bool removeStudent(int studentNumber);
 };
-
 #endif
