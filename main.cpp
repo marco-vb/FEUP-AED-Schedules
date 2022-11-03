@@ -32,17 +32,25 @@ struct courseCompare {
         return a->getCode() < b->getCode();
     }
 };
+//order courses by code
+struct classCourseCompare {
+    bool operator()(const pair<Class *, Course *> a, const pair<Class *, Course *> b) const {
+        return (a.first->getCode() < b.first->getCode()) ||
+               (a.first->getCode() == b.first->getCode() && a.second->getCode() < b.second->getCode());
+    }
+};
+
 
 //define sets
 typedef set<Student*, studentCompare> studentSet;
 typedef set<Class*, classCompare> classSet;
 typedef set<Course*, courseCompare> courseSet;
-typedef vector<pair<Class*, Course*>> classCoursesVector;
+typedef set<pair<Class*, Course*>, classCourseCompare > classCoursesSet;
 
 
 //functions
-void readAll(studentSet*, classSet*, courseSet*, classCoursesVector*);
-void readClasses(classSet*, courseSet*, classCoursesVector*);
+void readAll(studentSet*, classSet*, courseSet*, classCoursesSet*);
+void readClasses(classSet*, courseSet*, classCoursesSet*);
 void readStudents(studentSet*, classSet*, courseSet*);
 void readSlots(studentSet*, classSet*, courseSet*);
 void menu_full_lists(studentSet*, classSet*, courseSet*);
@@ -64,7 +72,7 @@ int main() {
     studentSet students;
     classSet classes;
     courseSet courses;
-    classCoursesVector classCourses;
+    classCoursesSet classCourses;
 
     // Read data from files
     readAll(&students, &classes, &courses, &classCourses);
@@ -92,13 +100,13 @@ int main() {
     return 0;
 }
 
-void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesVector* classCourses) {
+void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
     readClasses(classes, courses, classCourses);
     readStudents(students, classes, courses);
     readSlots(students, classes, courses);
 }
 
-void readClasses(classSet* classes, courseSet* courses, classCoursesVector* classCourses) {
+void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
     ifstream classesFile(classesCourses);
     string line;
     getline(classesFile, line); // skip first line
@@ -114,7 +122,7 @@ void readClasses(classSet* classes, courseSet* courses, classCoursesVector* clas
         newCourse->setYear(year);
         auto newClass = new Class(classcode);
         auto newClassCourse = make_pair(newClass, newCourse);
-        classCourses->push_back(newClassCourse);
+        classCourses->insert(newClassCourse);
         if (courses->find(newCourse) == courses->end())
             courses->insert(newCourse);
 
@@ -189,24 +197,32 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses) {
         auto class_it = classes->find(new Class(classcode));
         if (class_it != classes->end()) {
             (*class_it)->addSlot(*slot);
-            auto students_in_class = (*class_it)->getStudents();
-            for (auto s: students_in_class) {
-                auto student_it = students->find(new Student(s));
-                if (student_it != students->end())
-                    (*student_it)->addSlot(*slot);
-            }
+//            auto students_in_class = (*class_it)->getStudents();
+//            for (auto s: students_in_class) {
+//                auto student_it = students->find(new Student(s));
+//                if (student_it != students->end())
+//                    (*student_it)->addSlot(*slot);
+//            }
         }
 
         auto course_it = courses->find(new Course(coursecode));
         if (course_it != courses->end()) {
             (*course_it)->addSlot(*slot);
-            auto students_in_course = (*course_it)->getStudents();
-            for (auto s: students_in_course) {
-                auto student_it = students->find(new Student(s));
-                if (student_it != students->end())
-                    (*student_it)->addSlot(*slot);
-            }
+//            auto students_in_course = (*course_it)->getStudents();
+//            for (auto s: students_in_course) {
+//                auto student_it = students->find(new Student(s));
+//                if (student_it != students->end())
+//                    (*student_it)->addSlot(*slot);
+//            }
         }
+
+        pair<string, string> pair = {classcode, coursecode};
+        for (auto s: *students) {
+            auto studentPair = s -> getClassesPerCourse().find(pair);
+            if (studentPair != s -> getClassesPerCourse().end())
+                s->addSlot(*slot);
+        }
+
     }
     cout << "Read Slots Successfully!" << endl;
 }
