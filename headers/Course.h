@@ -26,4 +26,11 @@ class Course {
         bool addStudent(int studentNumber);
         bool removeStudent(int studentNumber);
 };
+
+struct comp {
+    bool operator()(const Course* a, const Course* b) const {
+        return a->getCode() < b->getCode();
+    }
+};
+typedef set<Course*, comp> courseSet;
 #endif

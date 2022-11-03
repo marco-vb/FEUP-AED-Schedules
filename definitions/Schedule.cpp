@@ -3,10 +3,10 @@
 #include "../headers/Schedule.h"
 
 Schedule::Schedule() {
-    schedule = vector<multiset<Slot>>(6);
+    schedule = vector<set<Slot>>(6);
 }
 
-vector<multiset<Slot>> Schedule::getSchedule() const {
+vector<set<Slot>> Schedule::getSchedule() const {
     return schedule;
 }
 
@@ -16,14 +16,14 @@ void Schedule::clearSchedule() {
     }
 }
 
-bool Schedule::addSlot(const Slot slot) {
+bool Schedule::addSlot(const Slot& slot) {
     schedule[weekDayToNum(slot.getDay())].insert(slot);
     return true;
 }
 
-bool Schedule::checkForCollision(Slot slot){
+bool Schedule::checkForCollision(const Slot& slot){
     if(slot.getType() == "T") return false;
-    for(Slot cs : schedule[weekDayToNum(slot.getDay())]){
+    for(const Slot& cs : schedule[weekDayToNum(slot.getDay())]){
         if(cs.getType() != "T") {
             return (cs.getStartHour() < slot.getStartHour() && cs.getEndHour() > slot.getStartHour()) ||
                    (slot.getStartHour() < cs.getStartHour() && slot.getEndHour() > cs.getStartHour());
@@ -32,19 +32,19 @@ bool Schedule::checkForCollision(Slot slot){
     return false;
 }
 
-multiset<Slot>& Schedule::operator[] (int n){
+set<Slot>& Schedule::operator[] (int n){
     return schedule[n];
 }
 
-multiset<Slot>& Schedule::operator[] (string day){
+set<Slot>& Schedule::operator[] (const string& day){
     return schedule[weekDayToNum(day)];
 }
 
-multiset<Slot>::iterator Schedule::begin(){
+set<Slot>::iterator Schedule::begin(){
     return schedule[0].begin();
 }
 
-multiset<Slot>::iterator Schedule::end(){
+set<Slot>::iterator Schedule::end(){
     return schedule[5].end();
 }
 
@@ -57,7 +57,7 @@ const map<string, int> Schedule::weekDayToNum_ = {{"Monday", 0}, {"Tuesday", 1},
 string Schedule::numToWeekDay(int n){
     return numToWeekDay_.at(n);
 }
-int Schedule::weekDayToNum(string day){
+int Schedule::weekDayToNum(const string& day){
     return weekDayToNum_.at(day);
 }
 

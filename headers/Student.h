@@ -3,12 +3,8 @@
 
 #include <bits/stdc++.h>
 #include "Course.h"
-struct comp {
-    bool operator()(const Course* a, const Course* b) const {
-        return a->getCode() < b->getCode();
-    }
-};
-typedef set<Course*, comp> CourseSet;
+#include "Class.h"
+
 using namespace std;
 
 class Student {
@@ -23,8 +19,8 @@ class Student {
         string getName() const;
         void setName(string name);
         set<pair<string, string>> getClassesPerCourse() const;
-        bool addClassCourse(string const&, string const&, CourseSet*);
-        bool removeClassCourse(string const&, string const&, CourseSet*);
+        bool addClassCourse(string const&, string const&, courseSet*, classSet*);
+        bool removeClassCourse(string const&, string const&, courseSet*);
 };
 
 

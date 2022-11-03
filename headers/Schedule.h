@@ -8,25 +8,25 @@ using namespace std;
 
 class Schedule {
     private:
-        vector<multiset<Slot>> schedule;
+        vector<set<Slot>> schedule;
         static const map<int, string> numToWeekDay_;
         static const map<string, int> weekDayToNum_;
 
     public:
         Schedule();
-        vector<multiset<Slot>> getSchedule() const;
+        vector<set<Slot>> getSchedule() const;
         void clearSchedule();
-        bool addSlot(Slot slot);
-        bool checkForCollision(Slot slot);
-        multiset<Slot>& operator[] (int n);
-        multiset<Slot>& operator[] (string day);
-        multiset<Slot>::iterator begin();
-        multiset<Slot>::iterator end();
+        bool addSlot(const Slot& slot);
+        bool checkForCollision(const Slot& slot);
+        set<Slot>& operator[] (int n);
+        set<Slot>& operator[] (const string& day);
+        set<Slot>::iterator begin();
+        set<Slot>::iterator end();
         void printSchedule(ostream& out = cout) const;
         void printSchedule(string const& filename) const;
 
         static string numToWeekDay(int n);
-        static int weekDayToNum(string day);
+        static int weekDayToNum(const string& day);
 };
 
 #endif
