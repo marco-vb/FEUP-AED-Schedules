@@ -2,7 +2,7 @@
 \label{classSchedule}\index{Schedule@{Schedule}}
 
 
-A classe \mbox{\hyperlink{classSchedule}{Schedule}} Esta classe é usada para representar um horariode uma semana Este armazena um conjunto de slots Um slot corresponde a uma aula Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc.  
+Classe \mbox{\hyperlink{classSchedule}{Schedule}}.  
 
 
 
@@ -13,19 +13,19 @@ A classe \mbox{\hyperlink{classSchedule}{Schedule}} Esta classe é usada para re
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classSchedule_a878716f4043a016224a14f78974edf1d}{Schedule}} ()
-\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classSchedule}{Schedule}} Este construtor cria um horario vazio Complexidade Temporal\+: O(1) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classSchedule}{Schedule}}. \end{DoxyCompactList}\item 
 vector$<$ set$<$ \mbox{\hyperlink{classSlot}{Slot}} $>$ $>$ \mbox{\hyperlink{classSchedule_ae95e81d40a673b77285a96148d829b41}{get\+Schedule}} () const
-\begin{DoxyCompactList}\small\item\em Retorna o vetor Função que retorna o vetor de sets de slots onde está armazenada a informação sobre o horario. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retorna o vetor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSchedule_a0e70c390bb07cd134cbc7f0090ef52b0}{clear\+Schedule}} ()
-\begin{DoxyCompactList}\small\item\em Limpa o horario Função que limpa o horario, ou seja, usa a função clear() em cada set do vetor O(\+N) onde N é o número de aulas no horario. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Limpa o horario. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{add\+Slot}} (const \mbox{\hyperlink{classSlot}{Slot}} \&slot)
-\begin{DoxyCompactList}\small\item\em Adiciona um slot ao horario Função que adiciona um slot ao horario, adicionando-\/o ao set correspondente ao dia da semana, representado por uma posição no vetor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adiciona um slot ao horario. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSchedule_a19af129293728ce760244303352299c0}{check\+For\+Collision}} (const \mbox{\hyperlink{classSlot}{Slot}} \&slot)
-\begin{DoxyCompactList}\small\item\em Verifica se existe colisão entre o slot dado e os slots do horario Função que verifica se existe colisão entre um slot e os slots já existentes no horario Para isso percorre todas as aulas do dia da semana e verifica se existe colisão. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Verifica se existe colisão entre o slot dado e os slots do horario. \end{DoxyCompactList}\item 
 set$<$ \mbox{\hyperlink{classSlot}{Slot}} $>$ \& \mbox{\hyperlink{classSchedule_a8924812490c86cba00f43ac3af344e79}{operator\mbox{[}$\,$\mbox{]}}} (int n)
-\begin{DoxyCompactList}\small\item\em Operador \mbox{[}\mbox{]} Função que retorna o set de slots correspondente ao dia da semana dado. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operador \mbox{[}\mbox{]}. \end{DoxyCompactList}\item 
 set$<$ \mbox{\hyperlink{classSlot}{Slot}} $>$ \& \mbox{\hyperlink{classSchedule_a91d53d367125ba214c82ffc3c1e1850f}{operator\mbox{[}$\,$\mbox{]}}} (const string \&day)
-\begin{DoxyCompactList}\small\item\em Operador \mbox{[}\mbox{]} Função que retorna o set de slots correspondente ao dia da semana dado. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Operador \mbox{[}\mbox{]}. \end{DoxyCompactList}\item 
 set$<$ \mbox{\hyperlink{classSlot}{Slot}} $>$\+::iterator \mbox{\hyperlink{classSchedule_ac89f4ff97dad1820b4846c0d58cfb0b2}{begin}} ()
 \begin{DoxyCompactList}\small\item\em Begin do horario. \end{DoxyCompactList}\item 
 set$<$ \mbox{\hyperlink{classSlot}{Slot}} $>$\+::iterator \mbox{\hyperlink{classSchedule_a168a1ca8c0e26c21727f2ee9515f55a2}{end}} ()
@@ -34,15 +34,20 @@ set$<$ \mbox{\hyperlink{classSlot}{Slot}} $>$\+::iterator \mbox{\hyperlink{class
 \begin{DoxyCompactItemize}
 \item 
 static string \mbox{\hyperlink{classSchedule_a66283b41cd0d93e15120299f55e9a1e1}{num\+To\+Week\+Day}} (int n)
-\begin{DoxyCompactList}\small\item\em Inteiro para dia da semana Função que retorna uma string com o dia da semana correspondente ao inteiro dado Isto é feito usando o map num\+To\+Week\+Day\+\_\+. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inteiro para dia da semana. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{classSchedule_a4c9ec151c1e9a26a619c6746df47343f}{week\+Day\+To\+Num}} (const string \&day)
-\begin{DoxyCompactList}\small\item\em Dia da semana para inteiro Função que retorna um inteiro com o dia da semana correspondente à string dada Isto é feito usando o map week\+Day\+To\+Num\+\_\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Dia da semana para inteiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A classe \mbox{\hyperlink{classSchedule}{Schedule}} Esta classe é usada para representar um horariode uma semana Este armazena um conjunto de slots Um slot corresponde a uma aula Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc. 
+Classe \mbox{\hyperlink{classSchedule}{Schedule}}. 
 
-Definition at line \mbox{\hyperlink{Schedule_8h_source_l00016}{16}} of file \mbox{\hyperlink{Schedule_8h_source}{Schedule.\+h}}.
+Esta classe é usada para representar um horariode uma semana.~\newline
+Este armazena um conjunto de slots.~\newline
+Um slot corresponde a uma aula.~\newline
+Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc. 
+
+Definition at line \mbox{\hyperlink{Schedule_8h_source_l00017}{17}} of file \mbox{\hyperlink{Schedule_8h_source}{Schedule.\+h}}.
 
 
 
@@ -55,9 +60,10 @@ Definition at line \mbox{\hyperlink{Schedule_8h_source_l00016}{16}} of file \mbo
 
 
 
-Construtor da classe \mbox{\hyperlink{classSchedule}{Schedule}} Este construtor cria um horario vazio Complexidade Temporal\+: O(1) 
+Construtor da classe \mbox{\hyperlink{classSchedule}{Schedule}}. 
 
-
+Este construtor cria um horario vazio.~\newline
+Complexidade Temporal\+: O(1) 
 
 Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{Schedule_8cpp_source}{Schedule.\+cpp}}.
 
@@ -79,7 +85,10 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00005}{5}} of file \mb
 
 
 
-Adiciona um slot ao horario Função que adiciona um slot ao horario, adicionando-\/o ao set correspondente ao dia da semana, representado por uma posição no vetor. 
+Adiciona um slot ao horario. 
+
+Função que adiciona um slot ao horario, adicionando-\/o ao set correspondente ao dia da semana, representado por uma posição no vetor.~\newline
+Complexidade Temporal\+: O(log\+N) onde N é o número máximo de aulas de um dia
 
 
 \begin{DoxyParams}{Parameters}
@@ -87,7 +96,7 @@ Adiciona um slot ao horario Função que adiciona um slot ao horario, adicionand
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true se o slot foi adicionado, false caso contrário Complexidade Temporal\+: O(log\+N) onde N é o número máximo de aulas de um dia 
+true se o slot foi adicionado, false caso contrário 
 \end{DoxyReturn}
 
 
@@ -111,8 +120,10 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00019}{19}} of file \m
 
 Begin do horario. 
 
+Complexidade Temporal\+: O(1)
+
 \begin{DoxyReturn}{Returns}
-O iterador para o primeiro slot do horario, ou seja, o primeiro slot do primeiro dia da semana Complexidade Temporal\+: O(1) 
+O iterador para o primeiro slot do horario, ou seja, o primeiro slot do primeiro dia da semana 
 \end{DoxyReturn}
 
 
@@ -133,7 +144,11 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00044}{44}} of file \m
 
 
 
-Verifica se existe colisão entre o slot dado e os slots do horario Função que verifica se existe colisão entre um slot e os slots já existentes no horario Para isso percorre todas as aulas do dia da semana e verifica se existe colisão. 
+Verifica se existe colisão entre o slot dado e os slots do horario. 
+
+Função que verifica se existe colisão entre um slot e os slots já existentes no horario.~\newline
+Para isso percorre todas as aulas do dia da semana e verifica se existe colisão.~\newline
+Complexidade Temporal\+: O(\+N) onde N é o número máximo de aulas de um dia
 
 
 \begin{DoxyParams}{Parameters}
@@ -141,7 +156,7 @@ Verifica se existe colisão entre o slot dado e os slots do horario Função que
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true se existe colisão, false caso contrário Complexidade Temporal\+: O(\+N) onde N é o número máximo de aulas de um dia 
+true se existe colisão, false caso contrário 
 \end{DoxyReturn}
 
 
@@ -169,9 +184,10 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00024}{24}} of file \m
 
 
 
-Limpa o horario Função que limpa o horario, ou seja, usa a função clear() em cada set do vetor O(\+N) onde N é o número de aulas no horario. 
+Limpa o horario. 
 
-
+Função que limpa o horario, ou seja, usa a função clear() em cada set do vetor.~\newline
+Complexidade Temporal\+: O(\+N) onde N é o número de aulas no horario 
 
 Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{Schedule_8cpp_source}{Schedule.\+cpp}}.
 
@@ -194,8 +210,10 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00013}{13}} of file \m
 
 End do horario. 
 
+Complexidade Temporal\+: O(1)
+
 \begin{DoxyReturn}{Returns}
-O iterador para o último slot do horario, ou seja, o último slot do último dia da semana Complexidade Temporal\+: O(1) 
+O iterador para o último slot do horario, ou seja, o último slot do último dia da semana 
 \end{DoxyReturn}
 
 
@@ -216,10 +234,13 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00048}{48}} of file \m
 
 
 
-Retorna o vetor Função que retorna o vetor de sets de slots onde está armazenada a informação sobre o horario. 
+Retorna o vetor. 
+
+Função que retorna o vetor de sets de slots onde está armazenada a informação sobre o horario.~\newline
+Complexidade Temporal\+: O(1)
 
 \begin{DoxyReturn}{Returns}
-O vetor de sets de slots Complexidade Temporal\+: O(1) 
+O vetor de sets de slots 
 \end{DoxyReturn}
 
 
@@ -240,7 +261,11 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00009}{9}} of file \mb
 
 
 
-Inteiro para dia da semana Função que retorna uma string com o dia da semana correspondente ao inteiro dado Isto é feito usando o map num\+To\+Week\+Day\+\_\+. 
+Inteiro para dia da semana. 
+
+Função que retorna uma string com o dia da semana correspondente ao inteiro dado.~\newline
+Isto é feito usando o map num\+To\+Week\+Day\+\_\+.~\newline
+Complexidade Temporal\+: O(1)
 
 
 \begin{DoxyParams}{Parameters}
@@ -269,7 +294,10 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00058}{58}} of file \m
 
 
 
-Operador \mbox{[}\mbox{]} Função que retorna o set de slots correspondente ao dia da semana dado. 
+Operador \mbox{[}\mbox{]}. 
+
+Função que retorna o set de slots correspondente ao dia da semana dado.~\newline
+Complexidade Temporal\+: O(1)
 
 
 \begin{DoxyParams}{Parameters}
@@ -277,7 +305,7 @@ Operador \mbox{[}\mbox{]} Função que retorna o set de slots correspondente ao 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-O set de slots correspondente ao dia da semana dado Complexidade Temporal\+: O(1) 
+O set de slots correspondente ao dia da semana dado 
 \end{DoxyReturn}
 
 
@@ -298,7 +326,10 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00040}{40}} of file \m
 
 
 
-Operador \mbox{[}\mbox{]} Função que retorna o set de slots correspondente ao dia da semana dado. 
+Operador \mbox{[}\mbox{]}. 
+
+Função que retorna o set de slots correspondente ao dia da semana dado.~\newline
+Complexidade Temporal\+: O(1)
 
 
 \begin{DoxyParams}{Parameters}
@@ -306,7 +337,7 @@ Operador \mbox{[}\mbox{]} Função que retorna o set de slots correspondente ao 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-O set de slots correspondente ao dia da semana dado Complexidade Temporal\+: O(1) 
+O set de slots correspondente ao dia da semana dado 
 \end{DoxyReturn}
 
 
@@ -327,7 +358,11 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00035}{35}} of file \m
 
 
 
-Dia da semana para inteiro Função que retorna um inteiro com o dia da semana correspondente à string dada Isto é feito usando o map week\+Day\+To\+Num\+\_\+. 
+Dia da semana para inteiro. 
+
+Função que retorna um inteiro com o dia da semana correspondente à string dada.~\newline
+Isto é feito usando o map week\+Day\+To\+Num\+\_\+,~\newline
+Complexidade Temporal\+: O(1)
 
 
 \begin{DoxyParams}{Parameters}

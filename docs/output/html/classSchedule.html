@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A classe <a class="el" href="classSchedule.html" title="A classe Schedule Esta classe é usada para representar um horariode uma semana Este armazena um conju...">Schedule</a> Esta classe é usada para representar um horariode uma semana Este armazena um conjunto de slots Um slot corresponde a uma aula Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc.  
+<p>Classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>.  
  <a href="classSchedule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
@@ -85,25 +85,25 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a878716f4043a016224a14f78974edf1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a878716f4043a016224a14f78974edf1d">Schedule</a> ()</td></tr>
-<tr class="memdesc:a878716f4043a016224a14f78974edf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classSchedule.html" title="A classe Schedule Esta classe é usada para representar um horariode uma semana Este armazena um conju...">Schedule</a> Este construtor cria um horario vazio Complexidade Temporal: O(1)  <a href="classSchedule.html#a878716f4043a016224a14f78974edf1d">More...</a><br /></td></tr>
+<tr class="memdesc:a878716f4043a016224a14f78974edf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>.  <a href="classSchedule.html#a878716f4043a016224a14f78974edf1d">More...</a><br /></td></tr>
 <tr class="separator:a878716f4043a016224a14f78974edf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae95e81d40a673b77285a96148d829b41"><td class="memItemLeft" align="right" valign="top">vector&lt; set&lt; <a class="el" href="classSlot.html">Slot</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ae95e81d40a673b77285a96148d829b41">getSchedule</a> () const</td></tr>
-<tr class="memdesc:ae95e81d40a673b77285a96148d829b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor Função que retorna o vetor de sets de slots onde está armazenada a informação sobre o horario.  <a href="classSchedule.html#ae95e81d40a673b77285a96148d829b41">More...</a><br /></td></tr>
+<tr class="memdesc:ae95e81d40a673b77285a96148d829b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor.  <a href="classSchedule.html#ae95e81d40a673b77285a96148d829b41">More...</a><br /></td></tr>
 <tr class="separator:ae95e81d40a673b77285a96148d829b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e70c390bb07cd134cbc7f0090ef52b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a0e70c390bb07cd134cbc7f0090ef52b0">clearSchedule</a> ()</td></tr>
-<tr class="memdesc:a0e70c390bb07cd134cbc7f0090ef52b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpa o horario Função que limpa o horario, ou seja, usa a função clear() em cada set do vetor O(N) onde N é o número de aulas no horario.  <a href="classSchedule.html#a0e70c390bb07cd134cbc7f0090ef52b0">More...</a><br /></td></tr>
+<tr class="memdesc:a0e70c390bb07cd134cbc7f0090ef52b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpa o horario.  <a href="classSchedule.html#a0e70c390bb07cd134cbc7f0090ef52b0">More...</a><br /></td></tr>
 <tr class="separator:a0e70c390bb07cd134cbc7f0090ef52b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fb588c5dc1c217147953a3e82aac78d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a2fb588c5dc1c217147953a3e82aac78d">addSlot</a> (const <a class="el" href="classSlot.html">Slot</a> &amp;slot)</td></tr>
-<tr class="memdesc:a2fb588c5dc1c217147953a3e82aac78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um slot ao horario Função que adiciona um slot ao horario, adicionando-o ao set correspondente ao dia da semana, representado por uma posição no vetor.  <a href="classSchedule.html#a2fb588c5dc1c217147953a3e82aac78d">More...</a><br /></td></tr>
+<tr class="memdesc:a2fb588c5dc1c217147953a3e82aac78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um slot ao horario.  <a href="classSchedule.html#a2fb588c5dc1c217147953a3e82aac78d">More...</a><br /></td></tr>
 <tr class="separator:a2fb588c5dc1c217147953a3e82aac78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19af129293728ce760244303352299c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a19af129293728ce760244303352299c0">checkForCollision</a> (const <a class="el" href="classSlot.html">Slot</a> &amp;slot)</td></tr>
-<tr class="memdesc:a19af129293728ce760244303352299c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se existe colisão entre o slot dado e os slots do horario Função que verifica se existe colisão entre um slot e os slots já existentes no horario Para isso percorre todas as aulas do dia da semana e verifica se existe colisão.  <a href="classSchedule.html#a19af129293728ce760244303352299c0">More...</a><br /></td></tr>
+<tr class="memdesc:a19af129293728ce760244303352299c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se existe colisão entre o slot dado e os slots do horario.  <a href="classSchedule.html#a19af129293728ce760244303352299c0">More...</a><br /></td></tr>
 <tr class="separator:a19af129293728ce760244303352299c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8924812490c86cba00f43ac3af344e79"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="classSlot.html">Slot</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a8924812490c86cba00f43ac3af344e79">operator[]</a> (int n)</td></tr>
-<tr class="memdesc:a8924812490c86cba00f43ac3af344e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador [] Função que retorna o set de slots correspondente ao dia da semana dado.  <a href="classSchedule.html#a8924812490c86cba00f43ac3af344e79">More...</a><br /></td></tr>
+<tr class="memdesc:a8924812490c86cba00f43ac3af344e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador [].  <a href="classSchedule.html#a8924812490c86cba00f43ac3af344e79">More...</a><br /></td></tr>
 <tr class="separator:a8924812490c86cba00f43ac3af344e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91d53d367125ba214c82ffc3c1e1850f"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="classSlot.html">Slot</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a91d53d367125ba214c82ffc3c1e1850f">operator[]</a> (const string &amp;day)</td></tr>
-<tr class="memdesc:a91d53d367125ba214c82ffc3c1e1850f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador [] Função que retorna o set de slots correspondente ao dia da semana dado.  <a href="classSchedule.html#a91d53d367125ba214c82ffc3c1e1850f">More...</a><br /></td></tr>
+<tr class="memdesc:a91d53d367125ba214c82ffc3c1e1850f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador [].  <a href="classSchedule.html#a91d53d367125ba214c82ffc3c1e1850f">More...</a><br /></td></tr>
 <tr class="separator:a91d53d367125ba214c82ffc3c1e1850f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac89f4ff97dad1820b4846c0d58cfb0b2"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="classSlot.html">Slot</a> &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ac89f4ff97dad1820b4846c0d58cfb0b2">begin</a> ()</td></tr>
 <tr class="memdesc:ac89f4ff97dad1820b4846c0d58cfb0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin do horario.  <a href="classSchedule.html#ac89f4ff97dad1820b4846c0d58cfb0b2">More...</a><br /></td></tr>
@@ -115,16 +115,20 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a66283b41cd0d93e15120299f55e9a1e1"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a66283b41cd0d93e15120299f55e9a1e1">numToWeekDay</a> (int n)</td></tr>
-<tr class="memdesc:a66283b41cd0d93e15120299f55e9a1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inteiro para dia da semana Função que retorna uma string com o dia da semana correspondente ao inteiro dado Isto é feito usando o map numToWeekDay_.  <a href="classSchedule.html#a66283b41cd0d93e15120299f55e9a1e1">More...</a><br /></td></tr>
+<tr class="memdesc:a66283b41cd0d93e15120299f55e9a1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inteiro para dia da semana.  <a href="classSchedule.html#a66283b41cd0d93e15120299f55e9a1e1">More...</a><br /></td></tr>
 <tr class="separator:a66283b41cd0d93e15120299f55e9a1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c9ec151c1e9a26a619c6746df47343f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f">weekDayToNum</a> (const string &amp;day)</td></tr>
-<tr class="memdesc:a4c9ec151c1e9a26a619c6746df47343f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dia da semana para inteiro Função que retorna um inteiro com o dia da semana correspondente à string dada Isto é feito usando o map weekDayToNum_.  <a href="classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f">More...</a><br /></td></tr>
+<tr class="memdesc:a4c9ec151c1e9a26a619c6746df47343f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dia da semana para inteiro.  <a href="classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f">More...</a><br /></td></tr>
 <tr class="separator:a4c9ec151c1e9a26a619c6746df47343f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A classe <a class="el" href="classSchedule.html" title="A classe Schedule Esta classe é usada para representar um horariode uma semana Este armazena um conju...">Schedule</a> Esta classe é usada para representar um horariode uma semana Este armazena um conjunto de slots Um slot corresponde a uma aula Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc. </p>
+<div class="textblock"><p>Classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>. </p>
+<p>Esta classe é usada para representar um horariode uma semana.<br  />
+Este armazena um conjunto de slots.<br  />
+Um slot corresponde a uma aula.<br  />
+Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc. </p>
 
-<p class="definition">Definition at line <a class="el" href="Schedule_8h_source.html#l00016">16</a> of file <a class="el" href="Schedule_8h_source.html">Schedule.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Schedule_8h_source.html#l00017">17</a> of file <a class="el" href="Schedule_8h_source.html">Schedule.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a878716f4043a016224a14f78974edf1d" name="a878716f4043a016224a14f78974edf1d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a878716f4043a016224a14f78974edf1d">&#9670;&#160;</a></span>Schedule()</h2>
@@ -141,7 +145,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construtor da classe <a class="el" href="classSchedule.html" title="A classe Schedule Esta classe é usada para representar um horariode uma semana Este armazena um conju...">Schedule</a> Este construtor cria um horario vazio Complexidade Temporal: O(1) </p>
+<p>Construtor da classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>. </p>
+<p>Este construtor cria um horario vazio.<br  />
+Complexidade Temporal: O(1) </p>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00005">5</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    5</span>                   {</div>
@@ -167,21 +173,23 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adiciona um slot ao horario Função que adiciona um slot ao horario, adicionando-o ao set correspondente ao dia da semana, representado por uma posição no vetor. </p>
+<p>Adiciona um slot ao horario. </p>
+<p>Função que adiciona um slot ao horario, adicionando-o ao set correspondente ao dia da semana, representado por uma posição no vetor.<br  />
+Complexidade Temporal: O(logN) onde N é o número máximo de aulas de um dia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="classSlot.html">Slot</a></td><td>O slot a adicionar </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true se o slot foi adicionado, false caso contrário Complexidade Temporal: O(logN) onde N é o número máximo de aulas de um dia </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se o slot foi adicionado, false caso contrário </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00019">19</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   19</span>                                       {</div>
 <div class="line"><span class="lineno">   20</span>    schedule[<a class="code hl_function" href="classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f">weekDayToNum</a>(slot.getDay())].insert(slot);</div>
 <div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   22</span>}</div>
-<div class="ttc" id="aclassSchedule_html_a4c9ec151c1e9a26a619c6746df47343f"><div class="ttname"><a href="classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f">Schedule::weekDayToNum</a></div><div class="ttdeci">static int weekDayToNum(const string &amp;day)</div><div class="ttdoc">Dia da semana para inteiro Função que retorna um inteiro com o dia da semana correspondente à string ...</div><div class="ttdef"><b>Definition:</b> <a href="Schedule_8cpp_source.html#l00062">Schedule.cpp:62</a></div></div>
+<div class="ttc" id="aclassSchedule_html_a4c9ec151c1e9a26a619c6746df47343f"><div class="ttname"><a href="classSchedule.html#a4c9ec151c1e9a26a619c6746df47343f">Schedule::weekDayToNum</a></div><div class="ttdeci">static int weekDayToNum(const string &amp;day)</div><div class="ttdoc">Dia da semana para inteiro.</div><div class="ttdef"><b>Definition:</b> <a href="Schedule_8cpp_source.html#l00062">Schedule.cpp:62</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -201,7 +209,8 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Begin do horario. </p>
-<dl class="section return"><dt>Returns</dt><dd>O iterador para o primeiro slot do horario, ou seja, o primeiro slot do primeiro dia da semana Complexidade Temporal: O(1) </dd></dl>
+<p>Complexidade Temporal: O(1)</p>
+<dl class="section return"><dt>Returns</dt><dd>O iterador para o primeiro slot do horario, ou seja, o primeiro slot do primeiro dia da semana </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00044">44</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   44</span>                                 {</div>
@@ -226,14 +235,17 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Verifica se existe colisão entre o slot dado e os slots do horario Função que verifica se existe colisão entre um slot e os slots já existentes no horario Para isso percorre todas as aulas do dia da semana e verifica se existe colisão. </p>
+<p>Verifica se existe colisão entre o slot dado e os slots do horario. </p>
+<p>Função que verifica se existe colisão entre um slot e os slots já existentes no horario.<br  />
+Para isso percorre todas as aulas do dia da semana e verifica se existe colisão.<br  />
+Complexidade Temporal: O(N) onde N é o número máximo de aulas de um dia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="classSlot.html">Slot</a></td><td>O slot a verificar </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true se existe colisão, false caso contrário Complexidade Temporal: O(N) onde N é o número máximo de aulas de um dia </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se existe colisão, false caso contrário </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00024">24</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   24</span>                                                {</div>
@@ -265,7 +277,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Limpa o horario Função que limpa o horario, ou seja, usa a função clear() em cada set do vetor O(N) onde N é o número de aulas no horario. </p>
+<p>Limpa o horario. </p>
+<p>Função que limpa o horario, ou seja, usa a função clear() em cada set do vetor.<br  />
+Complexidade Temporal: O(N) onde N é o número de aulas no horario </p>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00013">13</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   13</span>                             {</div>
@@ -292,7 +306,8 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>End do horario. </p>
-<dl class="section return"><dt>Returns</dt><dd>O iterador para o último slot do horario, ou seja, o último slot do último dia da semana Complexidade Temporal: O(1) </dd></dl>
+<p>Complexidade Temporal: O(1)</p>
+<dl class="section return"><dt>Returns</dt><dd>O iterador para o último slot do horario, ou seja, o último slot do último dia da semana </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00048">48</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   48</span>                               {</div>
@@ -316,8 +331,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retorna o vetor Função que retorna o vetor de sets de slots onde está armazenada a informação sobre o horario. </p>
-<dl class="section return"><dt>Returns</dt><dd>O vetor de sets de slots Complexidade Temporal: O(1) </dd></dl>
+<p>Retorna o vetor. </p>
+<p>Função que retorna o vetor de sets de slots onde está armazenada a informação sobre o horario.<br  />
+Complexidade Temporal: O(1)</p>
+<dl class="section return"><dt>Returns</dt><dd>O vetor de sets de slots </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00009">9</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    9</span>                                              {</div>
@@ -350,7 +367,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Inteiro para dia da semana Função que retorna uma string com o dia da semana correspondente ao inteiro dado Isto é feito usando o map numToWeekDay_. </p>
+<p>Inteiro para dia da semana. </p>
+<p>Função que retorna uma string com o dia da semana correspondente ao inteiro dado.<br  />
+Isto é feito usando o map numToWeekDay_.<br  />
+Complexidade Temporal: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td></td></tr>
@@ -382,14 +402,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Operador [] Função que retorna o set de slots correspondente ao dia da semana dado. </p>
+<p>Operador []. </p>
+<p>Função que retorna o set de slots correspondente ao dia da semana dado.<br  />
+Complexidade Temporal: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>O dia da semana em formato de string </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>O set de slots correspondente ao dia da semana dado Complexidade Temporal: O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>O set de slots correspondente ao dia da semana dado </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00040">40</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   40</span>                                                 {</div>
@@ -414,14 +436,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Operador [] Função que retorna o set de slots correspondente ao dia da semana dado. </p>
+<p>Operador []. </p>
+<p>Função que retorna o set de slots correspondente ao dia da semana dado.<br  />
+Complexidade Temporal: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>O dia da semana em formato de inteiro </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>O set de slots correspondente ao dia da semana dado Complexidade Temporal: O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>O set de slots correspondente ao dia da semana dado </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00035">35</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   35</span>                                     {</div>
@@ -454,7 +478,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Dia da semana para inteiro Função que retorna um inteiro com o dia da semana correspondente à string dada Isto é feito usando o map weekDayToNum_. </p>
+<p>Dia da semana para inteiro. </p>
+<p>Função que retorna um inteiro com o dia da semana correspondente à string dada.<br  />
+Isto é feito usando o map weekDayToNum_,<br  />
+Complexidade Temporal: O(1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">day</td><td></td></tr>
