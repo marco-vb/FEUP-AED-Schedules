@@ -16,7 +16,7 @@ class Schedule {
         Schedule();
         vector<multiset<Slot>> getSchedule() const;
         void clearSchedule();
-        bool addSlot(const Slot slot);
+        bool addSlot(Slot slot);
         bool checkForCollision(Slot slot);
         multiset<Slot>& operator[] (int n);
         multiset<Slot>& operator[] (string day);

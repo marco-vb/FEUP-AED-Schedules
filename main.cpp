@@ -40,19 +40,26 @@ struct classCourseCompare {
     }
 };
 
+struct slotCompare{
+    bool operator()(const Slot* a, const Slot* b) const {
+        return a->getClassCode() < b->getClassCode() ||
+               (a->getClassCode() == b->getClassCode() && a->getCourseCode() < b->getCourseCode());
+    }
+};
+
 
 //define sets
 typedef set<Student*, studentCompare> studentSet;
 typedef set<Class*, classCompare> classSet;
 typedef set<Course*, courseCompare> courseSet;
 typedef set<pair<Class*, Course*>, classCourseCompare > classCoursesSet;
-
+typedef multiset<Slot*, slotCompare> slotSet;
 
 //functions
-void readAll(studentSet*, classSet*, courseSet*, classCoursesSet*);
+void readAll(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void readClasses(classSet*, courseSet*, classCoursesSet*);
 void readStudents(studentSet*, classSet*, courseSet*);
-void readSlots(studentSet*, classSet*, courseSet*);
+void readSlots(studentSet*, classSet*, courseSet*, slotSet*);
 void menu_full_lists(studentSet*, classSet*, courseSet*);
 void menu_partial_lists(studentSet*, classSet*, courseSet*);
 void listAllStudents(studentSet*);
@@ -63,6 +70,8 @@ void listStudentsInClass(studentSet*, classSet*);
 void listClassesOfStudent(studentSet*);
 void listSlotsOfClass(classSet*);
 void listSlotsOfCourse(courseSet*);
+Schedule getStudentSchedule(Student*, slotSet*);
+void printStudentSchedule(Student*, slotSet*, ostream& out = cout);
 void clear();
 void wait();
 
@@ -73,9 +82,10 @@ int main() {
     classSet classes;
     courseSet courses;
     classCoursesSet classCourses;
+    slotSet slots;
 
     // Read data from files
-    readAll(&students, &classes, &courses, &classCourses);
+    readAll(&students, &classes, &courses, &classCourses, &slots);
     cout << fixed << setprecision(1); // print lesson times correctly
     wait();
     int choice;
@@ -100,10 +110,10 @@ int main() {
     return 0;
 }
 
-void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
+void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     readClasses(classes, courses, classCourses);
     readStudents(students, classes, courses);
-    readSlots(students, classes, courses);
+    readSlots(students, classes, courses, slots);
 }
 
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
@@ -177,7 +187,7 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
     cout << "Number of students: " << students->size() << endl;
 }
 
-void readSlots(studentSet* students, classSet* classes, courseSet* courses) {
+void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) {
     ifstream slotsFile(classesSlots);
     string line;
     getline(slotsFile, line); // skip first line
@@ -216,12 +226,19 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses) {
 //            }
         }
 
-        pair<string, string> pair = {classcode, coursecode};
-        for (auto s: *students) {
-            auto studentPair = s -> getClassesPerCourse().find(pair);
-            if (studentPair != s -> getClassesPerCourse().end())
-                s->addSlot(*slot);
-        }
+        slots->insert(slot);
+
+//        pair<string, string> pair = {classcode, coursecode};
+//        for (auto s: *students) {
+//            auto studentPair = s->getClassesPerCourse().find(pair);
+//            if (studentPair != s->getClassesPerCourse().end()) {
+////                cout << line << endl;
+////                cout << s->getNumber() << endl;
+////                cout << "       " << slot->getDay() << " " << slot->getStartHour() << " " << slot->getEndHour() << " "
+////                     << slot->getType() << endl;
+//                s->addSlot(*slot);
+//            }
+//        }
 
     }
     cout << "Read Slots Successfully!" << endl;
@@ -295,7 +312,6 @@ void listAllCourses(courseSet* courses) {
 void listAllSlots(courseSet* courses) {
     for (const auto& c : *courses) {
         Schedule courseSchedule = c->getSchedule();
-        //courseSchedule.printSchedule();
         int i = 0;
         for (auto it = courseSchedule.begin();; it++) {
             while(it == courseSchedule[i].end() && it != courseSchedule.end()){
@@ -328,7 +344,6 @@ void listClassesOfStudent(studentSet* students) {
     cin >> studentNumber;
     for (const auto& s : *students) {
         if (s->getNumber() == studentNumber) {
-            //s->printSchedule();
             auto studentclasses = s->getClassesPerCourse();
             for (const auto& c : studentclasses)
                 cout << c.first << " - " << c.second << endl;
@@ -343,7 +358,6 @@ void listSlotsOfClass(classSet* classes) {
     for (const auto &c: *classes) {
         if (c->getCode() == classCode) {
             auto classSchedule = c->getSchedule();
-            //classSchedule.printSchedule();
              int i = 0;
              for (auto it = classSchedule.begin();; it++) {
                 while(it == classSchedule[i].end() && it != classSchedule.end()){ i++; it = classSchedule[i].begin(); }
@@ -363,7 +377,6 @@ void listSlotsOfCourse(courseSet* courses) {
     for (const auto &c: *courses) {
         if (c->getCode() == courseCode) {
             auto courseSchedule = c->getSchedule();
-            //courseSchedule.printSchedule();
             int i = 0;
             for (auto it = courseSchedule.begin(); it != courseSchedule.end(); it++) {
                 if (it == courseSchedule[i].end()) {
@@ -378,7 +391,28 @@ void listSlotsOfCourse(courseSet* courses) {
     }
 }
 
+Schedule getStudentSchedule(Student* student, slotSet* slots){
+    Schedule schedule;
+    for (auto p: student->getClassesPerCourse()) {
+        auto range = slots->equal_range(new Slot("", 0, 0, "", p.second, p.first));
+        for(auto it = range.first; it != range.second; it++){
+            schedule.addSlot(**it);
+        }
+    }
+    return schedule;
+}
 
+void printStudentSchedule(Student* student, slotSet* slots, ostream& out){
+    Schedule schedule = getStudentSchedule(student, slots);
+    for(int i = 0; i < 6; i++){
+        if(!schedule[i].empty())
+            out << Schedule::numToWeekDay(i) << ": " << endl;
+        for(const Slot& class_: schedule[i])
+            out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
+                << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
+        out << endl;
+    }
+}
 
 //helpers
 void clear() {
