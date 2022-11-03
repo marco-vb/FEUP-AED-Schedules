@@ -60,3 +60,19 @@ string Schedule::numToWeekDay(int n){
 int Schedule::weekDayToNum(string day){
     return weekDayToNum_.at(day);
 }
+
+void Schedule::printSchedule(ostream& out) const{
+    for(int i = 0; i < 6; i++){
+        if(!schedule[i].empty()) out << Schedule::numToWeekDay(i) << ": " << endl;
+        for(const Slot& class_: schedule[i])
+            out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
+                << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
+        out << endl;
+    }
+}
+
+void Schedule::printSchedule(const string &filename) const {
+    ofstream out(filename);
+    printSchedule(out);
+    out.close();
+}

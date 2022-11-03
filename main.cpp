@@ -41,21 +41,20 @@ typedef vector<pair<Class*, Course*>> classCoursesVector;
 
 
 //functions
-void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesVector*);
-void readClasses(classSet* classes, courseSet* courses);
-void readStudents(studentSet* students, classSet* classes, courseSet* courses);
-void readSlots(studentSet* students, classSet* classes, courseSet* courses);
-void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses);
-void menu_partial_lists(studentSet* students, classSet* classes, courseSet* courses);
-void listAllStudents(studentSet* students);
-void listAllClasses(classSet* classes);
-void listAllCourses(courseSet* courses);
-void listAllSlots(courseSet* courses);
-void listStudentsInClass(studentSet* students, classSet* classes);
-void listClassesOfStudent(studentSet* students);
-void listSlotsOfClass(classSet* classes);
-void listSlotsOfCourse(courseSet* courses);
-bool compareLessons(Slot& s1, Slot& s2);
+void readAll(studentSet*, classSet*, courseSet*, classCoursesVector*);
+void readClasses(classSet*, courseSet*, classCoursesVector*);
+void readStudents(studentSet*, classSet*, courseSet*);
+void readSlots(studentSet*, classSet*, courseSet*);
+void menu_full_lists(studentSet*, classSet*, courseSet*);
+void menu_partial_lists(studentSet*, classSet*, courseSet*);
+void listAllStudents(studentSet*);
+void listAllClasses(classSet*);
+void listAllCourses(courseSet*);
+void listAllSlots(courseSet*);
+void listStudentsInClass(studentSet*, classSet*);
+void listClassesOfStudent(studentSet*);
+void listSlotsOfClass(classSet*);
+void listSlotsOfCourse(courseSet*);
 void clear();
 void wait();
 
@@ -74,11 +73,12 @@ int main() {
     int choice;
     do {
         clear();
-        cout << "-----------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         cout << "| 1. Full listings                 |" << endl;
         cout << "| 2. Partial listings              |" << endl;
+        cout << "| 3. Make request                  |" << endl;
         cout << "| 0. Exit                          |" << endl;
-        cout << "-----------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         cout << "Your choice: ";
         cin >> choice;
         if (choice != 0) {
@@ -93,12 +93,12 @@ int main() {
 }
 
 void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesVector* classCourses) {
-    readClasses(classes, courses);
+    readClasses(classes, courses, classCourses);
     readStudents(students, classes, courses);
     readSlots(students, classes, courses);
 }
 
-void readClasses(classSet* classes, courseSet* courses) {
+void readClasses(classSet* classes, courseSet* courses, classCoursesVector* classCourses) {
     ifstream classesFile(classesCourses);
     string line;
     getline(classesFile, line); // skip first line
@@ -113,13 +113,13 @@ void readClasses(classSet* classes, courseSet* courses) {
         auto newCourse = new Course(coursecode);
         newCourse->setYear(year);
         auto newClass = new Class(classcode);
+        auto newClassCourse = make_pair(newClass, newCourse);
+        classCourses->push_back(newClassCourse);
         if (courses->find(newCourse) == courses->end())
             courses->insert(newCourse);
-        else delete newCourse;
 
         if (classes->find(newClass) == classes->end())
             classes->insert(newClass);
-        else delete newClass;
     }
     cout << "Read Classes Successfully!" << endl;
     cout << "Number of classes: " << classes->size() << endl;
@@ -149,18 +149,21 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
         (*student_it)->setName(name);
         (*student_it)->addClassCourse(classcode, coursecode);
 
-        for (auto c: *classes) {
-            if (c->getCode() == classcode) {
-                c->addStudent(studentNumber);
-                break;
-            }
+        auto course = new Course(coursecode);
+        auto course_it = courses->find(course);
+        if (course_it == courses->end()){
+            courses->insert(course);
+            course_it = courses->find(course);
         }
-        for (auto c: *courses) {
-            if (c->getCode() == coursecode) {
-                c->addStudent(studentNumber);
-                break;
-            }
+        (*course_it)->addStudent(studentNumber);
+
+        auto class_ = new Class(classcode);
+        auto class_it = classes->find(class_);
+        if (class_it == classes->end()){
+            classes->insert(class_);
+            class_it = classes->find(class_);
         }
+        (*class_it)->addStudent(studentNumber);
     }
     cout << "Read Students Successfully!" << endl;
     cout << "Number of students: " << students->size() << endl;
@@ -212,13 +215,13 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
     int choice;
     do {
         clear();
-        cout << "-----------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         cout << "| 1. List all students             |" << endl;
         cout << "| 2. List all classes              |" << endl;
         cout << "| 3. List all courses              |" << endl;
         cout << "| 4. List all lessons              |" << endl;
         cout << "| 0. Back                          |" << endl;
-        cout << "-----------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         cout << "Your choice: ";
         cin >> choice;
         if (choice != 0) {
@@ -237,13 +240,13 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
     int choice;
     do {
         clear();
-        cout << "-----------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         cout << "| 1. List all students in a class  |" << endl;
         cout << "| 2. List all classes of a student |" << endl;
         cout << "| 3. List all lessons of a class   |" << endl;
         cout << "| 4. List all lessons of a course  |" << endl;
         cout << "| 0. Back                          |" << endl;
-        cout << "-----------------------------------" << endl;
+        cout << "------------------------------------" << endl;
         cout << "Your choice: ";
         cin >> choice;
         if (choice != 0) {
@@ -276,6 +279,7 @@ void listAllCourses(courseSet* courses) {
 void listAllSlots(courseSet* courses) {
     for (const auto& c : *courses) {
         Schedule courseSchedule = c->getSchedule();
+        //courseSchedule.printSchedule();
         int i = 0;
         for (auto it = courseSchedule.begin();; it++) {
             while(it == courseSchedule[i].end() && it != courseSchedule.end()){
@@ -308,10 +312,10 @@ void listClassesOfStudent(studentSet* students) {
     cin >> studentNumber;
     for (const auto& s : *students) {
         if (s->getNumber() == studentNumber) {
-//            s->printSchedule();
-            auto studentclasses = s->getClassesPerCourse();
+            s->printSchedule();
+            /*auto studentclasses = s->getClassesPerCourse();
             for (const auto& c : studentclasses)
-                cout << c.first << " - " << c.second << endl;
+                cout << c.first << " - " << c.second << endl;*/
         }
     }
 }
@@ -323,8 +327,9 @@ void listSlotsOfClass(classSet* classes) {
     for (const auto &c: *classes) {
         if (c->getCode() == classCode) {
             auto classSchedule = c->getSchedule();
-            int i = 0;
-            for (auto it = classSchedule.begin();; it++) {
+            //classSchedule.printSchedule();
+             int i = 0;
+             for (auto it = classSchedule.begin();; it++) {
                 while(it == classSchedule[i].end() && it != classSchedule.end()){ i++; it = classSchedule[i].begin(); }
                 if(it == classSchedule.end()) break;
                 Slot s = *it;
@@ -342,6 +347,7 @@ void listSlotsOfCourse(courseSet* courses) {
     for (const auto &c: *courses) {
         if (c->getCode() == courseCode) {
             auto courseSchedule = c->getSchedule();
+            //courseSchedule.printSchedule();
             int i = 0;
             for (auto it = courseSchedule.begin(); it != courseSchedule.end(); it++) {
                 if (it == courseSchedule[i].end()) {
@@ -359,13 +365,6 @@ void listSlotsOfCourse(courseSet* courses) {
 
 
 //helpers
-bool compareLessons(Slot& s1, Slot& s2) {
-    map<string, int> days = { {"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5} };
-    if (days[s1.getDay()] == days[s2.getDay()])
-        return s1.getStartHour() < s2.getStartHour();
-    return days[s1.getDay()] < days[s2.getDay()];
-}
-
 void clear() {
     for (int i = 0; i < 50; i++) cout << endl;
 }

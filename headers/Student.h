@@ -24,7 +24,7 @@ class Student {
         Schedule getSchedule() const;
         bool addClassCourse(string const& classcode, string const& coursecode);
         bool removeClassCourse(string const& classcode, string const& coursecode);
-        void printSchedule(ostream& out = cout) const;
+        void printSchedule(ostream& out = cout) const;    //prints through Schedule
         void printSchedule(string const& filename) const;
 };
 

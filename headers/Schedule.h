@@ -22,6 +22,8 @@ class Schedule {
         multiset<Slot>& operator[] (string day);
         multiset<Slot>::iterator begin();
         multiset<Slot>::iterator end();
+        void printSchedule(ostream& out = cout) const;
+        void printSchedule(string const& filename) const;
 
         static string numToWeekDay(int n);
         static int weekDayToNum(string day);
