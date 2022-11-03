@@ -4,6 +4,7 @@
 #include "headers/Class.h"
 #include "headers/Schedule.h"
 #include "headers/Student.h"
+#include "headers/functions.h"
 
 using namespace std;
 
@@ -36,10 +37,11 @@ struct courseCompare {
 typedef set<Student*, studentCompare> studentSet;
 typedef set<Class*, classCompare> classSet;
 typedef set<Course*, courseCompare> courseSet;
+typedef vector<pair<Class*, Course*>> classCoursesVector;
 
 
 //functions
-void readAll(studentSet* students, classSet* classes, courseSet* courses);
+void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesVector*);
 void readClasses(classSet* classes, courseSet* courses);
 void readStudents(studentSet* students, classSet* classes, courseSet* courses);
 void readSlots(studentSet* students, classSet* classes, courseSet* courses);
@@ -63,9 +65,10 @@ int main() {
     studentSet students;
     classSet classes;
     courseSet courses;
+    classCoursesVector classCourses;
 
     // Read data from files
-    readAll(&students, &classes, &courses);
+    readAll(&students, &classes, &courses, &classCourses);
     cout << fixed << setprecision(1); // print lesson times correctly
     wait();
     int choice;
@@ -89,7 +92,7 @@ int main() {
     return 0;
 }
 
-void readAll(studentSet* students, classSet* classes, courseSet* courses) {
+void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesVector* classCourses) {
     readClasses(classes, courses);
     readStudents(students, classes, courses);
     readSlots(students, classes, courses);
@@ -144,8 +147,7 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
             student_it = students->find(student);
         }
         (*student_it)->setName(name);
-        (*student_it)->addCourse(coursecode);
-        (*student_it)->addClass(classcode);
+        (*student_it)->addClassCourse(classcode, coursecode);
 
         for (auto c: *classes) {
             if (c->getCode() == classcode) {
@@ -272,16 +274,16 @@ void listAllCourses(courseSet* courses) {
 }
 
 void listAllSlots(courseSet* courses) {
-    int i1 = 0;
     for (const auto& c : *courses) {
         Schedule courseSchedule = c->getSchedule();
         int i = 0;
         for (auto it = courseSchedule.begin();; it++) {
-            cout << i1++ << endl;
-            while(it == courseSchedule[i].end() && it != courseSchedule.end()){ i++; it = courseSchedule[i].begin(); }
+            while(it == courseSchedule[i].end() && it != courseSchedule.end()){
+                i++; it = courseSchedule[i].begin();
+            }
             if(it == courseSchedule.end()) break;
             Slot s = *it;
-            cout << s.getCourseCode() << " " << s.getDay() << " " << s.getStartHour() << " " << s.getEndHour() << " " << s.getType() << endl;
+            cout << "Course: " << s.getCourseCode() << " - Class: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
         }
     }
 }
@@ -306,9 +308,10 @@ void listClassesOfStudent(studentSet* students) {
     cin >> studentNumber;
     for (const auto& s : *students) {
         if (s->getNumber() == studentNumber) {
-            auto studentclasses = s->getClasses();
+//            s->printSchedule();
+            auto studentclasses = s->getClassesPerCourse();
             for (const auto& c : studentclasses)
-                cout << c << endl;
+                cout << c.first << " - " << c.second << endl;
         }
     }
 }
@@ -321,8 +324,9 @@ void listSlotsOfClass(classSet* classes) {
         if (c->getCode() == classCode) {
             auto classSchedule = c->getSchedule();
             int i = 0;
-            for (auto it = classSchedule.begin(); it != classSchedule.end(); it++) {
-                if (it == classSchedule[i].end()){ i++; it = classSchedule[i].begin(); }
+            for (auto it = classSchedule.begin();; it++) {
+                while(it == classSchedule[i].end() && it != classSchedule.end()){ i++; it = classSchedule[i].begin(); }
+                if(it == classSchedule.end()) break;
                 Slot s = *it;
                 cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
                      << " " << s.getType() << endl;

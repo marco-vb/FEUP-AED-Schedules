@@ -3,10 +3,10 @@
 #include "../headers/Schedule.h"
 
 Schedule::Schedule() {
-    schedule = vector<set<Slot>>(6);
+    schedule = vector<multiset<Slot>>(6);
 }
 
-vector<set<Slot>> Schedule::getSchedule() const {
+vector<multiset<Slot>> Schedule::getSchedule() const {
     return schedule;
 }
 
@@ -21,19 +21,30 @@ bool Schedule::addSlot(const Slot slot) {
     return true;
 }
 
-set<Slot>& Schedule::operator[] (int n){
+bool Schedule::checkForCollision(Slot slot){
+    if(slot.getType() == "T") return false;
+    for(Slot cs : schedule[weekDayToNum(slot.getDay())]){
+        if(cs.getType() != "T") {
+            return (cs.getStartHour() < slot.getStartHour() && cs.getEndHour() > slot.getStartHour()) ||
+                   (slot.getStartHour() < cs.getStartHour() && slot.getEndHour() > cs.getStartHour());
+        }
+    }
+    return false;
+}
+
+multiset<Slot>& Schedule::operator[] (int n){
     return schedule[n];
 }
 
-set<Slot>& Schedule::operator[] (string day){
+multiset<Slot>& Schedule::operator[] (string day){
     return schedule[weekDayToNum(day)];
 }
 
-set<Slot>::iterator Schedule::begin(){
+multiset<Slot>::iterator Schedule::begin(){
     return schedule[0].begin();
 }
 
-set<Slot>::iterator Schedule::end(){
+multiset<Slot>::iterator Schedule::end(){
     return schedule[5].end();
 }
 
@@ -49,18 +60,3 @@ string Schedule::numToWeekDay(int n){
 int Schedule::weekDayToNum(string day){
     return weekDayToNum_.at(day);
 }
-
-//ScheduleIterator::ScheduleIterator(set<Slot>::iterator it, Schedule schedule, int day){
-//    this->schedule = schedule;
-//    this-> it = it;
-//}
-//
-//ScheduleIterator& ScheduleIterator::operator++() {
-//    auto temp = it; temp++;
-//    if();
-//}
-//    ScheduleIterator operator++(int);
-//    bool operator==(const ScheduleIterator& other) const;
-//    bool operator!=(const ScheduleIterator& other) const;
-//    set<Slot>& operator*();
-//};
