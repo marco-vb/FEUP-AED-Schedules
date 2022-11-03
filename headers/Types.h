@@ -34,11 +34,18 @@ struct classCourseCompare {
     }
 };
 
+struct slotCompare{
+    bool operator()(const Slot* a, const Slot* b) const {
+        return a->getClassCode() < b->getClassCode() ||
+               (a->getClassCode() == b->getClassCode() && a->getCourseCode() < b->getCourseCode());
+    }
+};
+
 //define sets
 typedef set<Student*, studentCompare> studentSet;
 typedef set<Class*, classCompare> classSet;
 typedef set<Course*, courseCompare> courseSet;
 typedef set<pair<Class*, Course*>, classCourseCompare > classCoursesSet;
-
+typedef multiset<Slot*, slotCompare> slotSet;
 
 #endif

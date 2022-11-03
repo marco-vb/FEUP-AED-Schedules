@@ -5,9 +5,10 @@ int main() {
     classSet classes;
     courseSet courses;
     classCoursesSet classCourses;
+    slotSet slots;
 
     // Read data from files
-    readAll(&students, &classes, &courses, &classCourses);
+    readAll(&students, &classes, &courses, &classCourses, &slots);
     cout << fixed << setprecision(1); // print lesson times correctly
     wait();
     int choice;
@@ -17,6 +18,7 @@ int main() {
         cout << "| 1. Full listings                 |" << endl;
         cout << "| 2. Partial listings              |" << endl;
         cout << "| 3. Make request                  |" << endl;
+        cout << "| 4. Student Schedule              |" << endl;
         cout << "| 0. Exit                          |" << endl;
         cout << "------------------------------------" << endl;
         cout << "Your choice: ";
@@ -25,6 +27,7 @@ int main() {
             switch (choice) {
                 case 1: menu_full_lists(&students, &classes, &courses); break;
                 case 2: menu_partial_lists(&students, &classes, &courses); break;
+//                case 4: menu_schedule(&students, &classes, &courses, &classCourses, &slots); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
@@ -82,3 +85,5 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
         }
     } while (choice != 0);
 }
+
+//void menu_schedule(&students, &classes, &courses, &classCourses, &slots);
