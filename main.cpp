@@ -328,10 +328,10 @@ void listClassesOfStudent(studentSet* students) {
     cin >> studentNumber;
     for (const auto& s : *students) {
         if (s->getNumber() == studentNumber) {
-            s->printSchedule();
-            /*auto studentclasses = s->getClassesPerCourse();
+            //s->printSchedule();
+            auto studentclasses = s->getClassesPerCourse();
             for (const auto& c : studentclasses)
-                cout << c.first << " - " << c.second << endl;*/
+                cout << c.first << " - " << c.second << endl;
         }
     }
 }
