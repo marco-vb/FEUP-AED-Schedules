@@ -67,6 +67,7 @@ void Schedule::printSchedule(ostream& out) const{
         for(const Slot& class_: schedule[i])
             out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
                 << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
+        /* Printing a new line. */
         out << endl;
     }
 }

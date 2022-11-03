@@ -59,6 +59,7 @@ void Request::handleRequest(studentSet* students) {
                         setRequestStatus("rejected");
                 }
                 else
+                    /* Setting the request status to rejected. */
                     setRequestStatus("rejected");
             }
         }
