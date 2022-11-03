@@ -4,11 +4,6 @@
 1	12	1667329359591807419	CMakeFiles/schedule.dir/definitions/Request.cpp.o	6064e877b0ef308d
 1145	1213	1667349648448390449	schedule	1f63ba9b1d535be3
 0	1145	1667349648380388564	CMakeFiles/schedule.dir/main.cpp.o	f4fd542ba423ba1e
-1	189	1667329359767817417	CMakeFiles/schedule.dir/definitions/ClassCourse.cpp.o	8d6c1a65585c3ed0
 1	858	1667349648092380579	CMakeFiles/schedule.dir/definitions/Student.cpp.o	4d32dbecd1e436fd
-1	14	1667329359591807419	CMakeFiles/schedule.dir/definitions/ScheduleManagement.cpp.o	7d67fe3df6a81607
-1431	2178	1667331502057294019	CMakeFiles/schedule.dir/definitions/StudentNew.cpp.o	38f4a5dfdbf4afa
 1	852	1667349648088380468	CMakeFiles/schedule.dir/definitions/Course.cpp.o	a65c55ce0e52d92c
-1	643	1667329360219843086	CMakeFiles/schedule.dir/definitions/WeeklySchedule.cpp.o	6266b8c46cd9cd15
-1	1567	1667331501445274045	CMakeFiles/schedule.dir/definitions/ClassSchedule.cpp.o	211031a9fc649817
 2	1346	1667346051615311779	CMakeFiles/schedule.dir/definitions/Schedule.cpp.o	174096ba1321978

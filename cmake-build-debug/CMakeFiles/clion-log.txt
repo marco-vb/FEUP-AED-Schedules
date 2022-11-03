@@ -1,4 +1,0 @@
-/home/marco-vb/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/marco-vb/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/ninja/linux/ninja -G Ninja -S /home/marco-vb/Desktop/projects/aed/groups/schedule -B /home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /home/marco-vb/Desktop/projects/aed/groups/schedule/cmake-build-debug

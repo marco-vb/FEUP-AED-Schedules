@@ -7,8 +7,7 @@ using namespace std;
 Student::Student(int number) {
     this->name = string();
     this->number = number;
-    this->classes = set<string>();
-    this->courses = set<string>();
+    this->classesPerCourse = set<pair<string, string>>();
 }
 
 int Student::getNumber() const {
@@ -23,33 +22,25 @@ void Student::setName(string n) {
     this->name = std::move(n);
 }
 
-set<string> Student::getClasses() const {
-    return classes;
-}
-
-set<string> Student::getCourses() const {
-    return courses;
+set<pair<string, string>> Student::getClassesPerCourse() const {
+    return classesPerCourse;
 }
 
 Schedule Student::getSchedule() const {
     return schedule;
 }
 
-bool Student::addClass(string const& classcode) {
-    if (classes.find(classcode) != classes.end()) return false;
-    classes.insert(classcode);
+bool Student::addClassCourse(string const& classcode, string const& coursecode){
+    pair<string, string> pair = {classcode, coursecode};
+    if (classesPerCourse.find(pair) != classesPerCourse.end()) return false;
+    classesPerCourse.insert(pair);
     return true;
 }
 
-bool Student::addCourse(string const& coursecode) {
-    if (courses.find(coursecode) != courses.end()) return false;
-    courses.insert(coursecode);
-    return true;
-}
-
-bool Student::removeClass(string const& classcode) {
-    if (classes.find(classcode) == classes.end()) return false;
-    classes.erase(classcode);
+bool Student::removeClassCourse(string const& classcode, string const& coursecode){
+    pair<string, string> pair = {classcode, coursecode};
+    if (classesPerCourse.find(pair) == classesPerCourse.end()) return false;
+    classesPerCourse.erase(pair);
     return true;
 }
 
@@ -57,16 +48,19 @@ bool Student::addSlot(Slot slot) {
     return schedule.addSlot(std::move(slot));
 }
 
-void Student::printSchedule(ostream& out){
+void Student::printSchedule(ostream& out) const{
     out << "Schedule for " << name << " (" << number << "):" << endl;
-    Schedule s = this->getSchedule();
-
-    for (const Slot& slot : s.getSchedule()){
-        out << slot.getDay() << ": " << slot.getCourseCode() << " " << slot.getStartHour() << " " << slot.getEndHour() << endl;
+    Schedule schedule = getSchedule();
+    for(int i = 0; i < 6; i++){
+        if(!schedule[i].empty()) out << Schedule::numToWeekDay(i) << ": " << endl;
+        for(Slot class_: schedule[i])
+            out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
+            << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
+        out << endl;
     }
 }
 
-void Student::printSchedule(const string &filename) {
+void Student::printSchedule(const string &filename) const{
     ofstream out(filename);
     printSchedule(out);
     out.close();

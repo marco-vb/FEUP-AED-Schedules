@@ -11,8 +11,7 @@ class Student {
     private:
         int number;
         string name;
-        set<string> classes;       // set of class codes
-        set<string> courses;       // set of course codes
+        set<pair<string, string>> classesPerCourse;
         Schedule schedule;
 
     public:
@@ -20,15 +19,13 @@ class Student {
         int getNumber() const;
         string getName() const;
         void setName(string name);
-        set<string> getClasses() const;
-        set<string> getCourses() const;
-        Schedule getSchedule() const;
-        bool addClass(string const& classcode);
-        bool addCourse(string const& coursecode);
-        bool removeClass(string const& classcode);
+        set<pair<string, string>> getClassesPerCourse() const;
         bool addSlot(Slot slot);
-        void printSchedule(ostream& out = cout);
-        void printSchedule(string const& filename);
+        Schedule getSchedule() const;
+        bool addClassCourse(string const& classcode, string const& coursecode);
+        bool removeClassCourse(string const& classcode, string const& coursecode);
+        void printSchedule(ostream& out = cout) const;
+        void printSchedule(string const& filename) const;
 };
 
 

@@ -36,3 +36,7 @@ string Slot::getCourseCode() const {
 string Slot::getClassCode() const {
     return classcode;
 }
+
+bool Slot::operator<(Slot slot) const{
+    return this -> startHour < slot.getStartHour();
+}
