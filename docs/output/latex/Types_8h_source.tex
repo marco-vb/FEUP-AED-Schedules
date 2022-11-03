@@ -1,0 +1,43 @@
+\hypertarget{Types_8h_source}{}\doxysection{Types.\+h}
+\label{Types_8h_source}\index{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/Types.h@{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/Types.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00002}00002 \textcolor{preprocessor}{\#define TYPES\_H}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}Student.h"{}}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}Course.h"{}}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}Class.h"{}}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00009}00009 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00010}00010 \textcolor{comment}{//comparing structs}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00011}00011 \textcolor{comment}{//order students by number}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00012}\mbox{\hyperlink{structstudentCompare}{00012}} \textcolor{keyword}{struct }\mbox{\hyperlink{structstudentCompare}{studentCompare}} \{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00013}00013     \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classStudent}{Student}}* b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00014}00014         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}() < b-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}();}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00015}00015     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00016}00016 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00017}00017 \textcolor{comment}{//order courses by code}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00018}\mbox{\hyperlink{structclassCourseCompare}{00018}} \textcolor{keyword}{struct }\mbox{\hyperlink{structclassCourseCompare}{classCourseCompare}} \{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00019}00019     \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} pair<Class *, Course *> a, \textcolor{keyword}{const} pair<Class *, Course *> b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00020}00020         \textcolor{keywordflow}{return} (a.first-\/>getCode() < b.first-\/>getCode()) ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00021}00021                (a.first-\/>getCode() == b.first-\/>getCode() \&\& a.second-\/>getCode() < b.second-\/>getCode());}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00022}00022     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00023}00023 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00025}\mbox{\hyperlink{structslotCompare}{00025}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompare}{slotCompare}}\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00026}00026     \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}* b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00027}00027         \textcolor{keywordflow}{return} a-\/>getClassCode() < b-\/>getClassCode() ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00028}00028                (a-\/>getClassCode() == b-\/>getClassCode() \&\& a-\/>getCourseCode() < b-\/>getCourseCode());}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00030}00030 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00032}00032 \textcolor{comment}{//define sets}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00033}00033 \textcolor{keyword}{typedef} set<Student*, studentCompare> studentSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00034}00034 \textcolor{keyword}{typedef} set<pair<Class*, Course*>, \mbox{\hyperlink{structclassCourseCompare}{classCourseCompare}} > classCoursesSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00035}00035 \textcolor{keyword}{typedef} set<Slot*, slotCompare> slotSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00037}00037 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

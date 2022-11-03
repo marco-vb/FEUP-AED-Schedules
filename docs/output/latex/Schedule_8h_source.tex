@@ -1,0 +1,50 @@
+\hypertarget{Schedule_8h_source}{}\doxysection{Schedule.\+h}
+\label{Schedule_8h_source}\index{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/Schedule.h@{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/Schedule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef SCHEDULE\_H}}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00002}00002 \textcolor{preprocessor}{\#define SCHEDULE\_H}}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}Slot.h"{}}}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00007}00007 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00016}\mbox{\hyperlink{classSchedule}{00016}} \textcolor{keyword}{class }\mbox{\hyperlink{classSchedule}{Schedule}} \{}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00017}00017     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00018}00018     }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00027}00027         vector<set<Slot>> schedule;}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00028}00028         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00030}00030         \textcolor{keyword}{static} \textcolor{keyword}{const} map<int, string> numToWeekDay\_;}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00031}00031         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00033}00033         \textcolor{keyword}{static} \textcolor{keyword}{const} map<string, int> weekDayToNum\_;}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00035}00035     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00042}00042         \mbox{\hyperlink{classSchedule_a878716f4043a016224a14f78974edf1d}{Schedule}}();}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00043}00043         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00050}00050         vector<set<Slot>> \mbox{\hyperlink{classSchedule_ae95e81d40a673b77285a96148d829b41}{getSchedule}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00051}00051         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00057}00057         \textcolor{keywordtype}{void} \mbox{\hyperlink{classSchedule_a0e70c390bb07cd134cbc7f0090ef52b0}{clearSchedule}}();}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00058}00058         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00066}00066         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{addSlot}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& slot);}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00067}00067         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00076}00076         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_a19af129293728ce760244303352299c0}{checkForCollision}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& slot);}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00077}00077         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00085}00085         set<Slot>\& \mbox{\hyperlink{classSchedule_a8924812490c86cba00f43ac3af344e79}{operator[] }}(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00086}00086         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00094}00094         set<Slot>\& \mbox{\hyperlink{classSchedule_a8924812490c86cba00f43ac3af344e79}{operator[] }}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& day);}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00095}00095         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00101}00101         set<Slot>::iterator \mbox{\hyperlink{classSchedule_ac89f4ff97dad1820b4846c0d58cfb0b2}{begin}}();}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00102}00102         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00108}00108         set<Slot>::iterator \mbox{\hyperlink{classSchedule_a168a1ca8c0e26c21727f2ee9515f55a2}{end}}();}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00109}00109         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00117}00117         \textcolor{keyword}{static} \textcolor{keywordtype}{string} \mbox{\hyperlink{classSchedule_a66283b41cd0d93e15120299f55e9a1e1}{numToWeekDay}}(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00118}00118         }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00126}00126         \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classSchedule_a4c9ec151c1e9a26a619c6746df47343f}{weekDayToNum}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& day);}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00128}00128 \};}
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{Schedule_8h_source_l00130}00130 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

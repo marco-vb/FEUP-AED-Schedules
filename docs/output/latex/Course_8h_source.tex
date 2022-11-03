@@ -1,0 +1,42 @@
+\hypertarget{Course_8h_source}{}\doxysection{Course.\+h}
+\label{Course_8h_source}\index{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/Course.h@{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/headers/Course.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef COURSE\_H\_}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00002}00002 \textcolor{preprocessor}{\#define COURSE\_H\_}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}Slot.h"{}}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}Schedule.h"{}}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00008}00008 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00011}\mbox{\hyperlink{classCourse}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{classCourse}{Course}} \{}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00012}00012     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00013}00013         \textcolor{keywordtype}{string} code;            \textcolor{comment}{// Course code (e.g. "{}L.EIC001"{})}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00014}00014         \textcolor{keywordtype}{int} year;               \textcolor{comment}{// 1st, 2nd, 3rd, 4th, 5th}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00015}00015         \mbox{\hyperlink{classSchedule}{Schedule}} schedule;      \textcolor{comment}{// schedule of this course}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00016}00016         set<int> students;      \textcolor{comment}{// set of student by id number}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00017}00017     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00018}00018         \textcolor{keyword}{explicit} \mbox{\hyperlink{classCourse}{Course}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00019}00019         \textcolor{keywordtype}{string} getCode() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00020}00020         \textcolor{keywordtype}{int} getYear() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00021}00021         \textcolor{keywordtype}{void} setYear(\textcolor{keywordtype}{int} year);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00022}00022         \mbox{\hyperlink{classSchedule}{Schedule}} getSchedule() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00023}00023         \textcolor{keywordtype}{void} clearSchedule();}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00024}00024         \textcolor{keywordtype}{bool} addSlot(\mbox{\hyperlink{classSlot}{Slot}} slot);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00025}00025         set<int> getStudents() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00026}00026         \textcolor{keywordtype}{bool} addStudent(\textcolor{keywordtype}{int} studentNumber);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00027}00027         \textcolor{keywordtype}{bool} removeStudent(\textcolor{keywordtype}{int} studentNumber);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00028}00028 \};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00030}\mbox{\hyperlink{structcomp}{00030}} \textcolor{keyword}{struct }\mbox{\hyperlink{structcomp}{comp}} \{}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00031}00031     \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classCourse}{Course}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classCourse}{Course}}* b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00032}00032         \textcolor{keywordflow}{return} a-\/>getCode() < b-\/>getCode();}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00034}00034 \};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00035}00035 \textcolor{keyword}{typedef} set<Course*, comp> courseSet;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00036}00036 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

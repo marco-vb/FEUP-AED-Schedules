@@ -11,7 +11,7 @@ add_executable(schedule main.cpp headers/Request.h headers/Slot.h definitions/Re
 # Doxygen Build
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
-    set(BUILD_DOC_DIR "${CMAKE_SOURCE_DIR}/docs/output")
+    set(BUILD_DOC_DIR "/docs/output")
     if(NOT EXISTS "${BUILD_DOC_DIR}")
         file(MAKE_DIRECTORY "${BUILD_DOC_DIR}")
     endif()

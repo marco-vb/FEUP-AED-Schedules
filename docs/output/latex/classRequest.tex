@@ -1,0 +1,274 @@
+\hypertarget{classRequest}{}\doxysection{Request Class Reference}
+\label{classRequest}\index{Request@{Request}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRequest_a99bf7603ccc94e6cae6f54a229e876df}{Request}} (int student\+Number, int request\+Number, string course\+Code, string class\+Code, string request\+Type, string request\+Status, string request\+Date, string request\+Time)
+\item 
+int \mbox{\hyperlink{classRequest_af1bedc3b8890be69c8be59f7d7335077}{get\+Student\+Number}} () const
+\item 
+int \mbox{\hyperlink{classRequest_a99ce97ecd8c64a29d56faa840f310248}{get\+Request\+Number}} () const
+\item 
+string \mbox{\hyperlink{classRequest_ad1de5da28308ca34d3012345b9ce2fbd}{get\+Course\+Code}} () const
+\item 
+string \mbox{\hyperlink{classRequest_a3da661be0b471d1e728dc12cbf3d194d}{get\+Class\+Code}} () const
+\item 
+string \mbox{\hyperlink{classRequest_aaadda6ff6d4a2d4e200753495a0ec079}{get\+Request\+Type}} () const
+\item 
+string \mbox{\hyperlink{classRequest_abaa6649a92d9100a62f6de0e611aafe0}{get\+Request\+Status}} () const
+\item 
+string \mbox{\hyperlink{classRequest_aa436077c4759fea57be0428ded73fa2a}{get\+Request\+Date}} () const
+\item 
+string \mbox{\hyperlink{classRequest_a58d61fc534a152d3dbcbf7318aa234ff}{get\+Request\+Time}} () const
+\item 
+void \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{set\+Request\+Status}} (string request\+Status)
+\item 
+void \mbox{\hyperlink{classRequest_a5e22e6e59455ca525e6146969355688b}{handle\+Request}} (student\+Set $\ast$students)
+\item 
+void \mbox{\hyperlink{classRequest_a6a09b77fdeebe2fdaa09b2f19458a490}{archive\+Request}} (ostream \&out) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Request_8h_source_l00008}{8}} of file \mbox{\hyperlink{Request_8h_source}{Request.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRequest_a99bf7603ccc94e6cae6f54a229e876df}\label{classRequest_a99bf7603ccc94e6cae6f54a229e876df}} 
+\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}}
+{\footnotesize\ttfamily Request\+::\+Request (\begin{DoxyParamCaption}\item[{int}]{student\+Number,  }\item[{int}]{request\+Number,  }\item[{string}]{course\+Code,  }\item[{string}]{class\+Code,  }\item[{string}]{request\+Type,  }\item[{string}]{request\+Status,  }\item[{string}]{request\+Date,  }\item[{string}]{request\+Time }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005                                                                                                                                                                             \{}
+\DoxyCodeLine{00006     this-\/>studentNumber = studentNumber;}
+\DoxyCodeLine{00007     this-\/>requestNumber = requestNumber;}
+\DoxyCodeLine{00008     this-\/>courseCode = std::move(courseCode);}
+\DoxyCodeLine{00009     this-\/>classCode = std::move(classCode);}
+\DoxyCodeLine{00010     this-\/>requestType = std::move(requestType);}
+\DoxyCodeLine{00011     this-\/>requestStatus = std::move(requestStatus);}
+\DoxyCodeLine{00012     this-\/>requestDate = std::move(requestDate);}
+\DoxyCodeLine{00013     this-\/>requestTime = std::move(requestTime);}
+\DoxyCodeLine{00014 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRequest_a6a09b77fdeebe2fdaa09b2f19458a490}\label{classRequest_a6a09b77fdeebe2fdaa09b2f19458a490}} 
+\index{Request@{Request}!archiveRequest@{archiveRequest}}
+\index{archiveRequest@{archiveRequest}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{archiveRequest()}{archiveRequest()}}
+{\footnotesize\ttfamily void Request\+::archive\+Request (\begin{DoxyParamCaption}\item[{ostream \&}]{out }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069                                                \{}
+\DoxyCodeLine{00070     out << studentNumber << \textcolor{stringliteral}{"{},"{}} << requestNumber << \textcolor{stringliteral}{"{},"{}} << courseCode << \textcolor{stringliteral}{"{},"{}}}
+\DoxyCodeLine{00071     << classCode << \textcolor{stringliteral}{"{},"{}} << requestType << \textcolor{stringliteral}{"{},"{}} << requestStatus << \textcolor{stringliteral}{"{},"{}} <<}
+\DoxyCodeLine{00072     requestDate << \textcolor{stringliteral}{"{},"{}} << requestTime << endl;}
+\DoxyCodeLine{00073 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_a3da661be0b471d1e728dc12cbf3d194d}\label{classRequest_a3da661be0b471d1e728dc12cbf3d194d}} 
+\index{Request@{Request}!getClassCode@{getClassCode}}
+\index{getClassCode@{getClassCode}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getClassCode()}{getClassCode()}}
+{\footnotesize\ttfamily string Request\+::get\+Class\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{\textcolor{keywordflow}{return} classCode;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_ad1de5da28308ca34d3012345b9ce2fbd}\label{classRequest_ad1de5da28308ca34d3012345b9ce2fbd}} 
+\index{Request@{Request}!getCourseCode@{getCourseCode}}
+\index{getCourseCode@{getCourseCode}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getCourseCode()}{getCourseCode()}}
+{\footnotesize\ttfamily string Request\+::get\+Course\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{\textcolor{keywordflow}{return} courseCode;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_aa436077c4759fea57be0428ded73fa2a}\label{classRequest_aa436077c4759fea57be0428ded73fa2a}} 
+\index{Request@{Request}!getRequestDate@{getRequestDate}}
+\index{getRequestDate@{getRequestDate}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getRequestDate()}{getRequestDate()}}
+{\footnotesize\ttfamily string Request\+::get\+Request\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{\textcolor{keywordflow}{return} requestDate;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_a99ce97ecd8c64a29d56faa840f310248}\label{classRequest_a99ce97ecd8c64a29d56faa840f310248}} 
+\index{Request@{Request}!getRequestNumber@{getRequestNumber}}
+\index{getRequestNumber@{getRequestNumber}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getRequestNumber()}{getRequestNumber()}}
+{\footnotesize\ttfamily int Request\+::get\+Request\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \{\textcolor{keywordflow}{return} requestNumber;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_abaa6649a92d9100a62f6de0e611aafe0}\label{classRequest_abaa6649a92d9100a62f6de0e611aafe0}} 
+\index{Request@{Request}!getRequestStatus@{getRequestStatus}}
+\index{getRequestStatus@{getRequestStatus}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getRequestStatus()}{getRequestStatus()}}
+{\footnotesize\ttfamily string Request\+::get\+Request\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{\textcolor{keywordflow}{return} requestStatus;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_a58d61fc534a152d3dbcbf7318aa234ff}\label{classRequest_a58d61fc534a152d3dbcbf7318aa234ff}} 
+\index{Request@{Request}!getRequestTime@{getRequestTime}}
+\index{getRequestTime@{getRequestTime}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getRequestTime()}{getRequestTime()}}
+{\footnotesize\ttfamily string Request\+::get\+Request\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030 \{\textcolor{keywordflow}{return} requestTime;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_aaadda6ff6d4a2d4e200753495a0ec079}\label{classRequest_aaadda6ff6d4a2d4e200753495a0ec079}} 
+\index{Request@{Request}!getRequestType@{getRequestType}}
+\index{getRequestType@{getRequestType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getRequestType()}{getRequestType()}}
+{\footnotesize\ttfamily string Request\+::get\+Request\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024 \{\textcolor{keywordflow}{return} requestType;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_af1bedc3b8890be69c8be59f7d7335077}\label{classRequest_af1bedc3b8890be69c8be59f7d7335077}} 
+\index{Request@{Request}!getStudentNumber@{getStudentNumber}}
+\index{getStudentNumber@{getStudentNumber}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getStudentNumber()}{getStudentNumber()}}
+{\footnotesize\ttfamily int Request\+::get\+Student\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016 \{\textcolor{keywordflow}{return} studentNumber;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_a5e22e6e59455ca525e6146969355688b}\label{classRequest_a5e22e6e59455ca525e6146969355688b}} 
+\index{Request@{Request}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily void Request\+::handle\+Request (\begin{DoxyParamCaption}\item[{student\+Set $\ast$}]{students }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                                                 \{}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{if} (requestType == \textcolor{stringliteral}{"{}remove"{}}) \{}
+\DoxyCodeLine{00036         \textcolor{keyword}{auto} student = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00037         \textcolor{keywordflow}{if}((*student)-\/>removeClassCourse(classCode, courseCode))}
+\DoxyCodeLine{00038             setRequestStatus(\textcolor{stringliteral}{"{}accepted"{}});}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00040             setRequestStatus(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{00041     \}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043     \textcolor{keywordflow}{if} (requestType == \textcolor{stringliteral}{"{}add"{}}) \{}
+\DoxyCodeLine{00044         \textcolor{keyword}{auto} student = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00045         \textcolor{keywordflow}{if}((*student)-\/>addClassCourse(classCode, courseCode))}
+\DoxyCodeLine{00046             setRequestStatus(\textcolor{stringliteral}{"{}accepted"{}});}
+\DoxyCodeLine{00047         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00048             setRequestStatus(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{00049     \}}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{keywordflow}{if} (requestType == \textcolor{stringliteral}{"{}change"{}}) \{}
+\DoxyCodeLine{00052         \textcolor{keyword}{auto} student = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : (*student)-\/>getClassesPerCourse()) \{}
+\DoxyCodeLine{00054             \textcolor{keywordflow}{if} (p.second == courseCode) \{}
+\DoxyCodeLine{00055                 \textcolor{keywordflow}{if}((*student)-\/>removeClassCourse(p.first, p.second)) \{}
+\DoxyCodeLine{00056                     \textcolor{keywordflow}{if} ((*student)-\/>addClassCourse(classCode, courseCode))}
+\DoxyCodeLine{00057                         setRequestStatus(\textcolor{stringliteral}{"{}accepted"{}});}
+\DoxyCodeLine{00058                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00059                         setRequestStatus(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{00060                 \}}
+\DoxyCodeLine{00061                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00062                     \textcolor{comment}{/* Setting the request status to rejected. */}}
+\DoxyCodeLine{00063                     setRequestStatus(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{00064             \}}
+\DoxyCodeLine{00065         \}}
+\DoxyCodeLine{00066     \}}
+\DoxyCodeLine{00067 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRequest_a95889a56c38d5794dd5222ef792a7547}\label{classRequest_a95889a56c38d5794dd5222ef792a7547}} 
+\index{Request@{Request}!setRequestStatus@{setRequestStatus}}
+\index{setRequestStatus@{setRequestStatus}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setRequestStatus()}{setRequestStatus()}}
+{\footnotesize\ttfamily void Request\+::set\+Request\+Status (\begin{DoxyParamCaption}\item[{string}]{request\+Status }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{this-\/>requestStatus = std::move(requestStatus);\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Request.\+h\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/definitions/Request.\+cpp\end{DoxyCompactItemize}

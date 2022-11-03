@@ -9,11 +9,12 @@ using namespace std;
 
 /**
  * @brief A classe Student
- * Esta classe é usada para representar um aluno
- * Esta classe armazena o nome, o número e o horario do aluno
- * Esta classe também armazena um conjunto de pares de strings
- * Cada par de strings corresponde a uma turma e a uma unidade curricular
- * Este conjunto é usado para armazenar as turmass por unidade curricular que o aluno está inscrito
+ *
+ * Esta classe é usada para representar um aluno.\n
+ * Ela armazena o nome, o número e o horario do aluno.\n
+ * Além disso armazena um conjunto de pares de strings.\n
+ * Cada par de strings corresponde a uma turma e a uma unidade curricular.\n
+ * Este conjunto é usado para armazenar as turmass por unidade curricular que o aluno está inscrito.\n
  */
 class Student {
     private:

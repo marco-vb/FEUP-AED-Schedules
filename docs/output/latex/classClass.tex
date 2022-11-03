@@ -1,0 +1,189 @@
+\hypertarget{classClass}{}\doxysection{Class Class Reference}
+\label{classClass}\index{Class@{Class}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClass_ac4bfe75fb0b2e61bd2a5e2f7a6469fca}{Class}} (string code)
+\item 
+string \mbox{\hyperlink{classClass_aa296d2640028298c77889c9de33a01f1}{get\+Code}} () const
+\item 
+\mbox{\hyperlink{classSchedule}{Schedule}} \mbox{\hyperlink{classClass_a6b6677ae244c4af4b9c88c82ea9416f9}{get\+Schedule}} () const
+\item 
+bool \mbox{\hyperlink{classClass_abd7bc359c6249def978ab3eac9ecb28a}{add\+Slot}} (\mbox{\hyperlink{classSlot}{Slot}} slot)
+\item 
+set$<$ int $>$ \mbox{\hyperlink{classClass_a86a5f01aa79b3405dd5f926ce6945190}{get\+Students}} () const
+\item 
+void \mbox{\hyperlink{classClass_a0b51b8b4530a712d9bc81786816efe0a}{clear\+Schedule}} ()
+\item 
+bool \mbox{\hyperlink{classClass_a57e2f55bdfc1f6be4da0afdf224a74ef}{add\+Student}} (int student\+Number)
+\item 
+bool \mbox{\hyperlink{classClass_a64ce3a0e883abedb0d1890956a8ae80b}{remove\+Student}} (int student\+Number)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Class_8h_source_l00008}{8}} of file \mbox{\hyperlink{Class_8h_source}{Class.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClass_ac4bfe75fb0b2e61bd2a5e2f7a6469fca}\label{classClass_ac4bfe75fb0b2e61bd2a5e2f7a6469fca}} 
+\index{Class@{Class}!Class@{Class}}
+\index{Class@{Class}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{Class()}{Class()}}
+{\footnotesize\ttfamily Class\+::\+Class (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007                         \{}
+\DoxyCodeLine{00008     this-\/>code = std::move(code);}
+\DoxyCodeLine{00009     this-\/>numStudents = 0;}
+\DoxyCodeLine{00010     this-\/>schedule = \mbox{\hyperlink{classSchedule}{Schedule}}();}
+\DoxyCodeLine{00011     this-\/>students = set<int>();}
+\DoxyCodeLine{00012 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClass_abd7bc359c6249def978ab3eac9ecb28a}\label{classClass_abd7bc359c6249def978ab3eac9ecb28a}} 
+\index{Class@{Class}!addSlot@{addSlot}}
+\index{addSlot@{addSlot}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{addSlot()}{addSlot()}}
+{\footnotesize\ttfamily bool Class\+::add\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSlot}{Slot}}}]{slot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022                              \{}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{return} schedule.\mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{addSlot}}(std::move(slot));}
+\DoxyCodeLine{00024 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClass_a57e2f55bdfc1f6be4da0afdf224a74ef}\label{classClass_a57e2f55bdfc1f6be4da0afdf224a74ef}} 
+\index{Class@{Class}!addStudent@{addStudent}}
+\index{addStudent@{addStudent}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{addStudent()}{addStudent()}}
+{\footnotesize\ttfamily bool Class\+::add\+Student (\begin{DoxyParamCaption}\item[{int}]{student\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                                         \{}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{if} (numStudents < maxStudents \&\& students.find(studentNumber) == students.end()) \{}
+\DoxyCodeLine{00036         students.insert(studentNumber);}
+\DoxyCodeLine{00037         numStudents++;}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00039     \}}
+\DoxyCodeLine{00040     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00041 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClass_a0b51b8b4530a712d9bc81786816efe0a}\label{classClass_a0b51b8b4530a712d9bc81786816efe0a}} 
+\index{Class@{Class}!clearSchedule@{clearSchedule}}
+\index{clearSchedule@{clearSchedule}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{clearSchedule()}{clearSchedule()}}
+{\footnotesize\ttfamily void Class\+::clear\+Schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030                           \{}
+\DoxyCodeLine{00031     schedule.\mbox{\hyperlink{classSchedule_a0e70c390bb07cd134cbc7f0090ef52b0}{clearSchedule}}();}
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClass_aa296d2640028298c77889c9de33a01f1}\label{classClass_aa296d2640028298c77889c9de33a01f1}} 
+\index{Class@{Class}!getCode@{getCode}}
+\index{getCode@{getCode}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily string Class\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014                             \{}
+\DoxyCodeLine{00015     \textcolor{keywordflow}{return} code;}
+\DoxyCodeLine{00016 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClass_a6b6677ae244c4af4b9c88c82ea9416f9}\label{classClass_a6b6677ae244c4af4b9c88c82ea9416f9}} 
+\index{Class@{Class}!getSchedule@{getSchedule}}
+\index{getSchedule@{getSchedule}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{getSchedule()}{getSchedule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSchedule}{Schedule}} Class\+::get\+Schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018                                   \{}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{return} schedule;}
+\DoxyCodeLine{00020 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClass_a86a5f01aa79b3405dd5f926ce6945190}\label{classClass_a86a5f01aa79b3405dd5f926ce6945190}} 
+\index{Class@{Class}!getStudents@{getStudents}}
+\index{getStudents@{getStudents}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
+{\footnotesize\ttfamily set$<$ int $>$ Class\+::get\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026                                   \{}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{return} students;}
+\DoxyCodeLine{00028 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classClass_a64ce3a0e883abedb0d1890956a8ae80b}\label{classClass_a64ce3a0e883abedb0d1890956a8ae80b}} 
+\index{Class@{Class}!removeStudent@{removeStudent}}
+\index{removeStudent@{removeStudent}!Class@{Class}}
+\doxysubsubsection{\texorpdfstring{removeStudent()}{removeStudent()}}
+{\footnotesize\ttfamily bool Class\+::remove\+Student (\begin{DoxyParamCaption}\item[{int}]{student\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{Class_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043                                            \{}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (students.find(studentNumber) != students.end()) \{}
+\DoxyCodeLine{00045         students.erase(studentNumber);}
+\DoxyCodeLine{00046         numStudents-\/-\/;}
+\DoxyCodeLine{00047         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00048     \}}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Class.\+h\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/definitions/Class.\+cpp\end{DoxyCompactItemize}

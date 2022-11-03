@@ -1,0 +1,40 @@
+\hypertarget{structclassCourseCompare}{}\doxysection{class\+Course\+Compare Struct Reference}
+\label{structclassCourseCompare}\index{classCourseCompare@{classCourseCompare}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structclassCourseCompare_a3cb620cec1d29fd6d288f89e424ad1c1}{operator()}} (const pair$<$ \mbox{\hyperlink{classClass}{Class}} $\ast$, \mbox{\hyperlink{classCourse}{Course}} $\ast$ $>$ a, const pair$<$ \mbox{\hyperlink{classClass}{Class}} $\ast$, \mbox{\hyperlink{classCourse}{Course}} $\ast$ $>$ b) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00018}{18}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structclassCourseCompare_a3cb620cec1d29fd6d288f89e424ad1c1}\label{structclassCourseCompare_a3cb620cec1d29fd6d288f89e424ad1c1}} 
+\index{classCourseCompare@{classCourseCompare}!operator()@{operator()}}
+\index{operator()@{operator()}!classCourseCompare@{classCourseCompare}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool class\+Course\+Compare\+::operator() (\begin{DoxyParamCaption}\item[{const pair$<$ \mbox{\hyperlink{classClass}{Class}} $\ast$, \mbox{\hyperlink{classCourse}{Course}} $\ast$ $>$}]{a,  }\item[{const pair$<$ \mbox{\hyperlink{classClass}{Class}} $\ast$, \mbox{\hyperlink{classCourse}{Course}} $\ast$ $>$}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00019}{19}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019                                                                                             \{}
+\DoxyCodeLine{00020         \textcolor{keywordflow}{return} (a.first-\/>getCode() < b.first-\/>getCode()) ||}
+\DoxyCodeLine{00021                (a.first-\/>getCode() == b.first-\/>getCode() \&\& a.second-\/>getCode() < b.second-\/>getCode());}
+\DoxyCodeLine{00022     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Types.\+h\end{DoxyCompactItemize}

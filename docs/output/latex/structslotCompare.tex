@@ -1,0 +1,40 @@
+\hypertarget{structslotCompare}{}\doxysection{slot\+Compare Struct Reference}
+\label{structslotCompare}\index{slotCompare@{slotCompare}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structslotCompare_aa6b06c0005a868879510b066df1128d2}{operator()}} (const \mbox{\hyperlink{classSlot}{Slot}} $\ast$a, const \mbox{\hyperlink{classSlot}{Slot}} $\ast$b) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00025}{25}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structslotCompare_aa6b06c0005a868879510b066df1128d2}\label{structslotCompare_aa6b06c0005a868879510b066df1128d2}} 
+\index{slotCompare@{slotCompare}!operator()@{operator()}}
+\index{operator()@{operator()}!slotCompare@{slotCompare}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool slot\+Compare\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSlot}{Slot}} $\ast$}]{a,  }\item[{const \mbox{\hyperlink{classSlot}{Slot}} $\ast$}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00026}{26}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026                                                         \{}
+\DoxyCodeLine{00027         \textcolor{keywordflow}{return} a-\/>getClassCode() < b-\/>getClassCode() ||}
+\DoxyCodeLine{00028                (a-\/>getClassCode() == b-\/>getClassCode() \&\& a-\/>getCourseCode() < b-\/>getCourseCode());}
+\DoxyCodeLine{00029     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Types.\+h\end{DoxyCompactItemize}

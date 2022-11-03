@@ -1,0 +1,268 @@
+\hypertarget{classStudent}{}\doxysection{Student Class Reference}
+\label{classStudent}\index{Student@{Student}}
+
+
+A classe \mbox{\hyperlink{classStudent}{Student}}.  
+
+
+
+
+{\ttfamily \#include $<$Student.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStudent_ad89beed1e8cd1b4d19c7c881bd9f9f12}{Student}} (int number)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{classStudent}{Student}} Este construtor cria um aluno com o número dado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{get\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o número do aluno. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classStudent_a1df6c28e6416e20d338b9ff11bdc1e04}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o nome do aluno. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStudent_a34ff388814a53eddebfdf7af5abe1d98}{set\+Name}} (string name)
+\begin{DoxyCompactList}\small\item\em Muda o nome do aluno. \end{DoxyCompactList}\item 
+set$<$ pair$<$ string, string $>$ $>$ \mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{get\+Classes\+Per\+Course}} () const
+\begin{DoxyCompactList}\small\item\em Retorna o conjunto de pares de strings (class, course) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStudent_a6802663c47c42310cd547951466f5733}{add\+Class\+Course}} (string const \&, string const \&, course\+Set $\ast$, class\+Set $\ast$)
+\begin{DoxyCompactList}\small\item\em Adiciona um par de strings ao conjunto de pares de strings (class, course) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStudent_a4e5b87e38f97ba98e8eb53fc79f7a74c}{remove\+Class\+Course}} (string const \&, string const \&, course\+Set $\ast$)
+\begin{DoxyCompactList}\small\item\em Remove um par de strings do conjunto de pares de strings (class, course) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A classe \mbox{\hyperlink{classStudent}{Student}}. 
+
+Esta classe é usada para representar um aluno.~\newline
+Ela armazena o nome, o número e o horario do aluno.~\newline
+Além disso armazena um conjunto de pares de strings.~\newline
+Cada par de strings corresponde a uma turma e a uma unidade curricular.~\newline
+Este conjunto é usado para armazenar as turmass por unidade curricular que o aluno está inscrito.~\newline
+
+
+Definition at line \mbox{\hyperlink{Student_8h_source_l00019}{19}} of file \mbox{\hyperlink{Student_8h_source}{Student.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStudent_ad89beed1e8cd1b4d19c7c881bd9f9f12}\label{classStudent_ad89beed1e8cd1b4d19c7c881bd9f9f12}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{Student()}{Student()}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor da classe \mbox{\hyperlink{classStudent}{Student}} Este construtor cria um aluno com o número dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & O número do aluno Complexidade Temporal\+: O(1) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007                            \{}
+\DoxyCodeLine{00008     this-\/>name = string();}
+\DoxyCodeLine{00009     this-\/>number = number;}
+\DoxyCodeLine{00010     this-\/>classesPerCourse = set<pair<string, string>>();}
+\DoxyCodeLine{00011 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStudent_a6802663c47c42310cd547951466f5733}\label{classStudent_a6802663c47c42310cd547951466f5733}} 
+\index{Student@{Student}!addClassCourse@{addClassCourse}}
+\index{addClassCourse@{addClassCourse}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{addClassCourse()}{addClassCourse()}}
+{\footnotesize\ttfamily bool Student\+::add\+Class\+Course (\begin{DoxyParamCaption}\item[{string const \&}]{classcode,  }\item[{string const \&}]{coursecode,  }\item[{course\+Set $\ast$}]{courses,  }\item[{class\+Set $\ast$}]{classes }\end{DoxyParamCaption})}
+
+
+
+Adiciona um par de strings ao conjunto de pares de strings (class, course) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+\_\+} & A turma \\
+\hline
+{\em course} & A unidade curricular \\
+\hline
+{\em courses} & O conjunto de todas unidades curriculares \\
+\hline
+{\em classes} & O conjunto de todas turmas Complexidade Temporal\+: O(log(\+N)) onde N é o número de pares de strings no conjunto \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029                                                                                                                      \{}
+\DoxyCodeLine{00030     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
+\DoxyCodeLine{00031     \textcolor{keyword}{auto} courseStudents = (*course)-\/>getStudents();}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().find(\{classcode, coursecode\}) != this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00034     \textcolor{keyword}{auto} courseSchedule = (*course)-\/>getSchedule();}
+\DoxyCodeLine{00035     \textcolor{keyword}{auto} courseSlots = courseSchedule.getSchedule();}
+\DoxyCodeLine{00036     \mbox{\hyperlink{classSlot}{Slot}} slot;}
+\DoxyCodeLine{00037     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slotSet : courseSlots) \{}
+\DoxyCodeLine{00038         \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&s: slotSet)}
+\DoxyCodeLine{00040             \textcolor{keywordflow}{if} (s.getClassCode() == classcode) \{}
+\DoxyCodeLine{00041                 slot = s;}
+\DoxyCodeLine{00042                 found = \textcolor{keyword}{true};}
+\DoxyCodeLine{00043                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00044             \}}
+\DoxyCodeLine{00045         \textcolor{keywordflow}{if} (found) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{if} (courseSchedule.checkForCollision(slot)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049     this-\/>classesPerCourse.insert(make\_pair(classcode, coursecode));}
+\DoxyCodeLine{00050     (*course)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{00051     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{00052     (*class1)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStudent_a604908e6e68618494bcad495cb0519d7}\label{classStudent_a604908e6e68618494bcad495cb0519d7}} 
+\index{Student@{Student}!getClassesPerCourse@{getClassesPerCourse}}
+\index{getClassesPerCourse@{getClassesPerCourse}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getClassesPerCourse()}{getClassesPerCourse()}}
+{\footnotesize\ttfamily set$<$ pair$<$ string, string $>$ $>$ Student\+::get\+Classes\+Per\+Course (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retorna o conjunto de pares de strings (class, course) 
+
+\begin{DoxyReturn}{Returns}
+O conjunto de pares de strings (class, course) Complexidade Temporal\+: O(1) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025                                                              \{}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{return} classesPerCourse;}
+\DoxyCodeLine{00027 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStudent_a1df6c28e6416e20d338b9ff11bdc1e04}\label{classStudent_a1df6c28e6416e20d338b9ff11bdc1e04}} 
+\index{Student@{Student}!getName@{getName}}
+\index{getName@{getName}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Student\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retorna o nome do aluno. 
+
+\begin{DoxyReturn}{Returns}
+O nome do aluno Complexidade Temporal\+: O(1) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017                               \{}
+\DoxyCodeLine{00018     \textcolor{keywordflow}{return} name;}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStudent_ae7b15f60adaf461d6e70079f7854487c}\label{classStudent_ae7b15f60adaf461d6e70079f7854487c}} 
+\index{Student@{Student}!getNumber@{getNumber}}
+\index{getNumber@{getNumber}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getNumber()}{getNumber()}}
+{\footnotesize\ttfamily int Student\+::get\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retorna o número do aluno. 
+
+\begin{DoxyReturn}{Returns}
+O número do aluno Complexidade Temporal\+: O(1) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013                              \{}
+\DoxyCodeLine{00014     \textcolor{keywordflow}{return} number;}
+\DoxyCodeLine{00015 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStudent_a4e5b87e38f97ba98e8eb53fc79f7a74c}\label{classStudent_a4e5b87e38f97ba98e8eb53fc79f7a74c}} 
+\index{Student@{Student}!removeClassCourse@{removeClassCourse}}
+\index{removeClassCourse@{removeClassCourse}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{removeClassCourse()}{removeClassCourse()}}
+{\footnotesize\ttfamily bool Student\+::remove\+Class\+Course (\begin{DoxyParamCaption}\item[{string const \&}]{classcode,  }\item[{string const \&}]{coursecode,  }\item[{course\+Set $\ast$}]{courses }\end{DoxyParamCaption})}
+
+
+
+Remove um par de strings do conjunto de pares de strings (class, course) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+\_\+} & A turma \\
+\hline
+{\em course} & A unidade curricular \\
+\hline
+{\em courses} & O conjunto de todas unidades curriculares Complexidade Temporal\+: O(log(\+N)) onde N é o número de pares de strings no conjunto \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056                                                                                                     \{}
+\DoxyCodeLine{00057     pair<string, string> pair = \{classcode, coursecode\};}
+\DoxyCodeLine{00058     \textcolor{keywordflow}{if} (classesPerCourse.find(pair) == classesPerCourse.end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00059     classesPerCourse.erase(pair);}
+\DoxyCodeLine{00060     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00061 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStudent_a34ff388814a53eddebfdf7af5abe1d98}\label{classStudent_a34ff388814a53eddebfdf7af5abe1d98}} 
+\index{Student@{Student}!setName@{setName}}
+\index{setName@{setName}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Student\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Muda o nome do aluno. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021                               \{}
+\DoxyCodeLine{00022     this-\/>name = std::move(n);}
+\DoxyCodeLine{00023 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Student.\+h\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/definitions/Student.\+cpp\end{DoxyCompactItemize}
