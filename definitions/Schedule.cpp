@@ -3,10 +3,10 @@
 #include "../headers/Schedule.h"
 
 Schedule::Schedule() {
-    schedule = vector<multiset<Slot>>(6);
+    schedule = vector<set<Slot>>(6);
 }
 
-vector<multiset<Slot>> Schedule::getSchedule() const {
+vector<set<Slot>> Schedule::getSchedule() const {
     return schedule;
 }
 
@@ -32,19 +32,19 @@ bool Schedule::checkForCollision(Slot slot){
     return false;
 }
 
-multiset<Slot>& Schedule::operator[] (int n){
+set<Slot>& Schedule::operator[] (int n){
     return schedule[n];
 }
 
-multiset<Slot>& Schedule::operator[] (string day){
+set<Slot>& Schedule::operator[] (string day){
     return schedule[weekDayToNum(day)];
 }
 
-multiset<Slot>::iterator Schedule::begin(){
+set<Slot>::iterator Schedule::begin(){
     return schedule[0].begin();
 }
 
-multiset<Slot>::iterator Schedule::end(){
+set<Slot>::iterator Schedule::end(){
     return schedule[5].end();
 }
 
@@ -59,20 +59,4 @@ string Schedule::numToWeekDay(int n){
 }
 int Schedule::weekDayToNum(string day){
     return weekDayToNum_.at(day);
-}
-
-void Schedule::printSchedule(ostream& out) const{
-    for(int i = 0; i < 6; i++){
-        if(!schedule[i].empty()) out << Schedule::numToWeekDay(i) << ": " << endl;
-        for(const Slot& class_: schedule[i])
-            out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
-                << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
-        out << endl;
-    }
-}
-
-void Schedule::printSchedule(const string &filename) const {
-    ofstream out(filename);
-    printSchedule(out);
-    out.close();
 }
