@@ -2,7 +2,8 @@
 #define STUDENTNEW_H_
 
 #include <bits/stdc++.h>
-#include "Schedule.h"
+#include "Course.h"
+#include "Class.h"
 
 using namespace std;
 
@@ -71,17 +72,20 @@ class Student {
          * @brief Adiciona um par de strings ao conjunto de pares de strings (class, course)
          * @param class_ A turma
          * @param course A unidade curricular
+         * @param courses O conjunto de todas unidades curriculares
+         * @param classes O conjunto de todas turmas
          * Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto
          */
-        bool addClassCourse(string const& classcode, string const& coursecode);
+        bool addClassCourse(string const&, string const&, courseSet*, classSet*);
 
         /**
          * @brief Remove um par de strings do conjunto de pares de strings (class, course)
          * @param class_ A turma
          * @param course A unidade curricular
+         * @param courses O conjunto de todas unidades curriculares
          * Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto
          */
-        bool removeClassCourse(string const& classcode, string const& coursecode);
+        bool removeClassCourse(string const&, string const&, courseSet*);
 };
 
 

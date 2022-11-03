@@ -7,6 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 class Course {
     private:
         string code;            // Course code (e.g. "L.EIC001")
@@ -26,4 +27,10 @@ class Course {
         bool removeStudent(int studentNumber);
 };
 
+struct comp {
+    bool operator()(const Course* a, const Course* b) const {
+        return a->getCode() < b->getCode();
+    }
+};
+typedef set<Course*, comp> courseSet;
 #endif

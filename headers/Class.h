@@ -24,4 +24,12 @@ class Class {
         bool removeStudent(int studentNumber);
 };
 
+struct classCompare {
+    bool operator()(const Class* a, const Class* b) const {
+        return a->getCode() < b->getCode();
+    }
+};
+
+typedef set<Class*, classCompare> classSet;
+
 #endif

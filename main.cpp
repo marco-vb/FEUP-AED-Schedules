@@ -66,6 +66,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
     do {
         clear();
         cout << "------------------------------------" << endl;
+        /* Printing a line of text to the console. */
         cout << "| 1. List all students in a class  |" << endl;
         cout << "| 2. List all classes of a student |" << endl;
         cout << "| 3. List all lessons of a class   |" << endl;

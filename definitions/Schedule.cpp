@@ -16,14 +16,14 @@ void Schedule::clearSchedule() {
     }
 }
 
-bool Schedule::addSlot(const Slot slot) {
+bool Schedule::addSlot(const Slot& slot) {
     schedule[weekDayToNum(slot.getDay())].insert(slot);
     return true;
 }
 
-bool Schedule::checkForCollision(Slot slot){
+bool Schedule::checkForCollision(const Slot& slot){
     if(slot.getType() == "T") return false;
-    for(Slot cs : schedule[weekDayToNum(slot.getDay())]){
+    for(const Slot& cs : schedule[weekDayToNum(slot.getDay())]){
         if(cs.getType() != "T") {
             return (cs.getStartHour() < slot.getStartHour() && cs.getEndHour() > slot.getStartHour()) ||
                    (slot.getStartHour() < cs.getStartHour() && slot.getEndHour() > cs.getStartHour());
@@ -36,7 +36,8 @@ set<Slot>& Schedule::operator[] (int n){
     return schedule[n];
 }
 
-set<Slot>& Schedule::operator[] (string day){
+
+set<Slot>& Schedule::operator[] (const string& day){
     return schedule[weekDayToNum(day)];
 }
 
@@ -57,6 +58,7 @@ const map<string, int> Schedule::weekDayToNum_ = {{"Monday", 0}, {"Tuesday", 1},
 string Schedule::numToWeekDay(int n){
     return numToWeekDay_.at(n);
 }
-int Schedule::weekDayToNum(string day){
+
+int Schedule::weekDayToNum(const string& day){
     return weekDayToNum_.at(day);
 }

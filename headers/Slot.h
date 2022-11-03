@@ -15,6 +15,8 @@ class Slot {
         string classcode;   // class code (e.g. "1LEIC01")
 
     public:
+        Slot();
+        Slot(const Slot& slot);
         Slot(string day, float startHour, float endHour, string type, string coursecode, string classcode);
         string getDay() const;
         float getStartHour() const;

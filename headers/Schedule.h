@@ -63,7 +63,7 @@ class Schedule {
          * @return true se o slot foi adicionado, false caso contrário
          * Complexidade Temporal: O(logN) onde N é o número máximo de aulas de um dia
          */
-        bool addSlot(Slot slot);
+        bool addSlot(const Slot& slot);
         
         /**
          * @brief Verifica se existe colisão entre o slot dado e os slots do horario
@@ -73,7 +73,7 @@ class Schedule {
          * @return true se existe colisão, false caso contrário
          * Complexidade Temporal: O(N) onde N é o número máximo de aulas de um dia
          */
-        bool checkForCollision(Slot slot);
+        bool checkForCollision(const Slot& slot);
         
         /**
          * @brief Operador []
@@ -91,7 +91,7 @@ class Schedule {
          * @return O set de slots correspondente ao dia da semana dado
          * Complexidade Temporal: O(1)
          */
-        set<Slot>& operator[] (string day);
+        set<Slot>& operator[] (const string& day);
         
         /**
          * @brief Begin do horario
@@ -123,7 +123,8 @@ class Schedule {
          * @param day
          * @return Inteiro que representa o dia da semana
          */
-        static int weekDayToNum(string day);
+        static int weekDayToNum(const string& day);
+
 };
 
 #endif
