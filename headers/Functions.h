@@ -20,12 +20,12 @@ string const& classesSlots = "../files/classes.csv";
 //functions
 void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
 void menu_partial_lists(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
-void printStudentSchedule(Student*, slotSet*, ostream& = cout);
+void printStudentSchedule(Student* student, slotSet* slots);
 void menu_schedules(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void menu_requests(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void getLessonOrder(slotSet* slots);
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses);
-void readStudents(studentSet* students, classSet* classes, courseSet* courses);
+void readStudents(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses);
 void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
 
 
@@ -43,7 +43,7 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
  */
 void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     readClasses(classes, courses, classCourses);
-    readStudents(students, classes, courses);
+    readStudents(students, classes, courses, classCourses);
     readSlots(students, classes, courses, slots);
 }
 
