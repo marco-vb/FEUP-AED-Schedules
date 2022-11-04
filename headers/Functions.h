@@ -18,8 +18,9 @@ string const& classesStudents = "../files/students_classes.csv";
 string const& classesSlots = "../files/classes.csv";
 
 //functions
-void menu_full_lists(studentSet*, classSet*, courseSet*);
+void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
 void menu_partial_lists(studentSet*, classSet*, courseSet*);
+void getLessonOrder(slotSet* slots);
 void printStudentSchedule(Student*, slotSet*, ostream& = cout);
 
 //functions defined
@@ -72,7 +73,7 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
             student_it = students->find(student);
         }
         (*student_it)->setName(name);
-        (*student_it)->addClassCourse(classcode, coursecode);
+        (*student_it)->addClassCourse(classcode, coursecode, courses, classes);
 
         auto course = new Course(coursecode);
         auto course_it = courses->find(course);
@@ -146,19 +147,23 @@ void listAllCourses(courseSet* courses) {
         cout << c->getCode() << " year: " << c->getYear() << endl;
 }
 
-void listAllSlots(courseSet* courses) {
-    for (const auto& c : *courses) {
-        Schedule courseSchedule = c->getSchedule();
-        //courseSchedule.printSchedule();
-        int i = 0;
-        for (auto it = courseSchedule.begin();; it++) {
-            while(it == courseSchedule[i].end() && it != courseSchedule.end()){
-                i++; it = courseSchedule[i].begin();
-            }
-            if(it == courseSchedule.end()) break;
-            Slot s = *it;
-            cout << "Course: " << s.getCourseCode() << " - Class: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
-        }
+void listAllSlots(slotSet* slots) {
+    for (const auto& sp : *slots) {
+        Slot s = *sp;
+        cout << "Course: " << s.getCourseCode() << " - Class: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
+    }
+}
+
+template<typename C>
+void listAllSlotsOrder(slotSet* slots, C comp){
+    vector<Slot> slotsVector;
+    slotsVector.reserve(slots->size());
+    for (const auto& sp : *slots) {
+        slotsVector.push_back(*sp);
+    }
+    sort(slotsVector.begin(), slotsVector.end(), comp);
+    for (const auto& s : slotsVector) {
+        cout << "Course: " << s.getCourseCode() << " - Class: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
     }
 }
 
@@ -231,12 +236,24 @@ void listSlotsOfCourse(courseSet* courses) {
     }
 }
 
-void getScheduleOfStudent(studentSet* students, slotSet* slots) {
+void listStudentsInMoreThanNCourses(studentSet* students){
+    int n;
+    cout << "Enter n, the number of courses: ";
+    cin >> n;
+    for (const auto& s : *students) {
+        if (s->getClassesPerCourse().size() > n) {
+            cout << s->getNumber() << " - " << s->getName() << endl;
+        }
+    }
+}
+
+void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
     int studentNumber;
     cout << "Enter student number: ";
     cin >> studentNumber;
     auto student_it = students->find(new Student(studentNumber));
-    printStudentSchedule(*student_it, slots);
+    if(student_it != students -> end()) printStudentSchedule(*student_it, slots);
+    else cout << "Student not found!" << endl;
 }
 
 Schedule getStudentSchedule(Student* student, slotSet* slots){
