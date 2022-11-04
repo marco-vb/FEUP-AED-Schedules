@@ -31,10 +31,10 @@ string Request::getRequestTime() const {return requestTime;}
 
 void Request::setRequestStatus(string requestStatus) {this->requestStatus = std::move(requestStatus);}
 
-void Request::handleRequest(studentSet* students) {
+void Request::handleRequest(studentSet* students, courseSet* courses, classSet* classes, classCoursesSet* classCourses) {
     if (requestType == "remove") {
         auto student = students->find(new Student(studentNumber));
-        if((*student)->removeClassCourse(classCode, courseCode))
+        if ((*student)->removeClassCourse(classCode, courseCode, courses, classes))
             setRequestStatus("accepted");
         else
             setRequestStatus("rejected");
@@ -42,7 +42,7 @@ void Request::handleRequest(studentSet* students) {
 
     if (requestType == "add") {
         auto student = students->find(new Student(studentNumber));
-        if((*student)->addClassCourse(classCode, courseCode))
+        if((*student)->addClassCourse(classCode, courseCode, courses, classes))
             setRequestStatus("accepted");
         else
             setRequestStatus("rejected");
@@ -52,12 +52,11 @@ void Request::handleRequest(studentSet* students) {
         auto student = students->find(new Student(studentNumber));
         for (const auto& p : (*student)->getClassesPerCourse()) {
             if (p.second == courseCode) {
-                if((*student)->removeClassCourse(p.first, p.second)) {
-                    if ((*student)->addClassCourse(classCode, courseCode))
+                if((*student)->removeClassCourse(p.first, p.second, courses, classes))
+                    if ((*student)->addClassCourse(classCode, courseCode, courses, classes))
                         setRequestStatus("accepted");
                     else
                         setRequestStatus("rejected");
-                }
                 else
                     /* Setting the request status to rejected. */
                     setRequestStatus("rejected");
