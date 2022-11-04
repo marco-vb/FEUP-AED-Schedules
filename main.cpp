@@ -101,6 +101,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
         cout << "| 1. Ocupação de turmas/UC               |" << endl;
         cout << "| 2. Estudantes numa turma/UC            |" << endl;
         cout << "| 3. Estudantes inscritos numa UC        |" << endl;
+        cout << "| 4. Turmas/UC de um estudante           |" << endl;
         cout << "| 0. Voltar                              |" << endl;
         cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
@@ -110,6 +111,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
                 case 1: listClassCourseOccupation(classCourses); wait(); break;
                 case 2: listStudentsInClassCourse(students, classes, courses); wait(); break;
                 case 3: listStudentsInCourse(students, courses); wait(); break;
+                case 4: listClassesOfStudent(students); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }

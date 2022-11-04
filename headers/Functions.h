@@ -43,8 +43,8 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
  */
 void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     readClasses(classes, courses, classCourses);
-    readStudents(students, classes, courses, classCourses);
     readSlots(students, classes, courses, slots);
+    readStudents(students, classes, courses, classCourses);
 }
 
 //functions defined
@@ -176,6 +176,7 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
         ss >> type;
         auto slot = new Slot(day, start, end, type, coursecode, classcode);
         slots->insert(slot);
+
         auto class_it = classes->find(new Class(classcode));
         if (class_it != classes->end()) {
             (*class_it)->addSlot(*slot);
@@ -191,6 +192,8 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
 
 /**
  * @brief Imprime uma lista de todos os alunos, por ordem do número de estudante ou por ordem alfabética.
+ *
+ * Complexidade Temporal: O(N) onde N é o número de alunos.
  * @param students Set de todos os alunos
  */
 void listAllStudents(studentSet* students) {
@@ -215,6 +218,8 @@ void listAllStudents(studentSet* students) {
 
 /**
  * @brief Imprime uma lista de todas as turmas, por ordem alfabética do código da turma.
+ *
+ * Complexidade Temporal: O(N) onde N é o número de turmas.
  * @param classes Set de todas as turmas
  */
 void listAllClasses(classSet* classes) {
@@ -233,6 +238,8 @@ void listAllClasses(classSet* classes) {
 
 /**
  * @brief Imprime uma lista de todas as unidades curriculares, por ordem alfabética do código da unidade curricular.
+ *
+ * Complexidade Temporal: O(N) onde N é o número de unidades curriculares.
  * @param courses Set de todas as unidades curriculares
  */
 void listAllCourses(courseSet* courses) {
@@ -251,6 +258,8 @@ void listAllCourses(courseSet* courses) {
 
 /**
  * @brief Imprime uma lista de todas as aulas, por Unidade Curricular, por ordem alfabética do código da turma.
+ *
+ * Complexidade Temporal: O(N) onde N é o número de aulas.
  * @param courses Set de todas as unidades curriculares
  */
 void listAllSlots(courseSet* courses) {
@@ -269,6 +278,8 @@ void listAllSlots(courseSet* courses) {
 
 /**
  * @brief Imprime uma listo número de estudantes em cada par (turma, unidade curricular).
+ *
+ * Complexidade Temporal: O(N) onde N é o número de pares (turma, unidade curricular).
  * @param classCourses Set de todos os pares de turma e unidade curricular
  */
 void listClassCourseOccupation(classCoursesSet* classCourses) {
@@ -353,7 +364,9 @@ void listAllSlots(slotSet* slots) {
 }
 
 /**
- * @brief Imprime uma lista de todas as aulas, por uma ordem definida pelo utilizador, através do parâmetro comp.
+ * @brief Imprime uma lista de todas as aulas, por uma ordem definida pelo utilizador, através do parâmetro comp
+ *
+ * Complexidade Temporal: O(NlogN) onde N é o número de aulas.
  * @param slots Set de todas as aulas
  * @param comp Comparator usada na ordenação
  */
@@ -367,33 +380,6 @@ void listAllSlotsOrder(slotSet* slots, C comp){
     sort(slotsVector.begin(), slotsVector.end(), comp);
     for (const auto& s : slotsVector) {
         cout << "Course: " << s.getCourseCode() << " - Class: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
-    }
-}
-
-/**
- * @brief Imprime todos os alunos de uma turma, por ordem crescenete de numero de estudante
- *
- * A função primeiro pede-se ao utilizador o código da turma, e depois procura essa turma no set de turmas utilizando o metodo find().\n
- * A seguir vai ao set do numero de estudante dos alunos dessa turma e procura esse aluno no set de alunos utilizando o metodo find().\n
- * Por fim imprime o numero de estudante e o seu nome.\n
- * Complexidade Temporal: O(E*log(T)*log(S)) onde E é o número de alunos da turma, T é o número de turmas e S é o número total de alunos.
- *
- * @param students set de todos os alunos
- * @param classes set de todas as turmas
- */
-void listStudentsInClass(studentSet* students, classSet* classes) {
-    string classCode;
-    cout << "Turma: ";
-    cin >> classCode;
-    auto c = classes->find(new Class(classCode));
-    if (c == classes->end()) {
-        cout << "Class not found!" << endl;
-        return;
-    }
-    for (const auto& s : (*c)->getStudents()){
-        auto st = students->find(new Student(s));
-        if(st != students->end())
-            cout << (*st)->getNumber() << " " << (*st)->getName() << endl;
     }
 }
 

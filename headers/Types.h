@@ -145,6 +145,6 @@ typedef set<Student*, studentCompare> studentSet;
 /// Renomeia o tipo set<classCourse*> para classCourseSet, para melhor legibilidade
 typedef set<classCourse*> classCoursesSet;
 /// Renomeia o tipo set<Slot*, slotCompare> para slotSet, para melhor legibilidade
-typedef set<Slot*, slotCompare> slotSet;
+typedef multiset<Slot*, slotCompare> slotSet;
 
 #endif
