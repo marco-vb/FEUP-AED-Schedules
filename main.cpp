@@ -27,13 +27,13 @@ int main() {
     int choice;
     do {
         clear();
-        cout << "------------------------------------" << endl;
-        cout << "| 1. Listagens totais              |" << endl;
-        cout << "| 2. Listagens parciais            |" << endl;
-        cout << "| 3. Horários                      |" << endl;
-        cout << "| 4. Realizar pedido               |" << endl;
-        cout << "| 0. Sair                          |" << endl;
-        cout << "------------------------------------" << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "| 1. Listagens totais                    |" << endl;
+        cout << "| 2. Listagens parciais                  |" << endl;
+        cout << "| 3. Horários                            |" << endl;
+        cout << "| 4. Realizar pedido                     |" << endl;
+        cout << "| 0. Sair                                |" << endl;
+        cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
         cin >> choice;
         if (choice != 0) {
@@ -63,13 +63,13 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
     int choice;
     do {
         clear();
-        cout << "------------------------------------" << endl;
-        cout << "| 1. Listar todos os estudantes    |" << endl;
-        cout << "| 2. Listar todas as turmas        |" << endl;
-        cout << "| 3. Listar todas as UCs           |" << endl;
-        cout << "| 4. Listar todas as aulas         |" << endl;
-        cout << "| 0. Voltar                        |" << endl;
-        cout << "------------------------------------" << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "| 1. Listar todos os estudantes          |" << endl;
+        cout << "| 2. Listar todas as turmas              |" << endl;
+        cout << "| 3. Listar todas as UCs                 |" << endl;
+        cout << "| 4. Listar todas as aulas               |" << endl;
+        cout << "| 0. Voltar                              |" << endl;
+        cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
         cin >> choice;
         if (choice != 0) {
@@ -77,7 +77,7 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
                 case 1: listAllStudents(students); wait(); break;
                 case 2: listAllClasses(classes); wait(); break;
                 case 3: listAllCourses(courses); wait(); break;
-                case 4: listAllSlots(slots); wait(); break;
+                case 4: listAllSlots(courses); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
@@ -97,12 +97,12 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
     int choice;
     do {
         clear();
-        cout << "------------------------------------" << endl;
-        cout << "| 1. Ocupação de turmas/UC         |" << endl;
-        cout << "| 2. Estudantes numa turma/UC      |" << endl;
-        cout << "| 3. Estudantes inscritos numa UC  |" << endl;
-        cout << "| 0. Voltar                        |" << endl;
-        cout << "------------------------------------" << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "| 1. Ocupação de turmas/UC               |" << endl;
+        cout << "| 2. Estudantes numa turma/UC            |" << endl;
+        cout << "| 3. Estudantes inscritos numa UC        |" << endl;
+        cout << "| 0. Voltar                              |" << endl;
+        cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
         cin >> choice;
         if (choice != 0) {
@@ -131,12 +131,12 @@ void menu_schedules(studentSet* students, classSet* classes, courseSet* courses,
     int choice;
     do {
         clear();
-        cout << "------------------------------------" << endl;
-        cout << "| 1. Horário de uma turma          |" << endl;
-        cout << "| 2. Horário de uma UC             |" << endl;
-        cout << "| 3. Horário de um estudante       |" << endl;
-        cout << "| 0. Voltar                        |" << endl;
-        cout << "------------------------------------" << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "| 1. Horário de uma turma                |" << endl;
+        cout << "| 2. Horário de uma UC                   |" << endl;
+        cout << "| 3. Horário de um estudante             |" << endl;
+        cout << "| 0. Voltar                              |" << endl;
+        cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
         cin >> choice;
         if (choice != 0) {
@@ -155,12 +155,12 @@ void menu_requests(studentSet* students, classSet* classes, courseSet* courses, 
     int choice;
     do {
         clear();
-        cout << "------------------------------------" << endl;
-        cout << "| 1. Alterar horário de uma turma  |" << endl;
-        cout << "| 2. Alterar horário de uma UC     |" << endl;
-        cout << "| 3. Alterar horário de um estudante |" << endl;
-        cout << "| 0. Voltar                        |" << endl;
-        cout << "------------------------------------" << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "| 1. Alterar horário de uma turma        |" << endl;
+        cout << "| 2. Alterar horário de uma UC           |" << endl;
+        cout << "| 3. Alterar horário de um estudante     |" << endl;
+        cout << "| 0. Voltar                              |" << endl;
+        cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
         cin >> choice;
         if (choice != 0) {
