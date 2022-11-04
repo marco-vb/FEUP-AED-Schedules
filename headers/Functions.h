@@ -22,8 +22,39 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
 void menu_partial_lists(studentSet*, classSet*, courseSet*);
 void getLessonOrder(slotSet* slots);
 void printStudentSchedule(Student*, slotSet*, ostream& = cout);
+void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses);
+void readStudents(studentSet* students, classSet* classes, courseSet* courses);
+void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
+
+/**
+ * @brief Função lê os ficheiros classes.csv, classes_per_uc.csv e students_classes.csv e guarda a informação.
+ *
+ * Esta lê os três ficheiros fornecidos e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Faz-lo recorrendo a funções auxiliares que lêem cada um dos ficheiros, readClasses, readStudents e readSlots.
+ *
+ * @param students Set de todos os alunos
+ * @param classes Set de todas as turmas
+ * @param courses Set de todas unidades curriculares
+ * @param classCourses Set de todos os pares de turma e unidade curricular
+ * @param slots Set de todos as aulas
+ */
+void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
+    readClasses(classes, courses, classCourses);
+    readStudents(students, classes, courses);
+    readSlots(students, classes, courses, slots);
+}
 
 //functions defined
+/**
+ * @brief Função lê o ficheiro classes_per_uc.csv e guarda a informação.
+ *
+ * Esta lê o ficheiro classes_per_uc.csv e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
+ *
+ * @param classes Set de todas as turmas
+ * @param courses Set de todas unidades curriculares
+ * @param classCourses Set de todos os pares de turma e unidade curricular
+ */
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
     ifstream classesFile(classesCourses);
     string line;
@@ -51,6 +82,17 @@ void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCo
     cout << "Number of classes: " << classes->size() << endl;
 }
 
+
+/**
+ * @brief Função lê o ficheiro students_classes.csv e guarda a informação.
+ *
+ * Esta lê o ficheiro students_classes.csv e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
+ *
+ * @param students Set de todos os alunos
+ * @param classes Set de todas as turmas
+ * @param courses Set de todas unidades curriculares
+ */
 void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
     ifstream studentsFile(classesStudents);
     string line;
@@ -95,6 +137,16 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
     cout << "Number of students: " << students->size() << endl;
 }
 
+/**
+ * @brief Função lê o ficheiro classes.csv e guarda a informação.
+ *
+ * Esta lê o ficheiro classes.csv e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
+ *
+ * @param students Set de todos os alunos
+ * @param classes Set de todas as turmas
+ * @param slots Set de todos as aulas
+ */
 void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) {
     ifstream slotsFile(classesSlots);
     string line;
@@ -126,27 +178,37 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
     cout << "Read Slots Successfully!" << endl;
 }
 
+/**
+ * @brief Imprime uma lista de todos os alunos, por ordem do número de estudante.
+ * @param students Set de todos os alunos
+ */
 void listAllStudents(studentSet* students) {
     for (const auto& s : *students)
         cout << s->getNumber() << " " << s->getName() << endl;
 }
 
-void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
-    readClasses(classes, courses, classCourses);
-    readStudents(students, classes, courses);
-    readSlots(students, classes, courses, slots);
-}
-
+/**
+ * @brief Imprime uma lista de todas as turmas, por ordem alfabética do código da turma.
+ * @param classes Set de todas as turmas
+ */
 void listAllClasses(classSet* classes) {
     for (const auto& c : *classes)
         cout << c->getCode() << endl;
 }
 
+/**
+ * @brief Imprime uma lista de todas as unidades curriculares, por ordem alfabética do código da unidade curricular.
+ * @param courses Set de todas as unidades curriculares
+ */
 void listAllCourses(courseSet* courses) {
     for (const auto& c : *courses)
         cout << c->getCode() << " year: " << c->getYear() << endl;
 }
 
+/**
+ * @brief Imprime uma lista de todas as aulas, por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular
+ * @param slots Set de todas as aulas
+ */
 void listAllSlots(slotSet* slots) {
     for (const auto& sp : *slots) {
         Slot s = *sp;
@@ -154,6 +216,11 @@ void listAllSlots(slotSet* slots) {
     }
 }
 
+/**
+ * @brief Imprime uma lista de todas as aulas, por uma ordem definida pelo utilizador, através do parâmetro comp.
+ * @param slots Set de todas as aulas
+ * @param comp Comparator usada na ordenação
+ */
 template<typename C>
 void listAllSlotsOrder(slotSet* slots, C comp){
     vector<Slot> slotsVector;
@@ -167,72 +234,112 @@ void listAllSlotsOrder(slotSet* slots, C comp){
     }
 }
 
+/**
+ * @brief Imprime todos os alunos de uma turma, por ordem crescenete de numero de estudante
+ *
+ * A função primeiro pede-se ao utilizador o código da turma, e depois procura essa turma no set de turmas utilizando o metodo find().\n
+ * A seguir vai ao set do numero de estudante dos alunos dessa turma e procura esse aluno no set de alunos utilizando o metodo find().\n
+ * Por fim imprime o numero de estudante e o seu nome.\n
+ * Complexidade Temporal: O(E*log(T)*log(S)) onde E é o número de alunos da turma, T é o número de turmas e S é o número total de alunos.
+ *
+ * @param students set de todos os alunos
+ * @param classes set de todas as turmas
+ */
 void listStudentsInClass(studentSet* students, classSet* classes) {
     string classCode;
     cout << "Enter class code: ";
     cin >> classCode;
-    for (const auto& c : *classes) {
-        if (c->getCode() == classCode) {
-            for (const auto& s : c->getStudents())
-                for (const auto& st : *students)
-                    if (st->getNumber() == s)
-                        cout << st->getNumber() << " " << st->getName() << endl;
-        }
+    auto c = classes->find(new Class(classCode));
+    if (c == classes->end()) {
+        cout << "Class not found!" << endl;
+        return;
+    }
+    for (const auto& s : (*c)->getStudents()){
+        auto st = students->find(new Student(s));
+        if(st != students->end())
+            cout << (*st)->getNumber() << " " << (*st)->getName() << endl;
     }
 }
 
+/**
+ * @brief Imprime todas as turmas por unidade curricular em que um aluno está inscrito, por ordem alfabética do código da turma
+ *
+ * A função primeiro pede ao utilizador o numero do estudante, depois procura o estudante no set de estudantes usando o metodo find(), e por fim imprime todas as turmas por unidade curricular em que o estudante está inscrito.\n
+ * Complexidade Temporal: O(T*logN) onde N é o número de estudantes e T é o número de turmas em que o estudante está inscrito.
+ *
+ * @param students Set de todos os alunos
+ */
 void listClassesOfStudent(studentSet* students) {
     int studentNumber;
     cout << "Enter student number: ";
     cin >> studentNumber;
-    for (const auto& s : *students) {
-        if (s->getNumber() == studentNumber) {
-            auto studentclasses = s->getClassesPerCourse();
-            for (const auto& c : studentclasses)
-                cout << c.first << " - " << c.second << endl;
-        }
+    auto s = students -> find(new Student(studentNumber));
+    if (s == students->end()) {
+        cout << "Student not found!" << endl; return;
+    }
+    auto studentclasses = (*s) -> getClassesPerCourse();
+    for (const auto& c : studentclasses) {
+        cout << c.first << " - " << c.second << endl;
     }
 }
 
+/**
+ * @brief Imprime todas as as aulas de uma turma
+ *
+ * A função primeiro pede-se ao utilizador o código da turma, e depois procura essa turma no set de turmas utilizando o metodo find().\n
+ * A seguir itera sobre o horario da turma e imprime todas as aulas.\n
+ * Complexidade Temporal: O(A*log(T)) onde A é o número de aulas da turma e T é o número de turmas.
+ *
+ *
+ * @param students Set de todos os alunos
+ */
 void listSlotsOfClass(classSet* classes) {
     string classCode;
     cout << "Enter class code: ";
     cin >> classCode;
-    for (const auto &c: *classes) {
-        if (c->getCode() == classCode) {
-            auto classSchedule = c->getSchedule();
-            //classSchedule.printSchedule();
-            int i = 0;
-            for (auto it = classSchedule.begin();; it++) {
-                while(it == classSchedule[i].end() && it != classSchedule.end()){ i++; it = classSchedule[i].begin(); }
-                if(it == classSchedule.end()) break;
-                Slot s = *it;
-                cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
-                     << " " << s.getType() << endl;
-            }
-        }
+    auto c = classes->find(new Class(classCode));
+    if(c == classes->end()) {
+        cout << "Class not found!" << endl;
+        return;
+    }
+    auto classSchedule = (*c)->getSchedule();
+    int i = 0;
+    for (auto it = classSchedule.begin();; it++) {
+        while(it == classSchedule[i].end() && it != classSchedule.end()){ i++; it = classSchedule[i].begin(); }
+        if(it == classSchedule.end()) break;
+        Slot s = *it;
+        cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
+             << " " << s.getType() << endl;
     }
 }
 
+/**
+ * @brief Imprime todas as as aulas de uma unidade curricular
+ *
+ * A função primeiro pede-se ao utilizador o código da unidade curricular, e depois procura essa unidade curricular no set de unidades curriculares utilizando o metodo find().\n
+ * A seguir itera sobre o horario da unidade curricular e imprime todas as aulas.\n
+ * Complexidade Temporal: O(A*log(U)) onde A é o número de aulas da unidade curricular e U é o número de unidades curriculares.
+ *
+ *
+ * @param students Set de todos os alunos
+ */
 void listSlotsOfCourse(courseSet* courses) {
     string courseCode;
     cout << "Enter course code: ";
     cin >> courseCode;
-    for (const auto &c: *courses) {
-        if (c->getCode() == courseCode) {
-            auto courseSchedule = c->getSchedule();
-            //courseSchedule.printSchedule();
-            int i = 0;
-            for (auto it = courseSchedule.begin(); it != courseSchedule.end(); it++) {
-                if (it == courseSchedule[i].end()) {
-                    i++;
-                    it = courseSchedule[i].begin();
-                }
-                Slot s = *it;
-                cout << s.getDay() << " " << s.getClassCode() << " " << s.getStartHour() << " " << s.getEndHour() << " "
-                     << s.getType() << endl;
-            }
-        }
+    auto c = courses->find(new Course(courseCode));
+    if(c == courses->end()){
+        cout << "Course not found!" << endl;
+        return;
+    }
+    auto courseSchedule = (*c)->getSchedule();
+    int i = 0;
+    for (auto it = courseSchedule.begin();; it++) {
+        while(it == courseSchedule[i].end() && it != courseSchedule.end()){ i++; it = courseSchedule[i].begin(); }
+        if(it == courseSchedule.end()) break;
+        Slot s = *it;
+        cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
+             << " " << s.getType() << endl;
     }
 }
 

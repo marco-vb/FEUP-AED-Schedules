@@ -6,11 +6,12 @@ var searchData=
   ['getcoursecode_3',['getCourseCode',['../classSlot.html#a364bfdb56e6dc9cca1c5c8fc85f5a531',1,'Slot']]],
   ['getday_4',['getDay',['../classSlot.html#a17bdfca327b040d01cc04bfef93571c9',1,'Slot']]],
   ['getendhour_5',['getEndHour',['../classSlot.html#a633fc789d76761c3b5720a47b89d953c',1,'Slot']]],
-  ['getname_6',['getName',['../classStudent.html#a1df6c28e6416e20d338b9ff11bdc1e04',1,'Student']]],
-  ['getnumber_7',['getNumber',['../classStudent.html#ae7b15f60adaf461d6e70079f7854487c',1,'Student']]],
-  ['getschedule_8',['getSchedule',['../classClass.html#a6b6677ae244c4af4b9c88c82ea9416f9',1,'Class::getSchedule()'],['../classCourse.html#a46a3bac8522228c9358b430e1b34c994',1,'Course::getSchedule()'],['../classSchedule.html#ae95e81d40a673b77285a96148d829b41',1,'Schedule::getSchedule()']]],
-  ['getstarthour_9',['getStartHour',['../classSlot.html#a58f486a7e358f781047c85d410b18380',1,'Slot']]],
-  ['getstudents_10',['getStudents',['../classClass.html#a86a5f01aa79b3405dd5f926ce6945190',1,'Class::getStudents()'],['../classCourse.html#abc250287d7a8f41dce12e63f899928bd',1,'Course::getStudents()']]],
-  ['gettype_11',['getType',['../classSlot.html#a9ab118706df0180c07fb4f9a7815e222',1,'Slot']]],
-  ['getyear_12',['getYear',['../classCourse.html#a3c626fcfe9a96d26fd22fbc58de6c8a8',1,'Course']]]
+  ['getlessonorder_6',['getLessonOrder',['../main_8cpp.html#a47857063fb911f9aa180d9f89598b0de',1,'getLessonOrder(slotSet *slots):&#160;main.cpp'],['../Functions_8h.html#a47857063fb911f9aa180d9f89598b0de',1,'getLessonOrder(slotSet *slots):&#160;main.cpp']]],
+  ['getname_7',['getName',['../classStudent.html#a1df6c28e6416e20d338b9ff11bdc1e04',1,'Student']]],
+  ['getnumber_8',['getNumber',['../classStudent.html#ae7b15f60adaf461d6e70079f7854487c',1,'Student']]],
+  ['getschedule_9',['getSchedule',['../classClass.html#a6b6677ae244c4af4b9c88c82ea9416f9',1,'Class::getSchedule()'],['../classCourse.html#a46a3bac8522228c9358b430e1b34c994',1,'Course::getSchedule()'],['../classSchedule.html#ae95e81d40a673b77285a96148d829b41',1,'Schedule::getSchedule()']]],
+  ['getstarthour_10',['getStartHour',['../classSlot.html#a58f486a7e358f781047c85d410b18380',1,'Slot']]],
+  ['getstudents_11',['getStudents',['../classClass.html#a86a5f01aa79b3405dd5f926ce6945190',1,'Class::getStudents()'],['../classCourse.html#abc250287d7a8f41dce12e63f899928bd',1,'Course::getStudents()']]],
+  ['gettype_12',['getType',['../classSlot.html#a9ab118706df0180c07fb4f9a7815e222',1,'Slot']]],
+  ['getyear_13',['getYear',['../classCourse.html#a3c626fcfe9a96d26fd22fbc58de6c8a8',1,'Course']]]
 ];

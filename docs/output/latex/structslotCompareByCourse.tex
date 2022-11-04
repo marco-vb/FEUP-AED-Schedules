@@ -1,0 +1,65 @@
+\hypertarget{structslotCompareByCourse}{}\doxysection{slot\+Compare\+By\+Course Struct Reference}
+\label{structslotCompareByCourse}\index{slotCompareByCourse@{slotCompareByCourse}}
+
+
+Compara dois slots por ordem alfabética de codigo da unidade curricular, e em caso de empate por ordem alfabética de codigo da tuma.  
+
+
+
+
+{\ttfamily \#include $<$Types.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}{operator()}} (const \mbox{\hyperlink{classSlot}{Slot}} a, const \mbox{\hyperlink{classSlot}{Slot}} b) const
+\begin{DoxyCompactList}\small\item\em Função que compara dois slots por ordem alfabética de codigo da unidade curricular, e em caso de empate por ordem alfabética de codigo da tuma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compara dois slots por ordem alfabética de codigo da unidade curricular, e em caso de empate por ordem alfabética de codigo da tuma. 
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00066}{66}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}\label{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}} 
+\index{slotCompareByCourse@{slotCompareByCourse}!operator()@{operator()}}
+\index{operator()@{operator()}!slotCompareByCourse@{slotCompareByCourse}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool slot\+Compare\+By\+Course\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSlot}{Slot}}}]{a,  }\item[{const \mbox{\hyperlink{classSlot}{Slot}}}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Função que compara dois slots por ordem alfabética de codigo da unidade curricular, e em caso de empate por ordem alfabética de codigo da tuma. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeiro slot a comparar \\
+\hline
+{\em b} & Segundo slot a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o codigo da unidade curricular do primeiro slot for menor que o do segundo, ou se os codigos da unidade curricular forem iguais e o codigo da turma do primeiro slot for menor que o do segundo, e falso caso contrario 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00076}{76}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076                                                       \{}
+\DoxyCodeLine{00077         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() ||}
+\DoxyCodeLine{00078                (a.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() == b.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() \&\& a.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}());}
+\DoxyCodeLine{00079     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Types.\+h\end{DoxyCompactItemize}

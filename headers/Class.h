@@ -123,7 +123,7 @@ struct classCompare {
     }
 };
 
-/// renomeia o tipo set<Class*, classCompare> para classSet, para melhor legibilidade
+/// Renomeia o tipo set<Class*, classCompare> para classSet, para melhor legibilidade
 typedef set<Class*, classCompare> classSet;
 
 #endif

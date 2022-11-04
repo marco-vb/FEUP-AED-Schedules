@@ -132,8 +132,13 @@ struct slotCompareByDay{
 
 
 //define sets
+/// Renomeia o tipo <Student*, studentCompare> para studentSet, para melhor legibilidade
 typedef set<Student*, studentCompare> studentSet;
+
+/// Renomeia o tipo set<pair<Class*, Course*> para classCourseSet, para melhor legibilidade
 typedef set<pair<Class*, Course*>, classCourseCompare > classCoursesSet;
+
+/// Renomeia o tipo set<Slot*, slotCompare> para slotSet, para melhor legibilidade
 typedef set<Slot*, slotCompare> slotSet;
 
 #endif

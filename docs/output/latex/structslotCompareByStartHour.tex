@@ -1,0 +1,65 @@
+\hypertarget{structslotCompareByStartHour}{}\doxysection{slot\+Compare\+By\+Start\+Hour Struct Reference}
+\label{structslotCompareByStartHour}\index{slotCompareByStartHour@{slotCompareByStartHour}}
+
+
+Compara dois slots pela hora de inicio.  
+
+
+
+
+{\ttfamily \#include $<$Types.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}{operator()}} (const \mbox{\hyperlink{classSlot}{Slot}} a, const \mbox{\hyperlink{classSlot}{Slot}} b) const
+\begin{DoxyCompactList}\small\item\em Função que compara dois slots pela hora de inicio, em caso de empate pelo dia da semana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Compara dois slots pela hora de inicio. 
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00083}{83}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}\label{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}} 
+\index{slotCompareByStartHour@{slotCompareByStartHour}!operator()@{operator()}}
+\index{operator()@{operator()}!slotCompareByStartHour@{slotCompareByStartHour}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool slot\+Compare\+By\+Start\+Hour\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSlot}{Slot}}}]{a,  }\item[{const \mbox{\hyperlink{classSlot}{Slot}}}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Função que compara dois slots pela hora de inicio, em caso de empate pelo dia da semana. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeiro slot a comparar \\
+\hline
+{\em b} & Segundo slot a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a hora de inicio do primeiro slot for menor que a do segundo, ou se as horas de inicio forem iguais e o dia da semana do primeiro slot for menor que o do segundo, e falso caso contrario 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00093}{93}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093                                                       \{}
+\DoxyCodeLine{00094         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() ||}
+\DoxyCodeLine{00095                (a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() == b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() \&\& \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()));}
+\DoxyCodeLine{00096     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Types.\+h\end{DoxyCompactItemize}
