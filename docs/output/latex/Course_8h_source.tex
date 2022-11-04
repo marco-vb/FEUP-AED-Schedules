@@ -11,32 +11,45 @@
 \DoxyCodeLine{\Hypertarget{Course_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
 \DoxyCodeLine{\Hypertarget{Course_8h_source_l00008}00008 \textcolor{keyword}{using namespace }std;}
 \DoxyCodeLine{\Hypertarget{Course_8h_source_l00009}00009 }
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00011}\mbox{\hyperlink{classCourse}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{classCourse}{Course}} \{}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00012}00012     \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00013}00013         \textcolor{keywordtype}{string} code;            \textcolor{comment}{// Course code (e.g. "{}L.EIC001"{})}}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00014}00014         \textcolor{keywordtype}{int} year;               \textcolor{comment}{// 1st, 2nd, 3rd, 4th, 5th}}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00015}00015         \mbox{\hyperlink{classSchedule}{Schedule}} schedule;      \textcolor{comment}{// schedule of this course}}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00016}00016         set<int> students;      \textcolor{comment}{// set of student by id number}}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00017}00017     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00018}00018         \textcolor{keyword}{explicit} \mbox{\hyperlink{classCourse}{Course}}(\textcolor{keywordtype}{string} code);}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00019}00019         \textcolor{keywordtype}{string} getCode() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00020}00020         \textcolor{keywordtype}{int} getYear() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00021}00021         \textcolor{keywordtype}{void} setYear(\textcolor{keywordtype}{int} year);}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00022}00022         \mbox{\hyperlink{classSchedule}{Schedule}} getSchedule() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00023}00023         \textcolor{keywordtype}{void} clearSchedule();}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00024}00024         \textcolor{keywordtype}{bool} addSlot(\mbox{\hyperlink{classSlot}{Slot}} slot);}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00025}00025         set<int> getStudents() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00026}00026         \textcolor{keywordtype}{bool} addStudent(\textcolor{keywordtype}{int} studentNumber);}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00027}00027         \textcolor{keywordtype}{bool} removeStudent(\textcolor{keywordtype}{int} studentNumber);}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00028}00028 \};}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00030}\mbox{\hyperlink{structcomp}{00030}} \textcolor{keyword}{struct }\mbox{\hyperlink{structcomp}{comp}} \{}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00031}00031     \textcolor{keywordtype}{bool} operator()(\textcolor{keyword}{const} \mbox{\hyperlink{classCourse}{Course}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classCourse}{Course}}* b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00032}00032         \textcolor{keywordflow}{return} a-\/>getCode() < b-\/>getCode();}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00033}00033     \}}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00034}00034 \};}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00035}00035 \textcolor{keyword}{typedef} set<Course*, comp> courseSet;}
-\DoxyCodeLine{\Hypertarget{Course_8h_source_l00036}00036 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00014}\mbox{\hyperlink{classCourse}{00014}} \textcolor{keyword}{class }\mbox{\hyperlink{classCourse}{Course}} \{}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00015}00015     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00017}00017         \textcolor{keywordtype}{string} code;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00020}00020         \textcolor{keywordtype}{int} year;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00023}00023         \mbox{\hyperlink{classSchedule}{Schedule}} schedule;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00026}00026         set<int> students;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00027}00027     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00036}00036         \textcolor{keyword}{explicit} \mbox{\hyperlink{classCourse}{Course}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00045}00045         \textcolor{keywordtype}{string} \mbox{\hyperlink{classCourse_a67e1d65b0e960e12e2bf1a2969ae6ab2}{getCode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00054}00054         \textcolor{keywordtype}{int} \mbox{\hyperlink{classCourse_a3c626fcfe9a96d26fd22fbc58de6c8a8}{getYear}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00063}00063         \textcolor{keywordtype}{void} \mbox{\hyperlink{classCourse_a1e909d2ffc075bd6f58779cd01df6def}{setYear}}(\textcolor{keywordtype}{int} year);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00072}00072         \mbox{\hyperlink{classSchedule}{Schedule}} \mbox{\hyperlink{classCourse_a46a3bac8522228c9358b430e1b34c994}{getSchedule}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00080}00080         \textcolor{keywordtype}{void} \mbox{\hyperlink{classCourse_ac2b34985a570e89a2c06969b962053c0}{clearSchedule}}();}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00090}00090         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCourse_a348fda4202bc2f864efbc431ad031f3f}{addSlot}}(\mbox{\hyperlink{classSlot}{Slot}} slot);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00099}00099         set<int> \mbox{\hyperlink{classCourse_abc250287d7a8f41dce12e63f899928bd}{getStudents}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00108}00108         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCourse_af11c0d327292f03a3d17a3bbfbf34d31}{addStudent}}(\textcolor{keywordtype}{int} studentNumber);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00117}00117         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCourse_ab35aecfb3e81d9035ed51382ad9b5940}{removeStudent}}(\textcolor{keywordtype}{int} studentNumber);}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00118}00118 \};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00121}\mbox{\hyperlink{structcomp}{00121}} \textcolor{keyword}{struct }\mbox{\hyperlink{structcomp}{comp}} \{}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00132}\mbox{\hyperlink{structcomp_ac2e470edbe980ff50f11322b1e985a80}{00132}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structcomp_ac2e470edbe980ff50f11322b1e985a80}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classCourse}{Course}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classCourse}{Course}}* b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00133}00133         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classCourse_a67e1d65b0e960e12e2bf1a2969ae6ab2}{getCode}}() < b-\/>\mbox{\hyperlink{classCourse_a67e1d65b0e960e12e2bf1a2969ae6ab2}{getCode}}();}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00134}00134     \}}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00135}00135 \};}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00138}00138 \textcolor{keyword}{typedef} set<Course*, comp> courseSet;}
+\DoxyCodeLine{\Hypertarget{Course_8h_source_l00139}00139 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

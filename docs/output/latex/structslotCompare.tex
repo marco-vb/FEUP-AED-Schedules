@@ -1,16 +1,25 @@
 \hypertarget{structslotCompare}{}\doxysection{slot\+Compare Struct Reference}
 \label{structslotCompare}\index{slotCompare@{slotCompare}}
+
+
+Compara dois slots por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular.  
+
+
+
+
+{\ttfamily \#include $<$Types.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{structslotCompare_aa6b06c0005a868879510b066df1128d2}{operator()}} (const \mbox{\hyperlink{classSlot}{Slot}} $\ast$a, const \mbox{\hyperlink{classSlot}{Slot}} $\ast$b) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que compara dois slots por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Compara dois slots por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. 
 
-
-Definition at line \mbox{\hyperlink{Types_8h_source_l00025}{25}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+Definition at line \mbox{\hyperlink{Types_8h_source_l00049}{49}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
 
 
 
@@ -23,14 +32,30 @@ Definition at line \mbox{\hyperlink{Types_8h_source_l00025}{25}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{Types_8h_source_l00026}{26}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+Função que compara dois slots por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeiro slot a comparar \\
+\hline
+{\em b} & Segundo slot a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o codigo da turma do primeiro slot for menor que o do segundo, ou se os codigos da turma forem iguais e o codigo da unidade curricular do primeiro slot for menor que o do segundo, e falso caso contrario 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00059}{59}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00026                                                         \{}
-\DoxyCodeLine{00027         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() ||}
-\DoxyCodeLine{00028                (a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() == b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() \&\& a-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}());}
-\DoxyCodeLine{00029     \}}
+\DoxyCodeLine{00059                                                         \{}
+\DoxyCodeLine{00060         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() ||}
+\DoxyCodeLine{00061                (a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() == b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() \&\& a-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}());}
+\DoxyCodeLine{00062     \}}
 
 \end{DoxyCode}
 

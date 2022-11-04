@@ -26,7 +26,7 @@ class Slot {
         /// String com o tipo ("T", "TP", "PL")
         string type;
 
-        /// String com o nome da unidade curricular (exempplo "LEIC001")
+        /// String com o nome da unidade curricular (exemplo "LEIC001")
         string coursecode;
 
         /// String com o nome da turma (exemplo "1LEIC01")

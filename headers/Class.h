@@ -11,7 +11,7 @@ using namespace std;
  */
 class Class {
     private:
-        /// Código da turma
+        /// Código da turma (exemplo: "LEIC001")
         string code;
 
         /// Numero de estudantes da turma
@@ -89,7 +89,7 @@ class Class {
          * Função que adiciona um estudante à turma, verificando se o número de estudantes não excede o máximo.\n
          * Complexidade Temporal: O(logN) onde N é o número de estudantes na turma
          *
-         * @param studentId O id do estudante a adicionar
+         * @param studentNumber O id do estudante a adicionar
          * @return true se o estudante foi adicionado com sucesso e false caso contrário
          */
         bool addStudent(int studentNumber);
@@ -100,7 +100,7 @@ class Class {
          * Função que remove um estudante da turma, verificando se o estudante existe.\n
          * Complexidade Temporal: O(logN) onde N é o número de estudantes na turma
          *
-         * @param studentId O id do estudante a remover
+         * @param studentNumber O id do estudante a remover
          * @return true se o estudante foi removido com sucesso e false caso contrário
          */
         bool removeStudent(int studentNumber);
@@ -114,8 +114,8 @@ struct classCompare {
      * Função que compara duas turmas através do código da turma.\n
      * Complexidade Temporal: O(1)
      *
-     * @param c1 Primeira turma a comparar
-     * @param c2 Segunda turma a comparar
+     * @param a Primeira turma a comparar
+     * @param b Segunda turma a comparar
      * @return true se o código da primeira turma for menor que o código da segunda e false caso contrário
      */
     bool operator()(const Class* a, const Class* b) const {
@@ -123,7 +123,7 @@ struct classCompare {
     }
 };
 
-/// renomeia o tipo set de turmas para classSet, para melhor legibilidade
+/// renomeia o tipo set<Class*, classCompare> para classSet, para melhor legibilidade
 typedef set<Class*, classCompare> classSet;
 
 #endif

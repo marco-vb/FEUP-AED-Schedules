@@ -1,34 +1,45 @@
 \hypertarget{classCourse}{}\doxysection{Course Class Reference}
 \label{classCourse}\index{Course@{Course}}
+
+
+Classe que representa uma unidade curricular.  
+
+
+
+
+{\ttfamily \#include $<$Course.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCourse_a3c453b3fd2e7f561098d0b7f61719cce}{Course}} (string code)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor da classe. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classCourse_a67e1d65b0e960e12e2bf1a2969ae6ab2}{get\+Code}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o código da unidade curricular. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classCourse_a3c626fcfe9a96d26fd22fbc58de6c8a8}{get\+Year}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o ano da unidade curricular. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourse_a1e909d2ffc075bd6f58779cd01df6def}{set\+Year}} (int year)
-\item 
+\begin{DoxyCompactList}\small\item\em Muda o ano da unidade curricular. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSchedule}{Schedule}} \mbox{\hyperlink{classCourse_a46a3bac8522228c9358b430e1b34c994}{get\+Schedule}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o horario da unidade curricular. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourse_ac2b34985a570e89a2c06969b962053c0}{clear\+Schedule}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Limpa o horario da turma. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classCourse_a348fda4202bc2f864efbc431ad031f3f}{add\+Slot}} (\mbox{\hyperlink{classSlot}{Slot}} slot)
-\item 
+\begin{DoxyCompactList}\small\item\em Adiciona uma aula ao horario da unidade curricular. \end{DoxyCompactList}\item 
 set$<$ int $>$ \mbox{\hyperlink{classCourse_abc250287d7a8f41dce12e63f899928bd}{get\+Students}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o set de estudantes inscritos na unidade curricular. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classCourse_af11c0d327292f03a3d17a3bbfbf34d31}{add\+Student}} (int student\+Number)
-\item 
+\begin{DoxyCompactList}\small\item\em Adiciona um estudante ao set de estudantes inscritos na unidade curricular. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classCourse_ab35aecfb3e81d9035ed51382ad9b5940}{remove\+Student}} (int student\+Number)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Remove um estudante do set de estudantes inscritos na unidade curricular. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Classe que representa uma unidade curricular. 
 
 
-Definition at line \mbox{\hyperlink{Course_8h_source_l00011}{11}} of file \mbox{\hyperlink{Course_8h_source}{Course.\+h}}.
+
+Definition at line \mbox{\hyperlink{Course_8h_source_l00014}{14}} of file \mbox{\hyperlink{Course_8h_source}{Course.\+h}}.
 
 
 
@@ -39,6 +50,17 @@ Definition at line \mbox{\hyperlink{Course_8h_source_l00011}{11}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{Course()}{Course()}}
 {\footnotesize\ttfamily Course\+::\+Course (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
+
+
+Construtor da classe. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Código da unidade curricular \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
@@ -61,6 +83,18 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00006}{6}} of file \mbox
 
 
 
+Adiciona uma aula ao horario da unidade curricular. 
+
+Função que adiciona uma aula ao horario da unidade curricular atraves da do metodo add\+Slot da classe \mbox{\hyperlink{classSchedule}{Schedule}}.~\newline
+Complexidade Temporal\+: O(log\+N) onde N é o número máximo de aulas de um dia
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & Aula a adicionar \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
 
 
@@ -76,6 +110,17 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00030}{30}} of file \mbo
 \doxysubsubsection{\texorpdfstring{addStudent()}{addStudent()}}
 {\footnotesize\ttfamily bool Course\+::add\+Student (\begin{DoxyParamCaption}\item[{int}]{student\+Number }\end{DoxyParamCaption})}
 
+
+
+Adiciona um estudante ao set de estudantes inscritos na unidade curricular. 
+
+Complexidade Temporal\+: O(log\+N) onde N é o número de estudantes inscritos na unidade curricular
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Number} & Numero de estudante a adicionar \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
@@ -95,6 +140,11 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00038}{38}} of file \mbo
 
 
 
+Limpa o horario da turma. 
+
+Função que limpa o horario da unidade curricular atraves da do metodo clear\+Schedule da classe \mbox{\hyperlink{classSchedule}{Schedule}}.~\newline
+Complexidade Temporal\+: O(\+N) onde N é o número de aulas no horario 
+
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
 
 
@@ -110,6 +160,15 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00026}{26}} of file \mbo
 \doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
 {\footnotesize\ttfamily string Course\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Retorna o código da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+O código da unidade curricular 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
@@ -129,6 +188,15 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00010}{10}} of file \mbo
 
 
 
+Retorna o horario da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+O horario da unidade curricular 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
 
 
@@ -144,6 +212,15 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00022}{22}} of file \mbo
 \doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
 {\footnotesize\ttfamily set$<$ int $>$ Course\+::get\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Retorna o set de estudantes inscritos na unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+O set de estudantes inscritos na unidade curricular 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
@@ -163,6 +240,15 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00034}{34}} of file \mbo
 
 
 
+Retorna o ano da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+Inteiro do ano da unidade curricular 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
 
 
@@ -180,6 +266,17 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00014}{14}} of file \mbo
 
 
 
+Remove um estudante do set de estudantes inscritos na unidade curricular. 
+
+Complexidade Temporal\+: O(log\+N) onde N é o número de estudantes inscritos na unidade curricular
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Number} & Numero de estudante a remover \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.
 
 
@@ -195,6 +292,17 @@ Definition at line \mbox{\hyperlink{Course_8cpp_source_l00042}{42}} of file \mbo
 \doxysubsubsection{\texorpdfstring{setYear()}{setYear()}}
 {\footnotesize\ttfamily void Course\+::set\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})}
 
+
+
+Muda o ano da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Novo ano da unidade curricular \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{Course_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{Course_8cpp_source}{Course.\+cpp}}.

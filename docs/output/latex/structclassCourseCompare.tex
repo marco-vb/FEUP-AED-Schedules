@@ -1,16 +1,25 @@
 \hypertarget{structclassCourseCompare}{}\doxysection{class\+Course\+Compare Struct Reference}
 \label{structclassCourseCompare}\index{classCourseCompare@{classCourseCompare}}
+
+
+Compara dois pares (class, course) por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular.  
+
+
+
+
+{\ttfamily \#include $<$Types.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{structclassCourseCompare_a3cb620cec1d29fd6d288f89e424ad1c1}{operator()}} (const pair$<$ \mbox{\hyperlink{classClass}{Class}} $\ast$, \mbox{\hyperlink{classCourse}{Course}} $\ast$ $>$ a, const pair$<$ \mbox{\hyperlink{classClass}{Class}} $\ast$, \mbox{\hyperlink{classCourse}{Course}} $\ast$ $>$ b) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que compara dois pares (class, course) por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Compara dois pares (class, course) por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. 
 
-
-Definition at line \mbox{\hyperlink{Types_8h_source_l00018}{18}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+Definition at line \mbox{\hyperlink{Types_8h_source_l00032}{32}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
 
 
 
@@ -23,14 +32,30 @@ Definition at line \mbox{\hyperlink{Types_8h_source_l00018}{18}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{Types_8h_source_l00019}{19}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+Função que compara dois pares (class, course) por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeiro par a comparar \\
+\hline
+{\em b} & Segundo par a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o codigo da turma do primeiro par for menor que o do segundo, ou se os codigos da turma forem iguais e o codigo da unidade curricular do primeiro par for menor que o do segundo, e falso caso contrario 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00042}{42}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00019                                                                                             \{}
-\DoxyCodeLine{00020         \textcolor{keywordflow}{return} (a.first-\/>getCode() < b.first-\/>getCode()) ||}
-\DoxyCodeLine{00021                (a.first-\/>getCode() == b.first-\/>getCode() \&\& a.second-\/>getCode() < b.second-\/>getCode());}
-\DoxyCodeLine{00022     \}}
+\DoxyCodeLine{00042                                                                                             \{}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{return} (a.first-\/>getCode() < b.first-\/>getCode()) ||}
+\DoxyCodeLine{00044                (a.first-\/>getCode() == b.first-\/>getCode() \&\& a.second-\/>getCode() < b.second-\/>getCode());}
+\DoxyCodeLine{00045     \}}
 
 \end{DoxyCode}
 

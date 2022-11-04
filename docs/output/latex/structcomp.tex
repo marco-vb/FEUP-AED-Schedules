@@ -1,16 +1,25 @@
 \hypertarget{structcomp}{}\doxysection{comp Struct Reference}
 \label{structcomp}\index{comp@{comp}}
+
+
+Compara duas unidades curriculares.  
+
+
+
+
+{\ttfamily \#include $<$Course.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{structcomp_ac2e470edbe980ff50f11322b1e985a80}{operator()}} (const \mbox{\hyperlink{classCourse}{Course}} $\ast$a, const \mbox{\hyperlink{classCourse}{Course}} $\ast$b) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função que compara duas unidades curriculares. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Compara duas unidades curriculares. 
 
-
-Definition at line \mbox{\hyperlink{Course_8h_source_l00030}{30}} of file \mbox{\hyperlink{Course_8h_source}{Course.\+h}}.
+Definition at line \mbox{\hyperlink{Course_8h_source_l00121}{121}} of file \mbox{\hyperlink{Course_8h_source}{Course.\+h}}.
 
 
 
@@ -23,13 +32,30 @@ Definition at line \mbox{\hyperlink{Course_8h_source_l00030}{30}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{Course_8h_source_l00031}{31}} of file \mbox{\hyperlink{Course_8h_source}{Course.\+h}}.
+Função que compara duas unidades curriculares. 
+
+Função que compara duas unidades curriculares atraves do seu codigo.~\newline
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira unidade curricular a comparar \\
+\hline
+{\em b} & Segunda unidade curricular a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se a primeira unidade curricular for menor que a segunda, False caso contrario 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Course_8h_source_l00132}{132}} of file \mbox{\hyperlink{Course_8h_source}{Course.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00031                                                             \{}
-\DoxyCodeLine{00032         \textcolor{keywordflow}{return} a-\/>getCode() < b-\/>getCode();}
-\DoxyCodeLine{00033     \}}
+\DoxyCodeLine{00132                                                             \{}
+\DoxyCodeLine{00133         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classCourse_a67e1d65b0e960e12e2bf1a2969ae6ab2}{getCode}}() < b-\/>\mbox{\hyperlink{classCourse_a67e1d65b0e960e12e2bf1a2969ae6ab2}{getCode}}();}
+\DoxyCodeLine{00134     \}}
 
 \end{DoxyCode}
 
