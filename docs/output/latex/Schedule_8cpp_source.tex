@@ -19,13 +19,13 @@
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00015}00015 \}}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00016}00016 }
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00017}\mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{00017}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{Schedule::addSlot}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& slot) \{}
-\DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00018}00018     schedule[weekDayToNum(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())].insert(slot);}
+\DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00018}00018     schedule[\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())].insert(slot);}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00019}00019     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00020}00020 \}}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00021}00021 }
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00022}\mbox{\hyperlink{classSchedule_a19af129293728ce760244303352299c0}{00022}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSchedule_a19af129293728ce760244303352299c0}{Schedule::checkForCollision}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& slot)\{}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00023}00023     \textcolor{keywordflow}{if}(slot.\mbox{\hyperlink{classSlot_a9ab118706df0180c07fb4f9a7815e222}{getType}}() == \textcolor{stringliteral}{"{}T"{}}) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00024}00024     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& cs : schedule[weekDayToNum(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())])\{}
+\DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00024}00024     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& cs : schedule[\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())])\{}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00025}00025         \textcolor{keywordflow}{if}(cs.getType() != \textcolor{stringliteral}{"{}T"{}}) \{}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00026}00026             \textcolor{keywordflow}{return} (cs.getStartHour() < slot.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() \&\& cs.getEndHour() > slot.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}()) ||}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00027}00027                    (slot.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < cs.getStartHour() \&\& slot.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() > cs.getStartHour());}
@@ -40,7 +40,7 @@
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00036}00036 }
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00037}00037 }
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00038}\mbox{\hyperlink{classSchedule_a91d53d367125ba214c82ffc3c1e1850f}{00038}} set<Slot>\& \mbox{\hyperlink{classSchedule_a8924812490c86cba00f43ac3af344e79}{Schedule::operator[] }}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& day)\{}
-\DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00039}00039     \textcolor{keywordflow}{return} schedule[weekDayToNum(day)];}
+\DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00039}00039     \textcolor{keywordflow}{return} schedule[\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(day)];}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00040}00040 \}}
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00041}00041 }
 \DoxyCodeLine{\Hypertarget{Schedule_8cpp_source_l00042}\mbox{\hyperlink{classSchedule_ac89f4ff97dad1820b4846c0d58cfb0b2}{00042}} set<Slot>::iterator \mbox{\hyperlink{classSchedule_ac89f4ff97dad1820b4846c0d58cfb0b2}{Schedule::begin}}()\{}

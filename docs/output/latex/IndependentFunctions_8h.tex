@@ -10,6 +10,10 @@ Ficheiro que contém as funções independentes de outras classes.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+string \mbox{\hyperlink{IndependentFunctions_8h_a673b87fdb88d0ae25590a845be2bc5f4}{num\+To\+Week\+Day}} (int n)
+\begin{DoxyCompactList}\small\item\em Inteiro para dia da semana. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{week\+Day\+To\+Num}} (const string \&day)
+\begin{DoxyCompactList}\small\item\em Dia da semana para inteiro. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{float\+To\+Minutes}} (float hour)
 \begin{DoxyCompactList}\small\item\em Função que retorna uma string com a hora e minutos num formato que estamos mais habituados. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -35,7 +39,14 @@ Definition in file \mbox{\hyperlink{IndependentFunctions_8h_source}{Independent\
 Função que retorna uma string com a hora e minutos num formato que estamos mais habituados. 
 
 Exemplo\+: 12.\+5 -\/\texorpdfstring{$>$}{>} 12\+:30.~\newline
-Complexidade Temporal\+: O(1) 
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em hour} & Float com a hora \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line \mbox{\hyperlink{IndependentFunctions_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{IndependentFunctions_8cpp_source}{Independent\+Functions.\+cpp}}.
 
@@ -49,5 +60,71 @@ Definition at line \mbox{\hyperlink{IndependentFunctions_8cpp_source_l00019}{19}
 \DoxyCodeLine{00024         min = \textcolor{stringliteral}{"{}0"{}} + min;}
 \DoxyCodeLine{00025     \textcolor{keywordflow}{return} to\_string((\textcolor{keywordtype}{int}) hour) + \textcolor{charliteral}{':'} + min;}
 \DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{IndependentFunctions_8h_a673b87fdb88d0ae25590a845be2bc5f4}\label{IndependentFunctions_8h_a673b87fdb88d0ae25590a845be2bc5f4}} 
+\index{IndependentFunctions.h@{IndependentFunctions.h}!numToWeekDay@{numToWeekDay}}
+\index{numToWeekDay@{numToWeekDay}!IndependentFunctions.h@{IndependentFunctions.h}}
+\doxysubsubsection{\texorpdfstring{numToWeekDay()}{numToWeekDay()}}
+{\footnotesize\ttfamily string num\+To\+Week\+Day (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Inteiro para dia da semana. 
+
+Função que retorna uma string com o dia da semana correspondente ao inteiro dado.~\newline
+Isto é feito usando o map num\+To\+Week\+Day\+\_\+.~\newline
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Inteiro que representa o dia da semana \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String com o dia da semana 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{IndependentFunctions_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{IndependentFunctions_8cpp_source}{Independent\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011                           \{}
+\DoxyCodeLine{00012     \textcolor{keywordflow}{return} numToWeekDay\_.at(n);}
+\DoxyCodeLine{00013 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}\label{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}} 
+\index{IndependentFunctions.h@{IndependentFunctions.h}!weekDayToNum@{weekDayToNum}}
+\index{weekDayToNum@{weekDayToNum}!IndependentFunctions.h@{IndependentFunctions.h}}
+\doxysubsubsection{\texorpdfstring{weekDayToNum()}{weekDayToNum()}}
+{\footnotesize\ttfamily int week\+Day\+To\+Num (\begin{DoxyParamCaption}\item[{const string \&}]{day }\end{DoxyParamCaption})}
+
+
+
+Dia da semana para inteiro. 
+
+Função que retorna um inteiro com o dia da semana correspondente à string dada.~\newline
+Isto é feito usando o map week\+Day\+To\+Num\+\_\+,~\newline
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em day} & String com o dia da semana \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inteiro que representa o dia da semana 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{IndependentFunctions_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{IndependentFunctions_8cpp_source}{Independent\+Functions.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015                                    \{}
+\DoxyCodeLine{00016     \textcolor{keywordflow}{return} weekDayToNum\_.at(day);}
+\DoxyCodeLine{00017 \}}
 
 \end{DoxyCode}

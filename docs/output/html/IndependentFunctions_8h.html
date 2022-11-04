@@ -88,6 +88,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a673b87fdb88d0ae25590a845be2bc5f4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IndependentFunctions_8h.html#a673b87fdb88d0ae25590a845be2bc5f4">numToWeekDay</a> (int n)</td></tr>
+<tr class="memdesc:a673b87fdb88d0ae25590a845be2bc5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inteiro para dia da semana.  <a href="IndependentFunctions_8h.html#a673b87fdb88d0ae25590a845be2bc5f4">More...</a><br /></td></tr>
+<tr class="separator:a673b87fdb88d0ae25590a845be2bc5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e28767504ac5b6700740a8eff0ee53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IndependentFunctions_8h.html#a33e28767504ac5b6700740a8eff0ee53">weekDayToNum</a> (const string &amp;day)</td></tr>
+<tr class="memdesc:a33e28767504ac5b6700740a8eff0ee53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dia da semana para inteiro.  <a href="IndependentFunctions_8h.html#a33e28767504ac5b6700740a8eff0ee53">More...</a><br /></td></tr>
+<tr class="separator:a33e28767504ac5b6700740a8eff0ee53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29a53e5a310a4833ae7a56d655ace5f0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="IndependentFunctions_8h.html#a29a53e5a310a4833ae7a56d655ace5f0">floatToMinutes</a> (float hour)</td></tr>
 <tr class="memdesc:a29a53e5a310a4833ae7a56d655ace5f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que retorna uma string com a hora e minutos num formato que estamos mais habituados.  <a href="IndependentFunctions_8h.html#a29a53e5a310a4833ae7a56d655ace5f0">More...</a><br /></td></tr>
 <tr class="separator:a29a53e5a310a4833ae7a56d655ace5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,7 +122,13 @@ Functions</h2></td></tr>
 
 <p>Função que retorna uma string com a hora e minutos num formato que estamos mais habituados. </p>
 <p>Exemplo: 12.5 -&gt; 12:30.<br  />
-Complexidade Temporal: O(1) </p>
+Complexidade Temporal: O(1)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hour</td><td>Float com a hora </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="IndependentFunctions_8cpp_source.html#l00019">19</a> of file <a class="el" href="IndependentFunctions_8cpp_source.html">IndependentFunctions.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   19</span>                                  {</div>
@@ -127,6 +139,76 @@ Complexidade Temporal: O(1) </p>
 <div class="line"><span class="lineno">   24</span>        min = <span class="stringliteral">&quot;0&quot;</span> + min;</div>
 <div class="line"><span class="lineno">   25</span>    <span class="keywordflow">return</span> to_string((<span class="keywordtype">int</span>) hour) + <span class="charliteral">&#39;:&#39;</span> + min;</div>
 <div class="line"><span class="lineno">   26</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a673b87fdb88d0ae25590a845be2bc5f4" name="a673b87fdb88d0ae25590a845be2bc5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673b87fdb88d0ae25590a845be2bc5f4">&#9670;&#160;</a></span>numToWeekDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string numToWeekDay </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inteiro para dia da semana. </p>
+<p>Função que retorna uma string com o dia da semana correspondente ao inteiro dado.<br  />
+Isto é feito usando o map numToWeekDay_.<br  />
+Complexidade Temporal: O(1)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Inteiro que representa o dia da semana </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String com o dia da semana </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="IndependentFunctions_8cpp_source.html#l00011">11</a> of file <a class="el" href="IndependentFunctions_8cpp_source.html">IndependentFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                          {</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> numToWeekDay_.at(n);</div>
+<div class="line"><span class="lineno">   13</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a33e28767504ac5b6700740a8eff0ee53" name="a33e28767504ac5b6700740a8eff0ee53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e28767504ac5b6700740a8eff0ee53">&#9670;&#160;</a></span>weekDayToNum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int weekDayToNum </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>day</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dia da semana para inteiro. </p>
+<p>Função que retorna um inteiro com o dia da semana correspondente à string dada.<br  />
+Isto é feito usando o map weekDayToNum_,<br  />
+Complexidade Temporal: O(1)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">day</td><td>String com o dia da semana </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Inteiro que representa o dia da semana </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="IndependentFunctions_8cpp_source.html#l00015">15</a> of file <a class="el" href="IndependentFunctions_8cpp_source.html">IndependentFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                   {</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">return</span> weekDayToNum_.at(day);</div>
+<div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

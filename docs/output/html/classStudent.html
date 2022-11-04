@@ -98,12 +98,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a604908e6e68618494bcad495cb0519d7"><td class="memItemLeft" align="right" valign="top">set&lt; pair&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a604908e6e68618494bcad495cb0519d7">getClassesPerCourse</a> () const</td></tr>
 <tr class="memdesc:a604908e6e68618494bcad495cb0519d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o conjunto de pares de strings (class, course)  <a href="classStudent.html#a604908e6e68618494bcad495cb0519d7">More...</a><br /></td></tr>
 <tr class="separator:a604908e6e68618494bcad495cb0519d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6802663c47c42310cd547951466f5733"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a6802663c47c42310cd547951466f5733">addClassCourse</a> (string const &amp;, string const &amp;, courseSet *, classSet *)</td></tr>
-<tr class="memdesc:a6802663c47c42310cd547951466f5733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um par de strings ao conjunto de pares de strings (class, course)  <a href="classStudent.html#a6802663c47c42310cd547951466f5733">More...</a><br /></td></tr>
-<tr class="separator:a6802663c47c42310cd547951466f5733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e5b87e38f97ba98e8eb53fc79f7a74c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a4e5b87e38f97ba98e8eb53fc79f7a74c">removeClassCourse</a> (string const &amp;, string const &amp;, courseSet *)</td></tr>
-<tr class="memdesc:a4e5b87e38f97ba98e8eb53fc79f7a74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um par de strings do conjunto de pares de strings (class, course)  <a href="classStudent.html#a4e5b87e38f97ba98e8eb53fc79f7a74c">More...</a><br /></td></tr>
-<tr class="separator:a4e5b87e38f97ba98e8eb53fc79f7a74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8effe1cdf74a882c5b02a6c5070ab0f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a8effe1cdf74a882c5b02a6c5070ab0f6">addClassCourse</a> (string const &amp;classcode, string const &amp;coursecode, courseSet *courses, classSet *classes)</td></tr>
+<tr class="memdesc:a8effe1cdf74a882c5b02a6c5070ab0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um par de strings ao conjunto de pares de strings (class, course)  <a href="classStudent.html#a8effe1cdf74a882c5b02a6c5070ab0f6">More...</a><br /></td></tr>
+<tr class="separator:a8effe1cdf74a882c5b02a6c5070ab0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d613ea8c0d406c059e030fb8076eb4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a6d613ea8c0d406c059e030fb8076eb4f">removeClassCourse</a> (string const &amp;classcode, string const &amp;coursecode, courseSet *courses)</td></tr>
+<tr class="memdesc:a6d613ea8c0d406c059e030fb8076eb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um par de strings do conjunto de pares de strings (class, course)  <a href="classStudent.html#a6d613ea8c0d406c059e030fb8076eb4f">More...</a><br /></td></tr>
+<tr class="separator:a6d613ea8c0d406c059e030fb8076eb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe <a class="el" href="classStudent.html" title="Classe Student.">Student</a>. </p>
@@ -160,8 +160,8 @@ Complexidade Temporal: O(1)</p>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6802663c47c42310cd547951466f5733" name="a6802663c47c42310cd547951466f5733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6802663c47c42310cd547951466f5733">&#9670;&#160;</a></span>addClassCourse()</h2>
+<a id="a8effe1cdf74a882c5b02a6c5070ab0f6" name="a8effe1cdf74a882c5b02a6c5070ab0f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8effe1cdf74a882c5b02a6c5070ab0f6">&#9670;&#160;</a></span>addClassCourse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,8 +202,8 @@ Complexidade Temporal: O(1)</p>
 <p>Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">class_</td><td>A turma </td></tr>
-    <tr><td class="paramname">course</td><td>A unidade curricular </td></tr>
+    <tr><td class="paramname">classcode</td><td>A turma </td></tr>
+    <tr><td class="paramname">coursecode</td><td>A unidade curricular </td></tr>
     <tr><td class="paramname">courses</td><td>O conjunto de todas unidades curriculares </td></tr>
     <tr><td class="paramname">classes</td><td>O conjunto de todas turmas </td></tr>
   </table>
@@ -325,8 +325,8 @@ Complexidade Temporal: O(1)</p>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a4e5b87e38f97ba98e8eb53fc79f7a74c" name="a4e5b87e38f97ba98e8eb53fc79f7a74c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e5b87e38f97ba98e8eb53fc79f7a74c">&#9670;&#160;</a></span>removeClassCourse()</h2>
+<a id="a6d613ea8c0d406c059e030fb8076eb4f" name="a6d613ea8c0d406c059e030fb8076eb4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d613ea8c0d406c059e030fb8076eb4f">&#9670;&#160;</a></span>removeClassCourse()</h2>
 
 <div class="memitem">
 <div class="memproto">

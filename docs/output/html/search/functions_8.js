@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['schedule_0',['Schedule',['../classSchedule.html#a878716f4043a016224a14f78974edf1d',1,'Schedule']]],
-  ['setname_1',['setName',['../classStudent.html#a34ff388814a53eddebfdf7af5abe1d98',1,'Student']]],
-  ['setyear_2',['setYear',['../classCourse.html#a1e909d2ffc075bd6f58779cd01df6def',1,'Course']]],
-  ['slot_3',['Slot',['../classSlot.html#a92a49d49328f84e7f8eb6c709d80b33c',1,'Slot::Slot()'],['../classSlot.html#ade49bb883d567691231182671f27a8ae',1,'Slot::Slot(const Slot &amp;slot)'],['../classSlot.html#a762d4c7469e224b77f77b7d84e77a131',1,'Slot::Slot(string day, float startHour, float endHour, string type, string coursecode, string classcode)']]],
-  ['student_4',['Student',['../classStudent.html#ad89beed1e8cd1b4d19c7c881bd9f9f12',1,'Student']]]
+  ['removeclasscourse_0',['removeClassCourse',['../classStudent.html#a6d613ea8c0d406c059e030fb8076eb4f',1,'Student']]],
+  ['removestudent_1',['removeStudent',['../classClass.html#a64ce3a0e883abedb0d1890956a8ae80b',1,'Class::removeStudent()'],['../classCourse.html#ab35aecfb3e81d9035ed51382ad9b5940',1,'Course::removeStudent()']]]
 ];

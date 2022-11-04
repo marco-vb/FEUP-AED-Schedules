@@ -98,7 +98,7 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00017}{17}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00017                                        \{}
-\DoxyCodeLine{00018     schedule[weekDayToNum(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())].insert(slot);}
+\DoxyCodeLine{00018     schedule[\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())].insert(slot);}
 \DoxyCodeLine{00019     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{00020 \}}
 
@@ -159,7 +159,7 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00022}{22}} of file \m
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00022                                                 \{}
 \DoxyCodeLine{00023     \textcolor{keywordflow}{if}(slot.\mbox{\hyperlink{classSlot_a9ab118706df0180c07fb4f9a7815e222}{getType}}() == \textcolor{stringliteral}{"{}T"{}}) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{00024     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& cs : schedule[weekDayToNum(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())])\{}
+\DoxyCodeLine{00024     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& cs : schedule[\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(slot.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}())])\{}
 \DoxyCodeLine{00025         \textcolor{keywordflow}{if}(cs.getType() != \textcolor{stringliteral}{"{}T"{}}) \{}
 \DoxyCodeLine{00026             \textcolor{keywordflow}{return} (cs.getStartHour() < slot.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() \&\& cs.getEndHour() > slot.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}()) ||}
 \DoxyCodeLine{00027                    (slot.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < cs.getStartHour() \&\& slot.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() > cs.getStartHour());}
@@ -274,7 +274,7 @@ Definition at line \mbox{\hyperlink{Schedule_8cpp_source_l00038}{38}} of file \m
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00038                                                  \{}
-\DoxyCodeLine{00039     \textcolor{keywordflow}{return} schedule[weekDayToNum(day)];}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{return} schedule[\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(day)];}
 \DoxyCodeLine{00040 \}}
 
 \end{DoxyCode}

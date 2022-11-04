@@ -6,7 +6,7 @@ Ficheiro que contém as funções auxiliares a \mbox{\hyperlink{main_8cpp_source
 
 
 {\ttfamily \#include \char`\"{}Types.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}string const\& classes\+Courses =\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Independent\+Functions.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,7 +51,7 @@ void \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}} ()
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-Independent\+Functions h files classes\+\_\+per\+\_\+uc \mbox{\hyperlink{Functions_8h_ac8baaba05e86978016ab73ed1092556b}{csv}}
+string const  \& \mbox{\hyperlink{Functions_8h_a298f9c51aed6a66583a94ea656cb4f63}{classes\+Courses}} = \char`\"{}../files/classes\+\_\+per\+\_\+uc.\+csv\char`\"{}
 \item 
 string const  \& \mbox{\hyperlink{Functions_8h_a22934e78fff13cd503a307c3b9c0dbba}{classes\+Students}} = \char`\"{}../files/students\+\_\+classes.\+csv\char`\"{}
 \item 
@@ -428,7 +428,7 @@ Definition at line \mbox{\hyperlink{Functions_8h_source_l00253}{253}} of file \m
 \DoxyCodeLine{00254     \mbox{\hyperlink{classSchedule}{Schedule}} schedule = getStudentSchedule(student, slots);}
 \DoxyCodeLine{00255     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 6; i++)\{}
 \DoxyCodeLine{00256         \textcolor{keywordflow}{if}(!schedule[i].empty())}
-\DoxyCodeLine{00257             out << Schedule::numToWeekDay(i) << \textcolor{stringliteral}{"{}: "{}} << endl;}
+\DoxyCodeLine{00257             out << \mbox{\hyperlink{IndependentFunctions_8h_a673b87fdb88d0ae25590a845be2bc5f4}{numToWeekDay}}(i) << \textcolor{stringliteral}{"{}: "{}} << endl;}
 \DoxyCodeLine{00258         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& class\_: schedule[i])}
 \DoxyCodeLine{00259             out << \textcolor{stringliteral}{"{}    Class: "{}} << class\_.getClassCode() << \textcolor{stringliteral}{"{} -\/ Course: "{}} << class\_.getCourseCode() << \textcolor{stringliteral}{"{} -\/ "{}}}
 \DoxyCodeLine{00260                 << class\_.getType() << \textcolor{stringliteral}{"{} -\/ "{}} << class\_.getStartHour() << \textcolor{stringliteral}{"{}-\/"{}} << class\_.getEndHour() << endl;}
@@ -619,6 +619,16 @@ Definition at line \mbox{\hyperlink{Functions_8h_source_l00269}{269}} of file \m
 
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{Functions_8h_a298f9c51aed6a66583a94ea656cb4f63}\label{Functions_8h_a298f9c51aed6a66583a94ea656cb4f63}} 
+\index{Functions.h@{Functions.h}!classesCourses@{classesCourses}}
+\index{classesCourses@{classesCourses}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{classesCourses}{classesCourses}}
+{\footnotesize\ttfamily string const\& classes\+Courses = \char`\"{}../files/classes\+\_\+per\+\_\+uc.\+csv\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00016}{16}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
 \mbox{\Hypertarget{Functions_8h_adc9344102ebf6a21c197efb804662330}\label{Functions_8h_adc9344102ebf6a21c197efb804662330}} 
 \index{Functions.h@{Functions.h}!classesSlots@{classesSlots}}
 \index{classesSlots@{classesSlots}!Functions.h@{Functions.h}}
@@ -638,14 +648,4 @@ Definition at line \mbox{\hyperlink{Functions_8h_source_l00018}{18}} of file \mb
 
 
 Definition at line \mbox{\hyperlink{Functions_8h_source_l00017}{17}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
-
-\mbox{\Hypertarget{Functions_8h_ac8baaba05e86978016ab73ed1092556b}\label{Functions_8h_ac8baaba05e86978016ab73ed1092556b}} 
-\index{Functions.h@{Functions.h}!csv@{csv}}
-\index{csv@{csv}!Functions.h@{Functions.h}}
-\doxysubsubsection{\texorpdfstring{csv}{csv}}
-{\footnotesize\ttfamily Independent\+Functions h files classes\+\_\+per\+\_\+uc csv}
-
-
-
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00016}{16}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 

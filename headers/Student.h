@@ -86,12 +86,12 @@ class Student {
          *
          * Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto
          *
-         * @param class_ A turma
-         * @param course A unidade curricular
+         * @param classcode A turma
+         * @param coursecode A unidade curricular
          * @param courses O conjunto de todas unidades curriculares
          * @param classes O conjunto de todas turmas
          */
-        bool addClassCourse(string const&, string const&, courseSet*, classSet*);
+        bool addClassCourse(string const& classcode, string const& coursecode, courseSet* courses, classSet* classes);
 
         /**
          * @brief Remove um par de strings do conjunto de pares de strings (class, course)
@@ -102,7 +102,7 @@ class Student {
          * @param course A unidade curricular
          * @param courses O conjunto de todas unidades curriculares
          */
-        bool removeClassCourse(string const&, string const&, courseSet*);
+        bool removeClassCourse(string const& classcode, string const& coursecode, courseSet* courses);
 };
 
 

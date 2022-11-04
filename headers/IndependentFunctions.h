@@ -20,10 +20,10 @@ using namespace std;
  * Isto é feito usando o map numToWeekDay_.\n
  * Complexidade Temporal: O(1)
  *
- * @param n
+ * @param n Inteiro que representa o dia da semana
  * @return String com o dia da semana
  */
-static string numToWeekDay(int n);
+string numToWeekDay(int n);
 
 /**
  * @brief Dia da semana para inteiro
@@ -32,16 +32,18 @@ static string numToWeekDay(int n);
  * Isto é feito usando o map weekDayToNum_,\n
  * Complexidade Temporal: O(1)
  *
- * @param day
+ * @param day String com o dia da semana
  * @return Inteiro que representa o dia da semana
  */
-static int weekDayToNum(const string& day);
+int weekDayToNum(const string& day);
 
 /**
  * @brief Função que retorna uma string com a hora e minutos num formato que estamos mais habituados
  *
  * Exemplo: 12.5 -> 12:30.\n
  * Complexidade Temporal: O(1)
+ *
+ * @param hour Float com a hora
  */
 string floatToMinutes(float hour);
 

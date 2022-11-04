@@ -176,9 +176,10 @@ Complexidade Temporal: O(logN) onde N é o número máximo de aulas de um dia</p
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00017">17</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   17</span>                                       {</div>
-<div class="line"><span class="lineno">   18</span>    schedule[weekDayToNum(slot.<a class="code hl_function" href="classSlot.html#a17bdfca327b040d01cc04bfef93571c9">getDay</a>())].insert(slot);</div>
+<div class="line"><span class="lineno">   18</span>    schedule[<a class="code hl_function" href="IndependentFunctions_8h.html#a33e28767504ac5b6700740a8eff0ee53">weekDayToNum</a>(slot.<a class="code hl_function" href="classSlot.html#a17bdfca327b040d01cc04bfef93571c9">getDay</a>())].insert(slot);</div>
 <div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   20</span>}</div>
+<div class="ttc" id="aIndependentFunctions_8h_html_a33e28767504ac5b6700740a8eff0ee53"><div class="ttname"><a href="IndependentFunctions_8h.html#a33e28767504ac5b6700740a8eff0ee53">weekDayToNum</a></div><div class="ttdeci">int weekDayToNum(const string &amp;day)</div><div class="ttdoc">Dia da semana para inteiro.</div><div class="ttdef"><b>Definition:</b> <a href="IndependentFunctions_8cpp_source.html#l00015">IndependentFunctions.cpp:15</a></div></div>
 <div class="ttc" id="aclassSlot_html_a17bdfca327b040d01cc04bfef93571c9"><div class="ttname"><a href="classSlot.html#a17bdfca327b040d01cc04bfef93571c9">Slot::getDay</a></div><div class="ttdeci">string getDay() const</div><div class="ttdoc">Retorna o dia da semana.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8cpp_source.html#l00034">Slot.cpp:34</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -240,7 +241,7 @@ Complexidade Temporal: O(N) onde N é o número máximo de aulas de um dia</p>
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00022">22</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   22</span>                                                {</div>
 <div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span>(slot.<a class="code hl_function" href="classSlot.html#a9ab118706df0180c07fb4f9a7815e222">getType</a>() == <span class="stringliteral">&quot;T&quot;</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code hl_class" href="classSlot.html">Slot</a>&amp; cs : schedule[weekDayToNum(slot.<a class="code hl_function" href="classSlot.html#a17bdfca327b040d01cc04bfef93571c9">getDay</a>())]){</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code hl_class" href="classSlot.html">Slot</a>&amp; cs : schedule[<a class="code hl_function" href="IndependentFunctions_8h.html#a33e28767504ac5b6700740a8eff0ee53">weekDayToNum</a>(slot.<a class="code hl_function" href="classSlot.html#a17bdfca327b040d01cc04bfef93571c9">getDay</a>())]){</div>
 <div class="line"><span class="lineno">   25</span>        <span class="keywordflow">if</span>(cs.getType() != <span class="stringliteral">&quot;T&quot;</span>) {</div>
 <div class="line"><span class="lineno">   26</span>            <span class="keywordflow">return</span> (cs.getStartHour() &lt; slot.<a class="code hl_function" href="classSlot.html#a58f486a7e358f781047c85d410b18380">getStartHour</a>() &amp;&amp; cs.getEndHour() &gt; slot.<a class="code hl_function" href="classSlot.html#a58f486a7e358f781047c85d410b18380">getStartHour</a>()) ||</div>
 <div class="line"><span class="lineno">   27</span>                   (slot.<a class="code hl_function" href="classSlot.html#a58f486a7e358f781047c85d410b18380">getStartHour</a>() &lt; cs.getStartHour() &amp;&amp; slot.<a class="code hl_function" href="classSlot.html#a633fc789d76761c3b5720a47b89d953c">getEndHour</a>() &gt; cs.getStartHour());</div>
@@ -365,7 +366,7 @@ Complexidade Temporal: O(1)</p>
 
 <p class="definition">Definition at line <a class="el" href="Schedule_8cpp_source.html#l00038">38</a> of file <a class="el" href="Schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   38</span>                                                 {</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> schedule[weekDayToNum(day)];</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> schedule[<a class="code hl_function" href="IndependentFunctions_8h.html#a33e28767504ac5b6700740a8eff0ee53">weekDayToNum</a>(day)];</div>
 <div class="line"><span class="lineno">   40</span>}</div>
 </div><!-- fragment -->
 </div>

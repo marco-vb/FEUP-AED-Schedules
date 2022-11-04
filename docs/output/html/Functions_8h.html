@@ -83,7 +83,7 @@ $(function() {
 <p>Ficheiro que contém as funções auxiliares a <a class="el" href="main_8cpp_source.html">main.cpp</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;Types.h&quot;</code><br />
-<code>#include &quot;string const&amp; classesCourses =&quot;</code><br />
+<code>#include &quot;<a class="el" href="IndependentFunctions_8h_source.html">IndependentFunctions.h</a>&quot;</code><br />
 </div>
 <p><a href="Functions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -130,8 +130,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac8baaba05e86978016ab73ed1092556b"><td class="memItemLeft" align="right" valign="top">IndependentFunctions h files classes_per_uc&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Functions_8h.html#ac8baaba05e86978016ab73ed1092556b">csv</a></td></tr>
-<tr class="separator:ac8baaba05e86978016ab73ed1092556b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298f9c51aed6a66583a94ea656cb4f63"><td class="memItemLeft" align="right" valign="top">string const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Functions_8h.html#a298f9c51aed6a66583a94ea656cb4f63">classesCourses</a> = &quot;../files/classes_per_uc.csv&quot;</td></tr>
+<tr class="separator:a298f9c51aed6a66583a94ea656cb4f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22934e78fff13cd503a307c3b9c0dbba"><td class="memItemLeft" align="right" valign="top">string const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Functions_8h.html#a22934e78fff13cd503a307c3b9c0dbba">classesStudents</a> = &quot;../files/students_classes.csv&quot;</td></tr>
 <tr class="separator:a22934e78fff13cd503a307c3b9c0dbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc9344102ebf6a21c197efb804662330"><td class="memItemLeft" align="right" valign="top">string const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Functions_8h.html#adc9344102ebf6a21c197efb804662330">classesSlots</a> = &quot;../files/classes.csv&quot;</td></tr>
@@ -677,13 +677,14 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  254</span>    <a class="code hl_class" href="classSchedule.html">Schedule</a> schedule = getStudentSchedule(student, slots);</div>
 <div class="line"><span class="lineno">  255</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 6; i++){</div>
 <div class="line"><span class="lineno">  256</span>        <span class="keywordflow">if</span>(!schedule[i].empty())</div>
-<div class="line"><span class="lineno">  257</span>            out &lt;&lt; Schedule::numToWeekDay(i) &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  257</span>            out &lt;&lt; <a class="code hl_function" href="IndependentFunctions_8h.html#a673b87fdb88d0ae25590a845be2bc5f4">numToWeekDay</a>(i) &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; endl;</div>
 <div class="line"><span class="lineno">  258</span>        <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code hl_class" href="classSlot.html">Slot</a>&amp; class_: schedule[i])</div>
 <div class="line"><span class="lineno">  259</span>            out &lt;&lt; <span class="stringliteral">&quot;    Class: &quot;</span> &lt;&lt; class_.getClassCode() &lt;&lt; <span class="stringliteral">&quot; - Course: &quot;</span> &lt;&lt; class_.getCourseCode() &lt;&lt; <span class="stringliteral">&quot; - &quot;</span></div>
 <div class="line"><span class="lineno">  260</span>                &lt;&lt; class_.getType() &lt;&lt; <span class="stringliteral">&quot; - &quot;</span> &lt;&lt; class_.getStartHour() &lt;&lt; <span class="stringliteral">&quot;-&quot;</span> &lt;&lt; class_.getEndHour() &lt;&lt; endl;</div>
 <div class="line"><span class="lineno">  261</span>        out &lt;&lt; endl;</div>
 <div class="line"><span class="lineno">  262</span>    }</div>
 <div class="line"><span class="lineno">  263</span>}</div>
+<div class="ttc" id="aIndependentFunctions_8h_html_a673b87fdb88d0ae25590a845be2bc5f4"><div class="ttname"><a href="IndependentFunctions_8h.html#a673b87fdb88d0ae25590a845be2bc5f4">numToWeekDay</a></div><div class="ttdeci">string numToWeekDay(int n)</div><div class="ttdoc">Inteiro para dia da semana.</div><div class="ttdef"><b>Definition:</b> <a href="IndependentFunctions_8cpp_source.html#l00011">IndependentFunctions.cpp:11</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -980,6 +981,22 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a298f9c51aed6a66583a94ea656cb4f63" name="a298f9c51aed6a66583a94ea656cb4f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a298f9c51aed6a66583a94ea656cb4f63">&#9670;&#160;</a></span>classesCourses</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string const&amp; classesCourses = &quot;../files/classes_per_uc.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Functions_8h_source.html#l00016">16</a> of file <a class="el" href="Functions_8h_source.html">Functions.h</a>.</p>
+
+</div>
+</div>
 <a id="adc9344102ebf6a21c197efb804662330" name="adc9344102ebf6a21c197efb804662330"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc9344102ebf6a21c197efb804662330">&#9670;&#160;</a></span>classesSlots</h2>
 
@@ -1009,22 +1026,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Functions_8h_source.html#l00017">17</a> of file <a class="el" href="Functions_8h_source.html">Functions.h</a>.</p>
-
-</div>
-</div>
-<a id="ac8baaba05e86978016ab73ed1092556b" name="ac8baaba05e86978016ab73ed1092556b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8baaba05e86978016ab73ed1092556b">&#9670;&#160;</a></span>csv</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">IndependentFunctions h files classes_per_uc csv</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Functions_8h_source.html#l00016">16</a> of file <a class="el" href="Functions_8h_source.html">Functions.h</a>.</p>
 
 </div>
 </div>

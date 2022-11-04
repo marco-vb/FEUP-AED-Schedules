@@ -9,7 +9,7 @@
 #define FUNCTIONS_H
 
 #include "Types.h"
-#include "IndependentFunctions.h
+#include "IndependentFunctions.h"
 
 
 //files
@@ -254,7 +254,7 @@ void printStudentSchedule(Student* student, slotSet* slots, ostream& out){
     Schedule schedule = getStudentSchedule(student, slots);
     for(int i = 0; i < 6; i++){
         if(!schedule[i].empty())
-            out << Schedule::numToWeekDay(i) << ": " << endl;
+            out << numToWeekDay(i) << ": " << endl;
         for(const Slot& class_: schedule[i])
             out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
                 << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
