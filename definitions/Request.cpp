@@ -1,3 +1,4 @@
+/*
 #include "../headers/Request.h"
 
 using namespace std;
@@ -58,7 +59,9 @@ void Request::handleRequest(studentSet* students, courseSet* courses, classSet* 
                     else
                         setRequestStatus("rejected");
                 else
-                    /* Setting the request status to rejected. */
+                    */
+/* Setting the request status to rejected. *//*
+
                     setRequestStatus("rejected");
             }
         }
@@ -69,4 +72,4 @@ void Request::archiveRequest(ostream& out) const {
     out << studentNumber << "," << requestNumber << "," << courseCode << ","
     << classCode << "," << requestType << "," << requestStatus << "," <<
     requestDate << "," << requestTime << endl;
-}
+}*/

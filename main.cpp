@@ -1,5 +1,18 @@
+/**
+ * @file main.cpp
+ * @brief Main file do projeto, é a partir daqui que o programa começa a ser executado.
+ */
+
 #include "headers/Functions.h"
 
+/**
+ * @brief Main function
+ * 
+ * Começa a execução do programa.\n
+ * Primeiro cria os sets com todos os alunos(students), todos as turmas(classes), todas as unidades curriculares(courses), todos os pares turma e unidade curricular(classCourse) e todos as aulas (slots).\n
+ * Depois lê os arquivos de entrada (readAll).\n
+ * A seguir imprime as opções do menu e processa a opção escolhida.\n
+ */
 int main() {
     studentSet students;
     classSet classes;
@@ -25,7 +38,7 @@ int main() {
         cin >> choice;
         if (choice != 0) {
             switch (choice) {
-                case 1: menu_full_lists(&students, &classes, &courses); break;
+                case 1: menu_full_lists(&students, &classes, &courses, &slots); break;
                 case 2: menu_partial_lists(&students, &classes, &courses, &classCourses, &slots); break;
                 case 3: menu_schedules(&students, &classes, &courses, &classCourses, &slots); break;
                 case 4: menu_requests(&students, &classes, &courses, &classCourses, &slots); break;
@@ -36,8 +49,17 @@ int main() {
     return 0;
 }
 
-
-void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses) {
+/**
+ * @brief Função que imprime o menu de listagens completas
+ * 
+ * Imprime o menu de listagens completas e processa a opção escolhida.\n
+ * 
+ * @param students set com todos os alunos
+ * @param classes set com todas as turmas
+ * @param courses  set com todas as unidades curriculares
+ * @param slots 
+ */
+void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) {
     int choice;
     do {
         clear();
@@ -55,13 +77,22 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
                 case 1: listAllStudents(students); wait(); break;
                 case 2: listAllClasses(classes); wait(); break;
                 case 3: listAllCourses(courses); wait(); break;
-                case 4: listAllSlots(courses); wait(); break;
+                case 4: listAllSlots(slots); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
     } while (choice != 0);
 }
 
+/**
+ * @brief Função que imprime o menu de listagens parciais
+ *
+ * Imprime o menu com as opções de listagens parciais e processa a opção escolhida.\n
+ *
+ * @param students
+ * @param classes
+ * @param courses
+ */
 void menu_partial_lists(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     int choice;
     do {
@@ -85,6 +116,17 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
     } while (choice != 0);
 }
 
+/**
+ * @brief Função que imprime o menu de da escolha da ordem das aulas
+ *
+ * Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.\n
+ *
+ * @param students
+ * @param classes
+ * @param courses
+ * @param classCourses
+ * @param slots
+ */
 void menu_schedules(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     int choice;
     do {
@@ -107,6 +149,7 @@ void menu_schedules(studentSet* students, classSet* classes, courseSet* courses,
         }
     } while (choice != 0);
 }
+
 
 void menu_requests(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     int choice;

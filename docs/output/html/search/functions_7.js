@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['operator_28_29_0',['operator()',['../structclassCompare.html#a7d1683362769dd9209334fee104161b2',1,'classCompare::operator()()'],['../structcomp.html#ac2e470edbe980ff50f11322b1e985a80',1,'comp::operator()()'],['../structstudentCompare.html#ad2096f4a9bc19834e86d8f30e3bb9922',1,'studentCompare::operator()()'],['../structclassCourseCompare.html#a3cb620cec1d29fd6d288f89e424ad1c1',1,'classCourseCompare::operator()()'],['../structslotCompare.html#aa6b06c0005a868879510b066df1128d2',1,'slotCompare::operator()()']]],
-  ['operator_3c_1',['operator&lt;',['../classSlot.html#af711df5bb9ef2c82f17cda331075d3f4',1,'Slot']]],
-  ['operator_5b_5d_2',['operator[]',['../classSchedule.html#a8924812490c86cba00f43ac3af344e79',1,'Schedule::operator[](int n)'],['../classSchedule.html#a91d53d367125ba214c82ffc3c1e1850f',1,'Schedule::operator[](const string &amp;day)']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['menu_5ffull_5flists_1',['menu_full_lists',['../Functions_8h.html#ad495568fb4223027d472b06edc39d9a2',1,'menu_full_lists(studentSet *students, classSet *classes, courseSet *courses, slotSet *slots):&#160;main.cpp'],['../main_8cpp.html#ad495568fb4223027d472b06edc39d9a2',1,'menu_full_lists(studentSet *students, classSet *classes, courseSet *courses, slotSet *slots):&#160;main.cpp']]],
+  ['menu_5fpartial_5flists_2',['menu_partial_lists',['../Functions_8h.html#ae62696d0ec02691083451b7c4a98ce0c',1,'menu_partial_lists(studentSet *, classSet *, courseSet *):&#160;main.cpp'],['../main_8cpp.html#a2a966e63685cb5511077207b5df0b460',1,'menu_partial_lists(studentSet *students, classSet *classes, courseSet *courses):&#160;main.cpp']]]
 ];
