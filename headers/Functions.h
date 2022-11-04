@@ -19,12 +19,15 @@ string const& classesSlots = "../files/classes.csv";
 
 //functions
 void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
-void menu_partial_lists(studentSet*, classSet*, courseSet*);
+void menu_partial_lists(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
+void printStudentSchedule(Student*, slotSet*, ostream& = cout);
+void menu_schedules(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
+void menu_requests(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void getLessonOrder(slotSet* slots);
-void printStudentSchedule(Student*, slotSet*);
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses);
 void readStudents(studentSet* students, classSet* classes, courseSet* courses);
 void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
+
 
 /**
  * @brief Função lê os ficheiros classes.csv, classes_per_uc.csv e students_classes.csv e guarda a informação.
@@ -70,18 +73,18 @@ void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCo
         auto newCourse = new Course(coursecode);
         newCourse->setYear(year);
         auto newClass = new Class(classcode);
-        auto newClassCourse = make_pair(newClass, newCourse);
-        classCourses->insert(newClassCourse);
         if (courses->find(newCourse) == courses->end())
             courses->insert(newCourse);
 
         if (classes->find(newClass) == classes->end())
             classes->insert(newClass);
+
+        auto newClassCourse = new classCourse {classcode, coursecode, 0};
+        classCourses->insert(newClassCourse);
     }
     cout << "Read Classes Successfully!" << endl;
     cout << "Number of classes: " << classes->size() << endl;
 }
-
 
 /**
  * @brief Função lê o ficheiro students_classes.csv e guarda a informação.
@@ -92,8 +95,9 @@ void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCo
  * @param students Set de todos os alunos
  * @param classes Set de todas as turmas
  * @param courses Set de todas unidades curriculares
+ * @param classCourses Set de todos os pares de turma e unidade curricular
  */
-void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
+void readStudents(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses) {
     ifstream studentsFile(classesStudents);
     string line;
     getline(studentsFile, line); // skip first line
@@ -132,6 +136,13 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
             class_it = classes->find(class_);
         }
         (*class_it)->addStudent(studentNumber);
+
+        for (auto classCourse : *classCourses) {
+            if (classCourse->class_ == classcode && classCourse->course == coursecode) {
+                classCourse->students++;
+                break;
+            }
+        }
     }
     cout << "Read Students Successfully!" << endl;
     cout << "Number of students: " << students->size() << endl;
@@ -179,12 +190,27 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
 }
 
 /**
- * @brief Imprime uma lista de todos os alunos, por ordem do número de estudante.
+ * @brief Imprime uma lista de todos os alunos, por ordem do número de estudante ou por ordem alfabética.
  * @param students Set de todos os alunos
  */
 void listAllStudents(studentSet* students) {
-    for (const auto& s : *students)
+    cout << "Ordenação (1) por número de aluno ou (2) por nome? ";
+    int choice;
+    cin >> choice;
+    if (choice != 1 && choice != 2) {
+        cout << "Opção inválida!" << endl;
+        return;
+    }
+    if (choice == 1) {
+        for (auto student: *students)
+            cout << student->getNumber() << " - " << student->getName() << endl;
+        return;
+    }
+    vector<Student*> studentsVector(students->begin(), students->end());
+    sort(studentsVector.begin(), studentsVector.end(), [](Student* a, Student* b) { return a->getName() < b->getName(); });
+    for (const auto& s : studentsVector) {
         cout << s->getNumber() << " " << s->getName() << endl;
+    }
 }
 
 /**
@@ -192,8 +218,17 @@ void listAllStudents(studentSet* students) {
  * @param classes Set de todas as turmas
  */
 void listAllClasses(classSet* classes) {
-    for (const auto& c : *classes)
-        cout << c->getCode() << endl;
+    auto it = classes->begin();
+    while (it != classes->end()) {
+        int year = (*it)->getCode()[0] - '0';
+        cout << "Ano " << year << endl;
+        cout << "----------------" << endl;
+        while (it != classes->end() && (*it)->getCode()[0] - '0' == year) {
+            cout << (*it)->getCode() << endl;
+            it++;
+        }
+        cout << endl;
+    }
 }
 
 /**
@@ -201,9 +236,110 @@ void listAllClasses(classSet* classes) {
  * @param courses Set de todas as unidades curriculares
  */
 void listAllCourses(courseSet* courses) {
-    for (const auto& c : *courses)
-        cout << c->getCode() << " year: " << c->getYear() << endl;
+    auto it = courses->begin();
+    while (it != courses->end()) {
+        int year = (*it)->getYear();
+        cout << "Ano " << year << endl;
+        cout << "----------------" << endl;
+        while (it != courses->end() && (*it)->getYear() == year) {
+            cout << (*it)->getCode() << endl;
+            it++;
+        }
+        cout << endl;
+    }
 }
+
+/**
+ * @brief Imprime uma lista de todas as aulas, por Unidade Curricular, por ordem alfabética do código da turma.
+ * @param courses Set de todas as unidades curriculares
+ */
+void listAllSlots(courseSet* courses) {
+    for (const auto& c : *courses) {
+        auto courseSchedule = c->getSchedule().getSchedule();
+        cout << c->getCode() << endl;
+        cout << "----------------" << endl;
+        for (const auto& s : courseSchedule) {
+            for (const auto& slot : s) {
+                cout << slot.getDay() << " " << slot.getClassCode() << " " << slot.getStartHour() << " " << slot.getEndHour() << " " << slot.getType() << endl;
+            }
+        }
+        cout << endl;
+    }
+}
+
+/**
+ * @brief Imprime uma listo número de estudantes em cada par (turma, unidade curricular).
+ * @param classCourses Set de todos os pares de turma e unidade curricular
+ */
+void listClassCourseOccupation(classCoursesSet* classCourses) {
+    auto it = classCourses->begin();
+    while (it != classCourses->end()) {
+        string coursecode = (*it)->course;
+        cout << coursecode << endl;
+        cout << "----------------" << endl;
+        while (it != classCourses->end() && (*it)->course == coursecode) {
+            cout << (*it)->class_ << " " << (*it)->students << endl;
+            it++;
+        }
+        cout << endl;
+    }
+}
+
+
+/**
+ * @brief Imprime uma lista de todos os estudantes num par (turma, unidade curricular).
+ * @param students Set de todos os alunos
+ * @param classes Set de todas as turmas
+ * @param courses Set de todas as unidades curriculares
+ */
+void listStudentsInClassCourse(studentSet* students, classSet* classes, courseSet* courses) {
+    cout << "Turma: ";
+    string classcode;
+    cin >> classcode;
+    cout << "Unidade Curricular: ";
+    string coursecode;
+    cin >> coursecode;
+    auto class_it = classes->find(new Class(classcode));
+    if (class_it == classes->end()) {
+        cout << "Turma não encontrada!" << endl;
+        return;
+    }
+    auto course_it = courses->find(new Course(coursecode));
+    if (course_it == courses->end()) {
+        cout << "Unidade Curricular não encontrada!" << endl;
+        return;
+    }
+    auto classStudents = (*class_it)->getStudents();
+    auto courseStudents = (*course_it)->getStudents();
+    vector<int> s;
+    set_intersection(classStudents.begin(), classStudents.end(), courseStudents.begin(), courseStudents.end(), back_inserter(s));
+    for (const auto& n : s) {
+        auto student_it = students->find(new Student(n));
+        cout << (*student_it)->getNumber() << " " << (*student_it)->getName() << endl;
+    }
+}
+
+/**
+ * @brief Imprime uma lista de todos os estudantes numa Unidade Curricular.
+ * @param students Set de todos os alunos
+ * @param courses Set de todas as unidades curriculares
+ */
+void listStudentsInCourse(studentSet* students, courseSet* courses) {
+    cout << "Unidade Curricular: ";
+    string coursecode;
+    cin >> coursecode;
+    auto course_it = courses->find(new Course(coursecode));
+    if (course_it == courses->end()) {
+        cout << "Unidade Curricular não encontrada!" << endl;
+        return;
+    }
+    auto courseStudents = (*course_it)->getStudents();
+    for (const auto& n : courseStudents) {
+        auto student_it = students->find(new Student(n));
+        cout << (*student_it)->getNumber() << " " << (*student_it)->getName() << endl;
+    }
+}
+
 
 /**
  * @brief Imprime uma lista de todas as aulas, por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular
@@ -247,7 +383,7 @@ void listAllSlotsOrder(slotSet* slots, C comp){
  */
 void listStudentsInClass(studentSet* students, classSet* classes) {
     string classCode;
-    cout << "Enter class code: ";
+    cout << "Turma: ";
     cin >> classCode;
     auto c = classes->find(new Class(classCode));
     if (c == classes->end()) {
@@ -271,7 +407,7 @@ void listStudentsInClass(studentSet* students, classSet* classes) {
  */
 void listClassesOfStudent(studentSet* students) {
     int studentNumber;
-    cout << "Enter student number: ";
+    cout << "Número de estudante: ";
     cin >> studentNumber;
     auto s = students -> find(new Student(studentNumber));
     if (s == students->end()) {
@@ -295,21 +431,22 @@ void listClassesOfStudent(studentSet* students) {
  */
 void listSlotsOfClass(classSet* classes) {
     string classCode;
-    cout << "Enter class code: ";
+    cout << "Turma: ";
     cin >> classCode;
-    auto c = classes->find(new Class(classCode));
-    if(c == classes->end()) {
-        cout << "Class not found!" << endl;
-        return;
+    auto it = classes->find(new Class(classCode));
+    if (it != classes->end()) {
+        auto slotVector = (*it)->getSchedule().getSchedule();
+        cout << (*it)->getCode() << endl;
+        cout << "----------------" << endl;
+        for (const auto& s : slotVector) {
+            for (const auto& slot : s) {
+                cout << slot.getDay() << " " << slot.getStartHour() << " " << slot.getEndHour() << " " << slot.getType() << endl;
+            }
+        }
+        cout << endl;
     }
-    auto classSchedule = (*c)->getSchedule();
-    int i = 0;
-    for (auto it = classSchedule.begin();; it++) {
-        while(it == classSchedule[i].end() && it != classSchedule.end()){ i++; it = classSchedule[i].begin(); }
-        if(it == classSchedule.end()) break;
-        Slot s = *it;
-        cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
-             << " " << s.getType() << endl;
+    else {
+        cout << "Class not found!" << endl;
     }
 }
 
@@ -325,21 +462,12 @@ void listSlotsOfClass(classSet* classes) {
  */
 void listSlotsOfCourse(courseSet* courses) {
     string courseCode;
-    cout << "Enter course code: ";
+    cout << "Unidade Curricular: ";
     cin >> courseCode;
-    auto c = courses->find(new Course(courseCode));
-    if(c == courses->end()){
-        cout << "Course not found!" << endl;
-        return;
-    }
-    auto courseSchedule = (*c)->getSchedule();
-    int i = 0;
-    for (auto it = courseSchedule.begin();; it++) {
-        while(it == courseSchedule[i].end() && it != courseSchedule.end()){ i++; it = courseSchedule[i].begin(); }
-        if(it == courseSchedule.end()) break;
-        Slot s = *it;
-        cout << s.getDay() << " " << s.getCourseCode() << " " << s.getStartHour() << " " << s.getEndHour()
-             << " " << s.getType() << endl;
+    auto it = courses->find(new Course(courseCode));
+    if (it != courses->end()) {
+        courseSet aux = {*it};
+        listAllSlots(&aux);
     }
 }
 
@@ -376,7 +504,7 @@ void listStudentsInMoreThanNCourses(studentSet* students){
  */
 void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
     int studentNumber;
-    cout << "Enter student number: ";
+    cout << "Número de estudante: ";
     cin >> studentNumber;
     auto student_it = students->find(new Student(studentNumber));
     if(student_it != students -> end()) printStudentSchedule(*student_it, slots);
@@ -404,7 +532,7 @@ void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
  */
 Schedule getStudentSchedule(Student* student, slotSet* slots){
     Schedule schedule;
-    for (auto p: student->getClassesPerCourse()) {
+    for (const auto& p: student->getClassesPerCourse()) {
         auto range = slots->equal_range(new Slot("", 0, 0, "", p.second, p.first));
         for(auto it = range.first; it != range.second; it++){
             schedule.addSlot(**it);

@@ -96,13 +96,14 @@ class Student {
         /**
          * @brief Remove um par de strings do conjunto de pares de strings (class, course)
          *
-         * Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto
+         * Complexidade Temporal: O(N) onde N é o número de pares de strings no conjunto
          *
          * @param class_ A turma
          * @param course A unidade curricular
          * @param courses O conjunto de todas unidades curriculares
+         * @param classes O conjunto de todas as turmas
          */
-        bool removeClassCourse(string const& classcode, string const& coursecode, courseSet* courses);
+        bool removeClassCourse(string const& classcode, string const& coursecode, courseSet* courses, classSet* classes);
 };
 
 

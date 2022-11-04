@@ -26,7 +26,7 @@ class Request {
         string getRequestDate() const;
         string getRequestTime() const;
         void setRequestStatus(string requestStatus);
-        void handleRequest(studentSet* students);
+        void handleRequest(studentSet*, courseSet*, classSet*, classCoursesSet*);
         void archiveRequest(ostream& out) const;
 };
 

@@ -53,10 +53,16 @@ bool Student::addClassCourse(string const& classcode, string const& coursecode, 
     return true;
 }
 
-bool Student::removeClassCourse(string const& classcode, string const& coursecode, courseSet* courses){
+bool Student::removeClassCourse(string const& classcode, string const& coursecode, courseSet* courses, classSet* classes) {
     pair<string, string> pair = {classcode, coursecode};
     if (classesPerCourse.find(pair) == classesPerCourse.end()) return false;
     classesPerCourse.erase(pair);
+    auto course = courses->find(new Course(coursecode));
+    (*course)->removeStudent(this->getNumber());
+    for (const auto& p : classesPerCourse)
+        if (p.first == classcode) return true;
+    auto class1 = classes->find(new Class(classcode));
+    (*class1)->removeStudent(this->getNumber());
     return true;
 }
 

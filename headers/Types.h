@@ -28,20 +28,28 @@ struct studentCompare {
 };
 
 //order courses by code
-/// Compara dois pares (class, course) por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular
-struct classCourseCompare {
+///struct classCourse que guarda um par de apontadores para uma classe e um curso e o respetivo número de estudantes
+struct classCourse {
+    string class_;
+    string course;
+    int students;
     /**
-     * @brief Função que compara dois pares (class, course) por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular
+     * @brief Função que compara dois classCourse por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular
      *
      * Complexidade Temporal: O(1)
      *
-     * @param a Primeiro par a comparar
-     * @param b Segundo par a comparar
-     * @return true se o codigo da turma do primeiro par for menor que o do segundo, ou se os codigos da turma forem iguais e o codigo da unidade curricular do primeiro par for menor que o do segundo, e falso caso contrario
+     * @param a Primeiro classCourse a comparar
+     * @param b Segundo classCourse a comparar
+     * @return true se o codigo da UC do primeiro for menor que o do segundo, ou se os codigos da UC forem iguais e o codigo da turma do primeiro for menor que o do segundo, e falso caso contrario
      */
-    bool operator()(const pair<Class *, Course *> a, const pair<Class *, Course *> b) const {
-        return (a.first->getCode() < b.first->getCode()) ||
-               (a.first->getCode() == b.first->getCode() && a.second->getCode() < b.second->getCode());
+    bool operator()(const classCourse& a, const classCourse& b) const {
+        return (a.course < b.course) ||
+               (a.course == b.course && a.class_ < b.class_);
+    }
+
+    bool operator<(const classCourse& b) const {
+        return (course < b.course) ||
+               (course == b.course && class_ < b.class_);
     }
 };
 
@@ -134,10 +142,8 @@ struct slotCompareByDay{
 //define sets
 /// Renomeia o tipo <Student*, studentCompare> para studentSet, para melhor legibilidade
 typedef set<Student*, studentCompare> studentSet;
-
-/// Renomeia o tipo set<pair<Class*, Course*> para classCourseSet, para melhor legibilidade
-typedef set<pair<Class*, Course*>, classCourseCompare > classCoursesSet;
-
+/// Renomeia o tipo set<classCourse*> para classCourseSet, para melhor legibilidade
+typedef set<classCourse*> classCoursesSet;
 /// Renomeia o tipo set<Slot*, slotCompare> para slotSet, para melhor legibilidade
 typedef set<Slot*, slotCompare> slotSet;
 
