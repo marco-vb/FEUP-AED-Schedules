@@ -1,30 +1,41 @@
 \hypertarget{classClass}{}\doxysection{Class Class Reference}
 \label{classClass}\index{Class@{Class}}
+
+
+Classe que representa uma turma.  
+
+
+
+
+{\ttfamily \#include $<$Class.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classClass_ac4bfe75fb0b2e61bd2a5e2f7a6469fca}{Class}} (string code)
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor da classe. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classClass_aa296d2640028298c77889c9de33a01f1}{get\+Code}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o código da turma. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSchedule}{Schedule}} \mbox{\hyperlink{classClass_a6b6677ae244c4af4b9c88c82ea9416f9}{get\+Schedule}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o horario da turma. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classClass_abd7bc359c6249def978ab3eac9ecb28a}{add\+Slot}} (\mbox{\hyperlink{classSlot}{Slot}} slot)
-\item 
+\begin{DoxyCompactList}\small\item\em Adiciona uma aula ao horario da turma. \end{DoxyCompactList}\item 
 set$<$ int $>$ \mbox{\hyperlink{classClass_a86a5f01aa79b3405dd5f926ce6945190}{get\+Students}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em retorna o set com todos os estudantes da turma \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classClass_a0b51b8b4530a712d9bc81786816efe0a}{clear\+Schedule}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Limpa o horario da turma. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classClass_a57e2f55bdfc1f6be4da0afdf224a74ef}{add\+Student}} (int student\+Number)
-\item 
+\begin{DoxyCompactList}\small\item\em Adiciona um estudante à turma. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classClass_a64ce3a0e883abedb0d1890956a8ae80b}{remove\+Student}} (int student\+Number)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Remove um estudante da turma. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Classe que representa uma turma. 
 
 
-Definition at line \mbox{\hyperlink{Class_8h_source_l00008}{8}} of file \mbox{\hyperlink{Class_8h_source}{Class.\+h}}.
+
+Definition at line \mbox{\hyperlink{Class_8h_source_l00012}{12}} of file \mbox{\hyperlink{Class_8h_source}{Class.\+h}}.
 
 
 
@@ -35,6 +46,17 @@ Definition at line \mbox{\hyperlink{Class_8h_source_l00008}{8}} of file \mbox{\h
 \doxysubsubsection{\texorpdfstring{Class()}{Class()}}
 {\footnotesize\ttfamily Class\+::\+Class (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
+
+
+Construtor da classe. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Código da turma \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
@@ -60,6 +82,21 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00007}{7}} of file \mbox{
 
 
 
+Adiciona uma aula ao horario da turma. 
+
+Função que adiciona um slot ao horario da turma através da função \mbox{\hyperlink{classClass_abd7bc359c6249def978ab3eac9ecb28a}{add\+Slot()}} da classe \mbox{\hyperlink{classSchedule}{Schedule}}.~\newline
+Complexidade Temporal\+: O(log\+N) onde N é o número máximo de aulas de um dia
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a aula foi adicionada com sucesso e false caso contrário 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
 
 
@@ -75,6 +112,21 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00022}{22}} of file \mbox
 \doxysubsubsection{\texorpdfstring{addStudent()}{addStudent()}}
 {\footnotesize\ttfamily bool Class\+::add\+Student (\begin{DoxyParamCaption}\item[{int}]{student\+Number }\end{DoxyParamCaption})}
 
+
+
+Adiciona um estudante à turma. 
+
+Função que adiciona um estudante à turma, verificando se o número de estudantes não excede o máximo.~\newline
+Complexidade Temporal\+: O(log\+N) onde N é o número de estudantes na turma
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & O id do estudante a adicionar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o estudante foi adicionado com sucesso e false caso contrário 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
@@ -99,6 +151,11 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00034}{34}} of file \mbox
 
 
 
+Limpa o horario da turma. 
+
+Função que limpa o horario da turma atraves da do metodo clear\+Schedule da classe \mbox{\hyperlink{classSchedule}{Schedule}}.~\newline
+Complexidade Temporal\+: O(\+N) onde N é o número de aulas no horario 
+
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
 
 
@@ -114,6 +171,15 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00030}{30}} of file \mbox
 \doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
 {\footnotesize\ttfamily string Class\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Retorna o código da turma. 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+O código da turma 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
@@ -133,6 +199,15 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00014}{14}} of file \mbox
 
 
 
+Retorna o horario da turma. 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+O horario da turma 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
 
 
@@ -150,6 +225,15 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00018}{18}} of file \mbox
 
 
 
+retorna o set com todos os estudantes da turma 
+
+Complexidade Temporal\+: O(1)
+
+\begin{DoxyReturn}{Returns}
+Set de estudantes 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.
 
 
@@ -165,6 +249,21 @@ Definition at line \mbox{\hyperlink{Class_8cpp_source_l00026}{26}} of file \mbox
 \doxysubsubsection{\texorpdfstring{removeStudent()}{removeStudent()}}
 {\footnotesize\ttfamily bool Class\+::remove\+Student (\begin{DoxyParamCaption}\item[{int}]{student\+Number }\end{DoxyParamCaption})}
 
+
+
+Remove um estudante da turma. 
+
+Função que remove um estudante da turma, verificando se o estudante existe.~\newline
+Complexidade Temporal\+: O(log\+N) onde N é o número de estudantes na turma
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & O id do estudante a remover \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o estudante foi removido com sucesso e false caso contrário 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{Class_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{Class_8cpp_source}{Class.\+cpp}}.

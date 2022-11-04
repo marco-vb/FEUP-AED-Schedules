@@ -75,15 +75,22 @@ $(function() {
   <div class="headertitle"><div class="title">classCompare Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Compara duas turmas pelo seu código.  
+ <a href="structclassCompare.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Class_8h_source.html">Class.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7d1683362769dd9209334fee104161b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclassCompare.html#a7d1683362769dd9209334fee104161b2">operator()</a> (const <a class="el" href="classClass.html">Class</a> *a, const <a class="el" href="classClass.html">Class</a> *b) const</td></tr>
+<tr class="memdesc:a7d1683362769dd9209334fee104161b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que compara duas turmas.  <a href="structclassCompare.html#a7d1683362769dd9209334fee104161b2">More...</a><br /></td></tr>
 <tr class="separator:a7d1683362769dd9209334fee104161b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Class_8h_source.html#l00027">27</a> of file <a class="el" href="Class_8h_source.html">Class.h</a>.</p>
+<div class="textblock"><p>Compara duas turmas pelo seu código. </p>
+
+<p class="definition">Definition at line <a class="el" href="Class_8h_source.html#l00110">110</a> of file <a class="el" href="Class_8h_source.html">Class.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7d1683362769dd9209334fee104161b2" name="a7d1683362769dd9209334fee104161b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d1683362769dd9209334fee104161b2">&#9670;&#160;</a></span>operator()()</h2>
@@ -119,10 +126,23 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Class_8h_source.html#l00028">28</a> of file <a class="el" href="Class_8h_source.html">Class.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>                                                          {</div>
-<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">return</span> a-&gt;getCode() &lt; b-&gt;getCode();</div>
-<div class="line"><span class="lineno">   30</span>    }</div>
+<p>Função que compara duas turmas. </p>
+<p>Função que compara duas turmas através do código da turma.<br  />
+Complexidade Temporal: O(1)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c1</td><td>Primeira turma a comparar </td></tr>
+    <tr><td class="paramname">c2</td><td>Segunda turma a comparar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se o código da primeira turma for menor que o código da segunda e false caso contrário </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Class_8h_source.html#l00121">121</a> of file <a class="el" href="Class_8h_source.html">Class.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  121</span>                                                          {</div>
+<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">return</span> a-&gt;<a class="code hl_function" href="classClass.html#aa296d2640028298c77889c9de33a01f1">getCode</a>() &lt; b-&gt;<a class="code hl_function" href="classClass.html#aa296d2640028298c77889c9de33a01f1">getCode</a>();</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+<div class="ttc" id="aclassClass_html_aa296d2640028298c77889c9de33a01f1"><div class="ttname"><a href="classClass.html#aa296d2640028298c77889c9de33a01f1">Class::getCode</a></div><div class="ttdeci">string getCode() const</div><div class="ttdoc">Retorna o código da turma.</div><div class="ttdef"><b>Definition:</b> <a href="Class_8cpp_source.html#l00014">Class.cpp:14</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

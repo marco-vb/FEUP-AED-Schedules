@@ -8,34 +8,34 @@
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00004}00004 }
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00005}00005 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short} Class::maxStudents = 30;}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00006}00006 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00007}00007 Class::Class(\textcolor{keywordtype}{string} code) \{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00007}\mbox{\hyperlink{classClass_ac4bfe75fb0b2e61bd2a5e2f7a6469fca}{00007}} \mbox{\hyperlink{classClass_ac4bfe75fb0b2e61bd2a5e2f7a6469fca}{Class::Class}}(\textcolor{keywordtype}{string} code) \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00008}00008     this-\/>code = std::move(code);}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00009}00009     this-\/>numStudents = 0;}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00010}00010     this-\/>schedule = \mbox{\hyperlink{classSchedule}{Schedule}}();}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00011}00011     this-\/>students = set<int>();}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00012}00012 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00014}00014 \textcolor{keywordtype}{string} Class::getCode()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00014}\mbox{\hyperlink{classClass_aa296d2640028298c77889c9de33a01f1}{00014}} \textcolor{keywordtype}{string} \mbox{\hyperlink{classClass_aa296d2640028298c77889c9de33a01f1}{Class::getCode}}()\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00015}00015     \textcolor{keywordflow}{return} code;}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00016}00016 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00018}00018 \mbox{\hyperlink{classSchedule}{Schedule}} Class::getSchedule()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00018}\mbox{\hyperlink{classClass_a6b6677ae244c4af4b9c88c82ea9416f9}{00018}} \mbox{\hyperlink{classSchedule}{Schedule}} \mbox{\hyperlink{classClass_a6b6677ae244c4af4b9c88c82ea9416f9}{Class::getSchedule}}()\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00019}00019     \textcolor{keywordflow}{return} schedule;}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00020}00020 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00022}00022 \textcolor{keywordtype}{bool} Class::addSlot(\mbox{\hyperlink{classSlot}{Slot}} slot) \{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00022}\mbox{\hyperlink{classClass_abd7bc359c6249def978ab3eac9ecb28a}{00022}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClass_abd7bc359c6249def978ab3eac9ecb28a}{Class::addSlot}}(\mbox{\hyperlink{classSlot}{Slot}} slot) \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00023}00023     \textcolor{keywordflow}{return} schedule.\mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{addSlot}}(std::move(slot));}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00024}00024 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00025}00025 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00026}00026 set<int> Class::getStudents()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00026}\mbox{\hyperlink{classClass_a86a5f01aa79b3405dd5f926ce6945190}{00026}} set<int> \mbox{\hyperlink{classClass_a86a5f01aa79b3405dd5f926ce6945190}{Class::getStudents}}()\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00027}00027     \textcolor{keywordflow}{return} students;}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00028}00028 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00030}00030 \textcolor{keywordtype}{void} Class::clearSchedule() \{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00030}\mbox{\hyperlink{classClass_a0b51b8b4530a712d9bc81786816efe0a}{00030}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClass_a0b51b8b4530a712d9bc81786816efe0a}{Class::clearSchedule}}() \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00031}00031     schedule.\mbox{\hyperlink{classSchedule_a0e70c390bb07cd134cbc7f0090ef52b0}{clearSchedule}}();}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00032}00032 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00034}00034 \textcolor{keywordtype}{bool} Class::addStudent(\textcolor{keywordtype}{int} studentNumber) \{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00034}\mbox{\hyperlink{classClass_a57e2f55bdfc1f6be4da0afdf224a74ef}{00034}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClass_a57e2f55bdfc1f6be4da0afdf224a74ef}{Class::addStudent}}(\textcolor{keywordtype}{int} studentNumber) \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00035}00035     \textcolor{keywordflow}{if} (numStudents < maxStudents \&\& students.find(studentNumber) == students.end()) \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00036}00036         students.insert(studentNumber);}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00037}00037         numStudents++;}
@@ -44,7 +44,7 @@
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00040}00040     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00041}00041 \}}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00043}00043 \textcolor{keywordtype}{bool} Class::removeStudent(\textcolor{keywordtype}{int} studentNumber) \{}
+\DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00043}\mbox{\hyperlink{classClass_a64ce3a0e883abedb0d1890956a8ae80b}{00043}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClass_a64ce3a0e883abedb0d1890956a8ae80b}{Class::removeStudent}}(\textcolor{keywordtype}{int} studentNumber) \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00044}00044     \textcolor{keywordflow}{if} (students.find(studentNumber) != students.end()) \{}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00045}00045         students.erase(studentNumber);}
 \DoxyCodeLine{\Hypertarget{Class_8cpp_source_l00046}00046         numStudents-\/-\/;}
