@@ -9,7 +9,7 @@
  * @brief Main function
  * 
  * Começa a execução do programa.\n
- * Primeiro cria os sets com todos os alunos(students), todos as turmas(classes), todas as unidades curriculares(courses), todos os pares turma e unidade curricular(classCourse) e todos as aulas (slots).\n
+ * Primeiro cria os sets com todos os alunos(students), todas as turmas(classes), todas as unidades curriculares(courses), todos os pares turma e unidade curricular(classCourse) e todas as aulas (slots).\n
  * Depois lê os arquivos de entrada (readAll).\n
  * A seguir imprime as opções do menu e processa a opção escolhida.\n
  */
@@ -53,10 +53,10 @@ int main() {
  * 
  * Imprime o menu de listagens completas e processa a opção escolhida.\n
  * 
- * @param students set com todos os alunos
- * @param classes set com todas as turmas
- * @param courses  set com todas as unidades curriculares
- * @param slots 
+ * @param students Set com todos os alunos
+ * @param classes Set com todas as turmas
+ * @param courses Set com todas as unidades curriculares
+ * @param slots Set com todas as aulas
  */
 void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) {
     int choice;
@@ -88,9 +88,9 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
  * 
  * Imprime o menu com as opções de listagens parciais e processa a opção escolhida.\n
  * 
- * @param students 
- * @param classes 
- * @param courses 
+ * @param students Set com todos os alunos
+ * @param classes  Set com todas as turmas
+ * @param courses Set com todas as unidades curriculares
  */
 
 void menu_partial_lists(studentSet* students, classSet* classes, courseSet* courses) {
@@ -126,11 +126,11 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
  *
  * Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.\n
  *
- * @param students
- * @param classes
- * @param courses
- * @param classCourses
- * @param slots
+ * @param students Set com todos os alunos
+ * @param classes Set com todas as turmas
+ * @param courses Set com todas as unidades curriculares
+ * @param classCourses Set com todos os pares turma e unidade curricular
+ * @param slots Set com todas as aulas
  */
 void getLessonOrder(slotSet* slots){
     int choice;

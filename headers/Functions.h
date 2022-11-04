@@ -21,7 +21,7 @@ string const& classesSlots = "../files/classes.csv";
 void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
 void menu_partial_lists(studentSet*, classSet*, courseSet*);
 void getLessonOrder(slotSet* slots);
-void printStudentSchedule(Student*, slotSet*, ostream& = cout);
+void printStudentSchedule(Student*, slotSet*);
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses);
 void readStudents(studentSet* students, classSet* classes, courseSet* courses);
 void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
@@ -29,14 +29,14 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
 /**
  * @brief Função lê os ficheiros classes.csv, classes_per_uc.csv e students_classes.csv e guarda a informação.
  *
- * Esta lê os três ficheiros fornecidos e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Esta lê os três ficheiros fornecidos e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
  * Faz-lo recorrendo a funções auxiliares que lêem cada um dos ficheiros, readClasses, readStudents e readSlots.
  *
  * @param students Set de todos os alunos
  * @param classes Set de todas as turmas
  * @param courses Set de todas unidades curriculares
  * @param classCourses Set de todos os pares de turma e unidade curricular
- * @param slots Set de todos as aulas
+ * @param slots Set de todas as aulas
  */
 void readAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
     readClasses(classes, courses, classCourses);
@@ -48,7 +48,7 @@ void readAll(studentSet* students, classSet* classes, courseSet* courses, classC
 /**
  * @brief Função lê o ficheiro classes_per_uc.csv e guarda a informação.
  *
- * Esta lê o ficheiro classes_per_uc.csv e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Esta lê o ficheiro classes_per_uc.csv e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
  * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
  *
  * @param classes Set de todas as turmas
@@ -86,7 +86,7 @@ void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCo
 /**
  * @brief Função lê o ficheiro students_classes.csv e guarda a informação.
  *
- * Esta lê o ficheiro students_classes.csv e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Esta lê o ficheiro students_classes.csv e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
  * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
  *
  * @param students Set de todos os alunos
@@ -140,12 +140,12 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses) {
 /**
  * @brief Função lê o ficheiro classes.csv e guarda a informação.
  *
- * Esta lê o ficheiro classes.csv e guarda a informação nos respetivos sets passados nos parâmetros atraves de pointers.\n
+ * Esta lê o ficheiro classes.csv e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
  * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
  *
  * @param students Set de todos os alunos
  * @param classes Set de todas as turmas
- * @param slots Set de todos as aulas
+ * @param slots Set de todas as aulas
  */
 void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) {
     ifstream slotsFile(classesSlots);
@@ -291,7 +291,7 @@ void listClassesOfStudent(studentSet* students) {
  * Complexidade Temporal: O(A*log(T)) onde A é o número de aulas da turma e T é o número de turmas.
  *
  *
- * @param students Set de todos os alunos
+ * @param classes Set de todas as turmas
  */
 void listSlotsOfClass(classSet* classes) {
     string classCode;
@@ -321,7 +321,7 @@ void listSlotsOfClass(classSet* classes) {
  * Complexidade Temporal: O(A*log(U)) onde A é o número de aulas da unidade curricular e U é o número de unidades curriculares.
  *
  *
- * @param students Set de todos os alunos
+ * @param courses Set de todas as unidades curriculares
  */
 void listSlotsOfCourse(courseSet* courses) {
     string courseCode;
@@ -343,6 +343,14 @@ void listSlotsOfCourse(courseSet* courses) {
     }
 }
 
+/**
+ * @brief Imprime todos os estudantes inscritos em mais de N unidades curriculares
+ *
+ * Itera sobre o set de estudantes e imprime todos os estudantes que estão inscritos em mais de N unidades curriculares.\n
+ * Complexidade Temporal: O(N) onde N é o número total de estudantes.
+ *
+ * @param students Set de todos os estudantes
+ */
 void listStudentsInMoreThanNCourses(studentSet* students){
     int n;
     cout << "Enter n, the number of courses: ";
@@ -354,6 +362,18 @@ void listStudentsInMoreThanNCourses(studentSet* students){
     }
 }
 
+/**
+ * @brief Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal
+ *
+ * A função primeiro pede ao utilizador o numero do estudante com a stream cin.\n
+ * Depois procura o estudante no set de estudantes utilizando o metodo find().\n
+ * A seguir itera sobre o horario do estudante e imprime todas as aulas.\n
+ * Complexidade Temporal: O(log(S) + A*log(D) + C*log(N)) onde S é o numero total de estudantes, C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
+ * Complexidade Temporal é igual a complexidade de students->find() + printStudentSchedule().
+ *
+ * @param students Set de todos os estudantes
+ * @param slots Set de todas as aulas
+ */
 void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
     int studentNumber;
     cout << "Enter student number: ";
@@ -363,6 +383,25 @@ void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
     else cout << "Student not found!" << endl;
 }
 
+/**
+ * @brief Retorna o horário do estudante
+ *
+ * A função itera sobre o o set de pares ClassesPerCourse do estudante e procura a aula no set de aulas(slots) utilizando o metodo equal_range(), uma vez que os estudante terá varias aulas do mesmo par turma unidade curricular.\n
+ * A seguir adiciona as aulas encontradas ao scheedule.\n
+ * Retorna o schedule.\n
+ *
+ * Complexidade Temporal: O(A*log(D) + C*log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
+ * Explicaçao: \n
+ *   Complexidade de cada passo: 1º for loop: C, onde C é numero de unidades curriculares em que o estudante está instrito\n
+ *                               equal_range: log(N), onde N é o tamanho do set slots\n
+ *                               2º for loop: M, onde M é o numero de aulas dessa cadeira por semana\n
+ *                               addSlot: log(D), onde D é o número máximo de aulas de um dia\n
+ *   Complexidade geral: C*(log(N) + M*log(D)) = C*log(N) + A*log(D), onde A é o número de aulas do estudante por semana, logo A = C*M\n
+ *
+ * @param student
+ * @param slots
+ * @return O horário do estudante
+ */
 Schedule getStudentSchedule(Student* student, slotSet* slots){
     Schedule schedule;
     for (auto p: student->getClassesPerCourse()) {
@@ -374,22 +413,34 @@ Schedule getStudentSchedule(Student* student, slotSet* slots){
     return schedule;
 }
 
-void printStudentSchedule(Student* student, slotSet* slots, ostream& out){
+/**
+ * @brief Imprime o horário do estudante passado cujo pointer é passado como argumento
+ *
+ * A função imprime o dia da semana, seguido de todas as aulas desse dia.\n
+ * Complexidade Temporal: O(A*log(D) + C*log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
+ * Complexidade Temporal igual a getStudentSchedulde().
+ *
+ * @param student Pointer para o estudante
+ * @param slots Set de todas as aulas
+ */
+void printStudentSchedule(Student* student, slotSet* slots){
     Schedule schedule = getStudentSchedule(student, slots);
     for(int i = 0; i < 6; i++){
         if(!schedule[i].empty())
-            out << numToWeekDay(i) << ": " << endl;
+            cout << numToWeekDay(i) << ": " << endl;
         for(const Slot& class_: schedule[i])
-            out << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
+            cout << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
                 << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
-        out << endl;
+        cout << endl;
     }
 }
 
+/// Função que limpa o ecrã
 void clear() {
     for (int i = 0; i < 50; i++) cout << endl;
 }
 
+/// Função que espera que o utilizador pressione enter para continuar
 void wait() {
     int c; do c = getchar(); while ((c != '\n') && (c != EOF));
     cout << "Press ENTER to continue...";
