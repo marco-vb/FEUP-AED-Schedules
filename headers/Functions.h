@@ -626,6 +626,40 @@ void processAllRequests(studentSet* students, classSet* classes, courseSet* cour
     }
 }
 
+void readPendingRequests(queue<Request*>* requests) {
+    ifstream file("../aux_files/pending_requests.csv");
+    if (!file.is_open()) {
+        cout << "Error opening file!" << endl;
+        return;
+    }
+    string line;
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string studentNumber, courseCode, classCode, type;
+        ss >> studentNumber >> courseCode >> classCode >> type;
+        auto r = new Request(stoi(studentNumber), courseCode, classCode, type);
+        requests->push(r);
+    }
+    cout << "Pending requests read successfully!" << endl;
+    file.close();
+}
+
+void savePendingRequests(queue<Request*>* requests) {
+    ofstream file("../aux_files/pending_requests.csv");
+    if (!file.is_open()) {
+        cout << "Error opening file!" << endl;
+        return;
+    }
+    file.clear();
+    while (!requests->empty()) {
+        Request* r = requests->front();
+        requests->pop();
+        file << r->getStudentNumber() << "," << r->getCourseCode() << "," << r->getClassCode() << "," << r->getRequestType() << endl;
+    }
+    cout << "Pending requests saved successfully!" << endl;
+    file.close();
+}
+
 /**
  * @brief Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal
  *

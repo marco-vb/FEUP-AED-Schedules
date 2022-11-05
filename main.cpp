@@ -20,6 +20,7 @@ int main() {
     classCoursesSet classCourses;
     slotSet slots;
     queue<Request*> requests;
+    readPendingRequests(&requests);
 
     // Read data from files
     readAll(&students, &classes, &courses, &classCourses, &slots);
@@ -49,6 +50,9 @@ int main() {
             }
         }
     } while (choice != 0);
+
+    savePendingRequests(&requests);
+    wait();
     return 0;
 }
 
