@@ -143,7 +143,7 @@ void menu_schedules(studentSet* students, classSet* classes, courseSet* courses,
             switch (choice) {
                 case 1: listSlotsOfClass(classes); wait(); break;
                 case 2: listSlotsOfCourse(courses); wait(); break;
-                case 3: printAnyStudentSchedule(students, slots); wait(); break;
+                case 3: listSlotsOfStudent(students, slots); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }

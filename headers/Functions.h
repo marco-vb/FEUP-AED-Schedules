@@ -472,6 +472,33 @@ void listSlotsOfCourse(courseSet* courses) {
     }
 }
 
+void listSlotsOfStudent(studentSet* students, slotSet* slots) {
+    int studentNumber;
+    cout << "Número de estudante: ";
+    cin >> studentNumber;
+    auto s = students->find(new Student(studentNumber));
+    if (s == students->end()) {
+        cout << "Student not found!" << endl;
+        return;
+    }
+    auto studentclasses = (*s)->getClassesPerCourse();
+    vector<Slot> schedule;
+    for (const auto& c : studentclasses) {
+        for (const auto& slot : *slots) {
+            cout << "slot exists" << endl;
+            if (slot->getClassCode() == c.first && slot->getCourseCode() == c.second) {
+                schedule.push_back(*slot);
+                cout << "read slot" << endl;
+            }
+        }
+    }
+
+    sort(schedule.begin(), schedule.end());
+    for (const auto& slot : schedule) {
+        cout << slot.getDay() << " " << slot.getStartHour() << " " << slot.getEndHour() << " " << slot.getType() << endl;
+    }
+}
+
 void listStudentsInMoreThanNCourses(studentSet* students){
     int n;
     cout << "Enter n, the number of courses: ";
@@ -488,7 +515,7 @@ void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
     cout << "Número de estudante: ";
     cin >> studentNumber;
     auto student_it = students->find(new Student(studentNumber));
-    if(student_it != students -> end()) printStudentSchedule(*student_it, slots);
+    if(student_it != students -> end()) printStudentSchedule(*student_it, slots, cout);
     else cout << "Student not found!" << endl;
 }
 
