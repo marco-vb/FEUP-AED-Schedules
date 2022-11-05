@@ -9,6 +9,7 @@
 #define FUNCTIONS_H
 
 #include "Types.h"
+#include "Request.h"
 #include "IndependentFunctions.h"
 
 
@@ -22,7 +23,7 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
 void menu_partial_lists(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void printStudentSchedule(Student* student, slotSet* slots);
 void menu_schedules(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
-void menu_requests(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
+void menu_requests(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*, queue<Request*>*);
 void getLessonOrder(slotSet* slots);
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses);
 void readStudents(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses);
@@ -209,7 +210,7 @@ void listAllStudents(studentSet* students) {
     vector<Student*> studentsVector(students->begin(), students->end());
     sort(studentsVector.begin(), studentsVector.end(), [](Student* a, Student* b) { return a->getName() < b->getName(); });
     for (const auto& s : studentsVector) {
-        cout << s->getNumber() << " " << s->getName() << endl;
+        cout << s->getNumber() << " - " << s->getName() << endl;
     }
 }
 
@@ -407,6 +408,8 @@ void listClassesOfStudent(studentSet* students) {
         cout << "Student not found!" << endl; return;
     }
     auto studentclasses = (*s) -> getClassesPerCourse();
+    cout << (*s) -> getName() << endl;
+    cout << "---------------------------------" << endl;
     for (const auto& c : studentclasses) {
         cout << c.first << " - " << c.second << endl;
     }
@@ -475,6 +478,8 @@ void listSlotsOfStudent(studentSet* students, slotSet* slots) {
     }
     auto studentclasses = (*s)->getClassesPerCourse();
     vector<Slot> schedule;
+    cout << (*s) -> getName() << endl;
+    cout << "---------------------------------" << endl;
     for (const auto& c : studentclasses) {
         for (const auto& slot : *slots) {
             if (slot->getClassCode() == c.first && slot->getCourseCode() == c.second) {
@@ -505,6 +510,119 @@ void listStudentsInMoreThanNCourses(studentSet* students){
         if (s->getClassesPerCourse().size() > n) {
             cout << s->getNumber() << " - " << s->getName() << endl;
         }
+    }
+}
+
+void removeStudent(classSet* classes, studentSet* students, courseSet* courses, queue<Request*>* requests) {
+    int studentNumber;
+    cout << "Número de estudante: ";
+    cin >> studentNumber;
+    auto s = students->find(new Student(studentNumber));
+    if (s == students->end()) {
+        cout << "Student not found!" << endl;
+        return;
+    }
+    string courseCode;
+    cout << "Unidade Curricular: ";
+    cin >> courseCode;
+    auto course = courses->find(new Course(courseCode));
+    if ((*course)->getCode() != courseCode) {
+        cout << "UC não encontrada!" << endl;
+        return;
+    }
+    string classCode;
+    cout << "Turma da qual pretende sair: ";
+    cin >> classCode;
+    auto class_ = classes->find(new Class(classCode));
+    if (class_ == classes->end()) {
+        cout << "Turma não encontrada!" << endl;
+        return;
+    }
+
+    (*class_)->removeStudent(studentNumber);
+    (*course)->removeStudent(studentNumber);
+    auto r = new Request(studentNumber, courseCode, classCode, "remove");
+    requests->push(r);
+}
+
+void addStudent(classSet* classes, studentSet* students, courseSet* courses, queue<Request*>* requests) {
+    int studentNumber;
+    cout << "Número de estudante: ";
+    cin >> studentNumber;
+    auto s = students->find(new Student(studentNumber));
+    if (s == students->end()) {
+        cout << "Student not found!" << endl;
+        return;
+    }
+    string courseCode;
+    cout << "Unidade Curricular: ";
+    cin >> courseCode;
+    auto course = courses->find(new Course(courseCode));
+    if ((*course)->getCode() != courseCode) {
+        cout << "UC não encontrada!" << endl;
+        return;
+    }
+
+    string classCode;
+    cout << "Turma na qual pretende entrar: ";
+    cin >> classCode;
+    auto class_ = classes->find(new Class(classCode));
+    if (class_ == classes->end()) {
+        cout << "Turma não encontrada!" << endl;
+        return;
+    }
+
+    (*class_)->removeStudent(studentNumber);
+    (*course)->removeStudent(studentNumber);
+    auto r = new Request(studentNumber, courseCode, classCode, "add");
+    requests->push(r);
+}
+void changeStudent(classSet* classes, studentSet* students, courseSet* courses, queue<Request*>* requests) {
+    int studentNumber;
+    cout << "Número de estudante: ";
+    cin >> studentNumber;
+    auto s = students->find(new Student(studentNumber));
+    if (s == students->end()) {
+        cout << "Student not found!" << endl;
+        return;
+    }
+    string courseCode;
+    cout << "Unidade Curricular: ";
+    cin >> courseCode;
+    auto course = courses->find(new Course(courseCode));
+    if ((*course)->getCode() != courseCode) {
+        cout << "UC não encontrada!" << endl;
+        return;
+    }
+    string classCode;
+    cout << "Turma para a qual pretende mudar: ";
+    cin >> classCode;
+    auto class_ = classes->find(new Class(classCode));
+    if (class_ == classes -> end()) {
+        cout << "Turma não encontrada!" << endl;
+        return;
+    }
+
+    auto r = new Request(studentNumber, courseCode, classCode, "change");
+    requests->push(r);
+}
+
+void processAllRequests(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, queue<Request*>* requests) {
+    queue<Request*> aux;
+    while (!requests->empty()) {
+        Request* r = requests->front();
+        requests->pop();
+        if (r->handleRequest(students, courses, classes, classCourses)) {
+            cout << "Request processed successfully!" << endl;
+        }
+        else {
+            cout << "Request failed!" << endl;
+            aux.push(r);
+        }
+    }
+    while (!aux.empty()) {
+        requests->push(aux.front());
+        aux.pop();
     }
 }
 

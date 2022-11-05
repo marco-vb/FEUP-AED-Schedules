@@ -8,25 +8,19 @@ using namespace std;
 class Request {
     private:
         int studentNumber;
-        int requestNumber;
         string courseCode;
         string classCode;
         string requestType;
         string requestStatus;
-        string requestDate;
-        string requestTime;
     public:
-        Request(int studentNumber, int requestNumber, string courseCode, string classCode, string requestType, string requestStatus, string requestDate, string requestTime);
+        Request(int studentNumber, string courseCode, string classCode, string requestType);
         int getStudentNumber() const;
-        int getRequestNumber() const;
         string getCourseCode() const;
         string getClassCode() const;
         string getRequestType() const;
         string getRequestStatus() const;
-        string getRequestDate() const;
-        string getRequestTime() const;
         void setRequestStatus(string requestStatus);
-        void handleRequest(studentSet*, courseSet*, classSet*, classCoursesSet*);
+        bool handleRequest(studentSet*, courseSet*, classSet*, classCoursesSet*);
         void archiveRequest(ostream& out) const;
 };
 

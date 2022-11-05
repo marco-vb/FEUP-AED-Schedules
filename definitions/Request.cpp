@@ -1,59 +1,64 @@
-/*
 #include "../headers/Request.h"
 using namespace std;
-Request::Request(int studentNumber, int requestNumber, string courseCode, string classCode, string requestType, string requestStatus, string requestDate, string requestTime) {
+Request::Request(int studentNumber, string courseCode, string classCode, string requestType) {
     this->studentNumber = studentNumber;
-    this->requestNumber = requestNumber;
     this->courseCode = std::move(courseCode);
     this->classCode = std::move(classCode);
     this->requestType = std::move(requestType);
-    this->requestStatus = std::move(requestStatus);
-    this->requestDate = std::move(requestDate);
-    this->requestTime = std::move(requestTime);
+    this->requestStatus = string();
 }
 int Request::getStudentNumber() const {return studentNumber;}
-int Request::getRequestNumber() const {return requestNumber;}
 string Request::getCourseCode() const {return courseCode;}
 string Request::getClassCode() const {return classCode;}
 string Request::getRequestType() const {return requestType;}
 string Request::getRequestStatus() const {return requestStatus;}
-string Request::getRequestDate() const {return requestDate;}
-string Request::getRequestTime() const {return requestTime;}
 void Request::setRequestStatus(string requestStatus) {this->requestStatus = std::move(requestStatus);}
-void Request::handleRequest(studentSet* students, courseSet* courses, classSet* classes, classCoursesSet* classCourses) {
+bool Request::handleRequest(studentSet* students, courseSet* courses, classSet* classes, classCoursesSet* classCourses) {
     if (requestType == "remove") {
         auto student = students->find(new Student(studentNumber));
-        if ((*student)->removeClassCourse(classCode, courseCode, courses, classes))
+        if ((*student)->removeClassCourse(classCode, courseCode, courses, classes)) {
             setRequestStatus("accepted");
-        else
+            return true;
+        }
+        else {
             setRequestStatus("rejected");
+            return false;
+        }
     }
     if (requestType == "add") {
         auto student = students->find(new Student(studentNumber));
-        if((*student)->addClassCourse(classCode, courseCode, courses, classes))
+        if((*student)->addClassCourse(classCode, courseCode, courses, classes)) {
             setRequestStatus("accepted");
-        else
+            return true;
+        }
+        else {
             setRequestStatus("rejected");
+            return false;
+        }
     }
     if (requestType == "change") {
         auto student = students->find(new Student(studentNumber));
         for (const auto& p : (*student)->getClassesPerCourse()) {
             if (p.second == courseCode) {
                 if((*student)->removeClassCourse(p.first, p.second, courses, classes))
-                    if ((*student)->addClassCourse(classCode, courseCode, courses, classes))
+                    if ((*student)->addClassCourse(classCode, courseCode, courses, classes)) {
                         setRequestStatus("accepted");
-                    else
+                        return true;
+                    }
+                    else {
                         setRequestStatus("rejected");
-                else
-                    */
-/* Setting the request status to rejected. *//*
+                        return false;
+                    }
+                else {
                     setRequestStatus("rejected");
+                    return false;
+                }
             }
         }
     }
+    return false;
 }
 void Request::archiveRequest(ostream& out) const {
-    out << studentNumber << "," << requestNumber << "," << courseCode << ","
-    << classCode << "," << requestType << "," << requestStatus << "," <<
-    requestDate << "," << requestTime << endl;
-}*/
+    out << studentNumber << ","  << courseCode << ","
+    << classCode << "," << requestType << "," << requestStatus << "," << endl;
+}
