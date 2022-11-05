@@ -29,22 +29,23 @@ set<pair<string, string>> Student::getClassesPerCourse() const {
 bool Student::addClassCourse(string const& classcode, string const& coursecode, courseSet* courses, classSet* classes) {
     auto course = courses->find(new Course(coursecode));
     auto courseStudents = (*course)->getStudents();
-    if (this->getClassesPerCourse().find({classcode, coursecode}) != this->getClassesPerCourse().end()) return false;
+    if (this->getClassesPerCourse().find({classcode, coursecode}) == this->getClassesPerCourse().end()) return false;
 
     auto courseSchedule = (*course)->getSchedule();
     auto courseSlots = courseSchedule.getSchedule();
     Slot slot;
+    bool found = false;
     for (const auto& slotSet : courseSlots) {
-        bool found = false;
-        for (const auto &s: slotSet)
+        for (const auto &s: slotSet) {
             if (s.getClassCode() == classcode) {
                 slot = s;
                 found = true;
                 break;
             }
+        }
         if (found) break;
     }
-    if (courseSchedule.checkForCollision(slot)) return false;
+    if (!found || courseSchedule.checkForCollision(slot)) return false;
 
     this->classesPerCourse.insert(make_pair(classcode, coursecode));
     (*course)->addStudent(this->getNumber());

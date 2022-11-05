@@ -33,36 +33,43 @@
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00029}\mbox{\hyperlink{classStudent_a8effe1cdf74a882c5b02a6c5070ab0f6}{00029}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_a8effe1cdf74a882c5b02a6c5070ab0f6}{Student::addClassCourse}}(\textcolor{keywordtype}{string} \textcolor{keyword}{const}\& classcode, \textcolor{keywordtype}{string} \textcolor{keyword}{const}\& coursecode, courseSet* courses, classSet* classes) \{}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00030}00030     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00031}00031     \textcolor{keyword}{auto} courseStudents = (*course)-\/>getStudents();}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00032}00032     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().find(\{classcode, coursecode\}) != this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00032}00032     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().find(\{classcode, coursecode\}) == this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00033}00033 }
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00034}00034     \textcolor{keyword}{auto} courseSchedule = (*course)-\/>getSchedule();}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00035}00035     \textcolor{keyword}{auto} courseSlots = courseSchedule.getSchedule();}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00036}00036     \mbox{\hyperlink{classSlot}{Slot}} slot;}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00037}00037     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slotSet : courseSlots) \{}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00038}00038         \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00039}00039         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&s: slotSet)}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00037}00037     \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00038}00038     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slotSet : courseSlots) \{}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00039}00039         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&s: slotSet) \{}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00040}00040             \textcolor{keywordflow}{if} (s.getClassCode() == classcode) \{}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00041}00041                 slot = s;}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00042}00042                 found = \textcolor{keyword}{true};}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00043}00043                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00044}00044             \}}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00045}00045         \textcolor{keywordflow}{if} (found) \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00046}00046     \}}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00047}00047     \textcolor{keywordflow}{if} (courseSchedule.checkForCollision(slot)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00049}00049     this-\/>classesPerCourse.insert(make\_pair(classcode, coursecode));}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00050}00050     (*course)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00051}00051     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00052}00052     (*class1)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00053}00053     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00054}00054 \}}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00055}00055 }
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00056}\mbox{\hyperlink{classStudent_a6d613ea8c0d406c059e030fb8076eb4f}{00056}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_a6d613ea8c0d406c059e030fb8076eb4f}{Student::removeClassCourse}}(\textcolor{keywordtype}{string} \textcolor{keyword}{const}\& classcode, \textcolor{keywordtype}{string} \textcolor{keyword}{const}\& coursecode, courseSet* courses)\{}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00057}00057     pair<string, string> pair = \{classcode, coursecode\};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00058}00058     \textcolor{keywordflow}{if} (classesPerCourse.find(pair) == classesPerCourse.end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00059}00059     classesPerCourse.erase(pair);}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00060}00060     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00061}00061 \}}
-\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00045}00045         \}}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00046}00046         \textcolor{keywordflow}{if} (found) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00047}00047     \}}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00048}00048     \textcolor{keywordflow}{if} (!found || courseSchedule.checkForCollision(slot)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00050}00050     this-\/>classesPerCourse.insert(make\_pair(classcode, coursecode));}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00051}00051     (*course)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00052}00052     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00053}00053     (*class1)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00054}00054     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00055}00055 \}}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00057}\mbox{\hyperlink{classStudent_af7bc8e8703ed186bce85c49eb80f5f14}{00057}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classStudent_af7bc8e8703ed186bce85c49eb80f5f14}{Student::removeClassCourse}}(\textcolor{keywordtype}{string} \textcolor{keyword}{const}\& classcode, \textcolor{keywordtype}{string} \textcolor{keyword}{const}\& coursecode, courseSet* courses, classSet* classes) \{}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00058}00058     pair<string, string> pair = \{classcode, coursecode\};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00059}00059     \textcolor{keywordflow}{if} (classesPerCourse.find(pair) == classesPerCourse.end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00060}00060     classesPerCourse.erase(pair);}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00061}00061     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00062}00062     (*course)-\/>removeStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00063}00063     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : classesPerCourse)}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00064}00064         \textcolor{keywordflow}{if} (p.first == classcode) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00065}00065     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00066}00066     (*class1)-\/>removeStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00067}00067     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00068}00068 \}}
+\DoxyCodeLine{\Hypertarget{Student_8cpp_source_l00069}00069 }
 
 \end{DoxyCode}

@@ -1,8 +1,6 @@
 /*
 #include "../headers/Request.h"
-
 using namespace std;
-
 Request::Request(int studentNumber, int requestNumber, string courseCode, string classCode, string requestType, string requestStatus, string requestDate, string requestTime) {
     this->studentNumber = studentNumber;
     this->requestNumber = requestNumber;
@@ -13,25 +11,15 @@ Request::Request(int studentNumber, int requestNumber, string courseCode, string
     this->requestDate = std::move(requestDate);
     this->requestTime = std::move(requestTime);
 }
-
 int Request::getStudentNumber() const {return studentNumber;}
-
 int Request::getRequestNumber() const {return requestNumber;}
-
 string Request::getCourseCode() const {return courseCode;}
-
 string Request::getClassCode() const {return classCode;}
-
 string Request::getRequestType() const {return requestType;}
-
 string Request::getRequestStatus() const {return requestStatus;}
-
 string Request::getRequestDate() const {return requestDate;}
-
 string Request::getRequestTime() const {return requestTime;}
-
 void Request::setRequestStatus(string requestStatus) {this->requestStatus = std::move(requestStatus);}
-
 void Request::handleRequest(studentSet* students, courseSet* courses, classSet* classes, classCoursesSet* classCourses) {
     if (requestType == "remove") {
         auto student = students->find(new Student(studentNumber));
@@ -40,7 +28,6 @@ void Request::handleRequest(studentSet* students, courseSet* courses, classSet* 
         else
             setRequestStatus("rejected");
     }
-
     if (requestType == "add") {
         auto student = students->find(new Student(studentNumber));
         if((*student)->addClassCourse(classCode, courseCode, courses, classes))
@@ -48,7 +35,6 @@ void Request::handleRequest(studentSet* students, courseSet* courses, classSet* 
         else
             setRequestStatus("rejected");
     }
-
     if (requestType == "change") {
         auto student = students->find(new Student(studentNumber));
         for (const auto& p : (*student)->getClassesPerCourse()) {
@@ -61,13 +47,11 @@ void Request::handleRequest(studentSet* students, courseSet* courses, classSet* 
                 else
                     */
 /* Setting the request status to rejected. *//*
-
                     setRequestStatus("rejected");
             }
         }
     }
 }
-
 void Request::archiveRequest(ostream& out) const {
     out << studentNumber << "," << requestNumber << "," << courseCode << ","
     << classCode << "," << requestType << "," << requestStatus << "," <<

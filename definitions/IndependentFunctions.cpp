@@ -1,3 +1,4 @@
+
 #include "../headers/IndependentFunctions.h"
 
 /// Map que associa um inteiro a um dia da semana

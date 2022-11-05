@@ -1,0 +1,127 @@
+\hypertarget{structclassCourse}{}\doxysection{class\+Course Struct Reference}
+\label{structclassCourse}\index{classCourse@{classCourse}}
+
+
+struct \mbox{\hyperlink{structclassCourse}{class\+Course}} que guarda um par de apontadores para uma classe e um curso e o respetivo número de estudantes  
+
+
+
+
+{\ttfamily \#include $<$Types.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structclassCourse_a53971f3dbb55aabca22bb0c6014b0f90}{operator()}} (const \mbox{\hyperlink{structclassCourse}{class\+Course}} \&a, const \mbox{\hyperlink{structclassCourse}{class\+Course}} \&b) const
+\begin{DoxyCompactList}\small\item\em Função que compara dois \mbox{\hyperlink{structclassCourse}{class\+Course}} por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structclassCourse_ab548cfb460cfdf48efa4be7462717d8f}{operator$<$}} (const \mbox{\hyperlink{structclassCourse}{class\+Course}} \&b) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{structclassCourse_ae6f8141c4d1e3f91e0abcd27d6b33073}{class\+\_\+}}
+\item 
+string \mbox{\hyperlink{structclassCourse_a1bdb55fbe03d36e21d57b8b278f92b89}{course}}
+\item 
+int \mbox{\hyperlink{structclassCourse_a4179e717f9b061d983c17e15ab0172be}{students}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+struct \mbox{\hyperlink{structclassCourse}{class\+Course}} que guarda um par de apontadores para uma classe e um curso e o respetivo número de estudantes 
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00032}{32}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structclassCourse_a53971f3dbb55aabca22bb0c6014b0f90}\label{structclassCourse_a53971f3dbb55aabca22bb0c6014b0f90}} 
+\index{classCourse@{classCourse}!operator()@{operator()}}
+\index{operator()@{operator()}!classCourse@{classCourse}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool class\+Course\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structclassCourse}{class\+Course}} \&}]{a,  }\item[{const \mbox{\hyperlink{structclassCourse}{class\+Course}} \&}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Função que compara dois \mbox{\hyperlink{structclassCourse}{class\+Course}} por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. 
+
+Complexidade Temporal\+: O(1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeiro \mbox{\hyperlink{structclassCourse}{class\+Course}} a comparar \\
+\hline
+{\em b} & Segundo \mbox{\hyperlink{structclassCourse}{class\+Course}} a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o codigo da UC do primeiro for menor que o do segundo, ou se os codigos da UC forem iguais e o codigo da turma do primeiro for menor que o do segundo, e falso caso contrario 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00045}{45}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045                                                                       \{}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{return} (a.course < b.course) ||}
+\DoxyCodeLine{00047                (a.course == b.course \&\& a.class\_ < b.class\_);}
+\DoxyCodeLine{00048     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structclassCourse_ab548cfb460cfdf48efa4be7462717d8f}\label{structclassCourse_ab548cfb460cfdf48efa4be7462717d8f}} 
+\index{classCourse@{classCourse}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!classCourse@{classCourse}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool class\+Course\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structclassCourse}{class\+Course}} \&}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00050}{50}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050                                                \{}
+\DoxyCodeLine{00051         \textcolor{keywordflow}{return} (course < b.course) ||}
+\DoxyCodeLine{00052                (course == b.course \&\& class\_ < b.class\_);}
+\DoxyCodeLine{00053     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structclassCourse_ae6f8141c4d1e3f91e0abcd27d6b33073}\label{structclassCourse_ae6f8141c4d1e3f91e0abcd27d6b33073}} 
+\index{classCourse@{classCourse}!class\_@{class\_}}
+\index{class\_@{class\_}!classCourse@{classCourse}}
+\doxysubsubsection{\texorpdfstring{class\_}{class\_}}
+{\footnotesize\ttfamily string class\+Course\+::class\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00033}{33}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+\mbox{\Hypertarget{structclassCourse_a1bdb55fbe03d36e21d57b8b278f92b89}\label{structclassCourse_a1bdb55fbe03d36e21d57b8b278f92b89}} 
+\index{classCourse@{classCourse}!course@{course}}
+\index{course@{course}!classCourse@{classCourse}}
+\doxysubsubsection{\texorpdfstring{course}{course}}
+{\footnotesize\ttfamily string class\+Course\+::course}
+
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00034}{34}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+\mbox{\Hypertarget{structclassCourse_a4179e717f9b061d983c17e15ab0172be}\label{structclassCourse_a4179e717f9b061d983c17e15ab0172be}} 
+\index{classCourse@{classCourse}!students@{students}}
+\index{students@{students}!classCourse@{classCourse}}
+\doxysubsubsection{\texorpdfstring{students}{students}}
+{\footnotesize\ttfamily int class\+Course\+::students}
+
+
+
+Definition at line \mbox{\hyperlink{Types_8h_source_l00035}{35}} of file \mbox{\hyperlink{Types_8h_source}{Types.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/e/trabalhos(2)/\+FEUP/2o\+\_\+ano\+\_\+1o\+\_\+semestre/\+AED/marco\+Solo/\+AED-\/\+Schedule/headers/Types.\+h\end{DoxyCompactItemize}

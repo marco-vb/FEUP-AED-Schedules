@@ -90,7 +90,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Compara dois slots por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular. </p>
 
-<p class="definition">Definition at line <a class="el" href="Types_8h_source.html#l00049">49</a> of file <a class="el" href="Types_8h_source.html">Types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Types_8h_source.html#l00057">57</a> of file <a class="el" href="Types_8h_source.html">Types.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa6b06c0005a868879510b066df1128d2" name="aa6b06c0005a868879510b066df1128d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6b06c0005a868879510b066df1128d2">&#9670;&#160;</a></span>operator()()</h2>
@@ -137,11 +137,11 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true se o codigo da turma do primeiro slot for menor que o do segundo, ou se os codigos da turma forem iguais e o codigo da unidade curricular do primeiro slot for menor que o do segundo, e falso caso contrario </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Types_8h_source.html#l00059">59</a> of file <a class="el" href="Types_8h_source.html">Types.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   59</span>                                                        {</div>
-<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">return</span> a-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() &lt; b-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() ||</div>
-<div class="line"><span class="lineno">   61</span>               (a-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() == b-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() &amp;&amp; a-&gt;<a class="code hl_function" href="classSlot.html#a364bfdb56e6dc9cca1c5c8fc85f5a531">getCourseCode</a>() &lt; b-&gt;<a class="code hl_function" href="classSlot.html#a364bfdb56e6dc9cca1c5c8fc85f5a531">getCourseCode</a>());</div>
-<div class="line"><span class="lineno">   62</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="Types_8h_source.html#l00067">67</a> of file <a class="el" href="Types_8h_source.html">Types.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>                                                        {</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> a-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() &lt; b-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() ||</div>
+<div class="line"><span class="lineno">   69</span>               (a-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() == b-&gt;<a class="code hl_function" href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">getClassCode</a>() &amp;&amp; a-&gt;<a class="code hl_function" href="classSlot.html#a364bfdb56e6dc9cca1c5c8fc85f5a531">getCourseCode</a>() &lt; b-&gt;<a class="code hl_function" href="classSlot.html#a364bfdb56e6dc9cca1c5c8fc85f5a531">getCourseCode</a>());</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
 <div class="ttc" id="aclassSlot_html_a364bfdb56e6dc9cca1c5c8fc85f5a531"><div class="ttname"><a href="classSlot.html#a364bfdb56e6dc9cca1c5c8fc85f5a531">Slot::getCourseCode</a></div><div class="ttdeci">string getCourseCode() const</div><div class="ttdoc">Retorna o nome da unidade curricular.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8cpp_source.html#l00050">Slot.cpp:50</a></div></div>
 <div class="ttc" id="aclassSlot_html_a8e8b11ba2719b9b28b50abe14e257c77"><div class="ttname"><a href="classSlot.html#a8e8b11ba2719b9b28b50abe14e257c77">Slot::getClassCode</a></div><div class="ttdeci">string getClassCode() const</div><div class="ttdoc">Retorna o nome da turma.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8cpp_source.html#l00054">Slot.cpp:54</a></div></div>
 </div><!-- fragment -->

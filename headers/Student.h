@@ -84,8 +84,6 @@ class Student {
         /**
          * @brief Adiciona um par de strings ao conjunto de pares de strings (class, course)
          *
-         * Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto
-         *
          * @param classcode A turma
          * @param coursecode A unidade curricular
          * @param courses O conjunto de todas unidades curriculares
@@ -95,8 +93,6 @@ class Student {
 
         /**
          * @brief Remove um par de strings do conjunto de pares de strings (class, course)
-         *
-         * Complexidade Temporal: O(N) onde N é o número de pares de strings no conjunto
          *
          * @param class_ A turma
          * @param course A unidade curricular
