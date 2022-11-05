@@ -24,7 +24,7 @@ set$<$ pair$<$ string, string $>$ $>$ \mbox{\hyperlink{classStudent_a604908e6e68
 \begin{DoxyCompactList}\small\item\em Retorna o conjunto de pares de strings (class, course) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classStudent_a8effe1cdf74a882c5b02a6c5070ab0f6}{add\+Class\+Course}} (string const \&classcode, string const \&coursecode, course\+Set $\ast$courses, class\+Set $\ast$classes)
 \begin{DoxyCompactList}\small\item\em Adiciona um par de strings ao conjunto de pares de strings (class, course) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classStudent_a6d613ea8c0d406c059e030fb8076eb4f}{remove\+Class\+Course}} (string const \&classcode, string const \&coursecode, course\+Set $\ast$courses)
+bool \mbox{\hyperlink{classStudent_af7bc8e8703ed186bce85c49eb80f5f14}{remove\+Class\+Course}} (string const \&classcode, string const \&coursecode, course\+Set $\ast$courses, class\+Set $\ast$classes)
 \begin{DoxyCompactList}\small\item\em Remove um par de strings do conjunto de pares de strings (class, course) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -87,8 +87,6 @@ Definition at line \mbox{\hyperlink{Student_8cpp_source_l00007}{7}} of file \mbo
 
 Adiciona um par de strings ao conjunto de pares de strings (class, course) 
 
-Complexidade Temporal\+: O(log(\+N)) onde N é o número de pares de strings no conjunto
-
 
 \begin{DoxyParams}{Parameters}
 {\em classcode} & A turma \\
@@ -109,29 +107,30 @@ Definition at line \mbox{\hyperlink{Student_8cpp_source_l00029}{29}} of file \mb
 \DoxyCodeLine{00029                                                                                                                      \{}
 \DoxyCodeLine{00030     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
 \DoxyCodeLine{00031     \textcolor{keyword}{auto} courseStudents = (*course)-\/>getStudents();}
-\DoxyCodeLine{00032     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().find(\{classcode, coursecode\}) != this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().find(\{classcode, coursecode\}) == this-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}().end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{00033 }
 \DoxyCodeLine{00034     \textcolor{keyword}{auto} courseSchedule = (*course)-\/>getSchedule();}
 \DoxyCodeLine{00035     \textcolor{keyword}{auto} courseSlots = courseSchedule.getSchedule();}
 \DoxyCodeLine{00036     \mbox{\hyperlink{classSlot}{Slot}} slot;}
-\DoxyCodeLine{00037     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slotSet : courseSlots) \{}
-\DoxyCodeLine{00038         \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
-\DoxyCodeLine{00039         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&s: slotSet)}
+\DoxyCodeLine{00037     \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slotSet : courseSlots) \{}
+\DoxyCodeLine{00039         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&s: slotSet) \{}
 \DoxyCodeLine{00040             \textcolor{keywordflow}{if} (s.getClassCode() == classcode) \{}
 \DoxyCodeLine{00041                 slot = s;}
 \DoxyCodeLine{00042                 found = \textcolor{keyword}{true};}
 \DoxyCodeLine{00043                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00044             \}}
-\DoxyCodeLine{00045         \textcolor{keywordflow}{if} (found) \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00046     \}}
-\DoxyCodeLine{00047     \textcolor{keywordflow}{if} (courseSchedule.checkForCollision(slot)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{00048 }
-\DoxyCodeLine{00049     this-\/>classesPerCourse.insert(make\_pair(classcode, coursecode));}
-\DoxyCodeLine{00050     (*course)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
-\DoxyCodeLine{00051     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
-\DoxyCodeLine{00052     (*class1)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
-\DoxyCodeLine{00053     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{00054 \}}
+\DoxyCodeLine{00045         \}}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{if} (found) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if} (!found || courseSchedule.checkForCollision(slot)) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050     this-\/>classesPerCourse.insert(make\_pair(classcode, coursecode));}
+\DoxyCodeLine{00051     (*course)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{00052     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{00053     (*class1)-\/>addStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{00054     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00055 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classStudent_a604908e6e68618494bcad495cb0519d7}\label{classStudent_a604908e6e68618494bcad495cb0519d7}} 
@@ -214,17 +213,15 @@ Definition at line \mbox{\hyperlink{Student_8cpp_source_l00013}{13}} of file \mb
 \DoxyCodeLine{00015 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{classStudent_a6d613ea8c0d406c059e030fb8076eb4f}\label{classStudent_a6d613ea8c0d406c059e030fb8076eb4f}} 
+\mbox{\Hypertarget{classStudent_af7bc8e8703ed186bce85c49eb80f5f14}\label{classStudent_af7bc8e8703ed186bce85c49eb80f5f14}} 
 \index{Student@{Student}!removeClassCourse@{removeClassCourse}}
 \index{removeClassCourse@{removeClassCourse}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{removeClassCourse()}{removeClassCourse()}}
-{\footnotesize\ttfamily bool Student\+::remove\+Class\+Course (\begin{DoxyParamCaption}\item[{string const \&}]{classcode,  }\item[{string const \&}]{coursecode,  }\item[{course\+Set $\ast$}]{courses }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Student\+::remove\+Class\+Course (\begin{DoxyParamCaption}\item[{string const \&}]{classcode,  }\item[{string const \&}]{coursecode,  }\item[{course\+Set $\ast$}]{courses,  }\item[{class\+Set $\ast$}]{classes }\end{DoxyParamCaption})}
 
 
 
 Remove um par de strings do conjunto de pares de strings (class, course) 
-
-Complexidade Temporal\+: O(log(\+N)) onde N é o número de pares de strings no conjunto
 
 
 \begin{DoxyParams}{Parameters}
@@ -234,19 +231,27 @@ Complexidade Temporal\+: O(log(\+N)) onde N é o número de pares de strings no 
 \hline
 {\em courses} & O conjunto de todas unidades curriculares \\
 \hline
+{\em classes} & O conjunto de todas as turmas \\
+\hline
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Student_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
+Definition at line \mbox{\hyperlink{Student_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{Student_8cpp_source}{Student.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00056                                                                                                     \{}
-\DoxyCodeLine{00057     pair<string, string> pair = \{classcode, coursecode\};}
-\DoxyCodeLine{00058     \textcolor{keywordflow}{if} (classesPerCourse.find(pair) == classesPerCourse.end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{00059     classesPerCourse.erase(pair);}
-\DoxyCodeLine{00060     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{00061 \}}
+\DoxyCodeLine{00057                                                                                                                         \{}
+\DoxyCodeLine{00058     pair<string, string> pair = \{classcode, coursecode\};}
+\DoxyCodeLine{00059     \textcolor{keywordflow}{if} (classesPerCourse.find(pair) == classesPerCourse.end()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00060     classesPerCourse.erase(pair);}
+\DoxyCodeLine{00061     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
+\DoxyCodeLine{00062     (*course)-\/>removeStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{00063     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : classesPerCourse)}
+\DoxyCodeLine{00064         \textcolor{keywordflow}{if} (p.first == classcode) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00065     \textcolor{keyword}{auto} class1 = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{00066     (*class1)-\/>removeStudent(this-\/>\mbox{\hyperlink{classStudent_ae7b15f60adaf461d6e70079f7854487c}{getNumber}}());}
+\DoxyCodeLine{00067     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00068 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classStudent_a34ff388814a53eddebfdf7af5abe1d98}\label{classStudent_a34ff388814a53eddebfdf7af5abe1d98}} 

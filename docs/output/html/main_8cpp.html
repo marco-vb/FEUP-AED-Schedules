@@ -89,84 +89,20 @@ Functions</h2></td></tr>
 <tr class="memitem:ad495568fb4223027d472b06edc39d9a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad495568fb4223027d472b06edc39d9a2">menu_full_lists</a> (studentSet *students, classSet *classes, courseSet *courses, slotSet *slots)</td></tr>
 <tr class="memdesc:ad495568fb4223027d472b06edc39d9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que imprime o menu de listagens completas.  <a href="main_8cpp.html#ad495568fb4223027d472b06edc39d9a2">More...</a><br /></td></tr>
 <tr class="separator:ad495568fb4223027d472b06edc39d9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a966e63685cb5511077207b5df0b460"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2a966e63685cb5511077207b5df0b460">menu_partial_lists</a> (studentSet *students, classSet *classes, courseSet *courses)</td></tr>
-<tr class="memdesc:a2a966e63685cb5511077207b5df0b460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que imprime o menu de listagens parciais.  <a href="main_8cpp.html#a2a966e63685cb5511077207b5df0b460">More...</a><br /></td></tr>
-<tr class="separator:a2a966e63685cb5511077207b5df0b460"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47857063fb911f9aa180d9f89598b0de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a47857063fb911f9aa180d9f89598b0de">getLessonOrder</a> (slotSet *slots)</td></tr>
-<tr class="memdesc:a47857063fb911f9aa180d9f89598b0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que imprime o menu de da escolha da ordem das aulas.  <a href="main_8cpp.html#a47857063fb911f9aa180d9f89598b0de">More...</a><br /></td></tr>
-<tr class="separator:a47857063fb911f9aa180d9f89598b0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1008e973c6bd40dc21c62c56e9367a66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1008e973c6bd40dc21c62c56e9367a66">menu_partial_lists</a> (studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</td></tr>
+<tr class="memdesc:a1008e973c6bd40dc21c62c56e9367a66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que imprime o menu de listagens parciais.  <a href="main_8cpp.html#a1008e973c6bd40dc21c62c56e9367a66">More...</a><br /></td></tr>
+<tr class="separator:a1008e973c6bd40dc21c62c56e9367a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2293dbe020994f44254378777eabf7da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2293dbe020994f44254378777eabf7da">menu_schedules</a> (studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</td></tr>
+<tr class="memdesc:a2293dbe020994f44254378777eabf7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que imprime o menu de da escolha da ordem das aulas.  <a href="main_8cpp.html#a2293dbe020994f44254378777eabf7da">More...</a><br /></td></tr>
+<tr class="separator:a2293dbe020994f44254378777eabf7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ea15be5e62941f601edac0961f7cc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa3ea15be5e62941f601edac0961f7cc8">menu_requests</a> (studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</td></tr>
+<tr class="separator:aa3ea15be5e62941f601edac0961f7cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main file do projeto, é a partir daqui que o programa começa a ser executado. </p>
 
 <p class="definition">Definition in file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a47857063fb911f9aa180d9f89598b0de" name="a47857063fb911f9aa180d9f89598b0de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47857063fb911f9aa180d9f89598b0de">&#9670;&#160;</a></span>getLessonOrder()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void getLessonOrder </td>
-          <td>(</td>
-          <td class="paramtype">slotSet *&#160;</td>
-          <td class="paramname"><em>slots</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Função que imprime o menu de da escolha da ordem das aulas. </p>
-<p>Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.<br  />
- </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">students</td><td>Set com todos os alunos </td></tr>
-    <tr><td class="paramname">classes</td><td>Set com todas as turmas </td></tr>
-    <tr><td class="paramname">courses</td><td>Set com todas as unidades curriculares </td></tr>
-    <tr><td class="paramname">classCourses</td><td>Set com todos os pares turma e unidade curricular </td></tr>
-    <tr><td class="paramname">slots</td><td>Set com todas as aulas </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00135">135</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  135</span>                                   {</div>
-<div class="line"><span class="lineno">  136</span>    <span class="keywordtype">int</span> choice;</div>
-<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><span class="lineno">  138</span>        clear();</div>
-<div class="line"><span class="lineno">  139</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  140</span>        cout &lt;&lt; <span class="stringliteral">&quot;| Order by:                                    |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  141</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Class (fastest)                           |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  142</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Course                                    |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  143</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Start Hour                                |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  144</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. End Hour                                  |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  145</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 5. Day of the Week                           |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  146</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Back                                      |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  147</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  148</span>        cout &lt;&lt; <span class="stringliteral">&quot;Your choice: &quot;</span>;</div>
-<div class="line"><span class="lineno">  149</span>        cin &gt;&gt; choice;</div>
-<div class="line"><span class="lineno">  150</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
-<div class="line"><span class="lineno">  151</span>            <span class="keywordflow">switch</span> (choice) {</div>
-<div class="line"><span class="lineno">  152</span>                <span class="keywordflow">case</span> 1:<a class="code hl_function" href="Functions_8h.html#aa37be541f561649190c15a3e6e8918a2">listAllSlots</a>(slots); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  153</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="Functions_8h.html#a7e1ae26ba37c575cdad869a0b1e57d77">listAllSlotsOrder</a>(slots, <a class="code hl_struct" href="structslotCompareByCourse.html">slotCompareByCourse</a>()); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  154</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="Functions_8h.html#a7e1ae26ba37c575cdad869a0b1e57d77">listAllSlotsOrder</a>(slots, <a class="code hl_struct" href="structslotCompareByStartHour.html">slotCompareByStartHour</a>()); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  155</span>                <span class="keywordflow">case</span> 4: <a class="code hl_function" href="Functions_8h.html#a7e1ae26ba37c575cdad869a0b1e57d77">listAllSlotsOrder</a>(slots, <a class="code hl_struct" href="structslotCompareByEndHour.html">slotCompareByEndHour</a>()); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  156</span>                <span class="keywordflow">case</span> 5: <a class="code hl_function" href="Functions_8h.html#a7e1ae26ba37c575cdad869a0b1e57d77">listAllSlotsOrder</a>(slots, <a class="code hl_struct" href="structslotCompareByDay.html">slotCompareByDay</a>()); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  157</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  158</span>            }</div>
-<div class="line"><span class="lineno">  159</span>        }</div>
-<div class="line"><span class="lineno">  160</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
-<div class="line"><span class="lineno">  161</span>}</div>
-<div class="ttc" id="aFunctions_8h_html_a7e1ae26ba37c575cdad869a0b1e57d77"><div class="ttname"><a href="Functions_8h.html#a7e1ae26ba37c575cdad869a0b1e57d77">listAllSlotsOrder</a></div><div class="ttdeci">void listAllSlotsOrder(slotSet *slots, C comp)</div><div class="ttdoc">Imprime uma lista de todas as aulas, por uma ordem definida pelo utilizador, através do parâmetro com...</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00225">Functions.h:225</a></div></div>
-<div class="ttc" id="aFunctions_8h_html_aa37be541f561649190c15a3e6e8918a2"><div class="ttname"><a href="Functions_8h.html#aa37be541f561649190c15a3e6e8918a2">listAllSlots</a></div><div class="ttdeci">void listAllSlots(slotSet *slots)</div><div class="ttdoc">Imprime uma lista de todas as aulas, por ordem alfabética de codigo da turma, e em caso de empate por...</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00212">Functions.h:212</a></div></div>
-<div class="ttc" id="astructslotCompareByCourse_html"><div class="ttname"><a href="structslotCompareByCourse.html">slotCompareByCourse</a></div><div class="ttdoc">Compara dois slots por ordem alfabética de codigo da unidade curricular, e em caso de empate por orde...</div><div class="ttdef"><b>Definition:</b> <a href="Types_8h_source.html#l00066">Types.h:66</a></div></div>
-<div class="ttc" id="astructslotCompareByDay_html"><div class="ttname"><a href="structslotCompareByDay.html">slotCompareByDay</a></div><div class="ttdoc">Compara dois slots pela dia da semana.</div><div class="ttdef"><b>Definition:</b> <a href="Types_8h_source.html#l00117">Types.h:117</a></div></div>
-<div class="ttc" id="astructslotCompareByEndHour_html"><div class="ttname"><a href="structslotCompareByEndHour.html">slotCompareByEndHour</a></div><div class="ttdoc">Compara dois slots pela hora de fim.</div><div class="ttdef"><b>Definition:</b> <a href="Types_8h_source.html#l00100">Types.h:100</a></div></div>
-<div class="ttc" id="astructslotCompareByStartHour_html"><div class="ttname"><a href="structslotCompareByStartHour.html">slotCompareByStartHour</a></div><div class="ttdoc">Compara dois slots pela hora de inicio.</div><div class="ttdef"><b>Definition:</b> <a href="Types_8h_source.html#l00083">Types.h:83</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
 
@@ -184,7 +120,7 @@ Functions</h2></td></tr>
 
 <p>Main function. </p>
 <p>Começa a execução do programa.<br  />
-Primeiro cria os sets com todos os alunos(students), todos as turmas(classes), todas as unidades curriculares(courses), todos os pares turma e unidade curricular(classCourse) e todos as aulas (slots).<br  />
+Primeiro cria os sets com todos os alunos(students), todas as turmas(classes), todas as unidades curriculares(courses), todos os pares turma e unidade curricular(classCourse) e todas as aulas (slots).<br  />
 Depois lê os arquivos de entrada (readAll).<br  />
 A seguir imprime as opções do menu e processa a opção escolhida.<br  />
 </p>
@@ -200,33 +136,37 @@ A seguir imprime as opções do menu e processa a opção escolhida.<br  />
 <div class="line"><span class="lineno">   23</span>    <span class="comment">// Read data from files</span></div>
 <div class="line"><span class="lineno">   24</span>    <a class="code hl_function" href="Functions_8h.html#aa95054ac50038a08a63f3b4d8b58c615">readAll</a>(&amp;students, &amp;classes, &amp;courses, &amp;classCourses, &amp;slots);</div>
 <div class="line"><span class="lineno">   25</span>    cout &lt;&lt; fixed &lt;&lt; setprecision(1); <span class="comment">// print lesson times correctly</span></div>
-<div class="line"><span class="lineno">   26</span>    wait();</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>();</div>
 <div class="line"><span class="lineno">   27</span>    <span class="keywordtype">int</span> choice;</div>
 <div class="line"><span class="lineno">   28</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><span class="lineno">   29</span>        clear();</div>
-<div class="line"><span class="lineno">   30</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   31</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Full listings                             |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   32</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Partial listings                          |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   33</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Make request                              |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   34</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. Student Schedule                          |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   35</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Exit                                      |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   36</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   37</span>        cout &lt;&lt; <span class="stringliteral">&quot;Your choice: &quot;</span>;</div>
+<div class="line"><span class="lineno">   29</span>        <a class="code hl_function" href="Functions_8h.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>();</div>
+<div class="line"><span class="lineno">   30</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   31</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Listagens totais                    |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   32</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Listagens parciais                  |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   33</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Horários                            |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   34</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. Realizar pedido                     |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   35</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Sair                                |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   36</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   37</span>        cout &lt;&lt; <span class="stringliteral">&quot;Escolha: &quot;</span>;</div>
 <div class="line"><span class="lineno">   38</span>        cin &gt;&gt; choice;</div>
 <div class="line"><span class="lineno">   39</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
 <div class="line"><span class="lineno">   40</span>            <span class="keywordflow">switch</span> (choice) {</div>
 <div class="line"><span class="lineno">   41</span>                <span class="keywordflow">case</span> 1: <a class="code hl_function" href="main_8cpp.html#ad495568fb4223027d472b06edc39d9a2">menu_full_lists</a>(&amp;students, &amp;classes, &amp;courses, &amp;slots); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   42</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="main_8cpp.html#a2a966e63685cb5511077207b5df0b460">menu_partial_lists</a>(&amp;students, &amp;classes, &amp;courses); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   43</span>                <span class="keywordflow">case</span> 4: printAnyStudentSchedule(&amp;students, &amp;slots); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   44</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   45</span>            }</div>
-<div class="line"><span class="lineno">   46</span>        }</div>
-<div class="line"><span class="lineno">   47</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   49</span>}</div>
-<div class="ttc" id="aFunctions_8h_html_aa95054ac50038a08a63f3b4d8b58c615"><div class="ttname"><a href="Functions_8h.html#aa95054ac50038a08a63f3b4d8b58c615">readAll</a></div><div class="ttdeci">void readAll(studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</div><div class="ttdoc">Função lê os ficheiros classes.csv, classes_per_uc.csv e students_classes.csv e guarda a informação.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00041">Functions.h:41</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a2a966e63685cb5511077207b5df0b460"><div class="ttname"><a href="main_8cpp.html#a2a966e63685cb5511077207b5df0b460">menu_partial_lists</a></div><div class="ttdeci">void menu_partial_lists(studentSet *students, classSet *classes, courseSet *courses)</div><div class="ttdoc">Função que imprime o menu de listagens parciais.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00096">main.cpp:96</a></div></div>
-<div class="ttc" id="amain_8cpp_html_ad495568fb4223027d472b06edc39d9a2"><div class="ttname"><a href="main_8cpp.html#ad495568fb4223027d472b06edc39d9a2">menu_full_lists</a></div><div class="ttdeci">void menu_full_lists(studentSet *students, classSet *classes, courseSet *courses, slotSet *slots)</div><div class="ttdoc">Função que imprime o menu de listagens completas.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00061">main.cpp:61</a></div></div>
+<div class="line"><span class="lineno">   42</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="main_8cpp.html#a1008e973c6bd40dc21c62c56e9367a66">menu_partial_lists</a>(&amp;students, &amp;classes, &amp;courses, &amp;classCourses, &amp;slots); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   43</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="main_8cpp.html#a2293dbe020994f44254378777eabf7da">menu_schedules</a>(&amp;students, &amp;classes, &amp;courses, &amp;classCourses, &amp;slots); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   44</span>                <span class="keywordflow">case</span> 4: menu_requests(&amp;students, &amp;classes, &amp;courses, &amp;classCourses, &amp;slots); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   45</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   46</span>            }</div>
+<div class="line"><span class="lineno">   47</span>        }</div>
+<div class="line"><span class="lineno">   48</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="aFunctions_8h_html_aa3b21853f890838c88d047d6c2786917"><div class="ttname"><a href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a></div><div class="ttdeci">void wait()</div><div class="ttdoc">Função que espera que o utilizador pressione enter para continuar.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00567">Functions.h:567</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_aa95054ac50038a08a63f3b4d8b58c615"><div class="ttname"><a href="Functions_8h.html#aa95054ac50038a08a63f3b4d8b58c615">readAll</a></div><div class="ttdeci">void readAll(studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</div><div class="ttdoc">Função lê os ficheiros classes.csv, classes_per_uc.csv e students_classes.csv e guarda a informação.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00044">Functions.h:44</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_ac8bb3912a3ce86b15842e79d0b421204"><div class="ttname"><a href="Functions_8h.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Função que limpa o ecrã</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00562">Functions.h:562</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a1008e973c6bd40dc21c62c56e9367a66"><div class="ttname"><a href="main_8cpp.html#a1008e973c6bd40dc21c62c56e9367a66">menu_partial_lists</a></div><div class="ttdeci">void menu_partial_lists(studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</div><div class="ttdoc">Função que imprime o menu de listagens parciais.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00096">main.cpp:96</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a2293dbe020994f44254378777eabf7da"><div class="ttname"><a href="main_8cpp.html#a2293dbe020994f44254378777eabf7da">menu_schedules</a></div><div class="ttdeci">void menu_schedules(studentSet *students, classSet *classes, courseSet *courses, classCoursesSet *classCourses, slotSet *slots)</div><div class="ttdoc">Função que imprime o menu de da escolha da ordem das aulas.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00132">main.cpp:132</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ad495568fb4223027d472b06edc39d9a2"><div class="ttname"><a href="main_8cpp.html#ad495568fb4223027d472b06edc39d9a2">menu_full_lists</a></div><div class="ttdeci">void menu_full_lists(studentSet *students, classSet *classes, courseSet *courses, slotSet *slots)</div><div class="ttdoc">Função que imprime o menu de listagens completas.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00062">main.cpp:62</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -280,40 +220,40 @@ A seguir imprime as opções do menu e processa a opção escolhida.<br  />
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00061">61</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>                                                                                                  {</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordtype">int</span> choice;</div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><span class="lineno">   64</span>        clear();</div>
-<div class="line"><span class="lineno">   65</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   66</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. List all students                         |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   67</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. List all classes                          |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   68</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. List all courses                          |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   69</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. List all lessons                          |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   70</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Back                                      |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   71</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   72</span>        cout &lt;&lt; <span class="stringliteral">&quot;Your choice: &quot;</span>;</div>
-<div class="line"><span class="lineno">   73</span>        cin &gt;&gt; choice;</div>
-<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
-<div class="line"><span class="lineno">   75</span>            <span class="keywordflow">switch</span> (choice) {</div>
-<div class="line"><span class="lineno">   76</span>                <span class="keywordflow">case</span> 1: <a class="code hl_function" href="Functions_8h.html#ab4ab1284290645465713ac5cbf1c4182">listAllStudents</a>(students); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   77</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="Functions_8h.html#abe0eee5000eae9f05ab2915b5b59a346">listAllClasses</a>(classes); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   78</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="Functions_8h.html#a812fcc104c53015ab9930b5f53ddd534">listAllCourses</a>(courses); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   79</span>                <span class="keywordflow">case</span> 4: <a class="code hl_function" href="main_8cpp.html#a47857063fb911f9aa180d9f89598b0de">getLessonOrder</a>(slots); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   80</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   81</span>            }</div>
-<div class="line"><span class="lineno">   82</span>        }</div>
-<div class="line"><span class="lineno">   83</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
-<div class="line"><span class="lineno">   84</span>}</div>
-<div class="ttc" id="aFunctions_8h_html_a812fcc104c53015ab9930b5f53ddd534"><div class="ttname"><a href="Functions_8h.html#a812fcc104c53015ab9930b5f53ddd534">listAllCourses</a></div><div class="ttdeci">void listAllCourses(courseSet *courses)</div><div class="ttdoc">Imprime uma lista de todas as unidades curriculares, por ordem alfabética do código da unidade curric...</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00203">Functions.h:203</a></div></div>
-<div class="ttc" id="aFunctions_8h_html_ab4ab1284290645465713ac5cbf1c4182"><div class="ttname"><a href="Functions_8h.html#ab4ab1284290645465713ac5cbf1c4182">listAllStudents</a></div><div class="ttdeci">void listAllStudents(studentSet *students)</div><div class="ttdoc">Imprime uma lista de todos os alunos, por ordem do número de estudante.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00185">Functions.h:185</a></div></div>
-<div class="ttc" id="aFunctions_8h_html_abe0eee5000eae9f05ab2915b5b59a346"><div class="ttname"><a href="Functions_8h.html#abe0eee5000eae9f05ab2915b5b59a346">listAllClasses</a></div><div class="ttdeci">void listAllClasses(classSet *classes)</div><div class="ttdoc">Imprime uma lista de todas as turmas, por ordem alfabética do código da turma.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00194">Functions.h:194</a></div></div>
-<div class="ttc" id="amain_8cpp_html_a47857063fb911f9aa180d9f89598b0de"><div class="ttname"><a href="main_8cpp.html#a47857063fb911f9aa180d9f89598b0de">getLessonOrder</a></div><div class="ttdeci">void getLessonOrder(slotSet *slots)</div><div class="ttdoc">Função que imprime o menu de da escolha da ordem das aulas.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00135">main.cpp:135</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00062">62</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                                                                                  {</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordtype">int</span> choice;</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">   65</span>        <a class="code hl_function" href="Functions_8h.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>();</div>
+<div class="line"><span class="lineno">   66</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   67</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Listar todos os estudantes          |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   68</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Listar todas as turmas              |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   69</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Listar todas as UCs                 |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   70</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. Listar todas as aulas               |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   71</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Voltar                              |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   72</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   73</span>        cout &lt;&lt; <span class="stringliteral">&quot;Escolha: &quot;</span>;</div>
+<div class="line"><span class="lineno">   74</span>        cin &gt;&gt; choice;</div>
+<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">switch</span> (choice) {</div>
+<div class="line"><span class="lineno">   77</span>                <span class="keywordflow">case</span> 1: <a class="code hl_function" href="Functions_8h.html#ab4ab1284290645465713ac5cbf1c4182">listAllStudents</a>(students); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   78</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="Functions_8h.html#abe0eee5000eae9f05ab2915b5b59a346">listAllClasses</a>(classes); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   79</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="Functions_8h.html#a812fcc104c53015ab9930b5f53ddd534">listAllCourses</a>(courses); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   80</span>                <span class="keywordflow">case</span> 4: <a class="code hl_function" href="Functions_8h.html#a90668a0b13a6af4bea0e59d182df303a">listAllSlots</a>(courses); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   81</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   82</span>            }</div>
+<div class="line"><span class="lineno">   83</span>        }</div>
+<div class="line"><span class="lineno">   84</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="aFunctions_8h_html_a812fcc104c53015ab9930b5f53ddd534"><div class="ttname"><a href="Functions_8h.html#a812fcc104c53015ab9930b5f53ddd534">listAllCourses</a></div><div class="ttdeci">void listAllCourses(courseSet *courses)</div><div class="ttdoc">Imprime uma lista de todas as unidades curriculares, por ordem alfabética do código da unidade curric...</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00242">Functions.h:242</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_a90668a0b13a6af4bea0e59d182df303a"><div class="ttname"><a href="Functions_8h.html#a90668a0b13a6af4bea0e59d182df303a">listAllSlots</a></div><div class="ttdeci">void listAllSlots(courseSet *courses)</div><div class="ttdoc">Imprime uma lista de todas as aulas, por Unidade Curricular, por ordem alfabética do código da turma.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00262">Functions.h:262</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_ab4ab1284290645465713ac5cbf1c4182"><div class="ttname"><a href="Functions_8h.html#ab4ab1284290645465713ac5cbf1c4182">listAllStudents</a></div><div class="ttdeci">void listAllStudents(studentSet *students)</div><div class="ttdoc">Imprime uma lista de todos os alunos, por ordem do número de estudante ou por ordem alfabética.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00196">Functions.h:196</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_abe0eee5000eae9f05ab2915b5b59a346"><div class="ttname"><a href="Functions_8h.html#abe0eee5000eae9f05ab2915b5b59a346">listAllClasses</a></div><div class="ttdeci">void listAllClasses(classSet *classes)</div><div class="ttdoc">Imprime uma lista de todas as turmas, por ordem alfabética do código da turma.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00222">Functions.h:222</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a2a966e63685cb5511077207b5df0b460" name="a2a966e63685cb5511077207b5df0b460"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a966e63685cb5511077207b5df0b460">&#9670;&#160;</a></span>menu_partial_lists()</h2>
+<a id="a1008e973c6bd40dc21c62c56e9367a66" name="a1008e973c6bd40dc21c62c56e9367a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1008e973c6bd40dc21c62c56e9367a66">&#9670;&#160;</a></span>menu_partial_lists()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +274,19 @@ A seguir imprime as opções do menu e processa a opção escolhida.<br  />
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">courseSet *&#160;</td>
-          <td class="paramname"><em>courses</em>&#160;</td>
+          <td class="paramname"><em>courses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">classCoursesSet *&#160;</td>
+          <td class="paramname"><em>classCourses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">slotSet *&#160;</td>
+          <td class="paramname"><em>slots</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -356,37 +308,190 @@ A seguir imprime as opções do menu e processa a opção escolhida.<br  />
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00096">96</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                                                     {</div>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                                                                                                    {</div>
 <div class="line"><span class="lineno">   97</span>    <span class="keywordtype">int</span> choice;</div>
 <div class="line"><span class="lineno">   98</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><span class="lineno">   99</span>        clear();</div>
-<div class="line"><span class="lineno">  100</span>        <span class="comment">/* Printing a line of text to the console. */</span></div>
-<div class="line"><span class="lineno">  101</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  102</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. List all students in a class              |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  103</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. List all classes of a student             |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  104</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. List all lessons of a class               |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  105</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. List all lessons of a course              |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  106</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 5. List all studenst in more than n courses  |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  107</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Back                                      |&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  108</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  109</span>        cout &lt;&lt; <span class="stringliteral">&quot;Your choice: &quot;</span>;</div>
-<div class="line"><span class="lineno">  110</span>        cin &gt;&gt; choice;</div>
-<div class="line"><span class="lineno">  111</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
-<div class="line"><span class="lineno">  112</span>            <span class="keywordflow">switch</span> (choice) {</div>
-<div class="line"><span class="lineno">  113</span>                <span class="keywordflow">case</span> 1: <a class="code hl_function" href="Functions_8h.html#a483d8eac58a2e9c97e0c397887eeb78a">listStudentsInClass</a>(students, classes); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  114</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="Functions_8h.html#afd5434ee66a6b0d8316236f853edbdbc">listClassesOfStudent</a>(students); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  115</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="Functions_8h.html#a5b282e27d136f633bc2d8e847721a79c">listSlotsOfClass</a>(classes); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  116</span>                <span class="keywordflow">case</span> 4: <a class="code hl_function" href="Functions_8h.html#a6cb8fc7cddcfc934ddd6f2c3bd80205f">listSlotsOfCourse</a>(courses); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  117</span>                <span class="keywordflow">case</span> 5: listStudentsInMoreThanNCourses(students); wait(); <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  118</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  119</span>            }</div>
-<div class="line"><span class="lineno">  120</span>        }</div>
-<div class="line"><span class="lineno">  121</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
-<div class="line"><span class="lineno">  122</span>}</div>
-<div class="ttc" id="aFunctions_8h_html_a483d8eac58a2e9c97e0c397887eeb78a"><div class="ttname"><a href="Functions_8h.html#a483d8eac58a2e9c97e0c397887eeb78a">listStudentsInClass</a></div><div class="ttdeci">void listStudentsInClass(studentSet *students, classSet *classes)</div><div class="ttdoc">Imprime todos os alunos de uma turma, por ordem crescenete de numero de estudante.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00248">Functions.h:248</a></div></div>
-<div class="ttc" id="aFunctions_8h_html_a5b282e27d136f633bc2d8e847721a79c"><div class="ttname"><a href="Functions_8h.html#a5b282e27d136f633bc2d8e847721a79c">listSlotsOfClass</a></div><div class="ttdeci">void listSlotsOfClass(classSet *classes)</div><div class="ttdoc">Imprime todas as as aulas de uma turma.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00296">Functions.h:296</a></div></div>
-<div class="ttc" id="aFunctions_8h_html_a6cb8fc7cddcfc934ddd6f2c3bd80205f"><div class="ttname"><a href="Functions_8h.html#a6cb8fc7cddcfc934ddd6f2c3bd80205f">listSlotsOfCourse</a></div><div class="ttdeci">void listSlotsOfCourse(courseSet *courses)</div><div class="ttdoc">Imprime todas as as aulas de uma unidade curricular.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00326">Functions.h:326</a></div></div>
-<div class="ttc" id="aFunctions_8h_html_afd5434ee66a6b0d8316236f853edbdbc"><div class="ttname"><a href="Functions_8h.html#afd5434ee66a6b0d8316236f853edbdbc">listClassesOfStudent</a></div><div class="ttdeci">void listClassesOfStudent(studentSet *students)</div><div class="ttdoc">Imprime todas as turmas por unidade curricular em que um aluno está inscrito, por ordem alfabética do...</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00272">Functions.h:272</a></div></div>
+<div class="line"><span class="lineno">   99</span>        <a class="code hl_function" href="Functions_8h.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>();</div>
+<div class="line"><span class="lineno">  100</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  101</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Ocupação de turmas/UC               |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  102</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Estudantes numa turma/UC            |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  103</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Estudantes inscritos numa UC        |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  104</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 4. Turmas/UC de um estudante           |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  105</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Voltar                              |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  106</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  107</span>        cout &lt;&lt; <span class="stringliteral">&quot;Escolha: &quot;</span>;</div>
+<div class="line"><span class="lineno">  108</span>        cin &gt;&gt; choice;</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
+<div class="line"><span class="lineno">  110</span>            <span class="keywordflow">switch</span> (choice) {</div>
+<div class="line"><span class="lineno">  111</span>                <span class="keywordflow">case</span> 1: <a class="code hl_function" href="Functions_8h.html#aaf24ae1b8f29e77d41bc52c97e554922">listClassCourseOccupation</a>(classCourses); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  112</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="Functions_8h.html#a5f8aeeaab4c2cbecff8336d082cb17be">listStudentsInClassCourse</a>(students, classes, courses); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  113</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="Functions_8h.html#a88168c2be358fffd000abc44843edf33">listStudentsInCourse</a>(students, courses); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  114</span>                <span class="keywordflow">case</span> 4: <a class="code hl_function" href="Functions_8h.html#afd5434ee66a6b0d8316236f853edbdbc">listClassesOfStudent</a>(students); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  115</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  116</span>            }</div>
+<div class="line"><span class="lineno">  117</span>        }</div>
+<div class="line"><span class="lineno">  118</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
+<div class="line"><span class="lineno">  119</span>}</div>
+<div class="ttc" id="aFunctions_8h_html_a5f8aeeaab4c2cbecff8336d082cb17be"><div class="ttname"><a href="Functions_8h.html#a5f8aeeaab4c2cbecff8336d082cb17be">listStudentsInClassCourse</a></div><div class="ttdeci">void listStudentsInClassCourse(studentSet *students, classSet *classes, courseSet *courses)</div><div class="ttdoc">Imprime uma lista de todos os estudantes num par (turma, unidade curricular).</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00306">Functions.h:306</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_a88168c2be358fffd000abc44843edf33"><div class="ttname"><a href="Functions_8h.html#a88168c2be358fffd000abc44843edf33">listStudentsInCourse</a></div><div class="ttdeci">void listStudentsInCourse(studentSet *students, courseSet *courses)</div><div class="ttdoc">Imprime uma lista de todos os estudantes numa Unidade Curricular.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00341">Functions.h:341</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_aaf24ae1b8f29e77d41bc52c97e554922"><div class="ttname"><a href="Functions_8h.html#aaf24ae1b8f29e77d41bc52c97e554922">listClassCourseOccupation</a></div><div class="ttdeci">void listClassCourseOccupation(classCoursesSet *classCourses)</div><div class="ttdoc">Imprime uma listo número de estudantes em cada par (turma, unidade curricular).</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00282">Functions.h:282</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_afd5434ee66a6b0d8316236f853edbdbc"><div class="ttname"><a href="Functions_8h.html#afd5434ee66a6b0d8316236f853edbdbc">listClassesOfStudent</a></div><div class="ttdeci">void listClassesOfStudent(studentSet *students)</div><div class="ttdoc">Imprime todas as turmas por unidade curricular em que um aluno está inscrito, por ordem alfabética do...</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00401">Functions.h:401</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa3ea15be5e62941f601edac0961f7cc8" name="aa3ea15be5e62941f601edac0961f7cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ea15be5e62941f601edac0961f7cc8">&#9670;&#160;</a></span>menu_requests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void menu_requests </td>
+          <td>(</td>
+          <td class="paramtype">studentSet *&#160;</td>
+          <td class="paramname"><em>students</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">classSet *&#160;</td>
+          <td class="paramname"><em>classes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">courseSet *&#160;</td>
+          <td class="paramname"><em>courses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">classCoursesSet *&#160;</td>
+          <td class="paramname"><em>classCourses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">slotSet *&#160;</td>
+          <td class="paramname"><em>slots</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00156">156</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>                                                                                                                               {</div>
+<div class="line"><span class="lineno">  157</span>    <span class="keywordtype">int</span> choice;</div>
+<div class="line"><span class="lineno">  158</span>    <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">  159</span>        <a class="code hl_function" href="Functions_8h.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>();</div>
+<div class="line"><span class="lineno">  160</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  161</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Alterar horário de uma turma        |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  162</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Alterar horário de uma UC           |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  163</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Alterar horário de um estudante     |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  164</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Voltar                              |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  165</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  166</span>        cout &lt;&lt; <span class="stringliteral">&quot;Escolha: &quot;</span>;</div>
+<div class="line"><span class="lineno">  167</span>        cin &gt;&gt; choice;</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
+<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">switch</span> (choice) {</div>
+<div class="line"><span class="lineno">  170</span>                <span class="comment">/*case 1: changeClassSchedule(classes, slots); wait(); break;</span></div>
+<div class="line"><span class="lineno">  171</span><span class="comment">                case 2: changeCourseSchedule(courses, slots); wait(); break;</span></div>
+<div class="line"><span class="lineno">  172</span><span class="comment">                case 3: changeStudentSchedule(students, classes, classCourses, slots); wait(); break;</span></div>
+<div class="line"><span class="lineno">  173</span><span class="comment">                */</span><span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  174</span>            }</div>
+<div class="line"><span class="lineno">  175</span>        }</div>
+<div class="line"><span class="lineno">  176</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
+<div class="line"><span class="lineno">  177</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2293dbe020994f44254378777eabf7da" name="a2293dbe020994f44254378777eabf7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2293dbe020994f44254378777eabf7da">&#9670;&#160;</a></span>menu_schedules()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void menu_schedules </td>
+          <td>(</td>
+          <td class="paramtype">studentSet *&#160;</td>
+          <td class="paramname"><em>students</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">classSet *&#160;</td>
+          <td class="paramname"><em>classes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">courseSet *&#160;</td>
+          <td class="paramname"><em>courses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">classCoursesSet *&#160;</td>
+          <td class="paramname"><em>classCourses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">slotSet *&#160;</td>
+          <td class="paramname"><em>slots</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que imprime o menu de da escolha da ordem das aulas. </p>
+<p>Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.<br  />
+ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">students</td><td>Set com todos os alunos </td></tr>
+    <tr><td class="paramname">classes</td><td>Set com todas as turmas </td></tr>
+    <tr><td class="paramname">courses</td><td>Set com todas as unidades curriculares </td></tr>
+    <tr><td class="paramname">classCourses</td><td>Set com todos os pares turma e unidade curricular </td></tr>
+    <tr><td class="paramname">slots</td><td>Set com todas as aulas </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00132">132</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  132</span>                                                                                                                                {</div>
+<div class="line"><span class="lineno">  133</span>    <span class="keywordtype">int</span> choice;</div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">  135</span>        <a class="code hl_function" href="Functions_8h.html#ac8bb3912a3ce86b15842e79d0b421204">clear</a>();</div>
+<div class="line"><span class="lineno">  136</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  137</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 1. Horário de uma turma                |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  138</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 2. Horário de uma UC                   |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  139</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 3. Horário de um estudante             |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  140</span>        cout &lt;&lt; <span class="stringliteral">&quot;| 0. Voltar                              |&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  141</span>        cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  142</span>        cout &lt;&lt; <span class="stringliteral">&quot;Escolha: &quot;</span>;</div>
+<div class="line"><span class="lineno">  143</span>        cin &gt;&gt; choice;</div>
+<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">if</span> (choice != 0) {</div>
+<div class="line"><span class="lineno">  145</span>            <span class="keywordflow">switch</span> (choice) {</div>
+<div class="line"><span class="lineno">  146</span>                <span class="keywordflow">case</span> 1: <a class="code hl_function" href="Functions_8h.html#a5b282e27d136f633bc2d8e847721a79c">listSlotsOfClass</a>(classes); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  147</span>                <span class="keywordflow">case</span> 2: <a class="code hl_function" href="Functions_8h.html#a6cb8fc7cddcfc934ddd6f2c3bd80205f">listSlotsOfCourse</a>(courses); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  148</span>                <span class="keywordflow">case</span> 3: <a class="code hl_function" href="Functions_8h.html#a3accdc0d1e357b0aefef5590ef51250b">printAnyStudentSchedule</a>(students, slots); <a class="code hl_function" href="Functions_8h.html#aa3b21853f890838c88d047d6c2786917">wait</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  149</span>                <span class="keywordflow">default</span>: cout &lt;&lt; <span class="stringliteral">&quot;Invalid choice!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  150</span>            }</div>
+<div class="line"><span class="lineno">  151</span>        }</div>
+<div class="line"><span class="lineno">  152</span>    } <span class="keywordflow">while</span> (choice != 0);</div>
+<div class="line"><span class="lineno">  153</span>}</div>
+<div class="ttc" id="aFunctions_8h_html_a3accdc0d1e357b0aefef5590ef51250b"><div class="ttname"><a href="Functions_8h.html#a3accdc0d1e357b0aefef5590ef51250b">printAnyStudentSchedule</a></div><div class="ttdeci">void printAnyStudentSchedule(studentSet *students, slotSet *slots)</div><div class="ttdoc">Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00498">Functions.h:498</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_a5b282e27d136f633bc2d8e847721a79c"><div class="ttname"><a href="Functions_8h.html#a5b282e27d136f633bc2d8e847721a79c">listSlotsOfClass</a></div><div class="ttdeci">void listSlotsOfClass(classSet *classes)</div><div class="ttdoc">Imprime todas as as aulas de uma turma.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00425">Functions.h:425</a></div></div>
+<div class="ttc" id="aFunctions_8h_html_a6cb8fc7cddcfc934ddd6f2c3bd80205f"><div class="ttname"><a href="Functions_8h.html#a6cb8fc7cddcfc934ddd6f2c3bd80205f">listSlotsOfCourse</a></div><div class="ttdeci">void listSlotsOfCourse(courseSet *courses)</div><div class="ttdoc">Imprime todas as as aulas de uma unidade curricular.</div><div class="ttdef"><b>Definition:</b> <a href="Functions_8h_source.html#l00456">Functions.h:456</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -52,7 +52,6 @@ void readAll(studentSet* students, classSet* classes, courseSet* courses, classC
  * @brief Função lê o ficheiro classes_per_uc.csv e guarda a informação.
  *
  * Esta lê o ficheiro classes_per_uc.csv e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
- * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
  *
  * @param classes Set de todas as turmas
  * @param courses Set de todas unidades curriculares
@@ -90,7 +89,6 @@ void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCo
  * @brief Função lê o ficheiro students_classes.csv e guarda a informação.
  *
  * Esta lê o ficheiro students_classes.csv e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
- * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
  *
  * @param students Set de todos os alunos
  * @param classes Set de todas as turmas
@@ -152,7 +150,6 @@ void readStudents(studentSet* students, classSet* classes, courseSet* courses, c
  * @brief Função lê o ficheiro classes.csv e guarda a informação.
  *
  * Esta lê o ficheiro classes.csv e guarda a informação nos respetivos sets, cujos pointers são passados como arumentos.\n
- * Complexidade Temporal: O(N) onde N é o número de linhas do ficheiro.
  *
  * @param students Set de todos os alunos
  * @param classes Set de todas as turmas
@@ -299,6 +296,9 @@ void listClassCourseOccupation(classCoursesSet* classCourses) {
 
 /**
  * @brief Imprime uma lista de todos os estudantes num par (turma, unidade curricular).
+ *
+ * Complexidade Temporal: O(log(T) + log(U) + N) onde T é o número de turmas, U é o número de unidades curriculares e N é o número de estudantes por par (turma, unidade curricular).
+ *
  * @param students Set de todos os alunos
  * @param classes Set de todas as turmas
  * @param courses Set de todas as unidades curriculares
@@ -332,6 +332,9 @@ void listStudentsInClassCourse(studentSet* students, classSet* classes, courseSe
 
 /**
  * @brief Imprime uma lista de todos os estudantes numa Unidade Curricular.
+ *
+ * Complexidade Temporal: O(log(U) + N) onde U é o número de unidades curriculares e N é o número de estudantes por unidade curricular.
+ *
  * @param students Set de todos os alunos
  * @param courses Set de todas as unidades curriculares
  */
@@ -354,6 +357,9 @@ void listStudentsInCourse(studentSet* students, courseSet* courses) {
 
 /**
  * @brief Imprime uma lista de todas as aulas, por ordem alfabética de codigo da turma, e em caso de empate por ordem alfabética de codigo da unidade curricular
+ *
+ * Complexidade Temporal: O(N) onde N é o número total de aulas.
+ *
  * @param slots Set de todas as aulas
  */
 void listAllSlots(slotSet* slots) {
@@ -366,12 +372,13 @@ void listAllSlots(slotSet* slots) {
 /**
  * @brief Imprime uma lista de todas as aulas, por uma ordem definida pelo utilizador, através do parâmetro comp
  *
- * Complexidade Temporal: O(NlogN) onde N é o número de aulas.
+ * Complexidade Temporal: O(N*log(N)) onde N é o número de aulas.
+ *
  * @param slots Set de todas as aulas
  * @param comp Comparator usada na ordenação
  */
-template<typename C>
-void listAllSlotsOrder(slotSet* slots, C comp){
+template<typename Compare>
+void listAllSlotsOrder(slotSet* slots, Compare comp){
     vector<Slot> slotsVector;
     slotsVector.reserve(slots->size());
     for (const auto& sp : *slots) {
@@ -387,7 +394,7 @@ void listAllSlotsOrder(slotSet* slots, C comp){
  * @brief Imprime todas as turmas por unidade curricular em que um aluno está inscrito, por ordem alfabética do código da turma
  *
  * A função primeiro pede ao utilizador o numero do estudante, depois procura o estudante no set de estudantes usando o metodo find(), e por fim imprime todas as turmas por unidade curricular em que o estudante está inscrito.\n
- * Complexidade Temporal: O(T*logN) onde N é o número de estudantes e T é o número de turmas em que o estudante está inscrito.
+ * Complexidade Temporal: O(T + log(N)) onde N é o número de estudantes e T é o número de turmas em que o estudante está inscrito.
  *
  * @param students Set de todos os alunos
  */
@@ -410,7 +417,7 @@ void listClassesOfStudent(studentSet* students) {
  *
  * A função primeiro pede-se ao utilizador o código da turma, e depois procura essa turma no set de turmas utilizando o metodo find().\n
  * A seguir itera sobre o horario da turma e imprime todas as aulas.\n
- * Complexidade Temporal: O(A*log(T)) onde A é o número de aulas da turma e T é o número de turmas.
+ * Complexidade Temporal: O(A + log(T)) onde A é o número de aulas da turma e T é o número total de turmas.
  *
  *
  * @param classes Set de todas as turmas
@@ -441,7 +448,7 @@ void listSlotsOfClass(classSet* classes) {
  *
  * A função primeiro pede-se ao utilizador o código da unidade curricular, e depois procura essa unidade curricular no set de unidades curriculares utilizando o metodo find().\n
  * A seguir itera sobre o horario da unidade curricular e imprime todas as aulas.\n
- * Complexidade Temporal: O(A*log(U)) onde A é o número de aulas da unidade curricular e U é o número de unidades curriculares.
+ * Complexidade Temporal: O(A + log(U)) onde A é o número de aulas da unidade curricular e U é o número de unidades curriculares.
  *
  *
  * @param courses Set de todas as unidades curriculares
@@ -483,7 +490,7 @@ void listStudentsInMoreThanNCourses(studentSet* students){
  * Depois procura o estudante no set de estudantes utilizando o metodo find().\n
  * A seguir itera sobre o horario do estudante e imprime todas as aulas.\n
  * Complexidade Temporal: O(log(S) + A*log(D) + C*log(N)) onde S é o numero total de estudantes, C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
- * Complexidade Temporal é igual a complexidade de students->find() + printStudentSchedule().
+ * Complexidade Temporal é igual a complexidade de students->find() + printStudentSchedule().\n
  *
  * @param students Set de todos os estudantes
  * @param slots Set de todas as aulas
@@ -501,16 +508,18 @@ void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
  * @brief Retorna o horário do estudante
  *
  * A função itera sobre o o set de pares ClassesPerCourse do estudante e procura a aula no set de aulas(slots) utilizando o metodo equal_range(), uma vez que os estudante terá varias aulas do mesmo par turma unidade curricular.\n
- * A seguir adiciona as aulas encontradas ao scheedule.\n
+ * A seguir adiciona as aulas encontradas ao schedule.\n
  * Retorna o schedule.\n
  *
  * Complexidade Temporal: O(A*log(D) + C*log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
- * Explicaçao: \n
- *   Complexidade de cada passo: 1º for loop: C, onde C é numero de unidades curriculares em que o estudante está instrito\n
- *                               equal_range: log(N), onde N é o tamanho do set slots\n
- *                               2º for loop: M, onde M é o numero de aulas dessa cadeira por semana\n
- *                               addSlot: log(D), onde D é o número máximo de aulas de um dia\n
- *   Complexidade geral: C*(log(N) + M*log(D)) = C*log(N) + A*log(D), onde A é o número de aulas do estudante por semana, logo A = C*M\n
+ * <small><pre>
+ * Explicaçao:
+ *   Complexidade de cada passo: 1º for loop: C, onde C é numero de unidades curriculares em que o estudante está instrito
+ *                               equal_range: log(N), onde N é o tamanho do set slots
+ *                               2º for loop: M, onde M é o numero de aulas dessa cadeira por semana
+ *                               addSlot: log(D), onde D é o número máximo de aulas de um dia
+ *   Complexidade: C*(log(N) + M*log(D)) = C*log(N) + A*log(D), onde A é o número de aulas do estudante por semana, logo A = C*M
+ * </pre></small>
  *
  * @param student
  * @param slots
@@ -532,7 +541,7 @@ Schedule getStudentSchedule(Student* student, slotSet* slots){
  *
  * A função imprime o dia da semana, seguido de todas as aulas desse dia.\n
  * Complexidade Temporal: O(A*log(D) + C*log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
- * Complexidade Temporal igual a getStudentSchedulde().
+ * Complexidade Temporal igual a getStudentSchedulde() uma vez que a complexidade de imprimir o horario é menor que o obter.
  *
  * @param student Pointer para o estudante
  * @param slots Set de todas as aulas

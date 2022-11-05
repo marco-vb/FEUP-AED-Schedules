@@ -22,56 +22,62 @@
 \DoxyCodeLine{\Hypertarget{Types_8h_source_l00028}00028 \};}
 \DoxyCodeLine{\Hypertarget{Types_8h_source_l00029}00029 }
 \DoxyCodeLine{\Hypertarget{Types_8h_source_l00030}00030 \textcolor{comment}{//order courses by code}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00032}\mbox{\hyperlink{structclassCourseCompare}{00032}} \textcolor{comment}{}\textcolor{keyword}{struct }\mbox{\hyperlink{structclassCourseCompare}{classCourseCompare}} \{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00042}\mbox{\hyperlink{structclassCourseCompare_a3cb620cec1d29fd6d288f89e424ad1c1}{00042}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structclassCourseCompare_a3cb620cec1d29fd6d288f89e424ad1c1}{operator()}}(\textcolor{keyword}{const} pair<Class *, Course *> a, \textcolor{keyword}{const} pair<Class *, Course *> b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00043}00043         \textcolor{keywordflow}{return} (a.first-\/>getCode() < b.first-\/>getCode()) ||}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00044}00044                (a.first-\/>getCode() == b.first-\/>getCode() \&\& a.second-\/>getCode() < b.second-\/>getCode());}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00045}00045     \}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00046}00046 \};}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00047}00047 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00049}\mbox{\hyperlink{structslotCompare}{00049}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompare}{slotCompare}}\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00059}\mbox{\hyperlink{structslotCompare_aa6b06c0005a868879510b066df1128d2}{00059}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompare_aa6b06c0005a868879510b066df1128d2}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}* b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00060}00060         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() ||}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00061}00061                (a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() == b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() \&\& a-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}());}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00062}00062     \}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00063}00063 \};}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00066}\mbox{\hyperlink{structslotCompareByCourse}{00066}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByCourse}{slotCompareByCourse}}\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00076}\mbox{\hyperlink{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}{00076}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00077}00077         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() ||}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00078}00078                (a.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() == b.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() \&\& a.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}());}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00079}00079     \}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00080}00080 \};}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00081}00081 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00083}\mbox{\hyperlink{structslotCompareByStartHour}{00083}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByStartHour}{slotCompareByStartHour}}\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00093}\mbox{\hyperlink{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}{00093}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00094}00094         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() ||}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00095}00095                (a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() == b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() \&\& \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()));}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00096}00096     \}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00097}00097 \};}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00098}00098 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00100}\mbox{\hyperlink{structslotCompareByEndHour}{00100}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByEndHour}{slotCompareByEndHour}}\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00110}\mbox{\hyperlink{structslotCompareByEndHour_a9519c875709ef47237bf06a907d795f5}{00110}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByEndHour_a9519c875709ef47237bf06a907d795f5}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00111}00111         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() < b.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() ||}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00112}00112                (a.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() == b.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() \&\& \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()));}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00113}00113     \}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00114}00114 \};}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00117}\mbox{\hyperlink{structslotCompareByDay}{00117}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByDay}{slotCompareByDay}}\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00127}\mbox{\hyperlink{structslotCompareByDay_a6e444e08e2bd0a62e9f41dafee909469}{00127}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByDay_a6e444e08e2bd0a62e9f41dafee909469}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00128}00128         \textcolor{keywordflow}{return} \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) ||}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00129}00129                (\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) == \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) \&\& a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}());}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00130}00130     \}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00131}00131 \};}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00132}00132 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00133}00133 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00134}00134 \textcolor{comment}{//define sets}}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00136}00136 \textcolor{comment}{}\textcolor{keyword}{typedef} set<Student*, studentCompare> studentSet;}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00137}00137 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00139}00139 \textcolor{keyword}{typedef} set<pair<Class*, Course*>, \mbox{\hyperlink{structclassCourseCompare}{classCourseCompare}} > classCoursesSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00032}\mbox{\hyperlink{structclassCourse}{00032}} \textcolor{comment}{}\textcolor{keyword}{struct }\mbox{\hyperlink{structclassCourse}{classCourse}} \{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00033}00033     \textcolor{keywordtype}{string} class\_;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00034}00034     \textcolor{keywordtype}{string} course;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00035}00035     \textcolor{keywordtype}{int} students;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00045}\mbox{\hyperlink{structclassCourse_a53971f3dbb55aabca22bb0c6014b0f90}{00045}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structclassCourse_a53971f3dbb55aabca22bb0c6014b0f90}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structclassCourse}{classCourse}}\& a, \textcolor{keyword}{const} \mbox{\hyperlink{structclassCourse}{classCourse}}\& b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00046}00046         \textcolor{keywordflow}{return} (a.course < b.course) ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00047}00047                (a.course == b.course \&\& a.class\_ < b.class\_);}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00050}00050     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{structclassCourse}{classCourse}}\& b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00051}00051         \textcolor{keywordflow}{return} (course < b.course) ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00052}00052                (course == b.course \&\& class\_ < b.class\_);}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00053}00053     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00054}00054 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00057}\mbox{\hyperlink{structslotCompare}{00057}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompare}{slotCompare}}\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00067}\mbox{\hyperlink{structslotCompare_aa6b06c0005a868879510b066df1128d2}{00067}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompare_aa6b06c0005a868879510b066df1128d2}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}* a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}* b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00068}00068         \textcolor{keywordflow}{return} a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00069}00069                (a-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() == b-\/>\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() \&\& a-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b-\/>\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}());}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00071}00071 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00074}\mbox{\hyperlink{structslotCompareByCourse}{00074}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByCourse}{slotCompareByCourse}}\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00084}\mbox{\hyperlink{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}{00084}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByCourse_a62b3535446cfb21a8251f61b84b731ab}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00085}00085         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() < b.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00086}00086                (a.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() == b.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() \&\& a.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() < b.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}());}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00088}00088 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00091}\mbox{\hyperlink{structslotCompareByStartHour}{00091}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByStartHour}{slotCompareByStartHour}}\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00101}\mbox{\hyperlink{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}{00101}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByStartHour_aadcb27aff4861b48b783ac0818d93d68}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00102}00102         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00103}00103                (a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() == b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() \&\& \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()));}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00104}00104     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00105}00105 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00108}\mbox{\hyperlink{structslotCompareByEndHour}{00108}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByEndHour}{slotCompareByEndHour}}\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00118}\mbox{\hyperlink{structslotCompareByEndHour_a9519c875709ef47237bf06a907d795f5}{00118}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByEndHour_a9519c875709ef47237bf06a907d795f5}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00119}00119         \textcolor{keywordflow}{return} a.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() < b.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00120}00120                (a.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() == b.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}() \&\& \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()));}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00121}00121     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00122}00122 \};}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00125}\mbox{\hyperlink{structslotCompareByDay}{00125}} \textcolor{keyword}{struct }\mbox{\hyperlink{structslotCompareByDay}{slotCompareByDay}}\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00135}\mbox{\hyperlink{structslotCompareByDay_a6e444e08e2bd0a62e9f41dafee909469}{00135}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structslotCompareByDay_a6e444e08e2bd0a62e9f41dafee909469}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} a, \textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}} b)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00136}00136         \textcolor{keywordflow}{return} \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) < \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) ||}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00137}00137                (\mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(a.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) == \mbox{\hyperlink{IndependentFunctions_8h_a33e28767504ac5b6700740a8eff0ee53}{weekDayToNum}}(b.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}()) \&\& a.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}() < b.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}());}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00138}00138     \}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00139}00139 \};}
 \DoxyCodeLine{\Hypertarget{Types_8h_source_l00140}00140 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00142}00142 \textcolor{keyword}{typedef} set<Slot*, slotCompare> slotSet;}
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00143}00143 }
-\DoxyCodeLine{\Hypertarget{Types_8h_source_l00144}00144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00142}00142 \textcolor{comment}{//define sets}}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00144}00144 \textcolor{comment}{}\textcolor{keyword}{typedef} set<Student*, studentCompare> studentSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00146}00146 \textcolor{keyword}{typedef} set<classCourse*> classCoursesSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00148}00148 \textcolor{keyword}{typedef} multiset<Slot*, slotCompare> slotSet;}
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00149}00149 }
+\DoxyCodeLine{\Hypertarget{Types_8h_source_l00150}00150 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

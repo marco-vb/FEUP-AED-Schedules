@@ -101,9 +101,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8effe1cdf74a882c5b02a6c5070ab0f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a8effe1cdf74a882c5b02a6c5070ab0f6">addClassCourse</a> (string const &amp;classcode, string const &amp;coursecode, courseSet *courses, classSet *classes)</td></tr>
 <tr class="memdesc:a8effe1cdf74a882c5b02a6c5070ab0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um par de strings ao conjunto de pares de strings (class, course)  <a href="classStudent.html#a8effe1cdf74a882c5b02a6c5070ab0f6">More...</a><br /></td></tr>
 <tr class="separator:a8effe1cdf74a882c5b02a6c5070ab0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d613ea8c0d406c059e030fb8076eb4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#a6d613ea8c0d406c059e030fb8076eb4f">removeClassCourse</a> (string const &amp;classcode, string const &amp;coursecode, courseSet *courses)</td></tr>
-<tr class="memdesc:a6d613ea8c0d406c059e030fb8076eb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um par de strings do conjunto de pares de strings (class, course)  <a href="classStudent.html#a6d613ea8c0d406c059e030fb8076eb4f">More...</a><br /></td></tr>
-<tr class="separator:a6d613ea8c0d406c059e030fb8076eb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7bc8e8703ed186bce85c49eb80f5f14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStudent.html#af7bc8e8703ed186bce85c49eb80f5f14">removeClassCourse</a> (string const &amp;classcode, string const &amp;coursecode, courseSet *courses, classSet *classes)</td></tr>
+<tr class="memdesc:af7bc8e8703ed186bce85c49eb80f5f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um par de strings do conjunto de pares de strings (class, course)  <a href="classStudent.html#af7bc8e8703ed186bce85c49eb80f5f14">More...</a><br /></td></tr>
+<tr class="separator:af7bc8e8703ed186bce85c49eb80f5f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe <a class="el" href="classStudent.html" title="Classe Student.">Student</a>. </p>
@@ -199,7 +199,6 @@ Complexidade Temporal: O(1)</p>
 </div><div class="memdoc">
 
 <p>Adiciona um par de strings ao conjunto de pares de strings (class, course) </p>
-<p>Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">classcode</td><td>A turma </td></tr>
@@ -214,29 +213,30 @@ Complexidade Temporal: O(1)</p>
 <div class="fragment"><div class="line"><span class="lineno">   29</span>                                                                                                                     {</div>
 <div class="line"><span class="lineno">   30</span>    <span class="keyword">auto</span> course = courses-&gt;find(<span class="keyword">new</span> <a class="code hl_class" href="classCourse.html">Course</a>(coursecode));</div>
 <div class="line"><span class="lineno">   31</span>    <span class="keyword">auto</span> courseStudents = (*course)-&gt;getStudents();</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="classStudent.html#a604908e6e68618494bcad495cb0519d7">getClassesPerCourse</a>().find({classcode, coursecode}) != this-&gt;<a class="code hl_function" href="classStudent.html#a604908e6e68618494bcad495cb0519d7">getClassesPerCourse</a>().end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="classStudent.html#a604908e6e68618494bcad495cb0519d7">getClassesPerCourse</a>().find({classcode, coursecode}) == this-&gt;<a class="code hl_function" href="classStudent.html#a604908e6e68618494bcad495cb0519d7">getClassesPerCourse</a>().end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">   33</span> </div>
 <div class="line"><span class="lineno">   34</span>    <span class="keyword">auto</span> courseSchedule = (*course)-&gt;getSchedule();</div>
 <div class="line"><span class="lineno">   35</span>    <span class="keyword">auto</span> courseSlots = courseSchedule.getSchedule();</div>
 <div class="line"><span class="lineno">   36</span>    <a class="code hl_class" href="classSlot.html">Slot</a> slot;</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; slotSet : courseSlots) {</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;s: slotSet)</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; slotSet : courseSlots) {</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;s: slotSet) {</div>
 <div class="line"><span class="lineno">   40</span>            <span class="keywordflow">if</span> (s.getClassCode() == classcode) {</div>
 <div class="line"><span class="lineno">   41</span>                slot = s;</div>
 <div class="line"><span class="lineno">   42</span>                found = <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   43</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">   44</span>            }</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">if</span> (found) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   46</span>    }</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (courseSchedule.checkForCollision(slot)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    this-&gt;classesPerCourse.insert(make_pair(classcode, coursecode));</div>
-<div class="line"><span class="lineno">   50</span>    (*course)-&gt;addStudent(this-&gt;<a class="code hl_function" href="classStudent.html#ae7b15f60adaf461d6e70079f7854487c">getNumber</a>());</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keyword">auto</span> class1 = classes-&gt;find(<span class="keyword">new</span> <a class="code hl_class" href="classClass.html">Class</a>(classcode));</div>
-<div class="line"><span class="lineno">   52</span>    (*class1)-&gt;addStudent(this-&gt;<a class="code hl_function" href="classStudent.html#ae7b15f60adaf461d6e70079f7854487c">getNumber</a>());</div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   54</span>}</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (found) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">if</span> (!found || courseSchedule.checkForCollision(slot)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    this-&gt;classesPerCourse.insert(make_pair(classcode, coursecode));</div>
+<div class="line"><span class="lineno">   51</span>    (*course)-&gt;addStudent(this-&gt;<a class="code hl_function" href="classStudent.html#ae7b15f60adaf461d6e70079f7854487c">getNumber</a>());</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keyword">auto</span> class1 = classes-&gt;find(<span class="keyword">new</span> <a class="code hl_class" href="classClass.html">Class</a>(classcode));</div>
+<div class="line"><span class="lineno">   53</span>    (*class1)-&gt;addStudent(this-&gt;<a class="code hl_function" href="classStudent.html#ae7b15f60adaf461d6e70079f7854487c">getNumber</a>());</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   55</span>}</div>
 <div class="ttc" id="aclassClass_html"><div class="ttname"><a href="classClass.html">Class</a></div><div class="ttdoc">Classe que representa uma turma.</div><div class="ttdef"><b>Definition:</b> <a href="Class_8h_source.html#l00012">Class.h:12</a></div></div>
 <div class="ttc" id="aclassCourse_html"><div class="ttname"><a href="classCourse.html">Course</a></div><div class="ttdoc">Classe que representa uma unidade curricular.</div><div class="ttdef"><b>Definition:</b> <a href="Course_8h_source.html#l00014">Course.h:14</a></div></div>
 <div class="ttc" id="aclassSlot_html"><div class="ttname"><a href="classSlot.html">Slot</a></div><div class="ttdoc">Classe Slot.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8h_source.html#l00014">Slot.h:14</a></div></div>
@@ -325,8 +325,8 @@ Complexidade Temporal: O(1)</p>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a6d613ea8c0d406c059e030fb8076eb4f" name="a6d613ea8c0d406c059e030fb8076eb4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d613ea8c0d406c059e030fb8076eb4f">&#9670;&#160;</a></span>removeClassCourse()</h2>
+<a id="af7bc8e8703ed186bce85c49eb80f5f14" name="af7bc8e8703ed186bce85c49eb80f5f14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7bc8e8703ed186bce85c49eb80f5f14">&#9670;&#160;</a></span>removeClassCourse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -347,7 +347,13 @@ Complexidade Temporal: O(1)</p>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">courseSet *&#160;</td>
-          <td class="paramname"><em>courses</em>&#160;</td>
+          <td class="paramname"><em>courses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">classSet *&#160;</td>
+          <td class="paramname"><em>classes</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -358,23 +364,29 @@ Complexidade Temporal: O(1)</p>
 </div><div class="memdoc">
 
 <p>Remove um par de strings do conjunto de pares de strings (class, course) </p>
-<p>Complexidade Temporal: O(log(N)) onde N é o número de pares de strings no conjunto</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">class_</td><td>A turma </td></tr>
     <tr><td class="paramname">course</td><td>A unidade curricular </td></tr>
     <tr><td class="paramname">courses</td><td>O conjunto de todas unidades curriculares </td></tr>
+    <tr><td class="paramname">classes</td><td>O conjunto de todas as turmas </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Student_8cpp_source.html#l00056">56</a> of file <a class="el" href="Student_8cpp_source.html">Student.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>                                                                                                    {</div>
-<div class="line"><span class="lineno">   57</span>    pair&lt;string, string&gt; pair = {classcode, coursecode};</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (classesPerCourse.find(pair) == classesPerCourse.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   59</span>    classesPerCourse.erase(pair);</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   61</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Student_8cpp_source.html#l00057">57</a> of file <a class="el" href="Student_8cpp_source.html">Student.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                                                                                                                        {</div>
+<div class="line"><span class="lineno">   58</span>    pair&lt;string, string&gt; pair = {classcode, coursecode};</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">if</span> (classesPerCourse.find(pair) == classesPerCourse.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   60</span>    classesPerCourse.erase(pair);</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keyword">auto</span> course = courses-&gt;find(<span class="keyword">new</span> <a class="code hl_class" href="classCourse.html">Course</a>(coursecode));</div>
+<div class="line"><span class="lineno">   62</span>    (*course)-&gt;removeStudent(this-&gt;<a class="code hl_function" href="classStudent.html#ae7b15f60adaf461d6e70079f7854487c">getNumber</a>());</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : classesPerCourse)</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">if</span> (p.first == classcode) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keyword">auto</span> class1 = classes-&gt;find(<span class="keyword">new</span> <a class="code hl_class" href="classClass.html">Class</a>(classcode));</div>
+<div class="line"><span class="lineno">   66</span>    (*class1)-&gt;removeStudent(this-&gt;<a class="code hl_function" href="classStudent.html#ae7b15f60adaf461d6e70079f7854487c">getNumber</a>());</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   68</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
