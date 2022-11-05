@@ -627,7 +627,7 @@ void processAllRequests(studentSet* students, classSet* classes, courseSet* cour
 }
 
 void readPendingRequests(queue<Request*>* requests) {
-    ifstream file("../aux_files/pending_requests.csv");
+    ifstream file("../aux_files/pending_requests.txt");
     if (!file.is_open()) {
         cout << "Error opening file!" << endl;
         return;
@@ -645,7 +645,7 @@ void readPendingRequests(queue<Request*>* requests) {
 }
 
 void savePendingRequests(queue<Request*>* requests) {
-    ofstream file("../aux_files/pending_requests.csv");
+    ofstream file("../aux_files/pending_requests.txt");
     if (!file.is_open()) {
         cout << "Error opening file!" << endl;
         return;
@@ -654,7 +654,7 @@ void savePendingRequests(queue<Request*>* requests) {
     while (!requests->empty()) {
         Request* r = requests->front();
         requests->pop();
-        file << r->getStudentNumber() << "," << r->getCourseCode() << "," << r->getClassCode() << "," << r->getRequestType() << endl;
+        file << r->getStudentNumber() << " " << r->getCourseCode() << " " << r->getClassCode() << " " << r->getRequestType() << endl;
     }
     cout << "Pending requests saved successfully!" << endl;
     file.close();
