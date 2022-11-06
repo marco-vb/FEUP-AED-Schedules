@@ -194,11 +194,11 @@ void readSlots(studentSet* students, classSet* classes, courseSet* courses, slot
  * @param students Set de todos os alunos
  */
 void listAllStudents(studentSet* students) {
-    cout << "Ordenação (1) por número de aluno ou (2) por nome? ";
+    cout << "Ordenacao (1) por numero de aluno ou (2) por nome? ";
     int choice;
     cin >> choice;
     if (choice != 1 && choice != 2) {
-        cout << "Opção inválida!" << endl;
+        cout << "Opcao invalida!" << endl;
         return;
     }
     if (choice == 1) {
@@ -365,7 +365,7 @@ void listStudentsInCourse(studentSet* students, courseSet* courses) {
 void listAllSlots(slotSet* slots) {
     for (const auto& sp : *slots) {
         Slot s = *sp;
-        cout << "Course: " << s.getCourseCode() << " - Class: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
+        cout << "UC: " << s.getCourseCode() << " - Turma: " << s.getClassCode() << " - " << s.getDay() << " " << floatToMinutes(s.getStartHour()) << "-" << floatToMinutes(s.getEndHour()) << " " << s.getType() << endl;
     }
 }
 

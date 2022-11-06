@@ -34,7 +34,7 @@ int main() {
         cout << "------------------------------------------" << endl;
         cout << "| 1. Listagens totais                    |" << endl;
         cout << "| 2. Listagens parciais                  |" << endl;
-        cout << "| 3. Horários                            |" << endl;
+        cout << "| 3. Horarios                            |" << endl;
         cout << "| 4. Realizar pedido                     |" << endl;
         cout << "| 5. Processar pedidos                   |" << endl;
         cout << "| 0. Sair                                |" << endl;
@@ -48,13 +48,13 @@ int main() {
                 case 3: menu_schedules(&students, &classes, &courses, &classCourses, &slots); break;
                 case 4: menu_requests(&students, &classes, &courses, &classCourses, &slots, &requests); break;
                 case 5: processAllRequests(&students, &classes, &courses, &classCourses, &requests); wait(); break;
-                default: cout << "Invalid choice!" << endl;
+                default: cout << "Opcao invalida!" << endl;
             }
         }
     } while (choice != 0);
 
     clear();
-    cout << "Saving data..." << endl;
+    cout << "A guardar os dados..." << endl;
     savePendingRequests(&requests);
     saveAll(&students, &classes, &courses, &classCourses, &slots);
     return 0;
@@ -89,7 +89,7 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
                 case 2: listAllClasses(classes); wait(); break;
                 case 3: listAllCourses(courses); wait(); break;
                 case 4: menu_lesson_order(slots); break;
-                default: cout << "Invalid choice!" << endl;
+                default: cout << "Opcao invalida!" << endl;
             }
         }
     } while (choice != 0);
@@ -109,7 +109,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
     do {
         clear();
         cout << "------------------------------------------" << endl;
-        cout << "| 1. Ocupação de turmas/UC               |" << endl;
+        cout << "| 1. Ocupacao de turmas/UC               |" << endl;
         cout << "| 2. Estudantes numa turma/UC            |" << endl;
         cout << "| 3. Estudantes inscritos numa UC        |" << endl;
         cout << "| 4. Turmas/UC de um estudante           |" << endl;
@@ -125,7 +125,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
                 case 3: listStudentsInCourse(students, courses); wait(); break;
                 case 4: listClassesOfStudent(students); wait(); break;
                 case 5: listStudentsInMoreThanNCourses(students); wait(); break;
-                default: cout << "Invalid choice!" << endl;
+                default: cout << "Opcao invalida!" << endl;
             }
         }
     } while (choice != 0);
@@ -147,9 +147,9 @@ void menu_schedules(studentSet* students, classSet* classes, courseSet* courses,
     do {
         clear();
         cout << "------------------------------------------" << endl;
-        cout << "| 1. Horário de uma turma                |" << endl;
-        cout << "| 2. Horário de uma UC                   |" << endl;
-        cout << "| 3. Horário de um estudante             |" << endl;
+        cout << "| 1. Horario de uma turma                |" << endl;
+        cout << "| 2. Horario de uma UC                   |" << endl;
+        cout << "| 3. Horario de um estudante             |" << endl;
         cout << "| 0. Voltar                              |" << endl;
         cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
@@ -159,7 +159,7 @@ void menu_schedules(studentSet* students, classSet* classes, courseSet* courses,
                 case 1: listSlotsOfClass(classes); wait(); break;
                 case 2: listSlotsOfCourse(courses); wait(); break;
                 case 3: listSlotsOfStudent(students, slots); wait(); break;
-                default: cout << "Invalid choice!" << endl;
+                default: cout << "Opcao invalida!" << endl;
             }
         }
     } while (choice != 0);
@@ -195,7 +195,7 @@ void menu_requests(studentSet* students, classSet* classes, courseSet* courses, 
                 case 1: removeStudent(classes, students, courses, requests); wait(); break;
                 case 2: addStudent(classes, students, courses, requests); wait(); break;
                 case 3: changeStudent(classes, students, courses, requests); wait(); break;
-                default: cout << "Invalid choice!" << endl;
+                default: cout << "Opcao invalida!" << endl;
             }
         }
     } while (choice != 0);
@@ -221,7 +221,7 @@ void menu_lesson_order(slotSet* slots){
         cout << "| 5. Dia da Semana                       |" << endl;
         cout << "| 0. Voltar                              |" << endl;
         cout << "------------------------------------------" << endl;
-        cout << "Your choice: ";
+        cout << "Escolha: ";
         cin >> choice;
         if (choice != 0) {
             switch (choice) {
@@ -230,7 +230,7 @@ void menu_lesson_order(slotSet* slots){
                 case 3: listAllSlotsOrder(slots, slotCompareByStartHour()); wait(); break;
                 case 4: listAllSlotsOrder(slots, slotCompareByEndHour()); wait(); break;
                 case 5: listAllSlotsOrder(slots, slotCompareByDay()); wait(); break;
-                default: cout << "Invalid choice!" << endl;
+                default: cout << "Opcao invalida!" << endl;
             }
         }
     } while (choice != 0);
