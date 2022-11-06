@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief Classe Slot
+ * @brief Classe que representa um slot no horário, ou seja uma aula
  *
  * Esta classe representa um slot no horário, ou seja uma aula.\n
  * Ela armazena o dia da semana, a hora de inicio, a hora de fim, o tipo, o nome da turma e o nome da unidade curricular.\n

@@ -53,8 +53,10 @@ int main() {
         }
     } while (choice != 0);
 
+    clear();
+    cout << "Saving data..." << endl;
     savePendingRequests(&requests);
-    wait();
+    saveAll(&students, &classes, &courses, &classCourses, &slots);
     return 0;
 }
 
@@ -86,7 +88,7 @@ void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses
                 case 1: listAllStudents(students); wait(); break;
                 case 2: listAllClasses(classes); wait(); break;
                 case 3: listAllCourses(courses); wait(); break;
-                case 4: listAllSlots(courses); wait(); break;
+                case 4: menu_lesson_order(slots); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
@@ -111,6 +113,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
         cout << "| 2. Estudantes numa turma/UC            |" << endl;
         cout << "| 3. Estudantes inscritos numa UC        |" << endl;
         cout << "| 4. Turmas/UC de um estudante           |" << endl;
+        cout << "| 5. Estudante em mais de N UCs          |" << endl;
         cout << "| 0. Voltar                              |" << endl;
         cout << "------------------------------------------" << endl;
         cout << "Escolha: ";
@@ -121,6 +124,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
                 case 2: listStudentsInClassCourse(students, classes, courses); wait(); break;
                 case 3: listStudentsInCourse(students, courses); wait(); break;
                 case 4: listClassesOfStudent(students); wait(); break;
+                case 5: listStudentsInMoreThanNCourses(students); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }
@@ -128,7 +132,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
 }
 
 /**
- * @brief Função que imprime o menu de da escolha da ordem das aulas
+ * @brief Função que imprime menu com as opções de horários.
  *
  * Imprime o menu com as opções de horários e processa a opção escolhida.\n
  *
@@ -191,6 +195,41 @@ void menu_requests(studentSet* students, classSet* classes, courseSet* courses, 
                 case 1: removeStudent(classes, students, courses, requests); wait(); break;
                 case 2: addStudent(classes, students, courses, requests); wait(); break;
                 case 3: changeStudent(classes, students, courses, requests); wait(); break;
+                default: cout << "Invalid choice!" << endl;
+            }
+        }
+    } while (choice != 0);
+}
+
+/**
+ * @brief Função que imprime o menu de da escolha da ordem das aulas
+ *
+ * Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.\n
+ *
+ * @param slots Set com todas as aulas
+ */
+void menu_lesson_order(slotSet* slots){
+    int choice;
+    do {
+        clear();
+        cout << "------------------------------------------" << endl;
+        cout << "| Ordenado por:                          |" << endl;
+        cout << "| 1. Turma                               |" << endl;
+        cout << "| 2. UC                                  |" << endl;
+        cout << "| 3. Hora de Inicio                      |" << endl;
+        cout << "| 4. Hora de Fim                         |" << endl;
+        cout << "| 5. Dia da Semana                       |" << endl;
+        cout << "| 0. Voltar                              |" << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "Your choice: ";
+        cin >> choice;
+        if (choice != 0) {
+            switch (choice) {
+                case 1: listAllSlots(slots); wait(); break;
+                case 2: listAllSlotsOrder(slots, slotCompareByCourse()); wait(); break;
+                case 3: listAllSlotsOrder(slots, slotCompareByStartHour()); wait(); break;
+                case 4: listAllSlotsOrder(slots, slotCompareByEndHour()); wait(); break;
+                case 5: listAllSlotsOrder(slots, slotCompareByDay()); wait(); break;
                 default: cout << "Invalid choice!" << endl;
             }
         }

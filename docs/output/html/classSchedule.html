@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>.  
+<p>Classe que guarda um horario.  
  <a href="classSchedule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
@@ -84,7 +84,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a878716f4043a016224a14f78974edf1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#a878716f4043a016224a14f78974edf1d">Schedule</a> ()</td></tr>
-<tr class="memdesc:a878716f4043a016224a14f78974edf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>.  <a href="classSchedule.html#a878716f4043a016224a14f78974edf1d">More...</a><br /></td></tr>
+<tr class="memdesc:a878716f4043a016224a14f78974edf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classSchedule.html" title="Classe que guarda um horario.">Schedule</a>.  <a href="classSchedule.html#a878716f4043a016224a14f78974edf1d">More...</a><br /></td></tr>
 <tr class="separator:a878716f4043a016224a14f78974edf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae95e81d40a673b77285a96148d829b41"><td class="memItemLeft" align="right" valign="top">vector&lt; set&lt; <a class="el" href="classSlot.html">Slot</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSchedule.html#ae95e81d40a673b77285a96148d829b41">getSchedule</a> () const</td></tr>
 <tr class="memdesc:ae95e81d40a673b77285a96148d829b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor.  <a href="classSchedule.html#ae95e81d40a673b77285a96148d829b41">More...</a><br /></td></tr>
@@ -112,8 +112,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a168a1ca8c0e26c21727f2ee9515f55a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>. </p>
-<p>Esta classe é usada para representar um horariode uma semana.<br  />
+<div class="textblock"><p>Classe que guarda um horario. </p>
+<p>Esta classe é usada para representar um horario de uma semana.<br  />
 Este armazena um conjunto de slots.<br  />
 Um slot corresponde a uma aula.<br  />
 Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc. </p>
@@ -135,7 +135,7 @@ Pode ser usada para representar um horario de um aluno, de uma turma, de uma uni
       </table>
 </div><div class="memdoc">
 
-<p>Construtor da classe <a class="el" href="classSchedule.html" title="Classe Schedule.">Schedule</a>. </p>
+<p>Construtor da classe <a class="el" href="classSchedule.html" title="Classe que guarda um horario.">Schedule</a>. </p>
 <p>Este construtor cria um horario vazio.<br  />
 Complexidade Temporal: O(1) </p>
 
@@ -168,7 +168,7 @@ Complexidade Temporal: O(1) </p>
 Complexidade Temporal: O(logN) onde N é o número máximo de aulas de um dia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classSlot.html" title="Classe Slot.">Slot</a></td><td>O slot a adicionar </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSlot.html" title="Classe que representa um slot no horário, ou seja uma aula.">Slot</a></td><td>O slot a adicionar </td></tr>
   </table>
   </dd>
 </dl>
@@ -232,7 +232,7 @@ Para isso percorre todas as aulas do dia da semana e verifica se existe colisão
 Complexidade Temporal: O(N) onde N é o número máximo de aulas de um dia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classSlot.html" title="Classe Slot.">Slot</a></td><td>O slot a verificar </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSlot.html" title="Classe que representa um slot no horário, ou seja uma aula.">Slot</a></td><td>O slot a verificar </td></tr>
   </table>
   </dd>
 </dl>
@@ -249,7 +249,7 @@ Complexidade Temporal: O(N) onde N é o número máximo de aulas de um dia</p>
 <div class="line"><span class="lineno">   29</span>    }</div>
 <div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">   31</span>}</div>
-<div class="ttc" id="aclassSlot_html"><div class="ttname"><a href="classSlot.html">Slot</a></div><div class="ttdoc">Classe Slot.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8h_source.html#l00014">Slot.h:14</a></div></div>
+<div class="ttc" id="aclassSlot_html"><div class="ttname"><a href="classSlot.html">Slot</a></div><div class="ttdoc">Classe que representa um slot no horário, ou seja uma aula.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8h_source.html#l00014">Slot.h:14</a></div></div>
 <div class="ttc" id="aclassSlot_html_a58f486a7e358f781047c85d410b18380"><div class="ttname"><a href="classSlot.html#a58f486a7e358f781047c85d410b18380">Slot::getStartHour</a></div><div class="ttdeci">float getStartHour() const</div><div class="ttdoc">Retorna a hora de inicio.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8cpp_source.html#l00038">Slot.cpp:38</a></div></div>
 <div class="ttc" id="aclassSlot_html_a633fc789d76761c3b5720a47b89d953c"><div class="ttname"><a href="classSlot.html#a633fc789d76761c3b5720a47b89d953c">Slot::getEndHour</a></div><div class="ttdeci">float getEndHour() const</div><div class="ttdoc">Retorna a hora de fim.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8cpp_source.html#l00042">Slot.cpp:42</a></div></div>
 <div class="ttc" id="aclassSlot_html_a9ab118706df0180c07fb4f9a7815e222"><div class="ttname"><a href="classSlot.html#a9ab118706df0180c07fb4f9a7815e222">Slot::getType</a></div><div class="ttdeci">string getType() const</div><div class="ttdoc">Retorna o tipo.</div><div class="ttdef"><b>Definition:</b> <a href="Slot_8cpp_source.html#l00046">Slot.cpp:46</a></div></div>

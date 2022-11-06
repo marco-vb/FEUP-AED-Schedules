@@ -8,9 +8,9 @@
 using namespace std;
 
 /**
- * @brief Classe Schedule
+ * @brief Classe que guarda um horario
  *
- * Esta classe é usada para representar um horariode uma semana.\n
+ * Esta classe é usada para representar um horario de uma semana.\n
  * Este armazena um conjunto de slots.\n
  * Um slot corresponde a uma aula.\n
  * Pode ser usada para representar um horario de um aluno, de uma turma, de uma unidade curricular, etc.

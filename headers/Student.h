@@ -8,7 +8,7 @@
 using namespace std;
 
 /**
- * @brief Classe Student
+ * @brief Classe que representa um estudante
  *
  * Esta classe é usada para representar um aluno.\n
  * Ela armazena o nome, o número e o horario do aluno.\n

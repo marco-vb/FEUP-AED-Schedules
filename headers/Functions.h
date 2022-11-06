@@ -14,16 +14,16 @@
 
 
 //files
-string const& classesCourses = "../files/classes_per_uc.csv";
-string const& classesStudents = "../files/students_classes.csv";
-string const& classesSlots = "../files/classes.csv";
+string const& classesCourses = "../aux_files/classes_per_uc.csv";
+string const& classesStudents = "../aux_files/students_classes.csv";
+string const& classesSlots = "../aux_files/classes.csv";
 
 //functions
 void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
 void menu_partial_lists(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void menu_schedules(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void menu_requests(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*, queue<Request*>*);
-void getLessonOrder(slotSet* slots);
+void menu_lesson_order(slotSet* slots);
 void readClasses(classSet* classes, courseSet* courses, classCoursesSet* classCourses);
 void readStudents(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses);
 void readSlots(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
@@ -516,7 +516,7 @@ void listSlotsOfStudent(studentSet* students, slotSet* slots) {
  */
 void listStudentsInMoreThanNCourses(studentSet* students){
     int n;
-    cout << "Enter n, the number of courses: ";
+    cout << "Introduza o número de unidades curriculares: ";
     cin >> n;
     for (const auto& s : *students) {
         if (s->getClassesPerCourse().size() > n) {
@@ -685,7 +685,7 @@ void processAllRequests(studentSet* students, classSet* classes, courseSet* cour
 void readPendingRequests(queue<Request*>* requests) {
     ifstream file("../aux_files/pending_requests.txt");
     if (!file.is_open()) {
-        cout << "Error opening file!" << endl;
+        cout << "Erro ao abrir o ficheiro!" << endl;
         return;
     }
     string line;
@@ -707,7 +707,7 @@ void readPendingRequests(queue<Request*>* requests) {
 void savePendingRequests(queue<Request*>* requests) {
     ofstream file("../aux_files/pending_requests.txt");
     if (!file.is_open()) {
-        cout << "Error opening file!" << endl;
+        cout << "Erro ao abrir o ficheiro!" << endl;
         return;
     }
     file.clear();
@@ -716,9 +716,83 @@ void savePendingRequests(queue<Request*>* requests) {
         requests->pop();
         file << r->getStudentNumber() << " " << r->getCourseCode() << " " << r->getClassCode() << " " << r->getRequestType() << endl;
     }
-    cout << "Pending requests saved successfully!" << endl;
+    cout << "Pedidos pendentes guardados com sucesso!" << endl;
     file.close();
 }
+
+/**
+ * @brief Atualiza o ficheiro classes.csv com as turmas atuais.
+ * @param classes Set de todas as turmas
+ */
+void saveClasses(slotSet* slots) {
+    ofstream file("../aux_files/classes.csv");
+    if (!file.is_open()) {
+        cout << "Erro ao abrir o ficheiro!" << endl;
+        return;
+    }
+    file.clear();
+    file << "ClassCode,UcCode,Weekday,StartHour,Duration,Type" << endl;
+    for (auto s : *slots) {
+        file << s->getClassCode() << ',' << s->getCourseCode() << ',' << s->getDay() << ',' << s->getStartHour() << ',' << s->getEndHour() - s->getStartHour() << ',' << s->getType() << endl;
+    }
+    cout << "classes.csv atualizado com sucesso!" << endl;
+    file.close();
+}
+
+/**
+ * @brief Atualiza o ficheiro classes_per_uc.csv com os pares de turmas e unidades curriculares atuais.
+ * @param classCourses Set de todas as unidades curriculares
+ */
+void saveClassesPerUC(classCoursesSet* classCourses) {
+    ofstream file("../aux_files/classes_per_uc.csv");
+    if (!file.is_open()) {
+        cout << "Erro ao abrir o ficheiro!" << endl;
+        return;
+    }
+    file.clear();
+    file << "UcCode,ClassCode" << endl;
+    for (auto classCourse : *classCourses) {
+        file << classCourse->course << ',' << classCourse->class_ << endl;
+    }
+    cout << "classes_per_uc.csv atualizado com sucesso!" << endl;
+    file.close();
+}
+
+/**
+ * @brief Atualiza o ficheiro students_per_class.csv com os estudantes e suas turmas atuais.
+ * @param students Set de todos os estudantes
+ */
+void saveStudentsClasses(studentSet* students) {
+    ofstream file("../aux_files/students_classes.csv");
+    if (!file.is_open()) {
+        cout << "Erro ao abrir o ficheiro!" << endl;
+        return;
+    }
+    file.clear();
+    file << "StudentCode,StudentName,UcCode,ClassCode" << endl;
+    for (auto student : *students) {
+        for (auto p: student->getClassesPerCourse()) {
+            file << student->getNumber() << ',' << student->getName() << ',' << p.second << ',' << p.first << endl;
+        }
+    }
+    cout << "students_classes.csv atualizado com sucesso!" << endl;
+    file.close();
+}
+
+/**
+ * @brief Atualiza todos os ficheiros com as informações atuais.
+ * @param students Set de todos os estudantes
+ * @param classes Set de todas as turmas
+ * @param courses Set de todas as unidades curriculares
+ * @param classCourses Set de todas pares de turmas e unidades curriculares
+ * @param slots Set de todos as aulas
+ */
+void saveAll(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) {
+    saveClasses(slots);
+    saveClassesPerUC(classCourses);
+    saveStudentsClasses(students);
+}
+
 
 /// Função que limpa o ecrã
 void clear() {
@@ -731,5 +805,4 @@ void wait() {
     cout << "Press ENTER to continue...";
     do{ c = getchar(); }while ((c != '\n') && (c != EOF));
 }
-
 #endif
