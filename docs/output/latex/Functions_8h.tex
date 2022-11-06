@@ -6,6 +6,7 @@ Ficheiro que contém as funções auxiliares a \mbox{\hyperlink{main_8cpp}{main.
 
 
 {\ttfamily \#include \char`\"{}Types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Request.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Independent\+Functions.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -14,12 +15,13 @@ void \mbox{\hyperlink{Functions_8h_ad495568fb4223027d472b06edc39d9a2}{menu\+\_\+
 \begin{DoxyCompactList}\small\item\em Função que imprime o menu de listagens completas. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Functions_8h_adbfd148c32469de9ed1a21648f428964}{menu\+\_\+partial\+\_\+lists}} (student\+Set $\ast$, class\+Set $\ast$, course\+Set $\ast$, class\+Courses\+Set $\ast$, slot\+Set $\ast$)
 \begin{DoxyCompactList}\small\item\em Função que imprime o menu de listagens parciais. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}{print\+Student\+Schedule}} (\mbox{\hyperlink{classStudent}{Student}} $\ast$student, slot\+Set $\ast$slots)
-\begin{DoxyCompactList}\small\item\em Imprime o horário do estudante passado cujo pointer é passado como argumento. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}\label{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}} 
+void {\bfseries print\+Student\+Schedule} (\mbox{\hyperlink{classStudent}{Student}} $\ast$student, slot\+Set $\ast$slots)
+\item 
 void \mbox{\hyperlink{Functions_8h_a1326e4510905e066116daf1d6ed33a3d}{menu\+\_\+schedules}} (student\+Set $\ast$, class\+Set $\ast$, course\+Set $\ast$, class\+Courses\+Set $\ast$, slot\+Set $\ast$)
 \begin{DoxyCompactList}\small\item\em Função que imprime o menu de da escolha da ordem das aulas. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Functions_8h_a96370bdb83ebeb5e73e071798fcbcf3a}{menu\+\_\+requests}} (student\+Set $\ast$, class\+Set $\ast$, course\+Set $\ast$, class\+Courses\+Set $\ast$, slot\+Set $\ast$)
-\item 
+void \mbox{\hyperlink{Functions_8h_a28b69ada35c2dfdc515c523f2bba3386}{menu\+\_\+requests}} (student\+Set $\ast$, class\+Set $\ast$, course\+Set $\ast$, class\+Courses\+Set $\ast$, slot\+Set $\ast$, queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$)
+\begin{DoxyCompactList}\small\item\em Função que imprime o menu de pedidos. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{Functions_8h_a47857063fb911f9aa180d9f89598b0de}\label{Functions_8h_a47857063fb911f9aa180d9f89598b0de}} 
 void {\bfseries get\+Lesson\+Order} (slot\+Set $\ast$slots)
 \item 
@@ -55,12 +57,22 @@ void \mbox{\hyperlink{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}{list\+Slot
 \begin{DoxyCompactList}\small\item\em Imprime todas as as aulas de uma turma. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}{list\+Slots\+Of\+Course}} (course\+Set $\ast$courses)
 \begin{DoxyCompactList}\small\item\em Imprime todas as as aulas de uma unidade curricular. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_aaae82744418c85fbc26ea1135b5811c6}{list\+Slots\+Of\+Student}} (student\+Set $\ast$students, slot\+Set $\ast$slots)
+\begin{DoxyCompactList}\small\item\em Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Functions_8h_a4a92bf5baa1a53b40e18f78592c77c4c}{list\+Students\+In\+More\+Than\+NCourses}} (student\+Set $\ast$students)
 \begin{DoxyCompactList}\small\item\em Imprime todos os estudantes inscritos em mais de N unidades curriculares. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{Functions_8h_a3accdc0d1e357b0aefef5590ef51250b}{print\+Any\+Student\+Schedule}} (student\+Set $\ast$students, slot\+Set $\ast$slots)
-\begin{DoxyCompactList}\small\item\em Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classSchedule}{Schedule}} \mbox{\hyperlink{Functions_8h_ab1be76d5c0126dba3b88f3bdff42d73a}{get\+Student\+Schedule}} (\mbox{\hyperlink{classStudent}{Student}} $\ast$student, slot\+Set $\ast$slots)
-\begin{DoxyCompactList}\small\item\em Retorna o horário do estudante. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_a274a6371b96fc169b515313a4a1aee85}{remove\+Student}} (class\+Set $\ast$classes, student\+Set $\ast$students, course\+Set $\ast$courses, queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$requests)
+\begin{DoxyCompactList}\small\item\em Adiciona um pedido de desinscrição de um estudante numa turma/unidade curricular. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_adee3263ae132104c36c753d392d88eab}{add\+Student}} (class\+Set $\ast$classes, student\+Set $\ast$students, course\+Set $\ast$courses, queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$requests)
+\begin{DoxyCompactList}\small\item\em Adiciona um pedido de inscrição de um estudante numa turma/unidade curricular. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_acafd08426dbe96a059387a538673310c}{change\+Student}} (class\+Set $\ast$classes, student\+Set $\ast$students, course\+Set $\ast$courses, queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$requests)
+\begin{DoxyCompactList}\small\item\em Adiciona um pedido de mudança de uma turma/unidade curricular de um estudante. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_a934aaee634fed9f7ba239611eec24430}{process\+All\+Requests}} (student\+Set $\ast$students, class\+Set $\ast$classes, course\+Set $\ast$courses, class\+Courses\+Set $\ast$class\+Courses, queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$requests)
+\begin{DoxyCompactList}\small\item\em Processa, se possivel, todos os pedidos de inscrição, desinscrição e mudança de turma. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_afdce80de3ce4b77b91ea2e5215444c33}{read\+Pending\+Requests}} (queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$requests)
+\begin{DoxyCompactList}\small\item\em Lê os pedidos pendentes do ficheiro pending\+\_\+requests.\+txt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Functions_8h_a9d9331954ad8c59dc531aa7900b5e3d4}{save\+Pending\+Requests}} (queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$requests)
+\begin{DoxyCompactList}\small\item\em Escreve todos os pedidos pendentes para o ficheiro pending\+\_\+requests.\+txt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}} ()
 \begin{DoxyCompactList}\small\item\em Função que limpa o ecrã \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}} ()
@@ -86,6 +98,129 @@ Definition in file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Functions_8h_adee3263ae132104c36c753d392d88eab}\label{Functions_8h_adee3263ae132104c36c753d392d88eab}} 
+\index{Functions.h@{Functions.h}!addStudent@{addStudent}}
+\index{addStudent@{addStudent}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{addStudent()}{addStudent()}}
+{\footnotesize\ttfamily void add\+Student (\begin{DoxyParamCaption}\item[{class\+Set $\ast$}]{classes,  }\item[{student\+Set $\ast$}]{students,  }\item[{course\+Set $\ast$}]{courses,  }\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
+
+
+
+Adiciona um pedido de inscrição de um estudante numa turma/unidade curricular. 
+
+Complexidade temporal\+: O(log(\+N) + log(\+T) + log(\+U)) onde N é o número de estudantes, T é o número de turmas e U é o número de unidades curriculares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em classes} & Set de todas as turmas \\
+\hline
+{\em students} & Set de todos os estudantes \\
+\hline
+{\em courses} & Set de todas as unidades curriculares \\
+\hline
+{\em requests} & Fila de pedidos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00581}{581}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00581                                                                                                         \{}
+\DoxyCodeLine{00582     \textcolor{keywordtype}{int} studentNumber;}
+\DoxyCodeLine{00583     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
+\DoxyCodeLine{00584     cin >> studentNumber;}
+\DoxyCodeLine{00585     \textcolor{keyword}{auto} s = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00586     \textcolor{keywordflow}{if} (s == students-\/>end()) \{}
+\DoxyCodeLine{00587         cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl;}
+\DoxyCodeLine{00588         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00589     \}}
+\DoxyCodeLine{00590     \textcolor{keywordtype}{string} courseCode;}
+\DoxyCodeLine{00591     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
+\DoxyCodeLine{00592     cin >> courseCode;}
+\DoxyCodeLine{00593     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(courseCode));}
+\DoxyCodeLine{00594     \textcolor{keywordflow}{if} ((*course)-\/>getCode() != courseCode) \{}
+\DoxyCodeLine{00595         cout << \textcolor{stringliteral}{"{}UC não encontrada!"{}} << endl;}
+\DoxyCodeLine{00596         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00597     \}}
+\DoxyCodeLine{00598 }
+\DoxyCodeLine{00599     \textcolor{keywordtype}{string} classCode;}
+\DoxyCodeLine{00600     cout << \textcolor{stringliteral}{"{}Turma na qual pretende entrar: "{}};}
+\DoxyCodeLine{00601     cin >> classCode;}
+\DoxyCodeLine{00602     \textcolor{keyword}{auto} class\_ = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classCode));}
+\DoxyCodeLine{00603     \textcolor{keywordflow}{if} (class\_ == classes-\/>end()) \{}
+\DoxyCodeLine{00604         cout << \textcolor{stringliteral}{"{}Turma não encontrada!"{}} << endl;}
+\DoxyCodeLine{00605         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00606     \}}
+\DoxyCodeLine{00607 }
+\DoxyCodeLine{00608     (*class\_)-\/>removeStudent(studentNumber);}
+\DoxyCodeLine{00609     (*course)-\/>removeStudent(studentNumber);}
+\DoxyCodeLine{00610     \textcolor{keyword}{auto} r = \textcolor{keyword}{new} \mbox{\hyperlink{classRequest}{Request}}(studentNumber, courseCode, classCode, \textcolor{stringliteral}{"{}add"{}});}
+\DoxyCodeLine{00611     requests-\/>push(r);}
+\DoxyCodeLine{00612 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Functions_8h_acafd08426dbe96a059387a538673310c}\label{Functions_8h_acafd08426dbe96a059387a538673310c}} 
+\index{Functions.h@{Functions.h}!changeStudent@{changeStudent}}
+\index{changeStudent@{changeStudent}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{changeStudent()}{changeStudent()}}
+{\footnotesize\ttfamily void change\+Student (\begin{DoxyParamCaption}\item[{class\+Set $\ast$}]{classes,  }\item[{student\+Set $\ast$}]{students,  }\item[{course\+Set $\ast$}]{courses,  }\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
+
+
+
+Adiciona um pedido de mudança de uma turma/unidade curricular de um estudante. 
+
+Complexidade temporal\+: O(log(\+N) + log(\+T) + log(\+U)) onde N é o número de estudantes, T é o número de turmas e U é o número de unidades curriculares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em classes} & Set de todas as turmas \\
+\hline
+{\em students} & Set de todos os estudantes \\
+\hline
+{\em courses} & Set de todas as unidades curriculares \\
+\hline
+{\em requests} & Fila de pedidos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00624}{624}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00624                                                                                                            \{}
+\DoxyCodeLine{00625     \textcolor{keywordtype}{int} studentNumber;}
+\DoxyCodeLine{00626     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
+\DoxyCodeLine{00627     cin >> studentNumber;}
+\DoxyCodeLine{00628     \textcolor{keyword}{auto} s = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00629     \textcolor{keywordflow}{if} (s == students-\/>end()) \{}
+\DoxyCodeLine{00630         cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl;}
+\DoxyCodeLine{00631         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00632     \}}
+\DoxyCodeLine{00633     \textcolor{keywordtype}{string} courseCode;}
+\DoxyCodeLine{00634     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
+\DoxyCodeLine{00635     cin >> courseCode;}
+\DoxyCodeLine{00636     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(courseCode));}
+\DoxyCodeLine{00637     \textcolor{keywordflow}{if} ((*course)-\/>getCode() != courseCode) \{}
+\DoxyCodeLine{00638         cout << \textcolor{stringliteral}{"{}UC não encontrada!"{}} << endl;}
+\DoxyCodeLine{00639         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00640     \}}
+\DoxyCodeLine{00641     \textcolor{keywordtype}{string} classCode;}
+\DoxyCodeLine{00642     cout << \textcolor{stringliteral}{"{}Turma para a qual pretende mudar: "{}};}
+\DoxyCodeLine{00643     cin >> classCode;}
+\DoxyCodeLine{00644     \textcolor{keyword}{auto} class\_ = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classCode));}
+\DoxyCodeLine{00645     \textcolor{keywordflow}{if} (class\_ == classes -\/> end()) \{}
+\DoxyCodeLine{00646         cout << \textcolor{stringliteral}{"{}Turma não encontrada!"{}} << endl;}
+\DoxyCodeLine{00647         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00648     \}}
+\DoxyCodeLine{00649 }
+\DoxyCodeLine{00650     \textcolor{keyword}{auto} r = \textcolor{keyword}{new} \mbox{\hyperlink{classRequest}{Request}}(studentNumber, courseCode, classCode, \textcolor{stringliteral}{"{}change"{}});}
+\DoxyCodeLine{00651     requests-\/>push(r);}
+\DoxyCodeLine{00652 \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}\label{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}} 
 \index{Functions.h@{Functions.h}!clear@{clear}}
 \index{clear@{clear}!Functions.h@{Functions.h}}
@@ -98,68 +233,13 @@ Função que limpa o ecrã
 
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00562}{562}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00725}{725}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00562              \{}
-\DoxyCodeLine{00563     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 50; i++) cout << endl;}
-\DoxyCodeLine{00564 \}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{Functions_8h_ab1be76d5c0126dba3b88f3bdff42d73a}\label{Functions_8h_ab1be76d5c0126dba3b88f3bdff42d73a}} 
-\index{Functions.h@{Functions.h}!getStudentSchedule@{getStudentSchedule}}
-\index{getStudentSchedule@{getStudentSchedule}!Functions.h@{Functions.h}}
-\doxysubsubsection{\texorpdfstring{getStudentSchedule()}{getStudentSchedule()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classSchedule}{Schedule}} get\+Student\+Schedule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}} $\ast$}]{student,  }\item[{slot\+Set $\ast$}]{slots }\end{DoxyParamCaption})}
-
-
-
-Retorna o horário do estudante. 
-
-A função itera sobre o o set de pares Classes\+Per\+Course do estudante e procura a aula no set de aulas(slots) utilizando o metodo equal\+\_\+range(), uma vez que os estudante terá varias aulas do mesmo par turma unidade curricular.~\newline
-A seguir adiciona as aulas encontradas ao schedule.~\newline
-Retorna o schedule.~\newline
- Complexidade Temporal\+: O(A$\ast$log(D) + C$\ast$log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.~\newline
-
-\footnotesize 
-\begin{DoxyPre}
-Explicaçao:
-  Complexidade de cada passo: 1º for loop: C, onde C é numero de unidades curriculares em que o estudante está instrito
-                              equal\_range: log(N), onde N é o tamanho do set slots
-                              2º for loop: M, onde M é o numero de aulas dessa cadeira por semana
-                              addSlot: log(D), onde D é o número máximo de aulas de um dia
-  Complexidade: C*(log(N) + M*log(D)) = C*log(N) + A*log(D), onde A é o número de aulas do estudante por semana, logo A = C*M
-\end{DoxyPre}
-
-\normalsize 
-
-
-\begin{DoxyParams}{Parameters}
-{\em student} & \\
-\hline
-{\em slots} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-O horário do estudante 
-\end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00528}{528}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00528                                                              \{}
-\DoxyCodeLine{00529     \mbox{\hyperlink{classSchedule}{Schedule}} schedule;}
-\DoxyCodeLine{00530     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p: student-\/>\mbox{\hyperlink{classStudent_a604908e6e68618494bcad495cb0519d7}{getClassesPerCourse}}()) \{}
-\DoxyCodeLine{00531         \textcolor{keyword}{auto} range = slots-\/>equal\_range(\textcolor{keyword}{new} \mbox{\hyperlink{classSlot}{Slot}}(\textcolor{stringliteral}{"{}"{}}, 0, 0, \textcolor{stringliteral}{"{}"{}}, p.second, p.first));}
-\DoxyCodeLine{00532         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = range.first; it != range.second; it++)\{}
-\DoxyCodeLine{00533             schedule.\mbox{\hyperlink{classSchedule_a2fb588c5dc1c217147953a3e82aac78d}{addSlot}}(**it);}
-\DoxyCodeLine{00534         \}}
-\DoxyCodeLine{00535     \}}
-\DoxyCodeLine{00536     \textcolor{keywordflow}{return} schedule;}
-\DoxyCodeLine{00537 \}}
+\DoxyCodeLine{00725              \{}
+\DoxyCodeLine{00726     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 50; i++) cout << endl;}
+\DoxyCodeLine{00727 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_abe0eee5000eae9f05ab2915b5b59a346}\label{Functions_8h_abe0eee5000eae9f05ab2915b5b59a346}} 
@@ -179,23 +259,23 @@ Complexidade Temporal\+: O(\+N) onde N é o número de turmas.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00222}{222}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00223}{223}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00222                                        \{}
-\DoxyCodeLine{00223     \textcolor{keyword}{auto} it = classes-\/>begin();}
-\DoxyCodeLine{00224     \textcolor{keywordflow}{while} (it != classes-\/>end()) \{}
-\DoxyCodeLine{00225         \textcolor{keywordtype}{int} year = (*it)-\/>getCode()[0] -\/ \textcolor{charliteral}{'0'};}
-\DoxyCodeLine{00226         cout << \textcolor{stringliteral}{"{}Ano "{}} << year << endl;}
-\DoxyCodeLine{00227         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00228         \textcolor{keywordflow}{while} (it != classes-\/>end() \&\& (*it)-\/>getCode()[0] -\/ \textcolor{charliteral}{'0'} == year) \{}
-\DoxyCodeLine{00229             cout << (*it)-\/>getCode() << endl;}
-\DoxyCodeLine{00230             it++;}
-\DoxyCodeLine{00231         \}}
-\DoxyCodeLine{00232         cout << endl;}
-\DoxyCodeLine{00233     \}}
-\DoxyCodeLine{00234 \}}
+\DoxyCodeLine{00223                                        \{}
+\DoxyCodeLine{00224     \textcolor{keyword}{auto} it = classes-\/>begin();}
+\DoxyCodeLine{00225     \textcolor{keywordflow}{while} (it != classes-\/>end()) \{}
+\DoxyCodeLine{00226         \textcolor{keywordtype}{int} year = (*it)-\/>getCode()[0] -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00227         cout << \textcolor{stringliteral}{"{}Ano "{}} << year << endl;}
+\DoxyCodeLine{00228         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00229         \textcolor{keywordflow}{while} (it != classes-\/>end() \&\& (*it)-\/>getCode()[0] -\/ \textcolor{charliteral}{'0'} == year) \{}
+\DoxyCodeLine{00230             cout << (*it)-\/>getCode() << endl;}
+\DoxyCodeLine{00231             it++;}
+\DoxyCodeLine{00232         \}}
+\DoxyCodeLine{00233         cout << endl;}
+\DoxyCodeLine{00234     \}}
+\DoxyCodeLine{00235 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a812fcc104c53015ab9930b5f53ddd534}\label{Functions_8h_a812fcc104c53015ab9930b5f53ddd534}} 
@@ -215,23 +295,23 @@ Complexidade Temporal\+: O(\+N) onde N é o número de unidades curriculares.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00242}{242}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00243}{243}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00242                                         \{}
-\DoxyCodeLine{00243     \textcolor{keyword}{auto} it = courses-\/>begin();}
-\DoxyCodeLine{00244     \textcolor{keywordflow}{while} (it != courses-\/>end()) \{}
-\DoxyCodeLine{00245         \textcolor{keywordtype}{int} year = (*it)-\/>getYear();}
-\DoxyCodeLine{00246         cout << \textcolor{stringliteral}{"{}Ano "{}} << year << endl;}
-\DoxyCodeLine{00247         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00248         \textcolor{keywordflow}{while} (it != courses-\/>end() \&\& (*it)-\/>getYear() == year) \{}
-\DoxyCodeLine{00249             cout << (*it)-\/>getCode() << endl;}
-\DoxyCodeLine{00250             it++;}
-\DoxyCodeLine{00251         \}}
-\DoxyCodeLine{00252         cout << endl;}
-\DoxyCodeLine{00253     \}}
-\DoxyCodeLine{00254 \}}
+\DoxyCodeLine{00243                                         \{}
+\DoxyCodeLine{00244     \textcolor{keyword}{auto} it = courses-\/>begin();}
+\DoxyCodeLine{00245     \textcolor{keywordflow}{while} (it != courses-\/>end()) \{}
+\DoxyCodeLine{00246         \textcolor{keywordtype}{int} year = (*it)-\/>getYear();}
+\DoxyCodeLine{00247         cout << \textcolor{stringliteral}{"{}Ano "{}} << year << endl;}
+\DoxyCodeLine{00248         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00249         \textcolor{keywordflow}{while} (it != courses-\/>end() \&\& (*it)-\/>getYear() == year) \{}
+\DoxyCodeLine{00250             cout << (*it)-\/>getCode() << endl;}
+\DoxyCodeLine{00251             it++;}
+\DoxyCodeLine{00252         \}}
+\DoxyCodeLine{00253         cout << endl;}
+\DoxyCodeLine{00254     \}}
+\DoxyCodeLine{00255 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}\label{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}} 
@@ -251,23 +331,23 @@ Complexidade Temporal\+: O(\+N) onde N é o número de aulas.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00262}{262}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00263}{263}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00262                                       \{}
-\DoxyCodeLine{00263     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : *courses) \{}
-\DoxyCodeLine{00264         \textcolor{keyword}{auto} courseSchedule = c-\/>getSchedule().getSchedule();}
-\DoxyCodeLine{00265         cout << c-\/>getCode() << endl;}
-\DoxyCodeLine{00266         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00267         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : courseSchedule) \{}
-\DoxyCodeLine{00268             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slot : s) \{}
-\DoxyCodeLine{00269                 cout << slot.getDay() << \textcolor{stringliteral}{"{} "{}} << slot.getClassCode() << \textcolor{stringliteral}{"{} "{}} << slot.getStartHour() << \textcolor{stringliteral}{"{} "{}} << slot.getEndHour() << \textcolor{stringliteral}{"{} "{}} << slot.getType() << endl;}
-\DoxyCodeLine{00270             \}}
-\DoxyCodeLine{00271         \}}
-\DoxyCodeLine{00272         cout << endl;}
-\DoxyCodeLine{00273     \}}
-\DoxyCodeLine{00274 \}}
+\DoxyCodeLine{00263                                       \{}
+\DoxyCodeLine{00264     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : *courses) \{}
+\DoxyCodeLine{00265         \textcolor{keyword}{auto} courseSchedule = c-\/>getSchedule().getSchedule();}
+\DoxyCodeLine{00266         cout << c-\/>getCode() << endl;}
+\DoxyCodeLine{00267         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00268         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : courseSchedule) \{}
+\DoxyCodeLine{00269             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slot : s) \{}
+\DoxyCodeLine{00270                 cout << slot.getDay() << \textcolor{stringliteral}{"{} "{}} << slot.getClassCode() << \textcolor{stringliteral}{"{} "{}} << slot.getStartHour() << \textcolor{stringliteral}{"{} "{}} << slot.getEndHour() << \textcolor{stringliteral}{"{} "{}} << slot.getType() << endl;}
+\DoxyCodeLine{00271             \}}
+\DoxyCodeLine{00272         \}}
+\DoxyCodeLine{00273         cout << endl;}
+\DoxyCodeLine{00274     \}}
+\DoxyCodeLine{00275 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_aa37be541f561649190c15a3e6e8918a2}\label{Functions_8h_aa37be541f561649190c15a3e6e8918a2}} 
@@ -289,16 +369,16 @@ Complexidade Temporal\+: O(\+N) onde N é o número total de aulas.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00365}{365}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00366}{366}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00365                                   \{}
-\DoxyCodeLine{00366     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& sp : *slots) \{}
-\DoxyCodeLine{00367         \mbox{\hyperlink{classSlot}{Slot}} s = *sp;}
-\DoxyCodeLine{00368         cout << \textcolor{stringliteral}{"{}Course: "{}} << s.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() << \textcolor{stringliteral}{"{} -\/ Class: "{}} << s.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() << \textcolor{stringliteral}{"{} -\/ "{}} << s.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}() << \textcolor{stringliteral}{"{} "{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}()) << \textcolor{stringliteral}{"{}-\/"{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}()) << \textcolor{stringliteral}{"{} "{}} << s.\mbox{\hyperlink{classSlot_a9ab118706df0180c07fb4f9a7815e222}{getType}}() << endl;}
-\DoxyCodeLine{00369     \}}
-\DoxyCodeLine{00370 \}}
+\DoxyCodeLine{00366                                   \{}
+\DoxyCodeLine{00367     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& sp : *slots) \{}
+\DoxyCodeLine{00368         \mbox{\hyperlink{classSlot}{Slot}} s = *sp;}
+\DoxyCodeLine{00369         cout << \textcolor{stringliteral}{"{}Course: "{}} << s.\mbox{\hyperlink{classSlot_a364bfdb56e6dc9cca1c5c8fc85f5a531}{getCourseCode}}() << \textcolor{stringliteral}{"{} -\/ Class: "{}} << s.\mbox{\hyperlink{classSlot_a8e8b11ba2719b9b28b50abe14e257c77}{getClassCode}}() << \textcolor{stringliteral}{"{} -\/ "{}} << s.\mbox{\hyperlink{classSlot_a17bdfca327b040d01cc04bfef93571c9}{getDay}}() << \textcolor{stringliteral}{"{} "{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.\mbox{\hyperlink{classSlot_a58f486a7e358f781047c85d410b18380}{getStartHour}}()) << \textcolor{stringliteral}{"{}-\/"{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.\mbox{\hyperlink{classSlot_a633fc789d76761c3b5720a47b89d953c}{getEndHour}}()) << \textcolor{stringliteral}{"{} "{}} << s.\mbox{\hyperlink{classSlot_a9ab118706df0180c07fb4f9a7815e222}{getType}}() << endl;}
+\DoxyCodeLine{00370     \}}
+\DoxyCodeLine{00371 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a26050c9d172eea9503fbb36fe4691c95}\label{Functions_8h_a26050c9d172eea9503fbb36fe4691c95}} 
@@ -323,21 +403,21 @@ Complexidade Temporal\+: O(\+N$\ast$log(\+N)) onde N é o número de aulas.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00381}{381}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00382}{382}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00381                                                     \{}
-\DoxyCodeLine{00382     vector<Slot> slotsVector;}
-\DoxyCodeLine{00383     slotsVector.reserve(slots-\/>size());}
-\DoxyCodeLine{00384     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& sp : *slots) \{}
-\DoxyCodeLine{00385         slotsVector.push\_back(*sp);}
-\DoxyCodeLine{00386     \}}
-\DoxyCodeLine{00387     sort(slotsVector.begin(), slotsVector.end(), \mbox{\hyperlink{structcomp}{comp}});}
-\DoxyCodeLine{00388     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : slotsVector) \{}
-\DoxyCodeLine{00389         cout << \textcolor{stringliteral}{"{}Course: "{}} << s.getCourseCode() << \textcolor{stringliteral}{"{} -\/ Class: "{}} << s.getClassCode() << \textcolor{stringliteral}{"{} -\/ "{}} << s.getDay() << \textcolor{stringliteral}{"{} "{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.getStartHour()) << \textcolor{stringliteral}{"{}-\/"{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.getEndHour()) << \textcolor{stringliteral}{"{} "{}} << s.getType() << endl;}
-\DoxyCodeLine{00390     \}}
-\DoxyCodeLine{00391 \}}
+\DoxyCodeLine{00382                                                     \{}
+\DoxyCodeLine{00383     vector<Slot> slotsVector;}
+\DoxyCodeLine{00384     slotsVector.reserve(slots-\/>size());}
+\DoxyCodeLine{00385     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& sp : *slots) \{}
+\DoxyCodeLine{00386         slotsVector.push\_back(*sp);}
+\DoxyCodeLine{00387     \}}
+\DoxyCodeLine{00388     sort(slotsVector.begin(), slotsVector.end(), \mbox{\hyperlink{structcomp}{comp}});}
+\DoxyCodeLine{00389     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : slotsVector) \{}
+\DoxyCodeLine{00390         cout << \textcolor{stringliteral}{"{}Course: "{}} << s.getCourseCode() << \textcolor{stringliteral}{"{} -\/ Class: "{}} << s.getClassCode() << \textcolor{stringliteral}{"{} -\/ "{}} << s.getDay() << \textcolor{stringliteral}{"{} "{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.getStartHour()) << \textcolor{stringliteral}{"{}-\/"{}} << \mbox{\hyperlink{IndependentFunctions_8h_a29a53e5a310a4833ae7a56d655ace5f0}{floatToMinutes}}(s.getEndHour()) << \textcolor{stringliteral}{"{} "{}} << s.getType() << endl;}
+\DoxyCodeLine{00391     \}}
+\DoxyCodeLine{00392 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_ab4ab1284290645465713ac5cbf1c4182}\label{Functions_8h_ab4ab1284290645465713ac5cbf1c4182}} 
@@ -357,29 +437,29 @@ Complexidade Temporal\+: O(\+N) onde N é o número de alunos.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00196}{196}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00197}{197}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00196                                            \{}
-\DoxyCodeLine{00197     cout << \textcolor{stringliteral}{"{}Ordenação (1) por número de aluno ou (2) por nome? "{}};}
-\DoxyCodeLine{00198     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{00199     cin >> choice;}
-\DoxyCodeLine{00200     \textcolor{keywordflow}{if} (choice != 1 \&\& choice != 2) \{}
-\DoxyCodeLine{00201         cout << \textcolor{stringliteral}{"{}Opção inválida!"{}} << endl;}
-\DoxyCodeLine{00202         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00203     \}}
-\DoxyCodeLine{00204     \textcolor{keywordflow}{if} (choice == 1) \{}
-\DoxyCodeLine{00205         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} student: *students)}
-\DoxyCodeLine{00206             cout << student-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << student-\/>getName() << endl;}
-\DoxyCodeLine{00207         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00208     \}}
-\DoxyCodeLine{00209     vector<Student*> studentsVector(students-\/>begin(), students-\/>end());}
-\DoxyCodeLine{00210     sort(studentsVector.begin(), studentsVector.end(), [](\mbox{\hyperlink{classStudent}{Student}}* a, \mbox{\hyperlink{classStudent}{Student}}* b) \{ return a-\/>getName() < b-\/>getName(); \});}
-\DoxyCodeLine{00211     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : studentsVector) \{}
-\DoxyCodeLine{00212         cout << s-\/>getNumber() << \textcolor{stringliteral}{"{} "{}} << s-\/>getName() << endl;}
-\DoxyCodeLine{00213     \}}
-\DoxyCodeLine{00214 \}}
+\DoxyCodeLine{00197                                            \{}
+\DoxyCodeLine{00198     cout << \textcolor{stringliteral}{"{}Ordenação (1) por número de aluno ou (2) por nome? "{}};}
+\DoxyCodeLine{00199     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{00200     cin >> choice;}
+\DoxyCodeLine{00201     \textcolor{keywordflow}{if} (choice != 1 \&\& choice != 2) \{}
+\DoxyCodeLine{00202         cout << \textcolor{stringliteral}{"{}Opção inválida!"{}} << endl;}
+\DoxyCodeLine{00203         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00204     \}}
+\DoxyCodeLine{00205     \textcolor{keywordflow}{if} (choice == 1) \{}
+\DoxyCodeLine{00206         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} student: *students)}
+\DoxyCodeLine{00207             cout << student-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << student-\/>getName() << endl;}
+\DoxyCodeLine{00208         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00209     \}}
+\DoxyCodeLine{00210     vector<Student*> studentsVector(students-\/>begin(), students-\/>end());}
+\DoxyCodeLine{00211     sort(studentsVector.begin(), studentsVector.end(), [](\mbox{\hyperlink{classStudent}{Student}}* a, \mbox{\hyperlink{classStudent}{Student}}* b) \{ return a-\/>getName() < b-\/>getName(); \});}
+\DoxyCodeLine{00212     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : studentsVector) \{}
+\DoxyCodeLine{00213         cout << s-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << s-\/>getName() << endl;}
+\DoxyCodeLine{00214     \}}
+\DoxyCodeLine{00215 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_aaf24ae1b8f29e77d41bc52c97e554922}\label{Functions_8h_aaf24ae1b8f29e77d41bc52c97e554922}} 
@@ -399,23 +479,23 @@ Complexidade Temporal\+: O(\+N) onde N é o número de pares (turma, unidade cur
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00282}{282}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00283}{283}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00282                                                               \{}
-\DoxyCodeLine{00283     \textcolor{keyword}{auto} it = classCourses-\/>begin();}
-\DoxyCodeLine{00284     \textcolor{keywordflow}{while} (it != classCourses-\/>end()) \{}
-\DoxyCodeLine{00285         \textcolor{keywordtype}{string} coursecode = (*it)-\/>course;}
-\DoxyCodeLine{00286         cout << coursecode << endl;}
-\DoxyCodeLine{00287         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00288         \textcolor{keywordflow}{while} (it != classCourses-\/>end() \&\& (*it)-\/>course == coursecode) \{}
-\DoxyCodeLine{00289             cout << (*it)-\/>class\_ << \textcolor{stringliteral}{"{} "{}} << (*it)-\/>students << endl;}
-\DoxyCodeLine{00290             it++;}
-\DoxyCodeLine{00291         \}}
-\DoxyCodeLine{00292         cout << endl;}
-\DoxyCodeLine{00293     \}}
-\DoxyCodeLine{00294 \}}
+\DoxyCodeLine{00283                                                               \{}
+\DoxyCodeLine{00284     \textcolor{keyword}{auto} it = classCourses-\/>begin();}
+\DoxyCodeLine{00285     \textcolor{keywordflow}{while} (it != classCourses-\/>end()) \{}
+\DoxyCodeLine{00286         \textcolor{keywordtype}{string} coursecode = (*it)-\/>course;}
+\DoxyCodeLine{00287         cout << coursecode << endl;}
+\DoxyCodeLine{00288         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00289         \textcolor{keywordflow}{while} (it != classCourses-\/>end() \&\& (*it)-\/>course == coursecode) \{}
+\DoxyCodeLine{00290             cout << (*it)-\/>class\_ << \textcolor{stringliteral}{"{} -\/ Number of students: "{}} << (*it)-\/>students << endl;}
+\DoxyCodeLine{00291             it++;}
+\DoxyCodeLine{00292         \}}
+\DoxyCodeLine{00293         cout << endl;}
+\DoxyCodeLine{00294     \}}
+\DoxyCodeLine{00295 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_afd5434ee66a6b0d8316236f853edbdbc}\label{Functions_8h_afd5434ee66a6b0d8316236f853edbdbc}} 
@@ -438,23 +518,25 @@ Complexidade Temporal\+: O(T + log(\+N)) onde N é o número de estudantes e T �
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00401}{401}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00402}{402}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00401                                                 \{}
-\DoxyCodeLine{00402     \textcolor{keywordtype}{int} studentNumber;}
-\DoxyCodeLine{00403     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
-\DoxyCodeLine{00404     cin >> studentNumber;}
-\DoxyCodeLine{00405     \textcolor{keyword}{auto} s = students -\/> find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
-\DoxyCodeLine{00406     \textcolor{keywordflow}{if} (s == students-\/>end()) \{}
-\DoxyCodeLine{00407         cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl; \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00408     \}}
-\DoxyCodeLine{00409     \textcolor{keyword}{auto} studentclasses = (*s) -\/> getClassesPerCourse();}
-\DoxyCodeLine{00410     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : studentclasses) \{}
-\DoxyCodeLine{00411         cout << c.first << \textcolor{stringliteral}{"{} -\/ "{}} << c.second << endl;}
-\DoxyCodeLine{00412     \}}
-\DoxyCodeLine{00413 \}}
+\DoxyCodeLine{00402                                                 \{}
+\DoxyCodeLine{00403     \textcolor{keywordtype}{int} studentNumber;}
+\DoxyCodeLine{00404     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
+\DoxyCodeLine{00405     cin >> studentNumber;}
+\DoxyCodeLine{00406     \textcolor{keyword}{auto} s = students -\/> find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00407     \textcolor{keywordflow}{if} (s == students-\/>end()) \{}
+\DoxyCodeLine{00408         cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl; \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00409     \}}
+\DoxyCodeLine{00410     \textcolor{keyword}{auto} studentclasses = (*s) -\/> getClassesPerCourse();}
+\DoxyCodeLine{00411     cout << (*s) -\/> getName() << endl;}
+\DoxyCodeLine{00412     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00413     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : studentclasses) \{}
+\DoxyCodeLine{00414         cout << c.first << \textcolor{stringliteral}{"{} -\/ "{}} << c.second << endl;}
+\DoxyCodeLine{00415     \}}
+\DoxyCodeLine{00416 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}\label{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}} 
@@ -478,30 +560,30 @@ Complexidade Temporal\+: O(A + log(\+T)) onde A é o número de aulas da turma e
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00425}{425}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00428}{428}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00425                                          \{}
-\DoxyCodeLine{00426     \textcolor{keywordtype}{string} classCode;}
-\DoxyCodeLine{00427     cout << \textcolor{stringliteral}{"{}Turma: "{}};}
-\DoxyCodeLine{00428     cin >> classCode;}
-\DoxyCodeLine{00429     \textcolor{keyword}{auto} it = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classCode));}
-\DoxyCodeLine{00430     \textcolor{keywordflow}{if} (it != classes-\/>end()) \{}
-\DoxyCodeLine{00431         \textcolor{keyword}{auto} slotVector = (*it)-\/>getSchedule().getSchedule();}
-\DoxyCodeLine{00432         cout << (*it)-\/>getCode() << endl;}
-\DoxyCodeLine{00433         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00434         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : slotVector) \{}
-\DoxyCodeLine{00435             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slot : s) \{}
-\DoxyCodeLine{00436                 cout << slot.getDay() << \textcolor{stringliteral}{"{} "{}} << slot.getStartHour() << \textcolor{stringliteral}{"{} "{}} << slot.getEndHour() << \textcolor{stringliteral}{"{} "{}} << slot.getType() << endl;}
-\DoxyCodeLine{00437             \}}
-\DoxyCodeLine{00438         \}}
-\DoxyCodeLine{00439         cout << endl;}
-\DoxyCodeLine{00440     \}}
-\DoxyCodeLine{00441     \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{00442         cout << \textcolor{stringliteral}{"{}Class not found!"{}} << endl;}
+\DoxyCodeLine{00428                                          \{}
+\DoxyCodeLine{00429     \textcolor{keywordtype}{string} classCode;}
+\DoxyCodeLine{00430     cout << \textcolor{stringliteral}{"{}Turma: "{}};}
+\DoxyCodeLine{00431     cin >> classCode;}
+\DoxyCodeLine{00432     \textcolor{keyword}{auto} it = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classCode));}
+\DoxyCodeLine{00433     \textcolor{keywordflow}{if} (it != classes-\/>end()) \{}
+\DoxyCodeLine{00434         \textcolor{keyword}{auto} slotVector = (*it)-\/>getSchedule().getSchedule();}
+\DoxyCodeLine{00435         cout << (*it)-\/>getCode() << endl;}
+\DoxyCodeLine{00436         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00437         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : slotVector) \{}
+\DoxyCodeLine{00438             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slot : s) \{}
+\DoxyCodeLine{00439                 cout << slot.getDay() << \textcolor{stringliteral}{"{} "{}} << slot.getStartHour() << \textcolor{stringliteral}{"{} "{}} << slot.getEndHour() << \textcolor{stringliteral}{"{} "{}} << slot.getType() << endl;}
+\DoxyCodeLine{00440             \}}
+\DoxyCodeLine{00441         \}}
+\DoxyCodeLine{00442         cout << endl;}
 \DoxyCodeLine{00443     \}}
-\DoxyCodeLine{00444 \}}
+\DoxyCodeLine{00444     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00445         cout << \textcolor{stringliteral}{"{}Class not found!"{}} << endl;}
+\DoxyCodeLine{00446     \}}
+\DoxyCodeLine{00447 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}\label{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}} 
@@ -525,20 +607,77 @@ Complexidade Temporal\+: O(A + log(\+U)) onde A é o número de aulas da unidade
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00456}{456}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00459}{459}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00456                                            \{}
-\DoxyCodeLine{00457     \textcolor{keywordtype}{string} courseCode;}
-\DoxyCodeLine{00458     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
-\DoxyCodeLine{00459     cin >> courseCode;}
-\DoxyCodeLine{00460     \textcolor{keyword}{auto} it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(courseCode));}
-\DoxyCodeLine{00461     \textcolor{keywordflow}{if} (it != courses-\/>end()) \{}
-\DoxyCodeLine{00462         courseSet aux = \{*it\};}
-\DoxyCodeLine{00463         \mbox{\hyperlink{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}{listAllSlots}}(\&aux);}
-\DoxyCodeLine{00464     \}}
-\DoxyCodeLine{00465 \}}
+\DoxyCodeLine{00459                                            \{}
+\DoxyCodeLine{00460     \textcolor{keywordtype}{string} courseCode;}
+\DoxyCodeLine{00461     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
+\DoxyCodeLine{00462     cin >> courseCode;}
+\DoxyCodeLine{00463     \textcolor{keyword}{auto} it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(courseCode));}
+\DoxyCodeLine{00464     \textcolor{keywordflow}{if} (it != courses-\/>end()) \{}
+\DoxyCodeLine{00465         courseSet aux = \{*it\};}
+\DoxyCodeLine{00466         \mbox{\hyperlink{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}{listAllSlots}}(\&aux);}
+\DoxyCodeLine{00467     \}}
+\DoxyCodeLine{00468 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Functions_8h_aaae82744418c85fbc26ea1135b5811c6}\label{Functions_8h_aaae82744418c85fbc26ea1135b5811c6}} 
+\index{Functions.h@{Functions.h}!listSlotsOfStudent@{listSlotsOfStudent}}
+\index{listSlotsOfStudent@{listSlotsOfStudent}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{listSlotsOfStudent()}{listSlotsOfStudent()}}
+{\footnotesize\ttfamily void list\+Slots\+Of\+Student (\begin{DoxyParamCaption}\item[{student\+Set $\ast$}]{students,  }\item[{slot\+Set $\ast$}]{slots }\end{DoxyParamCaption})}
+
+
+
+Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal. 
+
+A função primeiro pede ao utilizador o numero do estudante com a stream cin.~\newline
+Depois procura o estudante no set de estudantes utilizando o metodo find().~\newline
+A função itera sobre o o set de pares Classes\+Per\+Course do estudante e procura as respetivas aulas no set slots utilizando o metodo equal\+\_\+range(), uma vez que os estudante terá varias aulas do mesmo par turma e unidade curricular.~\newline
+A seguir adiciona as aulas encontradas ao vetor schedule.~\newline
+Por fim ordena o vetor schedule e imprime todas as aulas.~\newline
+Complexidade Temporal\+: O(log(\+S) + C$\ast$log(N) + A$\ast$log(A)) onde S é o numero total de estudantes, C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana.~\newline
+Complexidade Temporal é igual a complexidade de students-\/\texorpdfstring{$>$}{>}find() + print\+Student\+Schedule().~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em students} & Set de todos os estudantes \\
+\hline
+{\em slots} & Set de todas as aulas \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00484}{484}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00484                                                               \{}
+\DoxyCodeLine{00485     \textcolor{keywordtype}{int} studentNumber;}
+\DoxyCodeLine{00486     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
+\DoxyCodeLine{00487     cin >> studentNumber;}
+\DoxyCodeLine{00488     \textcolor{keyword}{auto} s = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00489     \textcolor{keywordflow}{if} (s == students-\/>end()) \{}
+\DoxyCodeLine{00490         cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl;}
+\DoxyCodeLine{00491         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00492     \}}
+\DoxyCodeLine{00493     \textcolor{keyword}{auto} studentclasses = (*s)-\/>getClassesPerCourse();}
+\DoxyCodeLine{00494     vector<Slot> schedule;}
+\DoxyCodeLine{00495     cout << (*s) -\/> getName() << endl;}
+\DoxyCodeLine{00496     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00497     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p: studentclasses) \{}
+\DoxyCodeLine{00498         \textcolor{keyword}{auto} range = slots-\/>equal\_range(\textcolor{keyword}{new} \mbox{\hyperlink{classSlot}{Slot}}(\textcolor{stringliteral}{"{}"{}}, 0, 0, \textcolor{stringliteral}{"{}"{}}, p.second, p.first));}
+\DoxyCodeLine{00499         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = range.first; it != range.second; it++)\{}
+\DoxyCodeLine{00500             schedule.push\_back(**it);}
+\DoxyCodeLine{00501         \}}
+\DoxyCodeLine{00502     \}}
+\DoxyCodeLine{00503 }
+\DoxyCodeLine{00504     sort(schedule.begin(), schedule.end());}
+\DoxyCodeLine{00505     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& slot : schedule) \{}
+\DoxyCodeLine{00506         cout << slot.getDay() << \textcolor{stringliteral}{"{} "{}} << slot.getStartHour() << \textcolor{stringliteral}{"{} "{}} << slot.getEndHour() << \textcolor{stringliteral}{"{} "{}} << slot.getType() << endl;}
+\DoxyCodeLine{00507     \}}
+\DoxyCodeLine{00508 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a5f8aeeaab4c2cbecff8336d082cb17be}\label{Functions_8h_a5f8aeeaab4c2cbecff8336d082cb17be}} 
@@ -564,36 +703,36 @@ Complexidade Temporal\+: O(log(\+T) + log(\+U) + N) onde T é o número de turma
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00306}{306}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00307}{307}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00306                                                                                             \{}
-\DoxyCodeLine{00307     cout << \textcolor{stringliteral}{"{}Turma: "{}};}
-\DoxyCodeLine{00308     \textcolor{keywordtype}{string} classcode;}
-\DoxyCodeLine{00309     cin >> classcode;}
-\DoxyCodeLine{00310     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
-\DoxyCodeLine{00311     \textcolor{keywordtype}{string} coursecode;}
-\DoxyCodeLine{00312     cin >> coursecode;}
-\DoxyCodeLine{00313     \textcolor{keyword}{auto} class\_it = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
-\DoxyCodeLine{00314     \textcolor{keywordflow}{if} (class\_it == classes-\/>end()) \{}
-\DoxyCodeLine{00315         cout << \textcolor{stringliteral}{"{}Turma não encontrada!"{}} << endl;}
-\DoxyCodeLine{00316         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00317     \}}
-\DoxyCodeLine{00318     \textcolor{keyword}{auto} course\_it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
-\DoxyCodeLine{00319     \textcolor{keywordflow}{if} (course\_it == courses-\/>end()) \{}
-\DoxyCodeLine{00320         cout << \textcolor{stringliteral}{"{}Unidade Curricular não encontrada!"{}} << endl;}
-\DoxyCodeLine{00321         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00322     \}}
-\DoxyCodeLine{00323     \textcolor{keyword}{auto} classStudents = (*class\_it)-\/>getStudents();}
-\DoxyCodeLine{00324     \textcolor{keyword}{auto} courseStudents = (*course\_it)-\/>getStudents();}
-\DoxyCodeLine{00325     vector<int> s;}
-\DoxyCodeLine{00326     set\_intersection(classStudents.begin(), classStudents.end(), courseStudents.begin(), courseStudents.end(), back\_inserter(s));}
-\DoxyCodeLine{00327     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& n : s) \{}
-\DoxyCodeLine{00328         \textcolor{keyword}{auto} student\_it = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(n));}
-\DoxyCodeLine{00329         cout << (*student\_it)-\/>getNumber() << \textcolor{stringliteral}{"{} "{}} << (*student\_it)-\/>getName() << endl;}
-\DoxyCodeLine{00330     \}}
-\DoxyCodeLine{00331 \}}
+\DoxyCodeLine{00307                                                                                             \{}
+\DoxyCodeLine{00308     cout << \textcolor{stringliteral}{"{}Turma: "{}};}
+\DoxyCodeLine{00309     \textcolor{keywordtype}{string} classcode;}
+\DoxyCodeLine{00310     cin >> classcode;}
+\DoxyCodeLine{00311     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
+\DoxyCodeLine{00312     \textcolor{keywordtype}{string} coursecode;}
+\DoxyCodeLine{00313     cin >> coursecode;}
+\DoxyCodeLine{00314     \textcolor{keyword}{auto} class\_it = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{00315     \textcolor{keywordflow}{if} (class\_it == classes-\/>end()) \{}
+\DoxyCodeLine{00316         cout << \textcolor{stringliteral}{"{}Turma não encontrada!"{}} << endl;}
+\DoxyCodeLine{00317         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00318     \}}
+\DoxyCodeLine{00319     \textcolor{keyword}{auto} course\_it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
+\DoxyCodeLine{00320     \textcolor{keywordflow}{if} (course\_it == courses-\/>end()) \{}
+\DoxyCodeLine{00321         cout << \textcolor{stringliteral}{"{}Unidade Curricular não encontrada!"{}} << endl;}
+\DoxyCodeLine{00322         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00323     \}}
+\DoxyCodeLine{00324     \textcolor{keyword}{auto} classStudents = (*class\_it)-\/>getStudents();}
+\DoxyCodeLine{00325     \textcolor{keyword}{auto} courseStudents = (*course\_it)-\/>getStudents();}
+\DoxyCodeLine{00326     vector<int> s;}
+\DoxyCodeLine{00327     set\_intersection(classStudents.begin(), classStudents.end(), courseStudents.begin(), courseStudents.end(), back\_inserter(s));}
+\DoxyCodeLine{00328     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& n : s) \{}
+\DoxyCodeLine{00329         \textcolor{keyword}{auto} student\_it = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(n));}
+\DoxyCodeLine{00330         cout << (*student\_it)-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << (*student\_it)-\/>getName() << endl;}
+\DoxyCodeLine{00331     \}}
+\DoxyCodeLine{00332 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a88168c2be358fffd000abc44843edf33}\label{Functions_8h_a88168c2be358fffd000abc44843edf33}} 
@@ -617,25 +756,25 @@ Complexidade Temporal\+: O(log(\+U) + N) onde U é o número de unidades curricu
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00341}{341}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00342}{342}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00341                                                                     \{}
-\DoxyCodeLine{00342     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
-\DoxyCodeLine{00343     \textcolor{keywordtype}{string} coursecode;}
-\DoxyCodeLine{00344     cin >> coursecode;}
-\DoxyCodeLine{00345     \textcolor{keyword}{auto} course\_it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
-\DoxyCodeLine{00346     \textcolor{keywordflow}{if} (course\_it == courses-\/>end()) \{}
-\DoxyCodeLine{00347         cout << \textcolor{stringliteral}{"{}Unidade Curricular não encontrada!"{}} << endl;}
-\DoxyCodeLine{00348         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00349     \}}
-\DoxyCodeLine{00350     \textcolor{keyword}{auto} courseStudents = (*course\_it)-\/>getStudents();}
-\DoxyCodeLine{00351     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& n : courseStudents) \{}
-\DoxyCodeLine{00352         \textcolor{keyword}{auto} student\_it = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(n));}
-\DoxyCodeLine{00353         cout << (*student\_it)-\/>getNumber() << \textcolor{stringliteral}{"{} "{}} << (*student\_it)-\/>getName() << endl;}
-\DoxyCodeLine{00354     \}}
-\DoxyCodeLine{00355 \}}
+\DoxyCodeLine{00342                                                                     \{}
+\DoxyCodeLine{00343     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
+\DoxyCodeLine{00344     \textcolor{keywordtype}{string} coursecode;}
+\DoxyCodeLine{00345     cin >> coursecode;}
+\DoxyCodeLine{00346     \textcolor{keyword}{auto} course\_it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
+\DoxyCodeLine{00347     \textcolor{keywordflow}{if} (course\_it == courses-\/>end()) \{}
+\DoxyCodeLine{00348         cout << \textcolor{stringliteral}{"{}Unidade Curricular não encontrada!"{}} << endl;}
+\DoxyCodeLine{00349         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00350     \}}
+\DoxyCodeLine{00351     \textcolor{keyword}{auto} courseStudents = (*course\_it)-\/>getStudents();}
+\DoxyCodeLine{00352     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& n : courseStudents) \{}
+\DoxyCodeLine{00353         \textcolor{keyword}{auto} student\_it = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(n));}
+\DoxyCodeLine{00354         cout << (*student\_it)-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << (*student\_it)-\/>getName() << endl;}
+\DoxyCodeLine{00355     \}}
+\DoxyCodeLine{00356 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a4a92bf5baa1a53b40e18f78592c77c4c}\label{Functions_8h_a4a92bf5baa1a53b40e18f78592c77c4c}} 
@@ -658,20 +797,20 @@ Complexidade Temporal\+: O(\+N) onde N é o número total de estudantes.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00475}{475}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00518}{518}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00475                                                          \{}
-\DoxyCodeLine{00476     \textcolor{keywordtype}{int} n;}
-\DoxyCodeLine{00477     cout << \textcolor{stringliteral}{"{}Enter n, the number of courses: "{}};}
-\DoxyCodeLine{00478     cin >> n;}
-\DoxyCodeLine{00479     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : *students) \{}
-\DoxyCodeLine{00480         \textcolor{keywordflow}{if} (s-\/>getClassesPerCourse().size() > n) \{}
-\DoxyCodeLine{00481             cout << s-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << s-\/>getName() << endl;}
-\DoxyCodeLine{00482         \}}
-\DoxyCodeLine{00483     \}}
-\DoxyCodeLine{00484 \}}
+\DoxyCodeLine{00518                                                          \{}
+\DoxyCodeLine{00519     \textcolor{keywordtype}{int} n;}
+\DoxyCodeLine{00520     cout << \textcolor{stringliteral}{"{}Enter n, the number of courses: "{}};}
+\DoxyCodeLine{00521     cin >> n;}
+\DoxyCodeLine{00522     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& s : *students) \{}
+\DoxyCodeLine{00523         \textcolor{keywordflow}{if} (s-\/>getClassesPerCourse().size() > n) \{}
+\DoxyCodeLine{00524             cout << s-\/>getNumber() << \textcolor{stringliteral}{"{} -\/ "{}} << s-\/>getName() << endl;}
+\DoxyCodeLine{00525         \}}
+\DoxyCodeLine{00526     \}}
+\DoxyCodeLine{00527 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_ad495568fb4223027d472b06edc39d9a2}\label{Functions_8h_ad495568fb4223027d472b06edc39d9a2}} 
@@ -698,34 +837,34 @@ Imprime o menu de listagens completas e processa a opção escolhida.~\newline
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00062                                                                                                   \{}
-\DoxyCodeLine{00063     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{00064     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{00065         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{00066         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00067         cout << \textcolor{stringliteral}{"{}| 1. Listar todos os estudantes          |"{}} << endl;}
-\DoxyCodeLine{00068         cout << \textcolor{stringliteral}{"{}| 2. Listar todas as turmas              |"{}} << endl;}
-\DoxyCodeLine{00069         cout << \textcolor{stringliteral}{"{}| 3. Listar todas as UCs                 |"{}} << endl;}
-\DoxyCodeLine{00070         cout << \textcolor{stringliteral}{"{}| 4. Listar todas as aulas               |"{}} << endl;}
-\DoxyCodeLine{00071         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{00072         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00073         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{00074         cin >> choice;}
-\DoxyCodeLine{00075         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{00076             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{00077                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_ab4ab1284290645465713ac5cbf1c4182}{listAllStudents}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00078                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_abe0eee5000eae9f05ab2915b5b59a346}{listAllClasses}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00079                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a812fcc104c53015ab9930b5f53ddd534}{listAllCourses}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00080                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}{listAllSlots}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00081                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{00082             \}}
-\DoxyCodeLine{00083         \}}
-\DoxyCodeLine{00084     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{00085 \}}
+\DoxyCodeLine{00071                                                                                                   \{}
+\DoxyCodeLine{00072     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{00073     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00074         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00075         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00076         cout << \textcolor{stringliteral}{"{}| 1. Listar todos os estudantes          |"{}} << endl;}
+\DoxyCodeLine{00077         cout << \textcolor{stringliteral}{"{}| 2. Listar todas as turmas              |"{}} << endl;}
+\DoxyCodeLine{00078         cout << \textcolor{stringliteral}{"{}| 3. Listar todas as UCs                 |"{}} << endl;}
+\DoxyCodeLine{00079         cout << \textcolor{stringliteral}{"{}| 4. Listar todas as aulas               |"{}} << endl;}
+\DoxyCodeLine{00080         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{00081         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00082         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{00083         cin >> choice;}
+\DoxyCodeLine{00084         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{00085             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{00086                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_ab4ab1284290645465713ac5cbf1c4182}{listAllStudents}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00087                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_abe0eee5000eae9f05ab2915b5b59a346}{listAllClasses}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00088                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a812fcc104c53015ab9930b5f53ddd534}{listAllCourses}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00089                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}{listAllSlots}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{00091             \}}
+\DoxyCodeLine{00092         \}}
+\DoxyCodeLine{00093     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{00094 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_adbfd148c32469de9ed1a21648f428964}\label{Functions_8h_adbfd148c32469de9ed1a21648f428964}} 
@@ -750,70 +889,90 @@ Imprime o menu com as opções de listagens parciais e processa a opção escolh
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00096                                                                                                                                     \{}
-\DoxyCodeLine{00097     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{00098     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{00099         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{00100         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00101         cout << \textcolor{stringliteral}{"{}| 1. Ocupação de turmas/UC               |"{}} << endl;}
-\DoxyCodeLine{00102         cout << \textcolor{stringliteral}{"{}| 2. Estudantes numa turma/UC            |"{}} << endl;}
-\DoxyCodeLine{00103         cout << \textcolor{stringliteral}{"{}| 3. Estudantes inscritos numa UC        |"{}} << endl;}
-\DoxyCodeLine{00104         cout << \textcolor{stringliteral}{"{}| 4. Turmas/UC de um estudante           |"{}} << endl;}
-\DoxyCodeLine{00105         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{00106         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00107         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{00108         cin >> choice;}
-\DoxyCodeLine{00109         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{00110             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{00111                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_aaf24ae1b8f29e77d41bc52c97e554922}{listClassCourseOccupation}}(classCourses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00112                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a5f8aeeaab4c2cbecff8336d082cb17be}{listStudentsInClassCourse}}(students, classes, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00113                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a88168c2be358fffd000abc44843edf33}{listStudentsInCourse}}(students, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00114                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_afd5434ee66a6b0d8316236f853edbdbc}{listClassesOfStudent}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00115                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{00116             \}}
-\DoxyCodeLine{00117         \}}
-\DoxyCodeLine{00118     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{00119 \}}
+\DoxyCodeLine{00105                                                                                                                                     \{}
+\DoxyCodeLine{00106     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{00107     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00108         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00109         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00110         cout << \textcolor{stringliteral}{"{}| 1. Ocupação de turmas/UC               |"{}} << endl;}
+\DoxyCodeLine{00111         cout << \textcolor{stringliteral}{"{}| 2. Estudantes numa turma/UC            |"{}} << endl;}
+\DoxyCodeLine{00112         cout << \textcolor{stringliteral}{"{}| 3. Estudantes inscritos numa UC        |"{}} << endl;}
+\DoxyCodeLine{00113         cout << \textcolor{stringliteral}{"{}| 4. Turmas/UC de um estudante           |"{}} << endl;}
+\DoxyCodeLine{00114         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{00115         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00116         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{00117         cin >> choice;}
+\DoxyCodeLine{00118         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{00119             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{00120                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_aaf24ae1b8f29e77d41bc52c97e554922}{listClassCourseOccupation}}(classCourses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00121                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a5f8aeeaab4c2cbecff8336d082cb17be}{listStudentsInClassCourse}}(students, classes, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00122                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a88168c2be358fffd000abc44843edf33}{listStudentsInCourse}}(students, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00123                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_afd5434ee66a6b0d8316236f853edbdbc}{listClassesOfStudent}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00124                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{00125             \}}
+\DoxyCodeLine{00126         \}}
+\DoxyCodeLine{00127     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{00128 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{Functions_8h_a96370bdb83ebeb5e73e071798fcbcf3a}\label{Functions_8h_a96370bdb83ebeb5e73e071798fcbcf3a}} 
+\mbox{\Hypertarget{Functions_8h_a28b69ada35c2dfdc515c523f2bba3386}\label{Functions_8h_a28b69ada35c2dfdc515c523f2bba3386}} 
 \index{Functions.h@{Functions.h}!menu\_requests@{menu\_requests}}
 \index{menu\_requests@{menu\_requests}!Functions.h@{Functions.h}}
 \doxysubsubsection{\texorpdfstring{menu\_requests()}{menu\_requests()}}
-{\footnotesize\ttfamily void menu\+\_\+requests (\begin{DoxyParamCaption}\item[{student\+Set $\ast$}]{students,  }\item[{class\+Set $\ast$}]{classes,  }\item[{course\+Set $\ast$}]{courses,  }\item[{class\+Courses\+Set $\ast$}]{class\+Courses,  }\item[{slot\+Set $\ast$}]{slots }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void menu\+\_\+requests (\begin{DoxyParamCaption}\item[{student\+Set $\ast$}]{students,  }\item[{class\+Set $\ast$}]{classes,  }\item[{course\+Set $\ast$}]{courses,  }\item[{class\+Courses\+Set $\ast$}]{class\+Courses,  }\item[{slot\+Set $\ast$}]{slots,  }\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Função que imprime o menu de pedidos. 
+
+Imprime o menu de pedidos e processa a opção escolhida.~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em students} & Set com todos os alunos \\
+\hline
+{\em classes} & Set com todas as turmas \\
+\hline
+{\em courses} & Set com todas as unidades curriculares \\
+\hline
+{\em class\+Courses} & Set com todos os pares turma e unidade curricular \\
+\hline
+{\em slots} & Set com todas as aulas \\
+\hline
+{\em requests} & Fila de pedidos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00177}{177}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00156                                                                                                                                \{}
-\DoxyCodeLine{00157     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{00158     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{00159         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{00160         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00161         cout << \textcolor{stringliteral}{"{}| 1. Alterar horário de uma turma        |"{}} << endl;}
-\DoxyCodeLine{00162         cout << \textcolor{stringliteral}{"{}| 2. Alterar horário de uma UC           |"{}} << endl;}
-\DoxyCodeLine{00163         cout << \textcolor{stringliteral}{"{}| 3. Alterar horário de um estudante     |"{}} << endl;}
-\DoxyCodeLine{00164         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{00165         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00166         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{00167         cin >> choice;}
-\DoxyCodeLine{00168         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{00169             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{00170                 \textcolor{comment}{/*case 1: changeClassSchedule(classes, slots); wait(); break; }}
-\DoxyCodeLine{00171 \textcolor{comment}{                case 2: changeCourseSchedule(courses, slots); wait(); break; }}
-\DoxyCodeLine{00172 \textcolor{comment}{                case 3: changeStudentSchedule(students, classes, classCourses, slots); wait(); break; }}
-\DoxyCodeLine{00173 \textcolor{comment}{                */}\textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{00174             \}}
-\DoxyCodeLine{00175         \}}
-\DoxyCodeLine{00176     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{00177 \}}
+\DoxyCodeLine{00177                                                                                                                                                           \{}
+\DoxyCodeLine{00178     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{00179     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00180         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00181         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00182         cout << \textcolor{stringliteral}{"{}| 1. Remover estudante de turma/UC       |"{}} << endl;}
+\DoxyCodeLine{00183         cout << \textcolor{stringliteral}{"{}| 2. Adicionar estudante a turma/UC      |"{}} << endl;}
+\DoxyCodeLine{00184         cout << \textcolor{stringliteral}{"{}| 3. Trocar um estudante de turma        |"{}} << endl;}
+\DoxyCodeLine{00185         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{00186         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00187         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{00188         cin >> choice;}
+\DoxyCodeLine{00189         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{00190             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{00191                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_a274a6371b96fc169b515313a4a1aee85}{removeStudent}}(classes, students, courses, requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00192                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_adee3263ae132104c36c753d392d88eab}{addStudent}}(classes, students, courses, requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00193                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_acafd08426dbe96a059387a538673310c}{changeStudent}}(classes, students, courses, requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00194                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{00195             \}}
+\DoxyCodeLine{00196         \}}
+\DoxyCodeLine{00197     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{00198 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a1326e4510905e066116daf1d6ed33a3d}\label{Functions_8h_a1326e4510905e066116daf1d6ed33a3d}} 
@@ -826,7 +985,7 @@ Definition at line \mbox{\hyperlink{main_8cpp_source_l00156}{156}} of file \mbox
 
 Função que imprime o menu de da escolha da ordem das aulas. 
 
-Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.~\newline
+Imprime o menu com as opções de horários e processa a opção escolhida.~\newline
  
 \begin{DoxyParams}{Parameters}
 {\em students} & Set com todos os alunos \\
@@ -842,110 +1001,81 @@ Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e 
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{main_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00132                                                                                                                                 \{}
-\DoxyCodeLine{00133     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{00134     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{00135         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{00136         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00137         cout << \textcolor{stringliteral}{"{}| 1. Horário de uma turma                |"{}} << endl;}
-\DoxyCodeLine{00138         cout << \textcolor{stringliteral}{"{}| 2. Horário de uma UC                   |"{}} << endl;}
-\DoxyCodeLine{00139         cout << \textcolor{stringliteral}{"{}| 3. Horário de um estudante             |"{}} << endl;}
-\DoxyCodeLine{00140         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{00141         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{00142         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{00143         cin >> choice;}
-\DoxyCodeLine{00144         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{00145             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{00146                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}{listSlotsOfClass}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00147                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}{listSlotsOfCourse}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00148                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a3accdc0d1e357b0aefef5590ef51250b}{printAnyStudentSchedule}}(students, slots); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00149                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{00150             \}}
-\DoxyCodeLine{00151         \}}
-\DoxyCodeLine{00152     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{00153 \}}
+\DoxyCodeLine{00141                                                                                                                                 \{}
+\DoxyCodeLine{00142     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{00143     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{00144         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{00145         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00146         cout << \textcolor{stringliteral}{"{}| 1. Horário de uma turma                |"{}} << endl;}
+\DoxyCodeLine{00147         cout << \textcolor{stringliteral}{"{}| 2. Horário de uma UC                   |"{}} << endl;}
+\DoxyCodeLine{00148         cout << \textcolor{stringliteral}{"{}| 3. Horário de um estudante             |"{}} << endl;}
+\DoxyCodeLine{00149         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{00150         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{00151         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{00152         cin >> choice;}
+\DoxyCodeLine{00153         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{00154             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{00155                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}{listSlotsOfClass}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00156                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}{listSlotsOfCourse}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00157                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_aaae82744418c85fbc26ea1135b5811c6}{listSlotsOfStudent}}(students, slots); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{00159             \}}
+\DoxyCodeLine{00160         \}}
+\DoxyCodeLine{00161     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{00162 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{Functions_8h_a3accdc0d1e357b0aefef5590ef51250b}\label{Functions_8h_a3accdc0d1e357b0aefef5590ef51250b}} 
-\index{Functions.h@{Functions.h}!printAnyStudentSchedule@{printAnyStudentSchedule}}
-\index{printAnyStudentSchedule@{printAnyStudentSchedule}!Functions.h@{Functions.h}}
-\doxysubsubsection{\texorpdfstring{printAnyStudentSchedule()}{printAnyStudentSchedule()}}
-{\footnotesize\ttfamily void print\+Any\+Student\+Schedule (\begin{DoxyParamCaption}\item[{student\+Set $\ast$}]{students,  }\item[{slot\+Set $\ast$}]{slots }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{Functions_8h_a934aaee634fed9f7ba239611eec24430}\label{Functions_8h_a934aaee634fed9f7ba239611eec24430}} 
+\index{Functions.h@{Functions.h}!processAllRequests@{processAllRequests}}
+\index{processAllRequests@{processAllRequests}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{processAllRequests()}{processAllRequests()}}
+{\footnotesize\ttfamily void process\+All\+Requests (\begin{DoxyParamCaption}\item[{student\+Set $\ast$}]{students,  }\item[{class\+Set $\ast$}]{classes,  }\item[{course\+Set $\ast$}]{courses,  }\item[{class\+Courses\+Set $\ast$}]{class\+Courses,  }\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
 
 
 
-Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal. 
+Processa, se possivel, todos os pedidos de inscrição, desinscrição e mudança de turma. 
 
-A função primeiro pede ao utilizador o numero do estudante com a stream cin.~\newline
-Depois procura o estudante no set de estudantes utilizando o metodo find().~\newline
-A seguir itera sobre o horario do estudante e imprime todas as aulas.~\newline
-Complexidade Temporal\+: O(log(\+S) + A$\ast$log(D) + C$\ast$log(N)) onde S é o numero total de estudantes, C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.~\newline
-Complexidade Temporal é igual a complexidade de students-\/\texorpdfstring{$>$}{>}find() + \mbox{\hyperlink{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}{print\+Student\+Schedule()}}.~\newline
- 
+
 \begin{DoxyParams}{Parameters}
 {\em students} & Set de todos os estudantes \\
 \hline
-{\em slots} & Set de todas as aulas \\
+{\em classes} & Set de todas as turmas \\
+\hline
+{\em courses} & Set de todas as unidades curriculares \\
+\hline
+{\em class\+Courses} & Set de todas pares de turmas e unidades curriculares \\
+\hline
+{\em requests} & Fila de pedidos \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00498}{498}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00663}{663}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00498                                                                    \{}
-\DoxyCodeLine{00499     \textcolor{keywordtype}{int} studentNumber;}
-\DoxyCodeLine{00500     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
-\DoxyCodeLine{00501     cin >> studentNumber;}
-\DoxyCodeLine{00502     \textcolor{keyword}{auto} student\_it = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
-\DoxyCodeLine{00503     \textcolor{keywordflow}{if}(student\_it != students -\/> end()) \mbox{\hyperlink{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}{printStudentSchedule}}(*student\_it, slots);}
-\DoxyCodeLine{00504     \textcolor{keywordflow}{else} cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl;}
-\DoxyCodeLine{00505 \}}
-
-\end{DoxyCode}
-\mbox{\Hypertarget{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}\label{Functions_8h_a633be3365047fd5ef7d1ff89a591d4a5}} 
-\index{Functions.h@{Functions.h}!printStudentSchedule@{printStudentSchedule}}
-\index{printStudentSchedule@{printStudentSchedule}!Functions.h@{Functions.h}}
-\doxysubsubsection{\texorpdfstring{printStudentSchedule()}{printStudentSchedule()}}
-{\footnotesize\ttfamily void print\+Student\+Schedule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}} $\ast$}]{student,  }\item[{slot\+Set $\ast$}]{slots }\end{DoxyParamCaption})}
-
-
-
-Imprime o horário do estudante passado cujo pointer é passado como argumento. 
-
-A função imprime o dia da semana, seguido de todas as aulas desse dia.~\newline
-Complexidade Temporal\+: O(A$\ast$log(D) + C$\ast$log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.~\newline
-Complexidade Temporal igual a get\+Student\+Schedulde() uma vez que a complexidade de imprimir o horario é menor que o obter.
-
-
-\begin{DoxyParams}{Parameters}
-{\em student} & Pointer para o estudante \\
-\hline
-{\em slots} & Set de todas as aulas \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00549}{549}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00549                                                            \{}
-\DoxyCodeLine{00550     \mbox{\hyperlink{classSchedule}{Schedule}} schedule = \mbox{\hyperlink{Functions_8h_ab1be76d5c0126dba3b88f3bdff42d73a}{getStudentSchedule}}(student, slots);}
-\DoxyCodeLine{00551     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 6; i++)\{}
-\DoxyCodeLine{00552         \textcolor{keywordflow}{if}(!schedule[i].empty())}
-\DoxyCodeLine{00553             cout << \mbox{\hyperlink{IndependentFunctions_8h_a673b87fdb88d0ae25590a845be2bc5f4}{numToWeekDay}}(i) << \textcolor{stringliteral}{"{}: "{}} << endl;}
-\DoxyCodeLine{00554         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \mbox{\hyperlink{classSlot}{Slot}}\& class\_: schedule[i])}
-\DoxyCodeLine{00555             cout << \textcolor{stringliteral}{"{}    Class: "{}} << class\_.getClassCode() << \textcolor{stringliteral}{"{} -\/ Course: "{}} << class\_.getCourseCode() << \textcolor{stringliteral}{"{} -\/ "{}}}
-\DoxyCodeLine{00556                 << class\_.getType() << \textcolor{stringliteral}{"{} -\/ "{}} << class\_.getStartHour() << \textcolor{stringliteral}{"{}-\/"{}} << class\_.getEndHour() << endl;}
-\DoxyCodeLine{00557         cout << endl;}
-\DoxyCodeLine{00558     \}}
-\DoxyCodeLine{00559 \}}
+\DoxyCodeLine{00663                                                                                                                                                \{}
+\DoxyCodeLine{00664     queue<Request*> aux;}
+\DoxyCodeLine{00665     \textcolor{keywordflow}{while} (!requests-\/>empty()) \{}
+\DoxyCodeLine{00666         \mbox{\hyperlink{classRequest}{Request}}* r = requests-\/>front();}
+\DoxyCodeLine{00667         requests-\/>pop();}
+\DoxyCodeLine{00668         \textcolor{keywordflow}{if} (r-\/>\mbox{\hyperlink{classRequest_a696feb6702c7365332e19cb83214b6d5}{handleRequest}}(students, courses, classes, classCourses)) \{}
+\DoxyCodeLine{00669             cout << \textcolor{stringliteral}{"{}Request processed successfully!"{}} << endl;}
+\DoxyCodeLine{00670         \}}
+\DoxyCodeLine{00671         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00672             cout << \textcolor{stringliteral}{"{}Request failed!"{}} << endl;}
+\DoxyCodeLine{00673             aux.push(r);}
+\DoxyCodeLine{00674         \}}
+\DoxyCodeLine{00675     \}}
+\DoxyCodeLine{00676     \textcolor{keywordflow}{while} (!aux.empty()) \{}
+\DoxyCodeLine{00677         requests-\/>push(aux.front());}
+\DoxyCodeLine{00678         aux.pop();}
+\DoxyCodeLine{00679     \}}
+\DoxyCodeLine{00680 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_aa95054ac50038a08a63f3b4d8b58c615}\label{Functions_8h_aa95054ac50038a08a63f3b4d8b58c615}} 
@@ -976,15 +1106,15 @@ Faz-\/lo recorrendo a funções auxiliares que lêem cada um dos ficheiros, read
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00044}{44}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00045}{45}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00044                                                                                                                          \{}
-\DoxyCodeLine{00045     \mbox{\hyperlink{Functions_8h_aa2d2122ff44b03361bd0c50c0ca7a214}{readClasses}}(classes, courses, classCourses);}
-\DoxyCodeLine{00046     \mbox{\hyperlink{Functions_8h_a10f8a74b845967e753a0ec8c7036eee9}{readSlots}}(students, classes, courses, slots);}
-\DoxyCodeLine{00047     \mbox{\hyperlink{Functions_8h_ad021aee03de5f9ae699338e9d8659e5b}{readStudents}}(students, classes, courses, classCourses);}
-\DoxyCodeLine{00048 \}}
+\DoxyCodeLine{00045                                                                                                                          \{}
+\DoxyCodeLine{00046     \mbox{\hyperlink{Functions_8h_aa2d2122ff44b03361bd0c50c0ca7a214}{readClasses}}(classes, courses, classCourses);}
+\DoxyCodeLine{00047     \mbox{\hyperlink{Functions_8h_a10f8a74b845967e753a0ec8c7036eee9}{readSlots}}(students, classes, courses, slots);}
+\DoxyCodeLine{00048     \mbox{\hyperlink{Functions_8h_ad021aee03de5f9ae699338e9d8659e5b}{readStudents}}(students, classes, courses, classCourses);}
+\DoxyCodeLine{00049 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_aa2d2122ff44b03361bd0c50c0ca7a214}\label{Functions_8h_aa2d2122ff44b03361bd0c50c0ca7a214}} 
@@ -1009,37 +1139,77 @@ Esta lê o ficheiro classes\+\_\+per\+\_\+uc.\+csv e guarda a informação nos r
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00060}{60}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00061}{61}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00060                                                                                        \{}
-\DoxyCodeLine{00061     ifstream classesFile(classesCourses);}
-\DoxyCodeLine{00062     \textcolor{keywordtype}{string} line;}
-\DoxyCodeLine{00063     getline(classesFile, line); \textcolor{comment}{// skip first line}}
-\DoxyCodeLine{00064     \textcolor{keywordflow}{while} (getline(classesFile, line)) \{}
-\DoxyCodeLine{00065         stringstream ss(line);}
-\DoxyCodeLine{00066         \textcolor{keywordtype}{string} coursecode;}
-\DoxyCodeLine{00067         \textcolor{keywordtype}{string} classcode;}
-\DoxyCodeLine{00068         \textcolor{keywordtype}{int} year;}
-\DoxyCodeLine{00069         getline(ss, coursecode, \textcolor{charliteral}{','});}
-\DoxyCodeLine{00070         ss >> classcode;}
-\DoxyCodeLine{00071         year = classcode[0] -\/ \textcolor{charliteral}{'0'};}
-\DoxyCodeLine{00072         \textcolor{keyword}{auto} newCourse = \textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode);}
-\DoxyCodeLine{00073         newCourse-\/>setYear(year);}
-\DoxyCodeLine{00074         \textcolor{keyword}{auto} newClass = \textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode);}
-\DoxyCodeLine{00075         \textcolor{keywordflow}{if} (courses-\/>find(newCourse) == courses-\/>end())}
-\DoxyCodeLine{00076             courses-\/>insert(newCourse);}
-\DoxyCodeLine{00077 }
-\DoxyCodeLine{00078         \textcolor{keywordflow}{if} (classes-\/>find(newClass) == classes-\/>end())}
-\DoxyCodeLine{00079             classes-\/>insert(newClass);}
-\DoxyCodeLine{00080 }
-\DoxyCodeLine{00081         \textcolor{keyword}{auto} newClassCourse = \textcolor{keyword}{new} \mbox{\hyperlink{structclassCourse}{classCourse}} \{classcode, coursecode, 0\};}
-\DoxyCodeLine{00082         classCourses-\/>insert(newClassCourse);}
-\DoxyCodeLine{00083     \}}
-\DoxyCodeLine{00084     cout << \textcolor{stringliteral}{"{}Read Classes Successfully!"{}} << endl;}
-\DoxyCodeLine{00085     cout << \textcolor{stringliteral}{"{}Number of classes: "{}} << classes-\/>size() << endl;}
-\DoxyCodeLine{00086 \}}
+\DoxyCodeLine{00061                                                                                        \{}
+\DoxyCodeLine{00062     ifstream classesFile(classesCourses);}
+\DoxyCodeLine{00063     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{00064     getline(classesFile, line); \textcolor{comment}{// skip first line}}
+\DoxyCodeLine{00065     \textcolor{keywordflow}{while} (getline(classesFile, line)) \{}
+\DoxyCodeLine{00066         stringstream ss(line);}
+\DoxyCodeLine{00067         \textcolor{keywordtype}{string} coursecode;}
+\DoxyCodeLine{00068         \textcolor{keywordtype}{string} classcode;}
+\DoxyCodeLine{00069         \textcolor{keywordtype}{int} year;}
+\DoxyCodeLine{00070         getline(ss, coursecode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00071         ss >> classcode;}
+\DoxyCodeLine{00072         year = classcode[0] -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00073         \textcolor{keyword}{auto} newCourse = \textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode);}
+\DoxyCodeLine{00074         newCourse-\/>setYear(year);}
+\DoxyCodeLine{00075         \textcolor{keyword}{auto} newClass = \textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode);}
+\DoxyCodeLine{00076         \textcolor{keywordflow}{if} (courses-\/>find(newCourse) == courses-\/>end())}
+\DoxyCodeLine{00077             courses-\/>insert(newCourse);}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079         \textcolor{keywordflow}{if} (classes-\/>find(newClass) == classes-\/>end())}
+\DoxyCodeLine{00080             classes-\/>insert(newClass);}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082         \textcolor{keyword}{auto} newClassCourse = \textcolor{keyword}{new} \mbox{\hyperlink{structclassCourse}{classCourse}} \{classcode, coursecode, 0\};}
+\DoxyCodeLine{00083         classCourses-\/>insert(newClassCourse);}
+\DoxyCodeLine{00084     \}}
+\DoxyCodeLine{00085     cout << \textcolor{stringliteral}{"{}Read Classes Successfully!"{}} << endl;}
+\DoxyCodeLine{00086     cout << \textcolor{stringliteral}{"{}Number of classes: "{}} << classes-\/>size() << endl;}
+\DoxyCodeLine{00087 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Functions_8h_afdce80de3ce4b77b91ea2e5215444c33}\label{Functions_8h_afdce80de3ce4b77b91ea2e5215444c33}} 
+\index{Functions.h@{Functions.h}!readPendingRequests@{readPendingRequests}}
+\index{readPendingRequests@{readPendingRequests}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{readPendingRequests()}{readPendingRequests()}}
+{\footnotesize\ttfamily void read\+Pending\+Requests (\begin{DoxyParamCaption}\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
+
+
+
+Lê os pedidos pendentes do ficheiro pending\+\_\+requests.\+txt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em requests} & Fila de pedidos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00686}{686}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00686                                                     \{}
+\DoxyCodeLine{00687     ifstream file(\textcolor{stringliteral}{"{}../aux\_files/pending\_requests.txt"{}});}
+\DoxyCodeLine{00688     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{00689         cout << \textcolor{stringliteral}{"{}Error opening file!"{}} << endl;}
+\DoxyCodeLine{00690         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00691     \}}
+\DoxyCodeLine{00692     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{00693     \textcolor{keywordflow}{while} (getline(file, line)) \{}
+\DoxyCodeLine{00694         stringstream ss(line);}
+\DoxyCodeLine{00695         \textcolor{keywordtype}{string} studentNumber, courseCode, classCode, type;}
+\DoxyCodeLine{00696         ss >> studentNumber >> courseCode >> classCode >> type;}
+\DoxyCodeLine{00697         \textcolor{keyword}{auto} r = \textcolor{keyword}{new} \mbox{\hyperlink{classRequest}{Request}}(stoi(studentNumber), courseCode, classCode, type);}
+\DoxyCodeLine{00698         requests-\/>push(r);}
+\DoxyCodeLine{00699     \}}
+\DoxyCodeLine{00700     cout << \textcolor{stringliteral}{"{}Pending requests read successfully!"{}} << endl;}
+\DoxyCodeLine{00701     file.close();}
+\DoxyCodeLine{00702 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_a10f8a74b845967e753a0ec8c7036eee9}\label{Functions_8h_a10f8a74b845967e753a0ec8c7036eee9}} 
@@ -1064,41 +1234,41 @@ Esta lê o ficheiro classes.\+csv e guarda a informação nos respetivos sets, c
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00158}{158}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00159}{159}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00158                                                                                             \{}
-\DoxyCodeLine{00159     ifstream slotsFile(classesSlots);}
-\DoxyCodeLine{00160     \textcolor{keywordtype}{string} line;}
-\DoxyCodeLine{00161     getline(slotsFile, line); \textcolor{comment}{// skip first line}}
-\DoxyCodeLine{00162     \textcolor{keywordflow}{while} (getline(slotsFile, line)) \{}
-\DoxyCodeLine{00163         stringstream ss(line);}
-\DoxyCodeLine{00164         \textcolor{keywordtype}{string} classcode, coursecode, day, type;}
-\DoxyCodeLine{00165         \textcolor{keywordtype}{float} start, end;}
-\DoxyCodeLine{00166         getline(ss, classcode, \textcolor{charliteral}{','});}
-\DoxyCodeLine{00167         getline(ss, coursecode, \textcolor{charliteral}{','});}
-\DoxyCodeLine{00168         getline(ss, day, \textcolor{charliteral}{','});}
-\DoxyCodeLine{00169         ss >> start;}
-\DoxyCodeLine{00170         ss.ignore();}
-\DoxyCodeLine{00171         ss >> end; end += start;}
-\DoxyCodeLine{00172         ss.ignore();}
-\DoxyCodeLine{00173         ss >> type;}
-\DoxyCodeLine{00174         \textcolor{keyword}{auto} slot = \textcolor{keyword}{new} \mbox{\hyperlink{classSlot}{Slot}}(day, start, end, type, coursecode, classcode);}
-\DoxyCodeLine{00175         slots-\/>insert(slot);}
-\DoxyCodeLine{00176 }
-\DoxyCodeLine{00177         \textcolor{keyword}{auto} class\_it = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
-\DoxyCodeLine{00178         \textcolor{keywordflow}{if} (class\_it != classes-\/>end()) \{}
-\DoxyCodeLine{00179             (*class\_it)-\/>addSlot(*slot);}
-\DoxyCodeLine{00180         \}}
-\DoxyCodeLine{00181 }
-\DoxyCodeLine{00182         \textcolor{keyword}{auto} course\_it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
-\DoxyCodeLine{00183         \textcolor{keywordflow}{if} (course\_it != courses-\/>end()) \{}
-\DoxyCodeLine{00184             (*course\_it)-\/>addSlot(*slot);}
-\DoxyCodeLine{00185         \}}
-\DoxyCodeLine{00186     \}}
-\DoxyCodeLine{00187     cout << \textcolor{stringliteral}{"{}Read Slots Successfully!"{}} << endl;}
-\DoxyCodeLine{00188 \}}
+\DoxyCodeLine{00159                                                                                             \{}
+\DoxyCodeLine{00160     ifstream slotsFile(classesSlots);}
+\DoxyCodeLine{00161     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{00162     getline(slotsFile, line); \textcolor{comment}{// skip first line}}
+\DoxyCodeLine{00163     \textcolor{keywordflow}{while} (getline(slotsFile, line)) \{}
+\DoxyCodeLine{00164         stringstream ss(line);}
+\DoxyCodeLine{00165         \textcolor{keywordtype}{string} classcode, coursecode, day, type;}
+\DoxyCodeLine{00166         \textcolor{keywordtype}{float} start, end;}
+\DoxyCodeLine{00167         getline(ss, classcode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00168         getline(ss, coursecode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00169         getline(ss, day, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00170         ss >> start;}
+\DoxyCodeLine{00171         ss.ignore();}
+\DoxyCodeLine{00172         ss >> end; end += start;}
+\DoxyCodeLine{00173         ss.ignore();}
+\DoxyCodeLine{00174         ss >> type;}
+\DoxyCodeLine{00175         \textcolor{keyword}{auto} slot = \textcolor{keyword}{new} \mbox{\hyperlink{classSlot}{Slot}}(day, start, end, type, coursecode, classcode);}
+\DoxyCodeLine{00176         slots-\/>insert(slot);}
+\DoxyCodeLine{00177 }
+\DoxyCodeLine{00178         \textcolor{keyword}{auto} class\_it = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode));}
+\DoxyCodeLine{00179         \textcolor{keywordflow}{if} (class\_it != classes-\/>end()) \{}
+\DoxyCodeLine{00180             (*class\_it)-\/>addSlot(*slot);}
+\DoxyCodeLine{00181         \}}
+\DoxyCodeLine{00182 }
+\DoxyCodeLine{00183         \textcolor{keyword}{auto} course\_it = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode));}
+\DoxyCodeLine{00184         \textcolor{keywordflow}{if} (course\_it != courses-\/>end()) \{}
+\DoxyCodeLine{00185             (*course\_it)-\/>addSlot(*slot);}
+\DoxyCodeLine{00186         \}}
+\DoxyCodeLine{00187     \}}
+\DoxyCodeLine{00188     cout << \textcolor{stringliteral}{"{}Read Slots Successfully!"{}} << endl;}
+\DoxyCodeLine{00189 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_ad021aee03de5f9ae699338e9d8659e5b}\label{Functions_8h_ad021aee03de5f9ae699338e9d8659e5b}} 
@@ -1125,60 +1295,160 @@ Esta lê o ficheiro students\+\_\+classes.\+csv e guarda a informação nos resp
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00098}{98}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00099}{99}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00098                                                                                                               \{}
-\DoxyCodeLine{00099     ifstream studentsFile(classesStudents);}
-\DoxyCodeLine{00100     \textcolor{keywordtype}{string} line;}
-\DoxyCodeLine{00101     getline(studentsFile, line); \textcolor{comment}{// skip first line}}
-\DoxyCodeLine{00102     \textcolor{keywordflow}{while} (getline(studentsFile, line)) \{}
-\DoxyCodeLine{00103         stringstream ss(line);}
-\DoxyCodeLine{00104         \textcolor{keywordtype}{int} studentNumber;}
-\DoxyCodeLine{00105         \textcolor{keywordtype}{string} name;}
-\DoxyCodeLine{00106         \textcolor{keywordtype}{string} coursecode;}
-\DoxyCodeLine{00107         \textcolor{keywordtype}{string} classcode;}
-\DoxyCodeLine{00108         ss >> studentNumber;}
-\DoxyCodeLine{00109         ss.ignore();}
-\DoxyCodeLine{00110         getline(ss, name, \textcolor{charliteral}{','});}
-\DoxyCodeLine{00111         getline(ss, coursecode, \textcolor{charliteral}{','});}
-\DoxyCodeLine{00112         ss >> classcode;}
-\DoxyCodeLine{00113         \textcolor{keyword}{auto} student = \textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber);}
-\DoxyCodeLine{00114         \textcolor{keyword}{auto} student\_it = students-\/>find(student);}
-\DoxyCodeLine{00115         \textcolor{keywordflow}{if} (student\_it == students-\/>end())\{}
-\DoxyCodeLine{00116             students-\/>insert(student);}
-\DoxyCodeLine{00117             student\_it = students-\/>find(student);}
-\DoxyCodeLine{00118         \}}
-\DoxyCodeLine{00119         (*student\_it)-\/>setName(name);}
-\DoxyCodeLine{00120         (*student\_it)-\/>addClassCourse(classcode, coursecode, courses, classes);}
-\DoxyCodeLine{00121 }
-\DoxyCodeLine{00122         \textcolor{keyword}{auto} course = \textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode);}
-\DoxyCodeLine{00123         \textcolor{keyword}{auto} course\_it = courses-\/>find(course);}
-\DoxyCodeLine{00124         \textcolor{keywordflow}{if} (course\_it == courses-\/>end())\{}
-\DoxyCodeLine{00125             courses-\/>insert(course);}
-\DoxyCodeLine{00126             course\_it = courses-\/>find(course);}
-\DoxyCodeLine{00127         \}}
-\DoxyCodeLine{00128         (*course\_it)-\/>addStudent(studentNumber);}
-\DoxyCodeLine{00129 }
-\DoxyCodeLine{00130         \textcolor{keyword}{auto} class\_ = \textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode);}
-\DoxyCodeLine{00131         \textcolor{keyword}{auto} class\_it = classes-\/>find(class\_);}
-\DoxyCodeLine{00132         \textcolor{keywordflow}{if} (class\_it == classes-\/>end())\{}
-\DoxyCodeLine{00133             classes-\/>insert(class\_);}
-\DoxyCodeLine{00134             class\_it = classes-\/>find(class\_);}
-\DoxyCodeLine{00135         \}}
-\DoxyCodeLine{00136         (*class\_it)-\/>addStudent(studentNumber);}
-\DoxyCodeLine{00137 }
-\DoxyCodeLine{00138         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \mbox{\hyperlink{structclassCourse}{classCourse}} : *classCourses) \{}
-\DoxyCodeLine{00139             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structclassCourse}{classCourse}}-\/>class\_ == classcode \&\& \mbox{\hyperlink{structclassCourse}{classCourse}}-\/>course == coursecode) \{}
-\DoxyCodeLine{00140                 \mbox{\hyperlink{structclassCourse}{classCourse}}-\/>students++;}
-\DoxyCodeLine{00141                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00142             \}}
-\DoxyCodeLine{00143         \}}
-\DoxyCodeLine{00144     \}}
-\DoxyCodeLine{00145     cout << \textcolor{stringliteral}{"{}Read Students Successfully!"{}} << endl;}
-\DoxyCodeLine{00146     cout << \textcolor{stringliteral}{"{}Number of students: "{}} << students-\/>size() << endl;}
-\DoxyCodeLine{00147 \}}
+\DoxyCodeLine{00099                                                                                                               \{}
+\DoxyCodeLine{00100     ifstream studentsFile(classesStudents);}
+\DoxyCodeLine{00101     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{00102     getline(studentsFile, line); \textcolor{comment}{// skip first line}}
+\DoxyCodeLine{00103     \textcolor{keywordflow}{while} (getline(studentsFile, line)) \{}
+\DoxyCodeLine{00104         stringstream ss(line);}
+\DoxyCodeLine{00105         \textcolor{keywordtype}{int} studentNumber;}
+\DoxyCodeLine{00106         \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{00107         \textcolor{keywordtype}{string} coursecode;}
+\DoxyCodeLine{00108         \textcolor{keywordtype}{string} classcode;}
+\DoxyCodeLine{00109         ss >> studentNumber;}
+\DoxyCodeLine{00110         ss.ignore();}
+\DoxyCodeLine{00111         getline(ss, name, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00112         getline(ss, coursecode, \textcolor{charliteral}{','});}
+\DoxyCodeLine{00113         ss >> classcode;}
+\DoxyCodeLine{00114         \textcolor{keyword}{auto} student = \textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber);}
+\DoxyCodeLine{00115         \textcolor{keyword}{auto} student\_it = students-\/>find(student);}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{if} (student\_it == students-\/>end())\{}
+\DoxyCodeLine{00117             students-\/>insert(student);}
+\DoxyCodeLine{00118             student\_it = students-\/>find(student);}
+\DoxyCodeLine{00119         \}}
+\DoxyCodeLine{00120         (*student\_it)-\/>setName(name);}
+\DoxyCodeLine{00121         (*student\_it)-\/>addClassCourse(classcode, coursecode, courses, classes);}
+\DoxyCodeLine{00122 }
+\DoxyCodeLine{00123         \textcolor{keyword}{auto} course = \textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(coursecode);}
+\DoxyCodeLine{00124         \textcolor{keyword}{auto} course\_it = courses-\/>find(course);}
+\DoxyCodeLine{00125         \textcolor{keywordflow}{if} (course\_it == courses-\/>end())\{}
+\DoxyCodeLine{00126             courses-\/>insert(course);}
+\DoxyCodeLine{00127             course\_it = courses-\/>find(course);}
+\DoxyCodeLine{00128         \}}
+\DoxyCodeLine{00129         (*course\_it)-\/>addStudent(studentNumber);}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131         \textcolor{keyword}{auto} class\_ = \textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classcode);}
+\DoxyCodeLine{00132         \textcolor{keyword}{auto} class\_it = classes-\/>find(class\_);}
+\DoxyCodeLine{00133         \textcolor{keywordflow}{if} (class\_it == classes-\/>end())\{}
+\DoxyCodeLine{00134             classes-\/>insert(class\_);}
+\DoxyCodeLine{00135             class\_it = classes-\/>find(class\_);}
+\DoxyCodeLine{00136         \}}
+\DoxyCodeLine{00137         (*class\_it)-\/>addStudent(studentNumber);}
+\DoxyCodeLine{00138 }
+\DoxyCodeLine{00139         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \mbox{\hyperlink{structclassCourse}{classCourse}} : *classCourses) \{}
+\DoxyCodeLine{00140             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structclassCourse}{classCourse}}-\/>class\_ == classcode \&\& \mbox{\hyperlink{structclassCourse}{classCourse}}-\/>course == coursecode) \{}
+\DoxyCodeLine{00141                 \mbox{\hyperlink{structclassCourse}{classCourse}}-\/>students++;}
+\DoxyCodeLine{00142                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00143             \}}
+\DoxyCodeLine{00144         \}}
+\DoxyCodeLine{00145     \}}
+\DoxyCodeLine{00146     cout << \textcolor{stringliteral}{"{}Read Students Successfully!"{}} << endl;}
+\DoxyCodeLine{00147     cout << \textcolor{stringliteral}{"{}Number of students: "{}} << students-\/>size() << endl;}
+\DoxyCodeLine{00148 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Functions_8h_a274a6371b96fc169b515313a4a1aee85}\label{Functions_8h_a274a6371b96fc169b515313a4a1aee85}} 
+\index{Functions.h@{Functions.h}!removeStudent@{removeStudent}}
+\index{removeStudent@{removeStudent}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{removeStudent()}{removeStudent()}}
+{\footnotesize\ttfamily void remove\+Student (\begin{DoxyParamCaption}\item[{class\+Set $\ast$}]{classes,  }\item[{student\+Set $\ast$}]{students,  }\item[{course\+Set $\ast$}]{courses,  }\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
+
+
+
+Adiciona um pedido de desinscrição de um estudante numa turma/unidade curricular. 
+
+Complexidade temporal\+: O(log(\+N) + log(\+T) + log(\+U)) onde N é o número de estudantes, T é o número de turmas e U é o número de unidades curriculares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em classes} & Set de todas as turmas \\
+\hline
+{\em students} & Set de todos os estudantes \\
+\hline
+{\em courses} & Set de todas as unidades curriculares \\
+\hline
+{\em requests} & Fila de pedidos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00539}{539}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00539                                                                                                            \{}
+\DoxyCodeLine{00540     \textcolor{keywordtype}{int} studentNumber;}
+\DoxyCodeLine{00541     cout << \textcolor{stringliteral}{"{}Número de estudante: "{}};}
+\DoxyCodeLine{00542     cin >> studentNumber;}
+\DoxyCodeLine{00543     \textcolor{keyword}{auto} s = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{00544     \textcolor{keywordflow}{if} (s == students-\/>end()) \{}
+\DoxyCodeLine{00545         cout << \textcolor{stringliteral}{"{}Student not found!"{}} << endl;}
+\DoxyCodeLine{00546         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00547     \}}
+\DoxyCodeLine{00548     \textcolor{keywordtype}{string} courseCode;}
+\DoxyCodeLine{00549     cout << \textcolor{stringliteral}{"{}Unidade Curricular: "{}};}
+\DoxyCodeLine{00550     cin >> courseCode;}
+\DoxyCodeLine{00551     \textcolor{keyword}{auto} course = courses-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classCourse}{Course}}(courseCode));}
+\DoxyCodeLine{00552     \textcolor{keywordflow}{if} ((*course)-\/>getCode() != courseCode) \{}
+\DoxyCodeLine{00553         cout << \textcolor{stringliteral}{"{}UC não encontrada!"{}} << endl;}
+\DoxyCodeLine{00554         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00555     \}}
+\DoxyCodeLine{00556     \textcolor{keywordtype}{string} classCode;}
+\DoxyCodeLine{00557     cout << \textcolor{stringliteral}{"{}Turma da qual pretende sair: "{}};}
+\DoxyCodeLine{00558     cin >> classCode;}
+\DoxyCodeLine{00559     \textcolor{keyword}{auto} class\_ = classes-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classClass}{Class}}(classCode));}
+\DoxyCodeLine{00560     \textcolor{keywordflow}{if} (class\_ == classes-\/>end()) \{}
+\DoxyCodeLine{00561         cout << \textcolor{stringliteral}{"{}Turma não encontrada!"{}} << endl;}
+\DoxyCodeLine{00562         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00563     \}}
+\DoxyCodeLine{00564 }
+\DoxyCodeLine{00565     (*class\_)-\/>removeStudent(studentNumber);}
+\DoxyCodeLine{00566     (*course)-\/>removeStudent(studentNumber);}
+\DoxyCodeLine{00567     \textcolor{keyword}{auto} r = \textcolor{keyword}{new} \mbox{\hyperlink{classRequest}{Request}}(studentNumber, courseCode, classCode, \textcolor{stringliteral}{"{}remove"{}});}
+\DoxyCodeLine{00568     requests-\/>push(r);}
+\DoxyCodeLine{00569 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{Functions_8h_a9d9331954ad8c59dc531aa7900b5e3d4}\label{Functions_8h_a9d9331954ad8c59dc531aa7900b5e3d4}} 
+\index{Functions.h@{Functions.h}!savePendingRequests@{savePendingRequests}}
+\index{savePendingRequests@{savePendingRequests}!Functions.h@{Functions.h}}
+\doxysubsubsection{\texorpdfstring{savePendingRequests()}{savePendingRequests()}}
+{\footnotesize\ttfamily void save\+Pending\+Requests (\begin{DoxyParamCaption}\item[{queue$<$ \mbox{\hyperlink{classRequest}{Request}} $\ast$ $>$ $\ast$}]{requests }\end{DoxyParamCaption})}
+
+
+
+Escreve todos os pedidos pendentes para o ficheiro pending\+\_\+requests.\+txt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em requests} & Fila de pedidos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00708}{708}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00708                                                     \{}
+\DoxyCodeLine{00709     ofstream file(\textcolor{stringliteral}{"{}../aux\_files/pending\_requests.txt"{}});}
+\DoxyCodeLine{00710     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{00711         cout << \textcolor{stringliteral}{"{}Error opening file!"{}} << endl;}
+\DoxyCodeLine{00712         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00713     \}}
+\DoxyCodeLine{00714     file.clear();}
+\DoxyCodeLine{00715     \textcolor{keywordflow}{while} (!requests-\/>empty()) \{}
+\DoxyCodeLine{00716         \mbox{\hyperlink{classRequest}{Request}}* r = requests-\/>front();}
+\DoxyCodeLine{00717         requests-\/>pop();}
+\DoxyCodeLine{00718         file << r-\/>\mbox{\hyperlink{classRequest_af1bedc3b8890be69c8be59f7d7335077}{getStudentNumber}}() << \textcolor{stringliteral}{"{} "{}} << r-\/>\mbox{\hyperlink{classRequest_ad1de5da28308ca34d3012345b9ce2fbd}{getCourseCode}}() << \textcolor{stringliteral}{"{} "{}} << r-\/>\mbox{\hyperlink{classRequest_a3da661be0b471d1e728dc12cbf3d194d}{getClassCode}}() << \textcolor{stringliteral}{"{} "{}} << r-\/>\mbox{\hyperlink{classRequest_aaadda6ff6d4a2d4e200753495a0ec079}{getRequestType}}() << endl;}
+\DoxyCodeLine{00719     \}}
+\DoxyCodeLine{00720     cout << \textcolor{stringliteral}{"{}Pending requests saved successfully!"{}} << endl;}
+\DoxyCodeLine{00721     file.close();}
+\DoxyCodeLine{00722 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{Functions_8h_aa3b21853f890838c88d047d6c2786917}\label{Functions_8h_aa3b21853f890838c88d047d6c2786917}} 
@@ -1193,15 +1463,15 @@ Função que espera que o utilizador pressione enter para continuar.
 
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00567}{567}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00730}{730}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00567             \{}
-\DoxyCodeLine{00568     \textcolor{keywordtype}{int} c; \textcolor{keywordflow}{do} c = getchar(); \textcolor{keywordflow}{while} ((c != \textcolor{charliteral}{'\(\backslash\)n'}) \&\& (c != EOF));}
-\DoxyCodeLine{00569     cout << \textcolor{stringliteral}{"{}Press ENTER to continue..."{}};}
-\DoxyCodeLine{00570     \textcolor{keywordflow}{do}\{ c = getchar(); \}\textcolor{keywordflow}{while} ((c != \textcolor{charliteral}{'\(\backslash\)n'}) \&\& (c != EOF));}
-\DoxyCodeLine{00571 \}}
+\DoxyCodeLine{00730             \{}
+\DoxyCodeLine{00731     \textcolor{keywordtype}{int} c; \textcolor{keywordflow}{do} c = getchar(); \textcolor{keywordflow}{while} ((c != \textcolor{charliteral}{'\(\backslash\)n'}) \&\& (c != EOF));}
+\DoxyCodeLine{00732     cout << \textcolor{stringliteral}{"{}Press ENTER to continue..."{}};}
+\DoxyCodeLine{00733     \textcolor{keywordflow}{do}\{ c = getchar(); \}\textcolor{keywordflow}{while} ((c != \textcolor{charliteral}{'\(\backslash\)n'}) \&\& (c != EOF));}
+\DoxyCodeLine{00734 \}}
 
 \end{DoxyCode}
 
@@ -1215,7 +1485,7 @@ Definition at line \mbox{\hyperlink{Functions_8h_source_l00567}{567}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00016}{16}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00017}{17}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 \mbox{\Hypertarget{Functions_8h_adc9344102ebf6a21c197efb804662330}\label{Functions_8h_adc9344102ebf6a21c197efb804662330}} 
 \index{Functions.h@{Functions.h}!classesSlots@{classesSlots}}
@@ -1225,7 +1495,7 @@ Definition at line \mbox{\hyperlink{Functions_8h_source_l00016}{16}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00018}{18}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00019}{19}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 
 \mbox{\Hypertarget{Functions_8h_a22934e78fff13cd503a307c3b9c0dbba}\label{Functions_8h_a22934e78fff13cd503a307c3b9c0dbba}} 
 \index{Functions.h@{Functions.h}!classesStudents@{classesStudents}}
@@ -1235,5 +1505,5 @@ Definition at line \mbox{\hyperlink{Functions_8h_source_l00018}{18}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{Functions_8h_source_l00017}{17}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
+Definition at line \mbox{\hyperlink{Functions_8h_source_l00018}{18}} of file \mbox{\hyperlink{Functions_8h_source}{Functions.\+h}}.
 

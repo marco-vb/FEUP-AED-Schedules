@@ -4,137 +4,145 @@
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001 }
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Functions_8h}{headers/Functions.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}\mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00016}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017     studentSet students;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018     classSet classes;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019     courseSet courses;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020     classCoursesSet classCourses;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021     slotSet slots;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023     \textcolor{comment}{// Read data from files}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024     \mbox{\hyperlink{Functions_8h_aa95054ac50038a08a63f3b4d8b58c615}{readAll}}(\&students, \&classes, \&courses, \&classCourses, \&slots);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025     cout << fixed << setprecision(1); \textcolor{comment}{// print lesson times correctly}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026     \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031         cout << \textcolor{stringliteral}{"{}| 1. Listagens totais                    |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032         cout << \textcolor{stringliteral}{"{}| 2. Listagens parciais                  |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033         cout << \textcolor{stringliteral}{"{}| 3. Horários                            |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034         cout << \textcolor{stringliteral}{"{}| 4. Realizar pedido                     |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035         cout << \textcolor{stringliteral}{"{}| 0. Sair                                |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038         cin >> choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{main_8cpp_ad495568fb4223027d472b06edc39d9a2}{menu\_full\_lists}}(\&students, \&classes, \&courses, \&slots); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{main_8cpp_a1008e973c6bd40dc21c62c56e9367a66}{menu\_partial\_lists}}(\&students, \&classes, \&courses, \&classCourses, \&slots); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{main_8cpp_a2293dbe020994f44254378777eabf7da}{menu\_schedules}}(\&students, \&classes, \&courses, \&classCourses, \&slots); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044                 \textcolor{keywordflow}{case} 4: menu\_requests(\&students, \&classes, \&courses, \&classCourses, \&slots); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046             \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047         \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050 \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}\mbox{\hyperlink{Functions_8h_ad495568fb4223027d472b06edc39d9a2}{00062}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_ad495568fb4223027d472b06edc39d9a2}{menu\_full\_lists}}(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067         cout << \textcolor{stringliteral}{"{}| 1. Listar todos os estudantes          |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068         cout << \textcolor{stringliteral}{"{}| 2. Listar todas as turmas              |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069         cout << \textcolor{stringliteral}{"{}| 3. Listar todas as UCs                 |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070         cout << \textcolor{stringliteral}{"{}| 4. Listar todas as aulas               |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074         cin >> choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_ab4ab1284290645465713ac5cbf1c4182}{listAllStudents}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_abe0eee5000eae9f05ab2915b5b59a346}{listAllClasses}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a812fcc104c53015ab9930b5f53ddd534}{listAllCourses}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}{listAllSlots}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082             \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083         \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085 \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}\mbox{\hyperlink{Functions_8h_adbfd148c32469de9ed1a21648f428964}{00096}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a1008e973c6bd40dc21c62c56e9367a66}{menu\_partial\_lists}}(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101         cout << \textcolor{stringliteral}{"{}| 1. Ocupação de turmas/UC               |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102         cout << \textcolor{stringliteral}{"{}| 2. Estudantes numa turma/UC            |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103         cout << \textcolor{stringliteral}{"{}| 3. Estudantes inscritos numa UC        |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104         cout << \textcolor{stringliteral}{"{}| 4. Turmas/UC de um estudante           |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108         cin >> choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_aaf24ae1b8f29e77d41bc52c97e554922}{listClassCourseOccupation}}(classCourses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a5f8aeeaab4c2cbecff8336d082cb17be}{listStudentsInClassCourse}}(students, classes, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a88168c2be358fffd000abc44843edf33}{listStudentsInCourse}}(students, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_afd5434ee66a6b0d8316236f853edbdbc}{listClassesOfStudent}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116             \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117         \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119 \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}\mbox{\hyperlink{Functions_8h_a1326e4510905e066116daf1d6ed33a3d}{00132}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a2293dbe020994f44254378777eabf7da}{menu\_schedules}}(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137         cout << \textcolor{stringliteral}{"{}| 1. Horário de uma turma                |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138         cout << \textcolor{stringliteral}{"{}| 2. Horário de uma UC                   |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139         cout << \textcolor{stringliteral}{"{}| 3. Horário de um estudante             |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143         cin >> choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}{listSlotsOfClass}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}{listSlotsOfCourse}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a3accdc0d1e357b0aefef5590ef51250b}{printAnyStudentSchedule}}(students, slots); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150             \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151         \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153 \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155 }
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156 \textcolor{keywordtype}{void} menu\_requests(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157     \textcolor{keywordtype}{int} choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158     \textcolor{keywordflow}{do} \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}00159         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161         cout << \textcolor{stringliteral}{"{}| 1. Alterar horário de uma turma        |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162         cout << \textcolor{stringliteral}{"{}| 2. Alterar horário de uma UC           |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163         cout << \textcolor{stringliteral}{"{}| 3. Alterar horário de um estudante     |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00165}00165         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00166}00166         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}00167         cin >> choice;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168         \textcolor{keywordflow}{if} (choice != 0) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169             \textcolor{keywordflow}{switch} (choice) \{}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170                 \textcolor{comment}{/*case 1: changeClassSchedule(classes, slots); wait(); break;}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171 \textcolor{comment}{                case 2: changeCourseSchedule(courses, slots); wait(); break;}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172 \textcolor{comment}{                case 3: changeStudentSchedule(students, classes, classCourses, slots); wait(); break;}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173 \textcolor{comment}{                */}\textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174             \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175         \}}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176     \} \textcolor{keywordflow}{while} (choice != 0);}
-\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}00177 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}\mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00017}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018     studentSet students;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019     classSet classes;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020     courseSet courses;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021     classCoursesSet classCourses;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022     slotSet slots;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023     queue<Request*> requests;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025     \textcolor{comment}{// Read data from files}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026     \mbox{\hyperlink{Functions_8h_afdce80de3ce4b77b91ea2e5215444c33}{readPendingRequests}}(\&requests);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027     \mbox{\hyperlink{Functions_8h_aa95054ac50038a08a63f3b4d8b58c615}{readAll}}(\&students, \&classes, \&courses, \&classCourses, \&slots);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029     cout << fixed << setprecision(1); \textcolor{comment}{// print lesson times correctly}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030     \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035         cout << \textcolor{stringliteral}{"{}| 1. Listagens totais                    |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036         cout << \textcolor{stringliteral}{"{}| 2. Listagens parciais                  |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037         cout << \textcolor{stringliteral}{"{}| 3. Horários                            |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038         cout << \textcolor{stringliteral}{"{}| 4. Realizar pedido                     |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039         cout << \textcolor{stringliteral}{"{}| 5. Processar pedidos                   |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040         cout << \textcolor{stringliteral}{"{}| 0. Sair                                |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043         cin >> choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{main_8cpp_ad495568fb4223027d472b06edc39d9a2}{menu\_full\_lists}}(\&students, \&classes, \&courses, \&slots); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{main_8cpp_a1008e973c6bd40dc21c62c56e9367a66}{menu\_partial\_lists}}(\&students, \&classes, \&courses, \&classCourses, \&slots); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{main_8cpp_a2293dbe020994f44254378777eabf7da}{menu\_schedules}}(\&students, \&classes, \&courses, \&classCourses, \&slots); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{main_8cpp_ad25c4d9d0d6fac5e6a89c9bd20b42baa}{menu\_requests}}(\&students, \&classes, \&courses, \&classCourses, \&slots, \&requests); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050                 \textcolor{keywordflow}{case} 5: \mbox{\hyperlink{Functions_8h_a934aaee634fed9f7ba239611eec24430}{processAllRequests}}(\&students, \&classes, \&courses, \&classCourses, \&requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056     \mbox{\hyperlink{Functions_8h_a9d9331954ad8c59dc531aa7900b5e3d4}{savePendingRequests}}(\&requests);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057     \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}\mbox{\hyperlink{Functions_8h_ad495568fb4223027d472b06edc39d9a2}{00071}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_ad495568fb4223027d472b06edc39d9a2}{menu\_full\_lists}}(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076         cout << \textcolor{stringliteral}{"{}| 1. Listar todos os estudantes          |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077         cout << \textcolor{stringliteral}{"{}| 2. Listar todas as turmas              |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078         cout << \textcolor{stringliteral}{"{}| 3. Listar todas as UCs                 |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079         cout << \textcolor{stringliteral}{"{}| 4. Listar todas as aulas               |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083         cin >> choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_ab4ab1284290645465713ac5cbf1c4182}{listAllStudents}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_abe0eee5000eae9f05ab2915b5b59a346}{listAllClasses}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a812fcc104c53015ab9930b5f53ddd534}{listAllCourses}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_a90668a0b13a6af4bea0e59d182df303a}{listAllSlots}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}\mbox{\hyperlink{Functions_8h_adbfd148c32469de9ed1a21648f428964}{00105}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a1008e973c6bd40dc21c62c56e9367a66}{menu\_partial\_lists}}(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110         cout << \textcolor{stringliteral}{"{}| 1. Ocupação de turmas/UC               |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111         cout << \textcolor{stringliteral}{"{}| 2. Estudantes numa turma/UC            |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112         cout << \textcolor{stringliteral}{"{}| 3. Estudantes inscritos numa UC        |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113         cout << \textcolor{stringliteral}{"{}| 4. Turmas/UC de um estudante           |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117         cin >> choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_aaf24ae1b8f29e77d41bc52c97e554922}{listClassCourseOccupation}}(classCourses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a5f8aeeaab4c2cbecff8336d082cb17be}{listStudentsInClassCourse}}(students, classes, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_a88168c2be358fffd000abc44843edf33}{listStudentsInCourse}}(students, courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123                 \textcolor{keywordflow}{case} 4: \mbox{\hyperlink{Functions_8h_afd5434ee66a6b0d8316236f853edbdbc}{listClassesOfStudent}}(students); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}\mbox{\hyperlink{Functions_8h_a1326e4510905e066116daf1d6ed33a3d}{00141}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_a2293dbe020994f44254378777eabf7da}{menu\_schedules}}(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146         cout << \textcolor{stringliteral}{"{}| 1. Horário de uma turma                |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147         cout << \textcolor{stringliteral}{"{}| 2. Horário de uma UC                   |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148         cout << \textcolor{stringliteral}{"{}| 3. Horário de um estudante             |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152         cin >> choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_a5b282e27d136f633bc2d8e847721a79c}{listSlotsOfClass}}(classes); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_a6cb8fc7cddcfc934ddd6f2c3bd80205f}{listSlotsOfCourse}}(courses); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_aaae82744418c85fbc26ea1135b5811c6}{listSlotsOfStudent}}(students, slots); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}00159             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162 \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}\mbox{\hyperlink{Functions_8h_a28b69ada35c2dfdc515c523f2bba3386}{00177}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8cpp_ad25c4d9d0d6fac5e6a89c9bd20b42baa}{menu\_requests}}(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots, queue<Request*>* requests) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00178}00178     \textcolor{keywordtype}{int} choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00179}00179     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00180}00180         \mbox{\hyperlink{Functions_8h_ac8bb3912a3ce86b15842e79d0b421204}{clear}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}00181         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182         cout << \textcolor{stringliteral}{"{}| 1. Remover estudante de turma/UC       |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183         cout << \textcolor{stringliteral}{"{}| 2. Adicionar estudante a turma/UC      |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184         cout << \textcolor{stringliteral}{"{}| 3. Trocar um estudante de turma        |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00185}00185         cout << \textcolor{stringliteral}{"{}| 0. Voltar                              |"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00186}00186         cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00187}00187         cout << \textcolor{stringliteral}{"{}Escolha: "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00188}00188         cin >> choice;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00189}00189         \textcolor{keywordflow}{if} (choice != 0) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00190}00190             \textcolor{keywordflow}{switch} (choice) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00191}00191                 \textcolor{keywordflow}{case} 1: \mbox{\hyperlink{Functions_8h_a274a6371b96fc169b515313a4a1aee85}{removeStudent}}(classes, students, courses, requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00192}00192                 \textcolor{keywordflow}{case} 2: \mbox{\hyperlink{Functions_8h_adee3263ae132104c36c753d392d88eab}{addStudent}}(classes, students, courses, requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00193}00193                 \textcolor{keywordflow}{case} 3: \mbox{\hyperlink{Functions_8h_acafd08426dbe96a059387a538673310c}{changeStudent}}(classes, students, courses, requests); \mbox{\hyperlink{Functions_8h_aa3b21853f890838c88d047d6c2786917}{wait}}(); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00194}00194                 \textcolor{keywordflow}{default}: cout << \textcolor{stringliteral}{"{}Invalid choice!"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00195}00195             \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00196}00196         \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00197}00197     \} \textcolor{keywordflow}{while} (choice != 0);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00198}00198 \}}
 
 \end{DoxyCode}

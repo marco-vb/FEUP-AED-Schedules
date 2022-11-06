@@ -21,7 +21,6 @@ string const& classesSlots = "../files/classes.csv";
 //functions
 void menu_full_lists(studentSet* students, classSet* classes, courseSet* courses, slotSet* slots);
 void menu_partial_lists(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
-void printStudentSchedule(Student* student, slotSet* slots);
 void menu_schedules(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*);
 void menu_requests(studentSet*, classSet*, courseSet*, classCoursesSet*, slotSet*, queue<Request*>*);
 void getLessonOrder(slotSet* slots);
@@ -467,6 +466,20 @@ void listSlotsOfCourse(courseSet* courses) {
     }
 }
 
+/**
+ * @brief Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal
+ *
+ * A função primeiro pede ao utilizador o numero do estudante com a stream cin.\n
+ * Depois procura o estudante no set de estudantes utilizando o metodo find().\n
+ * A função itera sobre o o set de pares ClassesPerCourse do estudante e procura as respetivas aulas no set slots utilizando o metodo equal_range(), uma vez que os estudante terá varias aulas do mesmo par turma e unidade curricular.\n
+ * A seguir adiciona as aulas encontradas ao vetor schedule.\n
+ * Por fim ordena o vetor schedule e imprime todas as aulas.\n
+ * Complexidade Temporal: O(log(S) + C*log(N) + A*log(A)) onde S é o numero total de estudantes, C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana.\n
+ * Complexidade Temporal é igual a complexidade de students->find() + printStudentSchedule().\n
+ *
+ * @param students Set de todos os estudantes
+ * @param slots Set de todas as aulas
+ */
 void listSlotsOfStudent(studentSet* students, slotSet* slots) {
     int studentNumber;
     cout << "Número de estudante: ";
@@ -480,11 +493,10 @@ void listSlotsOfStudent(studentSet* students, slotSet* slots) {
     vector<Slot> schedule;
     cout << (*s) -> getName() << endl;
     cout << "---------------------------------" << endl;
-    for (const auto& c : studentclasses) {
-        for (const auto& slot : *slots) {
-            if (slot->getClassCode() == c.first && slot->getCourseCode() == c.second) {
-                schedule.push_back(*slot);
-            }
+    for (const auto& p: studentclasses) {
+        auto range = slots->equal_range(new Slot("", 0, 0, "", p.second, p.first));
+        for(auto it = range.first; it != range.second; it++){
+            schedule.push_back(**it);
         }
     }
 
@@ -513,6 +525,16 @@ void listStudentsInMoreThanNCourses(studentSet* students){
     }
 }
 
+/**
+ * @brief Adiciona um pedido de desinscrição de um estudante numa turma/unidade curricular
+ *
+ * Complexidade temporal: O(log(N) + log(T) + log(U)) onde N é o número de estudantes, T é o número de turmas e U é o número de unidades curriculares.
+ *
+ * @param classes Set de todas as turmas
+ * @param students Set de todos os estudantes
+ * @param courses Set de todas as unidades curriculares
+ * @param requests Fila de pedidos
+ */
 void removeStudent(classSet* classes, studentSet* students, courseSet* courses, queue<Request*>* requests) {
     int studentNumber;
     cout << "Número de estudante: ";
@@ -545,6 +567,16 @@ void removeStudent(classSet* classes, studentSet* students, courseSet* courses, 
     requests->push(r);
 }
 
+/**
+ * @brief Adiciona um pedido de inscrição de um estudante numa turma/unidade curricular
+ *
+ * Complexidade temporal: O(log(N) + log(T) + log(U)) onde N é o número de estudantes, T é o número de turmas e U é o número de unidades curriculares.
+ *
+ * @param classes Set de todas as turmas
+ * @param students Set de todos os estudantes
+ * @param courses Set de todas as unidades curriculares
+ * @param requests Fila de pedidos
+ */
 void addStudent(classSet* classes, studentSet* students, courseSet* courses, queue<Request*>* requests) {
     int studentNumber;
     cout << "Número de estudante: ";
@@ -577,6 +609,17 @@ void addStudent(classSet* classes, studentSet* students, courseSet* courses, que
     auto r = new Request(studentNumber, courseCode, classCode, "add");
     requests->push(r);
 }
+
+/**
+ * @brief Adiciona um pedido de mudança de uma turma/unidade curricular de um estudante.
+ *
+ * Complexidade temporal: O(log(N) + log(T) + log(U)) onde N é o número de estudantes, T é o número de turmas e U é o número de unidades curriculares.
+ *
+ * @param classes Set de todas as turmas
+ * @param students Set de todos os estudantes
+ * @param courses Set de todas as unidades curriculares
+ * @param requests Fila de pedidos
+ */
 void changeStudent(classSet* classes, studentSet* students, courseSet* courses, queue<Request*>* requests) {
     int studentNumber;
     cout << "Número de estudante: ";
@@ -607,6 +650,15 @@ void changeStudent(classSet* classes, studentSet* students, courseSet* courses, 
     requests->push(r);
 }
 
+/**
+ * @brief Processa, se possivel, todos os pedidos de inscrição, desinscrição e mudança de turma.
+ *
+ * @param students Set de todos os estudantes
+ * @param classes Set de todas as turmas
+ * @param courses Set de todas as unidades curriculares
+ * @param classCourses Set de todas pares de turmas e unidades curriculares
+ * @param requests Fila de pedidos
+ */
 void processAllRequests(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, queue<Request*>* requests) {
     queue<Request*> aux;
     while (!requests->empty()) {
@@ -626,6 +678,10 @@ void processAllRequests(studentSet* students, classSet* classes, courseSet* cour
     }
 }
 
+/**
+ * @brief Lê os pedidos pendentes do ficheiro pending_requests.txt.
+ * @param requests Fila de pedidos
+ */
 void readPendingRequests(queue<Request*>* requests) {
     ifstream file("../aux_files/pending_requests.txt");
     if (!file.is_open()) {
@@ -644,6 +700,10 @@ void readPendingRequests(queue<Request*>* requests) {
     file.close();
 }
 
+/**
+ * @brief Escreve todos os pedidos pendentes para o ficheiro pending_requests.txt.
+ * @param requests Fila de pedidos
+ */
 void savePendingRequests(queue<Request*>* requests) {
     ofstream file("../aux_files/pending_requests.txt");
     if (!file.is_open()) {
@@ -658,81 +718,6 @@ void savePendingRequests(queue<Request*>* requests) {
     }
     cout << "Pending requests saved successfully!" << endl;
     file.close();
-}
-
-/**
- * @brief Imprime o horário do estudante cujo numero foi intruduzido pelo utilizador no terminal
- *
- * A função primeiro pede ao utilizador o numero do estudante com a stream cin.\n
- * Depois procura o estudante no set de estudantes utilizando o metodo find().\n
- * A seguir itera sobre o horario do estudante e imprime todas as aulas.\n
- * Complexidade Temporal: O(log(S) + A*log(D) + C*log(N)) onde S é o numero total de estudantes, C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
- * Complexidade Temporal é igual a complexidade de students->find() + printStudentSchedule().\n
- *
- * @param students Set de todos os estudantes
- * @param slots Set de todas as aulas
- */
-void printAnyStudentSchedule(studentSet* students, slotSet* slots) {
-    int studentNumber;
-    cout << "Número de estudante: ";
-    cin >> studentNumber;
-    auto student_it = students->find(new Student(studentNumber));
-    /*if(student_it != students -> end()) printStudentSchedule(*student_it, slots, cout);
-    else cout << "Student not found!" << endl;*/
-}
-
-/**
- * @brief Retorna o horário do estudante
- *
- * A função itera sobre o o set de pares ClassesPerCourse do estudante e procura a aula no set de aulas(slots) utilizando o metodo equal_range(), uma vez que os estudante terá varias aulas do mesmo par turma unidade curricular.\n
- * A seguir adiciona as aulas encontradas ao schedule.\n
- * Retorna o schedule.\n
- *
- * Complexidade Temporal: O(A*log(D) + C*log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
- * <small><pre>
- * Explicaçao:
- *   Complexidade de cada passo: 1º for loop: C, onde C é numero de unidades curriculares em que o estudante está instrito
- *                               equal_range: log(N), onde N é o tamanho do set slots
- *                               2º for loop: M, onde M é o numero de aulas dessa cadeira por semana
- *                               addSlot: log(D), onde D é o número máximo de aulas de um dia
- *   Complexidade: C*(log(N) + M*log(D)) = C*log(N) + A*log(D), onde A é o número de aulas do estudante por semana, logo A = C*M
- * </pre></small>
- *
- * @param student
- * @param slots
- * @return O horário do estudante
- */
-Schedule getStudentSchedule(Student* student, slotSet* slots){
-    Schedule schedule;
-    for (const auto& p: student->getClassesPerCourse()) {
-        auto range = slots->equal_range(new Slot("", 0, 0, "", p.second, p.first));
-        for(auto it = range.first; it != range.second; it++){
-            schedule.addSlot(**it);
-        }
-    }
-    return schedule;
-}
-
-/**
- * @brief Imprime o horário do estudante passado cujo pointer é passado como argumento
- *
- * A função imprime o dia da semana, seguido de todas as aulas desse dia.\n
- * Complexidade Temporal: O(A*log(D) + C*log(N)) onde C é numero de unidades curriculares em que o estudante está instrito, N é o tamanho do set slots, A é o número de aulas do estudante por semana e D é o número maximo de aulas por dia.\n
- * Complexidade Temporal igual a getStudentSchedulde() uma vez que a complexidade de imprimir o horario é menor que o obter.
- *
- * @param student Pointer para o estudante
- * @param slots Set de todas as aulas
- */
-void printStudentSchedule(Student* student, slotSet* slots){
-    Schedule schedule = getStudentSchedule(student, slots);
-    for(int i = 0; i < 6; i++){
-        if(!schedule[i].empty())
-            cout << numToWeekDay(i) << ": " << endl;
-        for(const Slot& class_: schedule[i])
-            cout << "    Class: " << class_.getClassCode() << " - Course: " << class_.getCourseCode() << " - "
-                << class_.getType() << " - " << class_.getStartHour() << "-" << class_.getEndHour() << endl;
-        cout << endl;
-    }
 }
 
 /// Função que limpa o ecrã

@@ -2,64 +2,69 @@
 \label{Request_8cpp_source}\index{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/definitions/Request.cpp@{/mnt/e/trabalhos(2)/FEUP/2o\_ano\_1o\_semestre/AED/marcoSolo/AED-\/Schedule/definitions/Request.cpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00001}00001 \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00002}00002 \textcolor{comment}{\#include "{}../headers/Request.h"{}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00003}00003 \textcolor{comment}{using namespace std;}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00004}00004 \textcolor{comment}{Request::Request(int studentNumber, int requestNumber, string courseCode, string classCode, string requestType, string requestStatus, string requestDate, string requestTime) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00005}00005 \textcolor{comment}{    this-\/>studentNumber = studentNumber;}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00006}00006 \textcolor{comment}{    this-\/>requestNumber = requestNumber;}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00007}00007 \textcolor{comment}{    this-\/>courseCode = std::move(courseCode);}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00008}00008 \textcolor{comment}{    this-\/>classCode = std::move(classCode);}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00009}00009 \textcolor{comment}{    this-\/>requestType = std::move(requestType);}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00010}00010 \textcolor{comment}{    this-\/>requestStatus = std::move(requestStatus);}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00011}00011 \textcolor{comment}{    this-\/>requestDate = std::move(requestDate);}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00012}00012 \textcolor{comment}{    this-\/>requestTime = std::move(requestTime);}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00013}00013 \textcolor{comment}{\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00014}00014 \textcolor{comment}{int Request::getStudentNumber() const \{return studentNumber;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00015}00015 \textcolor{comment}{int Request::getRequestNumber() const \{return requestNumber;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00016}00016 \textcolor{comment}{string Request::getCourseCode() const \{return courseCode;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00017}00017 \textcolor{comment}{string Request::getClassCode() const \{return classCode;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00018}00018 \textcolor{comment}{string Request::getRequestType() const \{return requestType;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00019}00019 \textcolor{comment}{string Request::getRequestStatus() const \{return requestStatus;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00020}00020 \textcolor{comment}{string Request::getRequestDate() const \{return requestDate;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00021}00021 \textcolor{comment}{string Request::getRequestTime() const \{return requestTime;\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00022}00022 \textcolor{comment}{void Request::setRequestStatus(string requestStatus) \{this-\/>requestStatus = std::move(requestStatus);\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00023}00023 \textcolor{comment}{void Request::handleRequest(studentSet* students, courseSet* courses, classSet* classes, classCoursesSet* classCourses) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00024}00024 \textcolor{comment}{    if (requestType == "{}remove"{}) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00025}00025 \textcolor{comment}{        auto student = students-\/>find(new Student(studentNumber));}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00026}00026 \textcolor{comment}{        if ((*student)-\/>removeClassCourse(classCode, courseCode, courses, classes))}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00027}00027 \textcolor{comment}{            setRequestStatus("{}accepted"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00028}00028 \textcolor{comment}{        else}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00029}00029 \textcolor{comment}{            setRequestStatus("{}rejected"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00030}00030 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00031}00031 \textcolor{comment}{    if (requestType == "{}add"{}) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00032}00032 \textcolor{comment}{        auto student = students-\/>find(new Student(studentNumber));}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00033}00033 \textcolor{comment}{        if((*student)-\/>addClassCourse(classCode, courseCode, courses, classes))}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00034}00034 \textcolor{comment}{            setRequestStatus("{}accepted"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00035}00035 \textcolor{comment}{        else}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00036}00036 \textcolor{comment}{            setRequestStatus("{}rejected"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00037}00037 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00038}00038 \textcolor{comment}{    if (requestType == "{}change"{}) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00039}00039 \textcolor{comment}{        auto student = students-\/>find(new Student(studentNumber));}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00040}00040 \textcolor{comment}{        for (const auto\& p : (*student)-\/>getClassesPerCourse()) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00041}00041 \textcolor{comment}{            if (p.second == courseCode) \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00042}00042 \textcolor{comment}{                if((*student)-\/>removeClassCourse(p.first, p.second, courses, classes))}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00043}00043 \textcolor{comment}{                    if ((*student)-\/>addClassCourse(classCode, courseCode, courses, classes))}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00044}00044 \textcolor{comment}{                        setRequestStatus("{}accepted"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00045}00045 \textcolor{comment}{                    else}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00046}00046 \textcolor{comment}{                        setRequestStatus("{}rejected"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00047}00047 \textcolor{comment}{                else}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00048}00048 \textcolor{comment}{                    */}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00049}00049 \textcolor{comment}{/* Setting the request status to rejected. */}\textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00050}00050 \textcolor{comment}{                    setRequestStatus("{}rejected"{});}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00051}00051 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00052}00052 \textcolor{comment}{        \}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00053}00053 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00054}00054 \textcolor{comment}{\}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00055}00055 \textcolor{comment}{void Request::archiveRequest(ostream\& out) const \{}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00056}00056 \textcolor{comment}{    out << studentNumber << "{},"{} << requestNumber << "{},"{} << courseCode << "{},"{}}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00057}00057 \textcolor{comment}{    << classCode << "{},"{} << requestType << "{},"{} << requestStatus << "{},"{} <<}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00058}00058 \textcolor{comment}{    requestDate << "{},"{} << requestTime << endl;}}
-\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00059}00059 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}../headers/Request.h"{}}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00002}00002 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00003}\mbox{\hyperlink{classRequest_a1a158fd6f9f8f0a1e4893e2d3ae1246c}{00003}} \mbox{\hyperlink{classRequest_a1a158fd6f9f8f0a1e4893e2d3ae1246c}{Request::Request}}(\textcolor{keywordtype}{int} studentNumber, \textcolor{keywordtype}{string} courseCode, \textcolor{keywordtype}{string} classCode, \textcolor{keywordtype}{string} requestType) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00004}00004     this-\/>studentNumber = studentNumber;}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00005}00005     this-\/>courseCode = std::move(courseCode);}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00006}00006     this-\/>classCode = std::move(classCode);}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00007}00007     this-\/>requestType = std::move(requestType);}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00008}00008     this-\/>requestStatus = string();}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00009}00009 \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00010}\mbox{\hyperlink{classRequest_af1bedc3b8890be69c8be59f7d7335077}{00010}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classRequest_af1bedc3b8890be69c8be59f7d7335077}{Request::getStudentNumber}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} studentNumber;\}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00011}\mbox{\hyperlink{classRequest_ad1de5da28308ca34d3012345b9ce2fbd}{00011}} \textcolor{keywordtype}{string} \mbox{\hyperlink{classRequest_ad1de5da28308ca34d3012345b9ce2fbd}{Request::getCourseCode}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} courseCode;\}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00012}\mbox{\hyperlink{classRequest_a3da661be0b471d1e728dc12cbf3d194d}{00012}} \textcolor{keywordtype}{string} \mbox{\hyperlink{classRequest_a3da661be0b471d1e728dc12cbf3d194d}{Request::getClassCode}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} classCode;\}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00013}\mbox{\hyperlink{classRequest_aaadda6ff6d4a2d4e200753495a0ec079}{00013}} \textcolor{keywordtype}{string} \mbox{\hyperlink{classRequest_aaadda6ff6d4a2d4e200753495a0ec079}{Request::getRequestType}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} requestType;\}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00014}\mbox{\hyperlink{classRequest_abaa6649a92d9100a62f6de0e611aafe0}{00014}} \textcolor{keywordtype}{string} \mbox{\hyperlink{classRequest_abaa6649a92d9100a62f6de0e611aafe0}{Request::getRequestStatus}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} requestStatus;\}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00015}\mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{00015}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{Request::setRequestStatus}}(\textcolor{keywordtype}{string} requestStatus) \{this-\/>requestStatus = std::move(requestStatus);\}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00016}\mbox{\hyperlink{classRequest_a696feb6702c7365332e19cb83214b6d5}{00016}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classRequest_a696feb6702c7365332e19cb83214b6d5}{Request::handleRequest}}(studentSet* students, courseSet* courses, classSet* classes, classCoursesSet* classCourses) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00017}00017     \textcolor{keywordflow}{if} (requestType == \textcolor{stringliteral}{"{}remove"{}}) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00018}00018         \textcolor{keyword}{auto} student = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00019}00019         \textcolor{keywordflow}{if} ((*student)-\/>removeClassCourse(classCode, courseCode, courses, classes)) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00020}00020             \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}accepted"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00021}00021             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00022}00022         \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00023}00023         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00024}00024             \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00025}00025             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00026}00026         \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00027}00027     \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00028}00028     \textcolor{keywordflow}{if} (requestType == \textcolor{stringliteral}{"{}add"{}}) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00029}00029         \textcolor{keyword}{auto} student = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00030}00030         \textcolor{keywordflow}{if}((*student)-\/>addClassCourse(classCode, courseCode, courses, classes)) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00031}00031             \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}accepted"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00032}00032             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00033}00033         \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00034}00034         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00035}00035             \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00036}00036             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00037}00037         \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00039}00039     \textcolor{keywordflow}{if} (requestType == \textcolor{stringliteral}{"{}change"{}}) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00040}00040         \textcolor{keyword}{auto} student = students-\/>find(\textcolor{keyword}{new} \mbox{\hyperlink{classStudent}{Student}}(studentNumber));}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00041}00041         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : (*student)-\/>getClassesPerCourse()) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00042}00042             \textcolor{keywordflow}{if} (p.second == courseCode) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00043}00043                 \textcolor{keywordflow}{if}((*student)-\/>removeClassCourse(p.first, p.second, courses, classes))}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00044}00044                     \textcolor{keywordflow}{if} ((*student)-\/>addClassCourse(classCode, courseCode, courses, classes)) \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00045}00045                         \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}accepted"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00046}00046                         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00047}00047                     \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00048}00048                     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00049}00049                         \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00050}00050                         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00051}00051                     \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00052}00052                 \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00053}00053                     \mbox{\hyperlink{classRequest_a95889a56c38d5794dd5222ef792a7547}{setRequestStatus}}(\textcolor{stringliteral}{"{}rejected"{}});}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00054}00054                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00055}00055                 \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00056}00056             \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00057}00057         \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00059}00059     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00060}00060 \}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00061}\mbox{\hyperlink{classRequest_a6a09b77fdeebe2fdaa09b2f19458a490}{00061}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRequest_a6a09b77fdeebe2fdaa09b2f19458a490}{Request::archiveRequest}}(ostream\& out)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00062}00062     out << studentNumber << \textcolor{stringliteral}{"{},"{}}  << courseCode << \textcolor{stringliteral}{"{},"{}}}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00063}00063     << classCode << \textcolor{stringliteral}{"{},"{}} << requestType << \textcolor{stringliteral}{"{},"{}} << requestStatus << \textcolor{stringliteral}{"{},"{}} << endl;}
+\DoxyCodeLine{\Hypertarget{Request_8cpp_source_l00064}00064 \}}
 
 \end{DoxyCode}

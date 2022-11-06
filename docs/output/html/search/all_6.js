@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['independentfunctions_2eh_0',['IndependentFunctions.h',['../IndependentFunctions_8h.html',1,'']]]
+  ['handlerequest_0',['handleRequest',['../classRequest.html#a696feb6702c7365332e19cb83214b6d5',1,'Request']]]
 ];

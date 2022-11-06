@@ -10,7 +10,8 @@
  * 
  * Começa a execução do programa.\n
  * Primeiro cria os sets com todos os alunos(students), todas as turmas(classes), todas as unidades curriculares(courses), todos os pares turma e unidade curricular(classCourse) e todas as aulas (slots).\n
- * Depois lê os arquivos de entrada (readAll).\n
+ * Alem disso cria um vetor de pedidos por processar (requests).\n
+ * Depois lê os arquivos de entrada (readPendingRequests e readAll).\n
  * A seguir imprime as opções do menu e processa a opção escolhida.\n
  */
 int main() {
@@ -20,10 +21,11 @@ int main() {
     classCoursesSet classCourses;
     slotSet slots;
     queue<Request*> requests;
-    readPendingRequests(&requests);
 
     // Read data from files
+    readPendingRequests(&requests);
     readAll(&students, &classes, &courses, &classCourses, &slots);
+
     cout << fixed << setprecision(1); // print lesson times correctly
     wait();
     int choice;
@@ -128,7 +130,7 @@ void menu_partial_lists(studentSet* students, classSet* classes, courseSet* cour
 /**
  * @brief Função que imprime o menu de da escolha da ordem das aulas
  *
- * Imprime o menu com as ordens possiveis em que se pode imprimir todas as aulas e processa a opção escolhida.\n
+ * Imprime o menu com as opções de horários e processa a opção escolhida.\n
  *
  * @param students Set com todos os alunos
  * @param classes Set com todas as turmas
@@ -160,6 +162,18 @@ void menu_schedules(studentSet* students, classSet* classes, courseSet* courses,
 }
 
 
+/**
+ * @brief Função que imprime o menu de pedidos
+ *
+ * Imprime o menu de pedidos e processa a opção escolhida.\n
+ *
+ * @param students Set com todos os alunos
+ * @param classes Set com todas as turmas
+ * @param courses Set com todas as unidades curriculares
+ * @param classCourses Set com todos os pares turma e unidade curricular
+ * @param slots Set com todas as aulas
+ * @param requests Fila de pedidos
+ */
 void menu_requests(studentSet* students, classSet* classes, courseSet* courses, classCoursesSet* classCourses, slotSet* slots, queue<Request*>* requests) {
     int choice;
     do {
